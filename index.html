@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nathaflex | Your Money, Your Flexibility</title>
+<title>Nathaflex | Save • Loans • Manage</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -15,437 +15,616 @@
   padding: 0;
 }
 
+:root {
+  --navy: #101827;
+  --dark: #0b1220;
+  --text: #172033;
+  --muted: #667085;
+  --line: #e5e7eb;
+  --bg: #f5f6f8;
+  --white: #ffffff;
+  --accent: #1683a8;
+  --gold: #c8a45d;
+  --gold-light: #eee2c4;
+  --platinum: #c9cdd3;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: #eef2f7;
-  color: #0f172a;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
 
 nav {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(8,13,24,.97);
+  z-index: 50;
+  background: rgba(16,24,39,.97);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #1e293b;
-  padding: 17px 20px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 25px;
-  font-weight: 900;
   color: white;
+  font-size: 24px;
+  font-weight: 900;
   letter-spacing: -1px;
 }
 
 .logo span {
-  color: #38bdf8;
+  color: #d2b46d;
 }
 
 .login {
   color: white;
+  border: 1px solid #475467;
+  border-radius: 8px;
+  padding: 8px 14px;
   text-decoration: none;
-  border: 1px solid #475569;
-  padding: 8px 15px;
-  border-radius: 9px;
   font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
 }
 
-.hero {
-  padding: 75px 22px 85px;
-  text-align: center;
-  color: white;
 
-  background:
-    radial-gradient(circle at top right, #164e63 0%, transparent 35%),
-    radial-gradient(circle at bottom left, #172554 0%, transparent 40%),
-    #080d18;
+/* HERO */
+
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 65px 20px 70px;
+  text-align: center;
 }
 
 .badge {
   display: inline-block;
-  padding: 7px 13px;
+  border: 1px solid #344054;
+  background: #182234;
+  color: #d0d5dd;
   border-radius: 30px;
-  border: 1px solid #334155;
-  background: #111827;
-  color: #7dd3fc;
-  font-size: 13px;
-  margin-bottom: 22px;
+  padding: 6px 12px;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 43px;
+  font-size: 42px;
   line-height: 1.08;
   letter-spacing: -1.5px;
-  margin-bottom: 18px;
 }
 
 .hero h1 span {
-  color: #38bdf8;
+  color: #d2b46d;
 }
 
 .hero p {
-  color: #cbd5e1;
-  max-width: 560px;
-  margin: auto;
-  font-size: 17px;
+  max-width: 540px;
+  margin: 18px auto 0;
+  color: #b8c1ce;
+  font-size: 16px;
 }
 
-.buttons {
-  margin-top: 30px;
+.hero-buttons {
+  margin-top: 28px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .primary,
 .secondary {
-  padding: 14px 22px;
-  border-radius: 10px;
+  display: inline-block;
+  padding: 12px 19px;
+  border-radius: 9px;
   text-decoration: none;
   font-weight: 800;
   cursor: pointer;
-  display: inline-block;
 }
 
 .primary {
-  background: #38bdf8;
-  color: #06111d;
-  border: none;
+  background: #d2b46d;
+  color: #151515;
+  border: 0;
 }
 
 .secondary {
-  border: 1px solid #64748b;
+  background: transparent;
   color: white;
-  background: #111827;
+  border: 1px solid #667085;
 }
 
-.section {
+
+/* MAIN */
+
+.container {
   max-width: 1000px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 45px 18px;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 30px;
+.section-title {
+  margin-bottom: 20px;
 }
 
-.title h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+.section-title h2 {
+  font-size: 24px;
 }
 
-.title p {
-  color: #64748b;
+.section-title p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 4px;
 }
 
-.cards {
+
+/* SERVICE CARDS */
+
+.services {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
-.card {
+.service {
   background: white;
-  border: 1px solid #dbe2ea;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 8px 25px rgba(15,23,42,.07);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 15px;
+  cursor: pointer;
+  transition: .2s;
 }
 
-.icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: #e0f2fe;
+.service:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16,24,40,.07);
+}
+
+.service-icon {
   font-size: 22px;
-  margin-bottom: 18px;
-}
-
-.card h3 {
   margin-bottom: 8px;
 }
 
-.card p {
-  color: #64748b;
+.service h3 {
   font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.service p {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 
-/* =========================
-   CUSTOMER DASHBOARD
-========================= */
+/* LOANS */
+
+.loan-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: none;
+}
+
+.loan-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+
+.loan-top h3 {
+  font-size: 19px;
+}
+
+.loan-limit {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.loan-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.loan-option {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  background: #fafafa;
+}
+
+.loan-option.selected {
+  border-color: #1683a8;
+  background: #f0f9fc;
+}
+
+.loan-option strong {
+  display: block;
+  font-size: 14px;
+}
+
+.loan-option span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.loan-calculator {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.loan-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+.calculation {
+  margin-top: 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 13px;
+}
+
+.calculation div {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+.total {
+  font-weight: 900;
+  font-size: 15px !important;
+  padding-top: 8px;
+  border-top: 1px solid #dfe3e8;
+}
+
+
+/* CARDS */
+
+.cards-section {
+  margin-top: 40px;
+}
+
+.card-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.bank-card {
+  min-height: 205px;
+  border-radius: 18px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(16,24,40,.13);
+}
+
+.gold-card {
+  background:
+    linear-gradient(135deg,#a9853f,#d8bd7b 48%,#ad8b49);
+  color: #211b0e;
+}
+
+.platinum-card {
+  background:
+    linear-gradient(135deg,#080a0e,#171a20 55%,#090b0f);
+  color: white;
+  border: 1px solid #4a4f57;
+}
+
+.card-brand {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.card-chip {
+  width: 34px;
+  height: 25px;
+  border-radius: 5px;
+  background: #d9d9d9;
+  margin-top: 28px;
+  opacity: .85;
+}
+
+.card-number {
+  margin-top: 20px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.card-bottom {
+  position: absolute;
+  bottom: 17px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.card-name {
+  font-size: 11px;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.card-type {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.card-info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info strong {
+  font-size: 14px;
+}
+
+.card-info span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.apply-card {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* DASHBOARD */
 
 .dashboard {
   display: none;
   max-width: 1000px;
-  margin: 35px auto;
-  padding: 20px;
+  margin: 25px auto;
+  padding: 18px;
 }
 
 .dashboard-header {
-  background: #0f172a;
+  background: var(--navy);
   color: white;
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 18px;
+  border-radius: 17px;
+  padding: 22px;
 }
 
 .dashboard-header h2 {
-  margin-bottom: 4px;
+  font-size: 21px;
 }
 
 .dashboard-header p {
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.logout {
-  margin-top: 15px;
-  padding: 9px 14px;
-  border: 0;
-  border-radius: 8px;
-  background: #fee2e2;
-  color: #991b1b;
-  font-weight: 700;
-  cursor: pointer;
+  color: #aab4c2;
+  font-size: 13px;
 }
 
 .wallets {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 12px;
+  margin-top: 14px;
 }
 
 .wallet {
-  border-radius: 20px;
-  padding: 25px;
   color: white;
-  box-shadow: 0 12px 30px rgba(15,23,42,.15);
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .aed-wallet {
-  background: linear-gradient(135deg,#0c4a6e,#172554);
+  background: #19394a;
 }
 
 .ugx-wallet {
-  background: linear-gradient(135deg,#14532d,#064e3b);
+  background: #214436;
 }
 
 .wallet-label {
   color: #cbd5e1;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.wallet-balance {
-  font-size: 31px;
+.balance {
+  font-size: 27px;
   font-weight: 900;
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 .wallet-note {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #cbd5e1;
+  color: #aab4c2;
+  font-size: 11px;
+  margin-top: 4px;
 }
 
-.actions {
-  margin-top: 18px;
+.dashboard-actions {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  gap: 12px;
+  gap: 10px;
+  margin-top: 14px;
 }
 
-.action {
+.dash-action {
   background: white;
-  border: 1px solid #dbe2ea;
-  border-radius: 14px;
-  padding: 18px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 8px;
   text-align: center;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(15,23,42,.05);
 }
 
-.action-icon {
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-.dashboard-section {
-  margin-top: 20px;
+.activity {
   background: white;
-  border: 1px solid #dbe2ea;
-  border-radius: 18px;
-  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 18px;
+  margin-top: 14px;
 }
 
-.dashboard-section h3 {
-  margin-bottom: 7px;
+.activity h3 {
+  font-size: 16px;
 }
 
-.dashboard-section p {
-  color: #64748b;
-  font-size: 14px;
+.activity p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 5px;
 }
 
-
-/* =========================
-   CTA
-========================= */
-
-.cta {
-  margin: 25px 20px 50px;
-  padding: 45px 20px;
-  text-align: center;
-  border-radius: 20px;
-  color: white;
-  background: linear-gradient(135deg,#0c4a6e,#172554);
-}
-
-.cta h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.cta p {
-  color: #bfdbfe;
-  margin-bottom: 25px;
+.logout {
+  margin-top: 13px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #fee4e2;
+  color: #b42318;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 
-/* =========================
-   AUTH
-========================= */
+/* MODAL */
 
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(2,6,23,.75);
+  background: rgba(0,0,0,.65);
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 18px;
 }
 
 .modal-box {
   width: 100%;
-  max-width: 420px;
+  max-width: 410px;
   background: white;
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: 17px;
+  padding: 25px;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,.3);
 }
 
 .close {
   position: absolute;
-  right: 18px;
-  top: 14px;
+  right: 15px;
+  top: 10px;
   border: 0;
   background: none;
   font-size: 27px;
+  color: #667085;
   cursor: pointer;
-  color: #64748b;
 }
 
 .modal-box h2 {
-  margin-bottom: 5px;
+  font-size: 21px;
 }
 
 .modal-subtitle {
-  color: #64748b;
-  font-size: 14px;
-  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 3px 0 20px;
 }
 
 .tabs {
   display: flex;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
 }
 
 .tab {
   flex: 1;
-  padding: 10px;
   border: 0;
   background: none;
+  padding: 9px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .tab.active {
-  color: #0284c7;
-  border-bottom: 2px solid #0284c7;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
 .input {
   width: 100%;
-  padding: 13px;
-  border: 1px solid #cbd5e1;
-  border-radius: 9px;
-  margin-bottom: 12px;
-  font-size: 15px;
-  outline: none;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 .auth-button {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   border: 0;
-  border-radius: 9px;
-  background: #0284c7;
+  border-radius: 8px;
+  background: var(--navy);
   color: white;
   font-weight: 800;
   cursor: pointer;
 }
 
 .message {
-  margin-top: 12px;
-  font-size: 14px;
   text-align: center;
-  color: #475569;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
-  background: #050914;
-  border-top: 1px solid #1e293b;
-  padding: 30px 20px;
+  background: #0b1220;
+  color: #667085;
   text-align: center;
-  color: #64748b;
-  font-size: 14px;
+  padding: 28px 20px;
+  font-size: 13px;
 }
 
 footer strong {
   color: white;
-  font-size: 18px;
+  font-size: 17px;
 }
 
+
+/* MOBILE */
 
 @media(max-width:700px) {
 
   .hero h1 {
-    font-size: 37px;
+    font-size: 36px;
   }
 
-  .cards {
+  .services {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-products {
     grid-template-columns: 1fr;
   }
 
@@ -453,12 +632,8 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
-  .actions {
+  .dashboard-actions {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .section {
-    padding: 45px 18px;
   }
 }
 </style>
@@ -468,7 +643,7 @@ footer strong {
 <body>
 
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 
 <nav>
 
@@ -483,7 +658,7 @@ footer strong {
 </nav>
 
 
-<!-- PUBLIC HOMEPAGE -->
+<!-- PUBLIC HERO -->
 
 <section class="hero">
 
@@ -497,18 +672,18 @@ footer strong {
   </h1>
 
   <p>
-    Save when you want. Borrow when you need.
-    Manage your money from one simple Nathaflex account.
+    Save, manage your money and access Nathaflex
+    financial services from one simple account.
   </p>
 
-  <div class="buttons">
+  <div class="hero-buttons">
 
     <a href="#" class="primary" id="startButton">
       Get Started
     </a>
 
     <a href="#services" class="secondary">
-      Explore Nathaflex
+      Explore
     </a>
 
   </div>
@@ -518,59 +693,288 @@ footer strong {
 
 <!-- SERVICES -->
 
-<section class="section" id="services">
+<section class="container" id="services">
 
-  <div class="title">
+  <div class="section-title">
 
-    <h2>Built around your money</h2>
+    <h2>Nathaflex services</h2>
 
-    <p>
-      Everything you need, without making things complicated.
-    </p>
+    <p>Simple tools for managing your money.</p>
 
   </div>
 
 
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="icon">💳</div>
-
-      <h3>Borrow</h3>
-
-      <p>
-        Apply for a loan, track your repayments
-        and always know exactly what you still owe.
-      </p>
-
-    </div>
+  <div class="services">
 
 
-    <div class="card">
+    <div class="service" id="saveService">
 
-      <div class="icon">💰</div>
+      <div class="service-icon">💰</div>
 
       <h3>Save</h3>
 
       <p>
         Keep your money with Nathaflex.
-        Deposit whenever you want and monitor your balance.
       </p>
 
     </div>
 
 
-    <div class="card">
+    <div class="service" id="loanService">
 
-      <div class="icon">📊</div>
+      <div class="service-icon">🏦</div>
 
-      <h3>Track</h3>
+      <h3>Loans</h3>
 
       <p>
-        View your deposits, withdrawals, loans
-        and other activity in one place.
+        Up to AED 3,000.
       </p>
+
+    </div>
+
+
+    <div class="service" id="cardService">
+
+      <div class="service-icon">💳</div>
+
+      <h3>Cards</h3>
+
+      <p>
+        Apply for a Nathaflex card.
+      </p>
+
+    </div>
+
+
+    <div class="service" id="transactionService">
+
+      <div class="service-icon">📊</div>
+
+      <h3>Transactions</h3>
+
+      <p>
+        Track your activity.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- LOAN PANEL -->
+
+  <div class="loan-box" id="loanBox">
+
+    <div class="loan-top">
+
+      <div>
+
+        <h3>Nathaflex Loans</h3>
+
+        <div class="loan-limit">
+          Maximum loan: AED 3,000
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="loan-options">
+
+      <div class="loan-option selected" data-months="1">
+
+        <strong>1 Month</strong>
+
+        <span>Repay within 1 month</span>
+
+      </div>
+
+
+      <div class="loan-option" data-months="2">
+
+        <strong>2 Months</strong>
+
+        <span>Repay within 2 months</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="loan-calculator">
+
+      <input
+        class="loan-input"
+        id="loanAmount"
+        type="number"
+        min="1"
+        max="3000"
+        placeholder="Enter loan amount (AED)"
+      >
+
+
+      <div class="calculation">
+
+        <div>
+          <span>Loan amount</span>
+          <strong id="calcAmount">AED 0.00</strong>
+        </div>
+
+        <div>
+          <span>Interest</span>
+          <strong id="calcInterest">AED 0.00</strong>
+        </div>
+
+        <div class="total">
+          <span>Total repayment</span>
+          <strong id="calcTotal">AED 0.00</strong>
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary"
+        id="applyLoanButton"
+        style="margin-top:12px;width:100%;"
+      >
+        Apply for Loan
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CARD PRODUCTS -->
+
+  <div class="cards-section">
+
+    <div class="section-title">
+
+      <h2>Nathaflex Cards</h2>
+
+      <p>
+        Apply for a Nathaflex card from your account.
+      </p>
+
+    </div>
+
+
+    <div class="card-products">
+
+
+      <!-- GOLD CARD -->
+
+      <div>
+
+        <div class="bank-card gold-card">
+
+          <div class="card-brand">
+            Nathaflex
+          </div>
+
+          <div class="card-chip"></div>
+
+          <div class="card-number">
+            •••• •••• •••• ••••
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="card-name">
+              NATHAFLEX CARD
+            </div>
+
+            <div class="card-type">
+              NATHAFLEX
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="card-info">
+
+          <div>
+
+            <strong>Nathaflex Card</strong>
+
+            <span>
+              AED 25 • 3 working days
+            </span>
+
+          </div>
+
+          <button
+            class="apply-card"
+            data-card="Nathaflex Card"
+            data-fee="25"
+          >
+            Apply
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLATINUM CARD -->
+
+      <div>
+
+        <div class="bank-card platinum-card">
+
+          <div class="card-brand">
+            Nathaflex
+          </div>
+
+          <div class="card-chip"></div>
+
+          <div class="card-number">
+            •••• •••• •••• ••••
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="card-name">
+              NATHAFLEX
+            </div>
+
+            <div class="card-type">
+              PLATINUM
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="card-info">
+
+          <div>
+
+            <strong>Nathaflex Platinum</strong>
+
+            <span>
+              AED 30 • 3 working days
+            </span>
+
+          </div>
+
+          <button
+            class="apply-card"
+            data-card="Nathaflex Platinum"
+            data-fee="30"
+          >
+            Apply
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -579,8 +983,7 @@ footer strong {
 </section>
 
 
-<!-- CUSTOMER DASHBOARD
-     HIDDEN UNTIL LOGIN -->
+<!-- PRIVATE CUSTOMER DASHBOARD -->
 
 <section class="dashboard" id="dashboard">
 
@@ -601,9 +1004,8 @@ footer strong {
   </div>
 
 
-  <!-- WALLETS -->
-
   <div class="wallets">
+
 
     <div class="wallet aed-wallet">
 
@@ -611,7 +1013,7 @@ footer strong {
         🇦🇪 UAE Dirham
       </div>
 
-      <div class="wallet-balance" id="aedBalance">
+      <div class="balance" id="aedBalance">
         AED 0.00
       </div>
 
@@ -628,7 +1030,7 @@ footer strong {
         🇺🇬 Ugandan Shilling
       </div>
 
-      <div class="wallet-balance" id="ugxBalance">
+      <div class="balance" id="ugxBalance">
         UGX 0
       </div>
 
@@ -641,106 +1043,48 @@ footer strong {
   </div>
 
 
-  <!-- ACCOUNT ACTIONS -->
+  <div class="dashboard-actions">
 
-  <div class="actions">
-
-    <div class="action" id="depositButton">
-
-      <div class="action-icon">
-        💰
-      </div>
-
-      Deposit
-
+    <div class="dash-action" id="depositButton">
+      💰<br>Deposit
     </div>
 
-
-    <div class="action" id="withdrawButton">
-
-      <div class="action-icon">
-        💸
-      </div>
-
-      Withdraw
-
+    <div class="dash-action" id="withdrawButton">
+      💸<br>Withdraw
     </div>
 
-
-    <div class="action" id="loanButton">
-
-      <div class="action-icon">
-        🏦
-      </div>
-
-      Loans
-
+    <div class="dash-action" id="dashboardLoanButton">
+      🏦<br>Loans
     </div>
 
-
-    <div class="action" id="transactionButton">
-
-      <div class="action-icon">
-        📊
-      </div>
-
-      Transactions
-
+    <div class="dash-action" id="dashboardTransactions">
+      📊<br>Transactions
     </div>
 
   </div>
 
 
-  <!-- ACTIVITY -->
+  <div class="activity">
 
-  <div class="dashboard-section">
-
-    <h3>
-      Recent activity
-    </h3>
+    <h3>Recent activity</h3>
 
     <p>
-      Your deposits, withdrawals, loan activity
-      and repayments will appear here.
+      Your deposits, withdrawals, loans and repayments
+      will appear here.
     </p>
 
   </div>
 
 
-  <!-- ACCOUNT -->
+  <div class="activity">
 
-  <div class="dashboard-section">
-
-    <h3>
-      Account security
-    </h3>
+    <h3>Your Nathaflex Card</h3>
 
     <p>
-      Your financial information is only available
-      after you sign into your Nathaflex account.
+      Card applications and status will appear here.
     </p>
 
   </div>
-
-</section>
-
-
-<!-- PUBLIC CTA -->
-
-<section class="cta">
-
-  <h2>
-    Start with Nathaflex
-  </h2>
-
-  <p>
-    Create your account and take control
-    of your savings and borrowing.
-  </p>
-
-  <a href="#" class="primary" id="createButton">
-    Create Account
-  </a>
 
 </section>
 
@@ -751,18 +1095,14 @@ footer strong {
 
   <strong>Nathaflex</strong>
 
-  <p>
-    Save • Borrow • Grow
-  </p>
+  <p>Save • Loans • Manage</p>
 
-  <p>
-    © 2026 Nathaflex. All rights reserved.
-  </p>
+  <p>© 2026 Nathaflex. All rights reserved.</p>
 
 </footer>
 
 
-<!-- LOGIN / SIGNUP MODAL -->
+<!-- AUTH MODAL -->
 
 <div class="modal" id="authModal">
 
@@ -799,7 +1139,6 @@ footer strong {
       id="email"
       type="email"
       placeholder="Email address"
-      autocomplete="email"
     >
 
 
@@ -808,13 +1147,13 @@ footer strong {
       id="password"
       type="password"
       placeholder="Password"
-      autocomplete="current-password"
     >
 
 
     <button class="auth-button" id="authSubmit">
       Login
     </button>
+
 
     <div class="message" id="authMessage"></div>
 
@@ -891,18 +1230,28 @@ const customerEmail =
 const logoutButton =
   document.getElementById("logoutButton");
 
-const aedBalance =
-  document.getElementById("aedBalance");
+const loanBox =
+  document.getElementById("loanBox");
 
-const ugxBalance =
-  document.getElementById("ugxBalance");
+const loanAmount =
+  document.getElementById("loanAmount");
+
+const calcAmount =
+  document.getElementById("calcAmount");
+
+const calcInterest =
+  document.getElementById("calcInterest");
+
+const calcTotal =
+  document.getElementById("calcTotal");
 
 
 let mode = "login";
+let loanMonths = 1;
 
 
 /* =========================================
-   OPEN LOGIN
+   AUTH MODALS
 ========================================= */
 
 function openLogin() {
@@ -912,7 +1261,6 @@ function openLogin() {
   mode = "login";
 
   loginTab.classList.add("active");
-
   signupTab.classList.remove("active");
 
   authTitle.textContent =
@@ -926,10 +1274,6 @@ function openLogin() {
 }
 
 
-/* =========================================
-   OPEN SIGNUP
-========================================= */
-
 function openSignup() {
 
   modal.style.display = "flex";
@@ -937,7 +1281,6 @@ function openSignup() {
   mode = "signup";
 
   signupTab.classList.add("active");
-
   loginTab.classList.remove("active");
 
   authTitle.textContent =
@@ -951,18 +1294,11 @@ function openSignup() {
 }
 
 
-/* =========================================
-   BUTTONS
-========================================= */
-
 loginButton.addEventListener(
   "click",
   function(e) {
-
     e.preventDefault();
-
     openLogin();
-
   }
 );
 
@@ -970,11 +1306,8 @@ loginButton.addEventListener(
 startButton.addEventListener(
   "click",
   function(e) {
-
     e.preventDefault();
-
     openSignup();
-
   }
 );
 
@@ -982,11 +1315,8 @@ startButton.addEventListener(
 createButton.addEventListener(
   "click",
   function(e) {
-
     e.preventDefault();
-
     openSignup();
-
   }
 );
 
@@ -994,9 +1324,7 @@ createButton.addEventListener(
 closeModal.addEventListener(
   "click",
   function() {
-
     modal.style.display = "none";
-
   }
 );
 
@@ -1018,9 +1346,7 @@ modal.addEventListener(
   function(e) {
 
     if (e.target === modal) {
-
       modal.style.display = "none";
-
     }
 
   }
@@ -1028,7 +1354,7 @@ modal.addEventListener(
 
 
 /* =========================================
-   LOGIN / SIGNUP
+   AUTHENTICATION
 ========================================= */
 
 authSubmit.addEventListener(
@@ -1040,7 +1366,6 @@ authSubmit.addEventListener(
 
     const password =
       passwordInput.value;
-
 
     authMessage.textContent = "";
 
@@ -1080,11 +1405,8 @@ authSubmit.addEventListener(
           error
         } =
         await db.auth.signUp({
-
-          email: email,
-
-          password: password
-
+          email,
+          password
         });
 
 
@@ -1096,22 +1418,17 @@ authSubmit.addEventListener(
         } else {
 
           authMessage.textContent =
-            "Account created successfully!";
+            "Account created successfully.";
 
           if (data.user) {
-
             showDashboard(data.user);
-
           }
 
           setTimeout(
-            function() {
-
-              modal.style.display =
-                "none";
-
+            () => {
+              modal.style.display = "none";
             },
-            1000
+            800
           );
 
         }
@@ -1123,11 +1440,8 @@ authSubmit.addEventListener(
           error
         } =
         await db.auth.signInWithPassword({
-
-          email: email,
-
-          password: password
-
+          email,
+          password
         });
 
 
@@ -1138,8 +1452,7 @@ authSubmit.addEventListener(
 
         } else {
 
-          modal.style.display =
-            "none";
+          modal.style.display = "none";
 
           showDashboard(data.user);
 
@@ -1167,25 +1480,21 @@ authSubmit.addEventListener(
 
 
 /* =========================================
-   SHOW DASHBOARD
+   DASHBOARD
 ========================================= */
 
 function showDashboard(user) {
 
   if (!user) return;
 
-
   customerEmail.textContent =
     user.email;
-
 
   dashboard.style.display =
     "block";
 
-
   loginButton.textContent =
     "My Account";
-
 
   dashboard.scrollIntoView({
     behavior: "smooth"
@@ -1194,10 +1503,6 @@ function showDashboard(user) {
 }
 
 
-/* =========================================
-   CHECK LOGIN
-========================================= */
-
 async function checkUser() {
 
   const {
@@ -1205,19 +1510,12 @@ async function checkUser() {
   } =
   await db.auth.getUser();
 
-
   if (user) {
-
     showDashboard(user);
-
   }
 
 }
 
-
-/* =========================================
-   LOGOUT
-========================================= */
 
 logoutButton.addEventListener(
   "click",
@@ -1225,43 +1523,26 @@ logoutButton.addEventListener(
 
     await db.auth.signOut();
 
-
     dashboard.style.display =
       "none";
-
 
     loginButton.textContent =
       "Login";
 
-
     window.scrollTo({
-
       top: 0,
-
       behavior: "smooth"
-
     });
 
   }
 );
 
 
-/* =========================================
-   AUTH STATE
-========================================= */
-
 db.auth.onAuthStateChange(
   function(event, session) {
 
-    if (
-      session &&
-      session.user
-    ) {
-
-      showDashboard(
-        session.user
-      );
-
+    if (session && session.user) {
+      showDashboard(session.user);
     }
 
   }
@@ -1269,7 +1550,217 @@ db.auth.onAuthStateChange(
 
 
 /* =========================================
-   ACTION PLACEHOLDERS
+   LOANS
+========================================= */
+
+function openLoans() {
+
+  loanBox.style.display =
+    loanBox.style.display === "block"
+      ? "none"
+      : "block";
+
+  if (
+    loanBox.style.display === "block"
+  ) {
+
+    loanBox.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  }
+
+}
+
+
+document
+.getElementById("loanService")
+.addEventListener(
+  "click",
+  openLoans
+);
+
+
+document
+.getElementById("dashboardLoanButton")
+.addEventListener(
+  "click",
+  openLoans
+);
+
+
+document
+.querySelectorAll(".loan-option")
+.forEach(
+  option => {
+
+    option.addEventListener(
+      "click",
+      function() {
+
+        document
+        .querySelectorAll(".loan-option")
+        .forEach(
+          item =>
+            item.classList.remove("selected")
+        );
+
+        this.classList.add("selected");
+
+        loanMonths =
+          Number(
+            this.dataset.months
+          );
+
+        calculateLoan();
+
+      }
+    );
+
+  }
+);
+
+
+loanAmount.addEventListener(
+  "input",
+  calculateLoan
+);
+
+
+function calculateLoan() {
+
+  let amount =
+    Number(loanAmount.value) || 0;
+
+  if (amount > 3000) {
+    amount = 3000;
+    loanAmount.value = 3000;
+  }
+
+  const interest =
+    amount * 0.10;
+
+  const total =
+    amount + interest;
+
+
+  calcAmount.textContent =
+    "AED " + amount.toFixed(2);
+
+  calcInterest.textContent =
+    "AED " + interest.toFixed(2);
+
+  calcTotal.textContent =
+    "AED " + total.toFixed(2);
+
+}
+
+
+document
+.getElementById("applyLoanButton")
+.addEventListener(
+  "click",
+  function() {
+
+    openSignup();
+
+    authMessage.textContent =
+      "Create an account to apply for a Nathaflex loan.";
+
+  }
+);
+
+
+/* =========================================
+   CAR APPLICATIONS
+========================================= */
+
+document
+.querySelectorAll(".apply-card")
+.forEach(
+  button => {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        const card =
+          this.dataset.card;
+
+        const fee =
+          this.dataset.fee;
+
+        const message =
+          card +
+          " application — AED " +
+          fee +
+          ". Create or log into your Nathaflex account to continue.";
+
+        openSignup();
+
+        authMessage.textContent =
+          message;
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================
+   OTHER SERVICES
+========================================= */
+
+document
+.getElementById("saveService")
+.addEventListener(
+  "click",
+  function() {
+
+    openSignup();
+
+    authMessage.textContent =
+      "Create an account to start saving with Nathaflex.";
+
+  }
+);
+
+
+document
+.getElementById("transactionService")
+.addEventListener(
+  "click",
+  function() {
+
+    openLogin();
+
+    authMessage.textContent =
+      "Login to view your transactions.";
+
+  }
+);
+
+
+document
+.getElementById("cardService")
+.addEventListener(
+  "click",
+  function() {
+
+    document
+    .querySelector(".cards-section")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }
+);
+
+
+/* =========================================
+   DASHBOARD ACTIONS
 ========================================= */
 
 document
@@ -1279,7 +1770,7 @@ document
   function() {
 
     alert(
-      "Deposit system coming next."
+      "Deposit system will be connected to your payment details next."
     );
 
   }
@@ -1293,7 +1784,7 @@ document
   function() {
 
     alert(
-      "Withdrawal system coming next."
+      "Withdrawal system will be connected next."
     );
 
   }
@@ -1301,27 +1792,13 @@ document
 
 
 document
-.getElementById("loanButton")
+.getElementById("dashboardTransactions")
 .addEventListener(
   "click",
   function() {
 
     alert(
-      "Loan system coming next."
-    );
-
-  }
-);
-
-
-document
-.getElementById("transactionButton")
-.addEventListener(
-  "click",
-  function() {
-
-    alert(
-      "Transaction history coming next."
+      "Your transaction history will appear here."
     );
 
   }
