@@ -38,8 +38,8 @@ nav {
 .logo {
   font-size: 25px;
   font-weight: 900;
-  letter-spacing: -1px;
   color: white;
+  letter-spacing: -1px;
 }
 
 .logo span {
@@ -54,10 +54,11 @@ nav {
   border-radius: 9px;
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .hero {
-  padding: 70px 22px 75px;
+  padding: 75px 22px 85px;
   text-align: center;
   color: white;
 
@@ -117,6 +118,7 @@ nav {
 .primary {
   background: #38bdf8;
   color: #06111d;
+  border: none;
 }
 
 .secondary {
@@ -128,7 +130,7 @@ nav {
 .section {
   max-width: 1000px;
   margin: auto;
-  padding: 55px 20px;
+  padding: 60px 20px;
 }
 
 .title {
@@ -180,114 +182,128 @@ nav {
   font-size: 15px;
 }
 
-.wallet-section {
-  padding: 25px 20px 55px;
-  max-width: 700px;
-  margin: auto;
-}
 
-.wallet {
-  background: linear-gradient(135deg,#0f172a,#172554);
-  color: white;
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 15px;
-  box-shadow: 0 12px 30px rgba(15,23,42,.16);
-}
+/* =========================
+   CUSTOMER DASHBOARD
+========================= */
 
-.wallet-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.currency {
-  color: #cbd5e1;
-  font-size: 14px;
-}
-
-.balance {
-  font-size: 30px;
-  font-weight: 900;
-  margin-top: 7px;
-}
-
-.wallet-button {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 9px 15px;
-  border-radius: 8px;
-  background: #38bdf8;
-  color: #06111d;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 13px;
-}
-
-.account {
+.dashboard {
   display: none;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 35px auto;
   padding: 20px;
 }
 
-.account-box {
-  background: white;
+.dashboard-header {
+  background: #0f172a;
+  color: white;
   border-radius: 20px;
   padding: 25px;
-  border: 1px solid #dbe2ea;
-  box-shadow: 0 10px 30px rgba(15,23,42,.08);
+  margin-bottom: 18px;
 }
 
-.account-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
+.dashboard-header h2 {
+  margin-bottom: 4px;
 }
 
-.account-header h2 {
-  font-size: 24px;
-}
-
-.email {
-  color: #64748b;
+.dashboard-header p {
+  color: #94a3b8;
   font-size: 14px;
 }
 
 .logout {
+  margin-top: 15px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 8px;
   background: #fee2e2;
   color: #991b1b;
-  border: 0;
-  padding: 9px 13px;
-  border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.account-wallets {
+.wallets {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 18px;
 }
 
-.mini-wallet {
-  padding: 20px;
-  border-radius: 15px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+.wallet {
+  border-radius: 20px;
+  padding: 25px;
+  color: white;
+  box-shadow: 0 12px 30px rgba(15,23,42,.15);
 }
 
-.mini-wallet small {
+.aed-wallet {
+  background: linear-gradient(135deg,#0c4a6e,#172554);
+}
+
+.ugx-wallet {
+  background: linear-gradient(135deg,#14532d,#064e3b);
+}
+
+.wallet-label {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.wallet-balance {
+  font-size: 31px;
+  font-weight: 900;
+  margin-top: 6px;
+}
+
+.wallet-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.actions {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+}
+
+.action {
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 18px 10px;
+  text-align: center;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(15,23,42,.05);
+}
+
+.action-icon {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.dashboard-section {
+  margin-top: 20px;
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.dashboard-section h3 {
+  margin-bottom: 7px;
+}
+
+.dashboard-section p {
   color: #64748b;
+  font-size: 14px;
 }
 
-.mini-wallet strong {
-  display: block;
-  font-size: 24px;
-  margin-top: 5px;
-}
+
+/* =========================
+   CTA
+========================= */
 
 .cta {
   margin: 25px 20px 50px;
@@ -308,21 +324,10 @@ nav {
   margin-bottom: 25px;
 }
 
-footer {
-  background: #050914;
-  border-top: 1px solid #1e293b;
-  padding: 30px 20px;
-  text-align: center;
-  color: #64748b;
-  font-size: 14px;
-}
 
-footer strong {
-  color: white;
-  font-size: 18px;
-}
-
-/* AUTH MODAL */
+/* =========================
+   AUTH
+========================= */
 
 .modal {
   display: none;
@@ -396,10 +401,6 @@ footer strong {
   outline: none;
 }
 
-.input:focus {
-  border-color: #38bdf8;
-}
-
 .auth-button {
   width: 100%;
   padding: 13px;
@@ -411,16 +412,32 @@ footer strong {
   cursor: pointer;
 }
 
-.auth-button:disabled {
-  opacity: .6;
-}
-
 .message {
   margin-top: 12px;
   font-size: 14px;
   text-align: center;
   color: #475569;
 }
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #050914;
+  border-top: 1px solid #1e293b;
+  padding: 30px 20px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+footer strong {
+  color: white;
+  font-size: 18px;
+}
+
 
 @media(max-width:700px) {
 
@@ -432,12 +449,12 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
-  .account-wallets {
+  .wallets {
     grid-template-columns: 1fr;
   }
 
-  .account-header {
-    align-items: flex-start;
+  .actions {
+    grid-template-columns: 1fr 1fr;
   }
 
   .section {
@@ -447,7 +464,11 @@ footer strong {
 </style>
 </head>
 
+
 <body>
+
+
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -461,6 +482,8 @@ footer strong {
 
 </nav>
 
+
+<!-- PUBLIC HOMEPAGE -->
 
 <section class="hero">
 
@@ -492,6 +515,8 @@ footer strong {
 
 </section>
 
+
+<!-- SERVICES -->
 
 <section class="section" id="services">
 
@@ -554,129 +579,159 @@ footer strong {
 </section>
 
 
-<section class="wallet-section">
+<!-- CUSTOMER DASHBOARD
+     HIDDEN UNTIL LOGIN -->
 
-  <div class="title">
+<section class="dashboard" id="dashboard">
 
-    <h2>One account. Two currencies.</h2>
+  <div class="dashboard-header">
+
+    <h2>
+      Welcome to Nathaflex 👋
+    </h2>
+
+    <p id="customerEmail">
+      Your account
+    </p>
+
+    <button class="logout" id="logoutButton">
+      Logout
+    </button>
+
+  </div>
+
+
+  <!-- WALLETS -->
+
+  <div class="wallets">
+
+    <div class="wallet aed-wallet">
+
+      <div class="wallet-label">
+        🇦🇪 UAE Dirham
+      </div>
+
+      <div class="wallet-balance" id="aedBalance">
+        AED 0.00
+      </div>
+
+      <div class="wallet-note">
+        Available balance
+      </div>
+
+    </div>
+
+
+    <div class="wallet ugx-wallet">
+
+      <div class="wallet-label">
+        🇺🇬 Ugandan Shilling
+      </div>
+
+      <div class="wallet-balance" id="ugxBalance">
+        UGX 0
+      </div>
+
+      <div class="wallet-note">
+        Available balance
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ACCOUNT ACTIONS -->
+
+  <div class="actions">
+
+    <div class="action" id="depositButton">
+
+      <div class="action-icon">
+        💰
+      </div>
+
+      Deposit
+
+    </div>
+
+
+    <div class="action" id="withdrawButton">
+
+      <div class="action-icon">
+        💸
+      </div>
+
+      Withdraw
+
+    </div>
+
+
+    <div class="action" id="loanButton">
+
+      <div class="action-icon">
+        🏦
+      </div>
+
+      Loans
+
+    </div>
+
+
+    <div class="action" id="transactionButton">
+
+      <div class="action-icon">
+        📊
+      </div>
+
+      Transactions
+
+    </div>
+
+  </div>
+
+
+  <!-- ACTIVITY -->
+
+  <div class="dashboard-section">
+
+    <h3>
+      Recent activity
+    </h3>
 
     <p>
-      Keep your AED and UGX balances separate.
+      Your deposits, withdrawals, loan activity
+      and repayments will appear here.
     </p>
 
   </div>
 
 
-  <div class="wallet">
+  <!-- ACCOUNT -->
 
-    <div class="wallet-top">
+  <div class="dashboard-section">
 
-      <div>
+    <h3>
+      Account security
+    </h3>
 
-        <div class="currency">
-          🇦🇪 UAE Dirham
-        </div>
-
-        <div class="balance">
-          AED 0.00
-        </div>
-
-      </div>
-
-      <div>🇦🇪</div>
-
-    </div>
-
-    <a href="#" class="wallet-button">
-      AED Wallet
-    </a>
-
-  </div>
-
-
-  <div class="wallet">
-
-    <div class="wallet-top">
-
-      <div>
-
-        <div class="currency">
-          🇺🇬 Ugandan Shilling
-        </div>
-
-        <div class="balance">
-          UGX 0
-        </div>
-
-      </div>
-
-      <div>🇺🇬</div>
-
-    </div>
-
-    <a href="#" class="wallet-button">
-      UGX Wallet
-    </a>
+    <p>
+      Your financial information is only available
+      after you sign into your Nathaflex account.
+    </p>
 
   </div>
 
 </section>
 
 
-<section class="account" id="account">
+<!-- PUBLIC CTA -->
 
-  <div class="account-box">
+<section class="cta">
 
-    <div class="account-header">
-
-      <div>
-
-        <h2>Welcome to Nathaflex 👋</h2>
-
-        <div class="email" id="userEmail"></div>
-
-      </div>
-
-      <button class="logout" id="logoutButton">
-        Logout
-      </button>
-
-    </div>
-
-
-    <div class="account-wallets">
-
-      <div class="mini-wallet">
-
-        <small>🇦🇪 AED Wallet</small>
-
-        <strong id="aedBalance">
-          AED 0.00
-        </strong>
-
-      </div>
-
-
-      <div class="mini-wallet">
-
-        <small>🇺🇬 UGX Wallet</small>
-
-        <strong id="ugxBalance">
-          UGX 0
-        </strong>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="cta" id="start">
-
-  <h2>Start with Nathaflex</h2>
+  <h2>
+    Start with Nathaflex
+  </h2>
 
   <p>
     Create your account and take control
@@ -690,18 +745,24 @@ footer strong {
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
   <strong>Nathaflex</strong>
 
-  <p>Save • Borrow • Grow</p>
+  <p>
+    Save • Borrow • Grow
+  </p>
 
-  <p>© 2026 Nathaflex. All rights reserved.</p>
+  <p>
+    © 2026 Nathaflex. All rights reserved.
+  </p>
 
 </footer>
 
 
-<!-- AUTH MODAL -->
+<!-- LOGIN / SIGNUP MODAL -->
 
 <div class="modal" id="authModal">
 
@@ -764,9 +825,9 @@ footer strong {
 
 <script>
 
-/* =====================================================
+/* =========================================
    SUPABASE
-   ===================================================== */
+========================================= */
 
 const SUPABASE_URL =
   "https://uwcgfgztlcyydzsbjrrt.supabase.co";
@@ -781,9 +842,9 @@ const db =
   );
 
 
-/* =====================================================
+/* =========================================
    ELEMENTS
-   ===================================================== */
+========================================= */
 
 const modal =
   document.getElementById("authModal");
@@ -821,11 +882,11 @@ const emailInput =
 const passwordInput =
   document.getElementById("password");
 
-const account =
-  document.getElementById("account");
+const dashboard =
+  document.getElementById("dashboard");
 
-const userEmail =
-  document.getElementById("userEmail");
+const customerEmail =
+  document.getElementById("customerEmail");
 
 const logoutButton =
   document.getElementById("logoutButton");
@@ -840,9 +901,9 @@ const ugxBalance =
 let mode = "login";
 
 
-/* =====================================================
+/* =========================================
    OPEN LOGIN
-   ===================================================== */
+========================================= */
 
 function openLogin() {
 
@@ -854,23 +915,20 @@ function openLogin() {
 
   signupTab.classList.remove("active");
 
-  authSubmit.textContent = "Login";
-
   authTitle.textContent =
     "Welcome back to Nathaflex";
 
+  authSubmit.textContent =
+    "Login";
+
   authMessage.textContent = "";
-
-  emailInput.value = "";
-
-  passwordInput.value = "";
 
 }
 
 
-/* =====================================================
+/* =========================================
    OPEN SIGNUP
-   ===================================================== */
+========================================= */
 
 function openSignup() {
 
@@ -882,24 +940,20 @@ function openSignup() {
 
   loginTab.classList.remove("active");
 
-  authSubmit.textContent =
-    "Create Account";
-
   authTitle.textContent =
     "Create your Nathaflex account";
 
+  authSubmit.textContent =
+    "Create Account";
+
   authMessage.textContent = "";
-
-  emailInput.value = "";
-
-  passwordInput.value = "";
 
 }
 
 
-/* =====================================================
-   BUTTON EVENTS
-   ===================================================== */
+/* =========================================
+   BUTTONS
+========================================= */
 
 loginButton.addEventListener(
   "click",
@@ -959,10 +1013,6 @@ signupTab.addEventListener(
 );
 
 
-/* =====================================================
-   CLOSE MODAL WHEN TAPPING OUTSIDE
-   ===================================================== */
-
 modal.addEventListener(
   "click",
   function(e) {
@@ -977,9 +1027,9 @@ modal.addEventListener(
 );
 
 
-/* =====================================================
-   AUTHENTICATION
-   ===================================================== */
+/* =========================================
+   LOGIN / SIGNUP
+========================================= */
 
 authSubmit.addEventListener(
   "click",
@@ -990,6 +1040,7 @@ authSubmit.addEventListener(
 
     const password =
       passwordInput.value;
+
 
     authMessage.textContent = "";
 
@@ -1049,7 +1100,7 @@ authSubmit.addEventListener(
 
           if (data.user) {
 
-            showAccount(data.user);
+            showDashboard(data.user);
 
           }
 
@@ -1090,7 +1141,7 @@ authSubmit.addEventListener(
           modal.style.display =
             "none";
 
-          showAccount(data.user);
+          showDashboard(data.user);
 
         }
 
@@ -1115,33 +1166,37 @@ authSubmit.addEventListener(
 );
 
 
-/* =====================================================
-   SHOW ACCOUNT
-   ===================================================== */
+/* =========================================
+   SHOW DASHBOARD
+========================================= */
 
-function showAccount(user) {
+function showDashboard(user) {
 
   if (!user) return;
 
-  userEmail.textContent =
+
+  customerEmail.textContent =
     user.email;
 
-  account.style.display =
+
+  dashboard.style.display =
     "block";
+
 
   loginButton.textContent =
     "My Account";
 
-  account.scrollIntoView({
+
+  dashboard.scrollIntoView({
     behavior: "smooth"
   });
 
 }
 
 
-/* =====================================================
-   CHECK USER
-   ===================================================== */
+/* =========================================
+   CHECK LOGIN
+========================================= */
 
 async function checkUser() {
 
@@ -1153,16 +1208,16 @@ async function checkUser() {
 
   if (user) {
 
-    showAccount(user);
+    showDashboard(user);
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================================
    LOGOUT
-   ===================================================== */
+========================================= */
 
 logoutButton.addEventListener(
   "click",
@@ -1170,24 +1225,30 @@ logoutButton.addEventListener(
 
     await db.auth.signOut();
 
-    account.style.display =
+
+    dashboard.style.display =
       "none";
+
 
     loginButton.textContent =
       "Login";
 
+
     window.scrollTo({
+
       top: 0,
+
       behavior: "smooth"
+
     });
 
   }
 );
 
 
-/* =====================================================
+/* =========================================
    AUTH STATE
-   ===================================================== */
+========================================= */
 
 db.auth.onAuthStateChange(
   function(event, session) {
@@ -1197,7 +1258,7 @@ db.auth.onAuthStateChange(
       session.user
     ) {
 
-      showAccount(
+      showDashboard(
         session.user
       );
 
@@ -1207,9 +1268,69 @@ db.auth.onAuthStateChange(
 );
 
 
-/* =====================================================
+/* =========================================
+   ACTION PLACEHOLDERS
+========================================= */
+
+document
+.getElementById("depositButton")
+.addEventListener(
+  "click",
+  function() {
+
+    alert(
+      "Deposit system coming next."
+    );
+
+  }
+);
+
+
+document
+.getElementById("withdrawButton")
+.addEventListener(
+  "click",
+  function() {
+
+    alert(
+      "Withdrawal system coming next."
+    );
+
+  }
+);
+
+
+document
+.getElementById("loanButton")
+.addEventListener(
+  "click",
+  function() {
+
+    alert(
+      "Loan system coming next."
+    );
+
+  }
+);
+
+
+document
+.getElementById("transactionButton")
+.addEventListener(
+  "click",
+  function() {
+
+    alert(
+      "Transaction history coming next."
+    );
+
+  }
+);
+
+
+/* =========================================
    START
-   ===================================================== */
+========================================= */
 
 checkUser();
 
