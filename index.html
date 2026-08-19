@@ -1,149 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nathaflex</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<title>Nathaflex | Save. Borrow. Grow.</title>
 
-    body {
-      background: #f5f7fb;
-      color: #111827;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 22px 18px;
-      text-align: center;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #f6f8fb;
+  color: #111827;
+  line-height: 1.6;
+}
 
-    header h1 {
-      font-size: 30px;
-    }
+nav {
+  background: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    header p {
-      margin-top: 6px;
-      color: #d1d5db;
-    }
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+}
 
-    .hero {
-      padding: 45px 20px;
-      text-align: center;
-      background: white;
-    }
+.logo span {
+  color: #2563eb;
+}
 
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
+.nav-button {
+  background: #111827;
+  color: white;
+  padding: 9px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-    .hero p {
-      color: #6b7280;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
+.hero {
+  background: linear-gradient(135deg, #111827, #1e3a8a);
+  color: white;
+  padding: 65px 22px 70px;
+  text-align: center;
+}
 
-    .button {
-      display: inline-block;
-      background: #111827;
-      color: white;
-      padding: 13px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.hero .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
 
-    .section {
-      padding: 30px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.hero h1 span {
+  color: #60a5fa;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
+.hero p {
+  max-width: 560px;
+  margin: auto;
+  color: #dbeafe;
+  font-size: 17px;
+}
 
-    .card h3 {
-      margin-bottom: 8px;
-    }
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-    .card p {
-      color: #6b7280;
-      line-height: 1.5;
-    }
+.primary-button,
+.secondary-button {
+  padding: 14px 22px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 700;
+}
 
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-    }
-  </style>
+.primary-button {
+  background: white;
+  color: #111827;
+}
+
+.secondary-button {
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 55px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: #6b7280;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.step {
+  text-align: center;
+  padding: 25px;
+}
+
+.number {
+  width: 45px;
+  height: 45px;
+  background: #111827;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-weight: 800;
+}
+
+.cta {
+  margin: 20px;
+  border-radius: 18px;
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.cta h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  color: #d1d5db;
+  margin-bottom: 22px;
+}
+
+footer {
+  background: #0b1120;
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .cards,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 45px 18px;
+  }
+
+  .hero {
+    padding: 55px 18px 60px;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Nathaflex</h1>
-    <p>Simple. Reliable. Flexible.</p>
-  </header>
+<nav>
+  <div class="logo">Natha<span>flex</span></div>
+  <a href="#start" class="nav-button">Get Started</a>
+</nav>
 
-  <section class="hero">
-    <h2>Welcome to Nathaflex</h2>
-    <p>
-      A simple and convenient way to manage our services online.
-    </p>
+<section class="hero">
 
-    <a href="#services" class="button">Get Started</a>
-  </section>
+  <div class="badge">A simpler way to manage your money</div>
 
-  <section class="section" id="services">
-    <h2>Our Services</h2>
+  <h1>Save. Borrow.<br><span>Grow.</span></h1>
+
+  <p>
+    Nathaflex is designed to make saving, borrowing and managing
+    your finances simple, transparent and convenient.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#start" class="primary-button">Get Started</a>
+    <a href="#services" class="secondary-button">Explore Services</a>
+  </div>
+
+</section>
+
+<section class="section" id="services">
+
+  <div class="section-title">
+    <h2>What Nathaflex Offers</h2>
+    <p>Simple financial tools designed around you.</p>
+  </div>
+
+  <div class="cards">
 
     <div class="card">
-      <h3>Flexible Services</h3>
+      <div class="icon">💰</div>
+      <h3>Save</h3>
       <p>
-        Nathaflex provides simple and flexible solutions designed around our customers.
+        Build your savings consistently and keep track of your progress
+        in one convenient place.
       </p>
     </div>
 
     <div class="card">
-      <h3>Easy to Use</h3>
+      <div class="icon">🤝</div>
+      <h3>Borrow</h3>
       <p>
-        Access the information you need quickly from your phone or computer.
+        Access borrowing options with clear terms and straightforward
+        repayment information.
       </p>
     </div>
 
     <div class="card">
-      <h3>Reliable</h3>
+      <div class="icon">📊</div>
+      <h3>Manage</h3>
       <p>
-        We aim to provide a straightforward and dependable experience.
+        Keep your financial activity organized and understand where
+        your money is going.
       </p>
     </div>
 
-  </section>
+  </div>
 
-  <footer>
-    <p>© 2026 Nathaflex. All rights reserved.</p>
-  </footer>
+</section>
+
+<section class="section">
+
+  <div class="section-title">
+    <h2>How It Works</h2>
+    <p>Getting started is simple.</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="number">1</div>
+      <h3>Create your account</h3>
+      <p>Register your Nathaflex account and provide the required information.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">2</div>
+      <h3>Choose what you need</h3>
+      <p>Save, borrow or manage your existing financial activity.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">3</div>
+      <h3>Track everything</h3>
+      <p>Keep your transactions and progress organized in one place.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta" id="start">
+
+  <h2>Ready to get started?</h2>
+
+  <p>
+    Join Nathaflex and take a simpler approach to managing your money.
+  </p>
+
+  <a href="#" class="primary-button">Create an Account</a>
+
+</section>
+
+<footer>
+
+  <strong>Nathaflex</strong>
+
+  <p>Save. Borrow. Grow.</p>
+
+  <p>© 2026 Nathaflex. All rights reserved.</p>
+
+</footer>
 
 </body>
 </html>
