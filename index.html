@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Nathaflex | Save. Borrow. Grow.</title>
 
@@ -11,17 +11,17 @@
 <style>
 :root{
   --bg:#f5f3ee;
-  --surface:#ffffff;
-  --surface2:#eeece6;
+  --white:#fff;
+  --soft:#eeece6;
   --text:#17201b;
   --muted:#69736d;
   --line:#dedbd2;
   --green:#1f5c4a;
   --green-dark:#143d32;
   --gold:#b28a42;
-  --gold-soft:#eee2c5;
+  --gold-light:#eee2c5;
   --black:#111514;
-  --danger:#a43b3b;
+  --red:#a43b3b;
   --shadow:0 10px 30px rgba(25,32,28,.07);
 }
 
@@ -50,6 +50,7 @@ button{
   display:none!important;
 }
 
+
 /* =========================
    LANDING
 ========================= */
@@ -61,7 +62,7 @@ button{
   align-items:center;
   justify-content:space-between;
   border-bottom:1px solid var(--line);
-  background:rgba(245,243,238,.95);
+  background:rgba(245,243,238,.96);
   position:sticky;
   top:0;
   z-index:20;
@@ -90,7 +91,7 @@ button{
 .hero{
   max-width:1050px;
   margin:auto;
-  padding:85px 22px 70px;
+  padding:82px 22px 70px;
   text-align:center;
 }
 
@@ -98,7 +99,7 @@ button{
   display:inline-flex;
   padding:7px 13px;
   border-radius:30px;
-  background:var(--gold-soft);
+  background:var(--gold-light);
   color:#765b27;
   font-size:13px;
   font-weight:700;
@@ -134,7 +135,6 @@ button{
 
 .primary,
 .secondary{
-  border:0;
   border-radius:10px;
   padding:13px 21px;
   font-weight:800;
@@ -143,6 +143,7 @@ button{
 .primary{
   background:var(--green);
   color:white;
+  border:0;
 }
 
 .secondary{
@@ -161,7 +162,7 @@ button{
 }
 
 .feature{
-  background:var(--surface);
+  background:var(--white);
   border:1px solid var(--line);
   border-radius:15px;
   padding:22px;
@@ -181,6 +182,14 @@ button{
   color:var(--muted);
   font-size:14px;
 }
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
 
 /* =========================
    AUTH
@@ -283,8 +292,9 @@ button{
 
 .message.error{
   background:#faeeee;
-  color:var(--danger);
+  color:var(--red);
 }
+
 
 /* =========================
    DASHBOARD
@@ -354,7 +364,10 @@ button{
   margin-top:3px;
 }
 
-/* Wallets */
+
+/* =========================
+   WALLETS
+========================= */
 
 .wallet-grid{
   display:grid;
@@ -415,7 +428,10 @@ button{
   font-size:12px;
 }
 
-/* Quick actions */
+
+/* =========================
+   QUICK ACTIONS
+========================= */
 
 .section-title{
   display:flex;
@@ -460,7 +476,10 @@ button{
   margin-top:3px;
 }
 
-/* Cards */
+
+/* =========================
+   CARDS
+========================= */
 
 .cards-row{
   display:grid;
@@ -535,7 +554,10 @@ button{
   font-weight:700;
 }
 
-/* Activity */
+
+/* =========================
+   ACTIVITY
+========================= */
 
 .activity{
   background:white;
@@ -577,8 +599,9 @@ button{
   font-weight:800;
 }
 
+
 /* =========================
-   MODALS
+   MODAL
 ========================= */
 
 .modal{
@@ -611,7 +634,7 @@ button{
 
 .close{
   border:0;
-  background:var(--surface2);
+  background:var(--soft);
   width:32px;
   height:32px;
   border-radius:50%;
@@ -628,7 +651,7 @@ button{
 }
 
 .loan-info{
-  background:var(--surface2);
+  background:var(--soft);
   border-radius:10px;
   padding:13px;
   margin-bottom:16px;
@@ -640,15 +663,17 @@ button{
   color:var(--text);
 }
 
-footer{
-  padding:35px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
+.card-status{
+  background:var(--soft);
+  border-radius:10px;
+  padding:13px;
+  margin-bottom:15px;
+  font-size:13px;
 }
 
+
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
 @media(max-width:700px){
@@ -680,7 +705,9 @@ footer{
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      LANDING PAGE
@@ -688,429 +715,668 @@ footer{
 
 <div id="landing">
 
-  <nav class="nav">
-    <div class="logo">Natha<span>flex</span></div>
+<nav class="nav">
 
-    <button class="nav-login" onclick="showAuth('login')">
-      Login
+  <div class="logo">
+    Natha<span>flex</span>
+  </div>
+
+  <button
+    class="nav-login"
+    onclick="showAuth('login')">
+
+    Login
+
+  </button>
+
+</nav>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
+  </div>
+
+  <h1>
+    Your money.<br>
+    <span>Your flexibility.</span>
+  </h1>
+
+  <p>
+    Save when you want, apply for short-term loans,
+    and keep track of your money from one simple account.
+  </p>
+
+  <div class="actions">
+
+    <button
+      class="primary"
+      onclick="showAuth('signup')">
+
+      Get Started
+
     </button>
-  </nav>
 
-  <section class="hero">
+    <button
+      class="secondary"
+      onclick="showAuth('login')">
 
-    <div class="eyebrow">
-      🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
+      Login
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="features">
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ◎
     </div>
 
-    <h1>
-      Your money.<br>
-      <span>Your flexibility.</span>
-    </h1>
+    <h3>Save</h3>
 
     <p>
-      Save when you want, apply for short-term loans,
-      and keep track of your money from one simple account.
+      Keep track of your AED and UGX savings
+      from your personal Nathaflex account.
     </p>
 
-    <div class="actions">
+  </div>
 
-      <button class="primary" onclick="showAuth('signup')">
-        Get Started
-      </button>
 
-      <button class="secondary" onclick="showAuth('login')">
-        Login
-      </button>
+  <div class="feature">
 
+    <div class="feature-icon">
+      ↗
     </div>
 
-  </section>
+    <h3>Loans</h3>
 
-  <section class="features">
+    <p>
+      Apply for a short-term loan of up to AED 3,000
+      with a 1 or 2 month repayment option.
+    </p>
 
-    <div class="feature">
-      <div class="feature-icon">◎</div>
-      <h3>Save</h3>
-      <p>
-        Keep track of your AED and UGX savings
-        from your personal Nathaflex account.
-      </p>
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ▣
     </div>
 
-    <div class="feature">
-      <div class="feature-icon">↗</div>
-      <h3>Loans</h3>
-      <p>
-        Apply for a short-term loan of up to AED 3,000
-        with a 1 or 2 month repayment option.
-      </p>
-    </div>
+    <h3>Cards</h3>
 
-    <div class="feature">
-      <div class="feature-icon">▣</div>
-      <h3>Cards</h3>
-      <p>
-        Apply for a Nathaflex or Platinum card
-        and have it delivered within 3 working days.
-      </p>
-    </div>
+    <p>
+      Apply for a Nathaflex or Platinum card
+      with delivery targeted within 3 working days.
+    </p>
 
-  </section>
+  </div>
 
-  <footer>
-    Nathaflex • Save • Borrow • Grow<br><br>
-    © 2026 Nathaflex
-  </footer>
+</section>
+
+
+<footer>
+  Nathaflex • Save • Borrow • Grow
+  <br><br>
+  © 2026 Nathaflex
+</footer>
 
 </div>
+
 
 
 <!-- =====================================================
      AUTH
 ===================================================== -->
 
-<div id="authPage" class="auth-page hidden">
+<div
+  id="authPage"
+  class="auth-page hidden">
 
-  <div class="auth-card">
+<div class="auth-card">
 
-    <button class="back" onclick="showLanding()">
-      ← Back
+  <button
+    class="back"
+    onclick="showLanding()">
+
+    ← Back
+
+  </button>
+
+  <div class="logo">
+    Natha<span>flex</span>
+  </div>
+
+  <br>
+
+  <h2 id="authTitle">
+    Create your account
+  </h2>
+
+  <p
+    class="auth-sub"
+    id="authSubtitle">
+
+    Open your Nathaflex account.
+
+  </p>
+
+  <div
+    id="authMessage"
+    class="message hidden">
+  </div>
+
+
+  <form id="authForm">
+
+    <div
+      id="nameField"
+      class="field">
+
+      <label>
+        Full name
+      </label>
+
+      <input
+        id="fullName"
+        type="text"
+        placeholder="Your full name">
+
+    </div>
+
+
+    <div
+      id="phoneField"
+      class="field">
+
+      <label>
+        Mobile number
+      </label>
+
+      <input
+        id="phone"
+        type="tel"
+        placeholder="+971...">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Email
+      </label>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="you@example.com"
+        required>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="password"
+        type="password"
+        placeholder="At least 6 characters"
+        minlength="6"
+        required>
+
+    </div>
+
+
+    <button
+      class="auth-submit"
+      id="authButton">
+
+      Create Account
+
     </button>
 
-    <div class="logo">
-      Natha<span>flex</span>
-    </div>
+  </form>
 
-    <br>
 
-    <h2 id="authTitle">Create your account</h2>
+  <div class="switch-auth">
 
-    <p class="auth-sub" id="authSubtitle">
-      Open your Nathaflex account.
-    </p>
+    <span id="switchText">
+      Already have an account?
+    </span>
 
-    <div id="authMessage" class="message hidden"></div>
+    <button
+      id="switchButton"
+      onclick="toggleAuthMode()">
 
-    <form id="authForm">
+      Login
 
-      <div id="nameField" class="field">
-        <label>Full name</label>
-        <input
-          id="fullName"
-          type="text"
-          placeholder="Your full name"
-        >
-      </div>
-
-      <div id="phoneField" class="field">
-        <label>Mobile number</label>
-        <input
-          id="phone"
-          type="tel"
-          placeholder="+971..."
-        >
-      </div>
-
-      <div class="field">
-        <label>Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="you@example.com"
-          required
-        >
-      </div>
-
-      <div class="field">
-        <label>Password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="At least 6 characters"
-          minlength="6"
-          required
-        >
-      </div>
-
-      <button class="auth-submit" id="authButton">
-        Create Account
-      </button>
-
-    </form>
-
-    <div class="switch-auth">
-      <span id="switchText">Already have an account?</span>
-
-      <button id="switchButton" onclick="toggleAuthMode()">
-        Login
-      </button>
-    </div>
+    </button>
 
   </div>
 
 </div>
+
+</div>
+
 
 
 <!-- =====================================================
      DASHBOARD
 ===================================================== -->
 
-<div id="dashboard" class="dashboard hidden">
+<div
+  id="dashboard"
+  class="dashboard hidden">
 
-  <nav class="dashboard-nav">
+<nav class="dashboard-nav">
 
-    <div class="logo">
-      Natha<span>flex</span>
-    </div>
+  <div class="logo">
+    Natha<span>flex</span>
+  </div>
 
-    <div class="user-area">
+  <div class="user-area">
 
-      <div class="user-dot" id="userInitial">
-        N
-      </div>
+    <div
+      class="user-dot"
+      id="userInitial">
 
-      <button class="logout" onclick="logout()">
-        Logout
-      </button>
-
-    </div>
-
-  </nav>
-
-  <main class="dashboard-main">
-
-    <section class="welcome">
-
-      <small>Welcome back</small>
-
-      <h1 id="customerName">
-        Nathaflex customer
-      </h1>
-
-    </section>
-
-
-    <!-- WALLETS -->
-
-    <section class="wallet-grid">
-
-      <div class="wallet aed">
-
-        <div class="wallet-label">
-          UAE Dirham
-        </div>
-
-        <div class="wallet-balance" id="aedBalance">
-          AED 0.00
-        </div>
-
-        <div class="wallet-code">
-          AED
-        </div>
-
-        <div class="wallet-actions">
-
-          <button onclick="openDeposit('AED')">
-            Deposit
-          </button>
-
-          <button onclick="openWithdraw('AED')">
-            Withdraw
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="wallet ugx">
-
-        <div class="wallet-label">
-          Ugandan Shilling
-        </div>
-
-        <div class="wallet-balance" id="ugxBalance">
-          UGX 0
-        </div>
-
-        <div class="wallet-code">
-          UGX
-        </div>
-
-        <div class="wallet-actions">
-
-          <button onclick="openDeposit('UGX')">
-            Deposit
-          </button>
-
-          <button onclick="openWithdraw('UGX')">
-            Withdraw
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- QUICK ACTIONS -->
-
-    <div class="section-title">
-      <h2>Quick actions</h2>
-    </div>
-
-    <section class="action-grid">
-
-      <button class="action" onclick="openLoan()">
-        <div class="action-icon">↗</div>
-        <strong>Loans</strong>
-        <span>Apply up to AED 3,000</span>
-      </button>
-
-      <button class="action" onclick="openDeposit()">
-        <div class="action-icon">+</div>
-        <strong>Deposit</strong>
-        <span>Add money</span>
-      </button>
-
-      <button class="action" onclick="openWithdraw()">
-        <div class="action-icon">−</div>
-        <strong>Withdraw</strong>
-        <span>Request withdrawal</span>
-      </button>
-
-      <button class="action" onclick="openCard()">
-        <div class="action-icon">▣</div>
-        <strong>Nathaflex Card</strong>
-        <span>Apply for a card</span>
-      </button>
-
-    </section>
-
-
-    <!-- CARDS -->
-
-    <div class="section-title">
-      <h2>Nathaflex cards</h2>
-    </div>
-
-    <section class="cards-row">
-
-      <div>
-
-        <div class="bank-card natha-card">
-
-          <div class="card-brand">
-            Natha<span>flex</span>
-          </div>
-
-          <div class="card-type">
-            NATHAFLEX
-          </div>
-
-          <div class="card-chip"></div>
-
-          <div class="card-number">
-            •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-          </div>
-
-          <div class="card-note">
-            Your name • Delivered in 3 working days
-          </div>
-
-        </div>
-
-        <button class="apply-card" onclick="applyForCard('Nathaflex',25)">
-          Apply • AED 25
-        </button>
-
-      </div>
-
-
-      <div>
-
-        <div class="bank-card platinum-card">
-
-          <div class="card-brand">
-            Natha<span>flex</span>
-          </div>
-
-          <div class="card-type">
-            PLATINUM
-          </div>
-
-          <div class="card-chip"></div>
-
-          <div class="card-number">
-            •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-          </div>
-
-          <div class="card-note">
-            Platinum • Delivered in 3 working days
-          </div>
-
-        </div>
-
-        <button class="apply-card" onclick="applyForCard('Platinum',30)">
-          Apply • AED 30
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- ACTIVITY -->
-
-    <div class="section-title">
-      <h2>Recent activity</h2>
-    </div>
-
-    <section class="activity" id="activity">
-
-      <div class="empty">
-        No transactions yet.
-      </div>
-
-    </section>
-
-  </main>
-
-</div>
-
-
-<!-- =====================================================
-     MODAL
-===================================================== -->
-
-<div id="modal" class="modal hidden">
-
-  <div class="modal-card">
-
-    <div class="modal-head">
-
-      <h2 id="modalTitle">
-        Request
-      </h2>
-
-      <button class="close" onclick="closeModal()">
-        ×
-      </button>
+      N
 
     </div>
 
-    <div id="modalBody"></div>
+    <button
+      class="logout"
+      onclick="logout()">
+
+      Logout
+
+    </button>
+
+  </div>
+
+</nav>
+
+
+<main class="dashboard-main">
+
+
+<section class="welcome">
+
+  <small>
+    Welcome back
+  </small>
+
+  <h1 id="customerName">
+    Nathaflex customer
+  </h1>
+
+</section>
+
+
+
+<!-- WALLETS -->
+
+<section class="wallet-grid">
+
+
+<div class="wallet aed">
+
+  <div class="wallet-label">
+    UAE Dirham
+  </div>
+
+  <div
+    class="wallet-balance"
+    id="aedBalance">
+
+    AED 0.00
+
+  </div>
+
+  <div class="wallet-code">
+    AED
+  </div>
+
+  <div class="wallet-actions">
+
+    <button onclick="openDeposit('AED')">
+      Deposit
+    </button>
+
+    <button onclick="openWithdraw('AED')">
+      Withdraw
+    </button>
 
   </div>
 
 </div>
 
 
+
+<div class="wallet ugx">
+
+  <div class="wallet-label">
+    Ugandan Shilling
+  </div>
+
+  <div
+    class="wallet-balance"
+    id="ugxBalance">
+
+    UGX 0
+
+  </div>
+
+  <div class="wallet-code">
+    UGX
+  </div>
+
+  <div class="wallet-actions">
+
+    <button onclick="openDeposit('UGX')">
+      Deposit
+    </button>
+
+    <button onclick="openWithdraw('UGX')">
+      Withdraw
+    </button>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- QUICK ACTIONS -->
+
+<div class="section-title">
+
+  <h2>
+    Quick actions
+  </h2>
+
+</div>
+
+
+<section class="action-grid">
+
+
+<button
+  class="action"
+  onclick="openLoan()">
+
+  <div class="action-icon">
+    ↗
+  </div>
+
+  <strong>
+    Loans
+  </strong>
+
+  <span>
+    Apply up to AED 3,000
+  </span>
+
+</button>
+
+
+
+<button
+  class="action"
+  onclick="openDeposit()">
+
+  <div class="action-icon">
+    +
+  </div>
+
+  <strong>
+    Deposit
+  </strong>
+
+  <span>
+    Add money
+  </span>
+
+</button>
+
+
+
+<button
+  class="action"
+  onclick="openWithdraw()">
+
+  <div class="action-icon">
+    −
+  </div>
+
+  <strong>
+    Withdraw
+  </strong>
+
+  <span>
+    Request withdrawal
+  </span>
+
+</button>
+
+
+
+<button
+  class="action"
+  onclick="openCard()">
+
+  <div class="action-icon">
+    ▣
+  </div>
+
+  <strong>
+    Cards
+  </strong>
+
+  <span>
+    Apply for a card
+  </span>
+
+</button>
+
+</section>
+
+
+
+<!-- CARDS -->
+
+<div class="section-title">
+
+  <h2>
+    Nathaflex cards
+  </h2>
+
+</div>
+
+
+<section class="cards-row">
+
+
+<div>
+
+  <div class="bank-card natha-card">
+
+    <div class="card-brand">
+      Natha<span>flex</span>
+    </div>
+
+    <div class="card-type">
+      NATHAFLEX
+    </div>
+
+    <div class="card-chip"></div>
+
+    <div class="card-number">
+      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
+    </div>
+
+    <div class="card-note">
+      Your name • 3 working day target
+    </div>
+
+  </div>
+
+
+  <button
+    class="apply-card"
+    onclick="openCardApplication('Nathaflex',25)">
+
+    Apply • AED 25
+
+  </button>
+
+</div>
+
+
+
+<div>
+
+  <div class="bank-card platinum-card">
+
+    <div class="card-brand">
+      Natha<span>flex</span>
+    </div>
+
+    <div class="card-type">
+      PLATINUM
+    </div>
+
+    <div class="card-chip"></div>
+
+    <div class="card-number">
+      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
+    </div>
+
+    <div class="card-note">
+      Platinum • 3 working day target
+    </div>
+
+  </div>
+
+
+  <button
+    class="apply-card"
+    onclick="openCardApplication('Platinum',30)">
+
+    Apply • AED 30
+
+  </button>
+
+</div>
+
+</section>
+
+
+
+<!-- CARD APPLICATIONS -->
+
+<div class="section-title">
+
+  <h2>
+    My card applications
+  </h2>
+
+</div>
+
+
+<section
+  class="activity"
+  id="cardApplications">
+
+  <div class="empty">
+    No card applications yet.
+  </div>
+
+</section>
+
+
+
+<!-- ACTIVITY -->
+
+<div class="section-title">
+
+  <h2>
+    Recent activity
+  </h2>
+
+</div>
+
+
+<section
+  class="activity"
+  id="activity">
+
+  <div class="empty">
+    No transactions yet.
+  </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+  id="modal"
+  class="modal hidden">
+
+<div class="modal-card">
+
+  <div class="modal-head">
+
+    <h2 id="modalTitle">
+      Request
+    </h2>
+
+    <button
+      class="close"
+      onclick="closeModal()">
+
+      ×
+
+    </button>
+
+  </div>
+
+  <div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+
 <script>
 
 /* =====================================================
-   SUPABASE CONNECTION
+   SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
@@ -1130,11 +1396,13 @@ createClient(
 
 
 /* =====================================================
-   GLOBAL STATE
+   STATE
 ===================================================== */
 
 let authMode = "signup";
+
 let currentUser = null;
+
 let wallets = [];
 
 
@@ -1155,6 +1423,7 @@ function showLanding(){
   document
     .getElementById("dashboard")
     .classList.add("hidden");
+
 }
 
 
@@ -1175,6 +1444,7 @@ function showAuth(mode){
     .classList.remove("hidden");
 
   updateAuthUI();
+
 }
 
 
@@ -1186,6 +1456,7 @@ function toggleAuthMode(){
       : "signup";
 
   updateAuthUI();
+
 }
 
 
@@ -1194,47 +1465,64 @@ function updateAuthUI(){
   const signup =
     authMode === "signup";
 
-  document.getElementById("authTitle").textContent =
-    signup
-      ? "Create your account"
-      : "Welcome back";
+  document
+    .getElementById("authTitle")
+    .textContent =
+      signup
+        ? "Create your account"
+        : "Welcome back";
 
-  document.getElementById("authSubtitle").textContent =
-    signup
-      ? "Open your Nathaflex account."
-      : "Login to your Nathaflex account.";
+  document
+    .getElementById("authSubtitle")
+    .textContent =
+      signup
+        ? "Open your Nathaflex account."
+        : "Login to your Nathaflex account.";
 
-  document.getElementById("authButton").textContent =
-    signup
-      ? "Create Account"
-      : "Login";
+  document
+    .getElementById("authButton")
+    .textContent =
+      signup
+        ? "Create Account"
+        : "Login";
 
-  document.getElementById("nameField").classList.toggle(
-    "hidden",
-    !signup
-  );
+  document
+    .getElementById("nameField")
+    .classList
+    .toggle(
+      "hidden",
+      !signup
+    );
 
-  document.getElementById("phoneField").classList.toggle(
-    "hidden",
-    !signup
-  );
+  document
+    .getElementById("phoneField")
+    .classList
+    .toggle(
+      "hidden",
+      !signup
+    );
 
-  document.getElementById("switchText").textContent =
-    signup
-      ? "Already have an account?"
-      : "Don't have an account?";
+  document
+    .getElementById("switchText")
+    .textContent =
+      signup
+        ? "Already have an account?"
+        : "Don't have an account?";
 
-  document.getElementById("switchButton").textContent =
-    signup
-      ? "Login"
-      : "Create Account";
+  document
+    .getElementById("switchButton")
+    .textContent =
+      signup
+        ? "Login"
+        : "Create Account";
 
   clearMessage();
+
 }
 
 
 /* =====================================================
-   AUTH MESSAGE
+   MESSAGES
 ===================================================== */
 
 function showMessage(text,error=false){
@@ -1246,7 +1534,11 @@ function showMessage(text,error=false){
 
   box.classList.remove("hidden");
 
-  box.classList.toggle("error",error);
+  box.classList.toggle(
+    "error",
+    error
+  );
+
 }
 
 
@@ -1254,7 +1546,9 @@ function clearMessage(){
 
   document
     .getElementById("authMessage")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
+
 }
 
 
@@ -1264,133 +1558,136 @@ function clearMessage(){
 
 document
 .getElementById("authForm")
-.addEventListener("submit", async function(e){
+.addEventListener(
+  "submit",
+  async function(e){
 
-  e.preventDefault();
+    e.preventDefault();
 
-  clearMessage();
+    clearMessage();
 
-  const email =
-    document
-      .getElementById("email")
-      .value
-      .trim();
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
-  const password =
-    document
-      .getElementById("password")
-      .value;
+    const password =
+      document
+        .getElementById("password")
+        .value;
 
-  const button =
-    document.getElementById("authButton");
+    const button =
+      document
+        .getElementById("authButton");
 
-  button.disabled = true;
-  button.textContent = "Please wait...";
+    button.disabled = true;
 
-
-  try{
-
-    if(authMode === "signup"){
-
-      const fullName =
-        document
-          .getElementById("fullName")
-          .value
-          .trim();
-
-      const phone =
-        document
-          .getElementById("phone")
-          .value
-          .trim();
+    button.textContent =
+      "Please wait...";
 
 
-      const { data,error } =
-        await db.auth.signUp({
+    try{
 
-          email,
-          password,
+      if(authMode === "signup"){
 
-          options:{
-            data:{
-              full_name:fullName,
-              phone:phone
+        const fullName =
+          document
+            .getElementById("fullName")
+            .value
+            .trim();
+
+        const phone =
+          document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+        const {data,error} =
+          await db.auth.signUp({
+
+            email,
+            password,
+
+            options:{
+              data:{
+                full_name:fullName,
+                phone:phone
+              }
             }
-          }
 
-        });
-
-
-      if(error)
-        throw error;
+          });
 
 
-      /*
-        If email confirmation is enabled,
-        Supabase may not immediately create
-        an active session.
-      */
+        if(error)
+          throw error;
 
-      if(data.session){
+
+        if(data.session){
+
+          currentUser =
+            data.user;
+
+          await loadDashboard();
+
+        }else{
+
+          showMessage(
+            "Account created. Check your email to verify your account, then log in."
+          );
+
+          authMode = "login";
+
+          updateAuthUI();
+
+        }
+
+
+      }else{
+
+        const {data,error} =
+          await db.auth
+            .signInWithPassword({
+
+              email,
+              password
+
+            });
+
+
+        if(error)
+          throw error;
+
 
         currentUser =
           data.user;
 
         await loadDashboard();
 
-      }else{
-
-        showMessage(
-          "Account created. Check your email to confirm your account, then log in."
-        );
-
-        authMode = "login";
-
-        updateAuthUI();
       }
 
 
-    }else{
+    }catch(error){
 
-      const { data,error } =
-        await db.auth.signInWithPassword({
+      console.error(error);
 
-          email,
-          password
+      showMessage(
+        error.message ||
+        "Something went wrong.",
+        true
+      );
 
-        });
+    }finally{
 
+      button.disabled = false;
 
-      if(error)
-        throw error;
-
-
-      currentUser =
-        data.user;
-
-      await loadDashboard();
+      updateAuthUI();
 
     }
 
-
-  }catch(error){
-
-    console.error(error);
-
-    showMessage(
-      error.message || "Something went wrong.",
-      true
-    );
-
-  }finally{
-
-    button.disabled = false;
-
-    updateAuthUI();
-
   }
-
-});
+);
 
 
 /* =====================================================
@@ -1398,7 +1695,7 @@ document
 ===================================================== */
 
 db.auth.onAuthStateChange(
-  async (event,session)=>{
+  async(event,session)=>{
 
     if(session){
 
@@ -1429,15 +1726,18 @@ async function loadDashboard(){
 
   document
     .getElementById("landing")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("authPage")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("dashboard")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
 
   const profile =
@@ -1446,20 +1746,27 @@ async function loadDashboard(){
 
   const name =
     profile?.full_name ||
-    currentUser.user_metadata?.full_name ||
-    currentUser.email?.split("@")[0] ||
+    currentUser
+      .user_metadata
+      ?.full_name ||
+    currentUser
+      .email
+      ?.split("@")[0] ||
     "Nathaflex customer";
 
 
   document
     .getElementById("customerName")
-    .textContent = name;
+    .textContent =
+      name;
 
 
   document
     .getElementById("userInitial")
     .textContent =
-      name.charAt(0).toUpperCase();
+      name
+        .charAt(0)
+        .toUpperCase();
 
 
   await ensureWallets();
@@ -1467,6 +1774,8 @@ async function loadDashboard(){
   await loadWallets();
 
   await loadTransactions();
+
+  await loadCardApplications();
 
 }
 
@@ -1481,8 +1790,12 @@ async function loadProfile(){
     await db
       .from("profiles")
       .select("*")
-      .eq("id",currentUser.id)
+      .eq(
+        "id",
+        currentUser.id
+      )
       .maybeSingle();
+
 
   if(error){
 
@@ -1495,32 +1808,34 @@ async function loadProfile(){
 
   }
 
+
   return data;
+
 }
 
 
 /* =====================================================
-   ENSURE WALLETS
+   WALLETS
 ===================================================== */
 
 async function ensureWallets(){
 
-  /*
-    This is a second layer of protection.
-    If the signup trigger failed,
-    the website creates missing wallets.
-  */
-
   const {data,error} =
     await db
       .from("wallets")
-      .select("id,currency,balance")
-      .eq("user_id",currentUser.id);
+      .select(
+        "id,currency,balance"
+      )
+      .eq(
+        "user_id",
+        currentUser.id
+      );
+
 
   if(error){
 
     console.error(
-      "Wallet check error:",
+      "Wallet error:",
       error
     );
 
@@ -1534,7 +1849,9 @@ async function ensureWallets(){
 
 
   const currencies =
-    existing.map(w => w.currency);
+    existing.map(
+      w => w.currency
+    );
 
 
   const missing = [];
@@ -1547,16 +1864,21 @@ async function ensureWallets(){
     missing.push("UGX");
 
 
-  for(const currency of missing){
+  for(
+    const currency
+    of missing
+  ){
 
     const {error:insertError} =
       await db
         .from("wallets")
         .insert({
 
-          user_id:currentUser.id,
+          user_id:
+            currentUser.id,
 
-          currency:currency,
+          currency:
+            currency,
 
           balance:0
 
@@ -1574,18 +1896,18 @@ async function ensureWallets(){
 }
 
 
-/* =====================================================
-   LOAD WALLETS
-===================================================== */
-
 async function loadWallets(){
 
   const {data,error} =
     await db
       .from("wallets")
       .select("*")
-      .eq("user_id",currentUser.id)
+      .eq(
+        "user_id",
+        currentUser.id
+      )
       .order("currency");
+
 
   if(error){
 
@@ -1605,6 +1927,7 @@ async function loadWallets(){
       w => w.currency === "AED"
     );
 
+
   const ugx =
     wallets.find(
       w => w.currency === "UGX"
@@ -1615,28 +1938,30 @@ async function loadWallets(){
     .getElementById("aedBalance")
     .textContent =
       "AED " +
-      Number(aed?.balance || 0)
-        .toLocaleString(
-          undefined,
-          {
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-          }
-        );
+      Number(
+        aed?.balance || 0
+      ).toLocaleString(
+        undefined,
+        {
+          minimumFractionDigits:2,
+          maximumFractionDigits:2
+        }
+      );
 
 
   document
     .getElementById("ugxBalance")
     .textContent =
       "UGX " +
-      Number(ugx?.balance || 0)
-        .toLocaleString();
+      Number(
+        ugx?.balance || 0
+      ).toLocaleString();
 
 }
 
 
 /* =====================================================
-   LOAD TRANSACTIONS
+   TRANSACTIONS
 ===================================================== */
 
 async function loadTransactions(){
@@ -1645,7 +1970,10 @@ async function loadTransactions(){
     await db
       .from("transactions")
       .select("*")
-      .eq("user_id",currentUser.id)
+      .eq(
+        "user_id",
+        currentUser.id
+      )
       .order(
         "created_at",
         {
@@ -1656,7 +1984,8 @@ async function loadTransactions(){
 
 
   const activity =
-    document.getElementById("activity");
+    document
+      .getElementById("activity");
 
 
   if(error){
@@ -1664,21 +1993,28 @@ async function loadTransactions(){
     console.error(error);
 
     activity.innerHTML =
-      `<div class="empty">
+      `
+      <div class="empty">
         Activity could not be loaded.
-      </div>`;
+      </div>
+      `;
 
     return;
 
   }
 
 
-  if(!data || data.length === 0){
+  if(
+    !data ||
+    data.length === 0
+  ){
 
     activity.innerHTML =
-      `<div class="empty">
+      `
+      <div class="empty">
         No transactions yet.
-      </div>`;
+      </div>
+      `;
 
     return;
 
@@ -1686,41 +2022,49 @@ async function loadTransactions(){
 
 
   activity.innerHTML =
-    data.map(transaction => {
+    data
+      .map(
+        transaction => {
 
-      const amount =
-        Number(transaction.amount || 0)
-          .toLocaleString();
+          const amount =
+            Number(
+              transaction.amount || 0
+            ).toLocaleString();
 
-      return `
 
-        <div class="transaction">
+          return `
 
-          <div>
+          <div class="transaction">
 
-            <strong>
-              ${escapeHtml(
-                transaction.type || "Transaction"
-              )}
-            </strong>
+            <div>
 
-            <small>
-              ${escapeHtml(
-                transaction.description || ""
-              )}
-            </small>
+              <strong>
+                ${escapeHtml(
+                  transaction.type ||
+                  "Transaction"
+                )}
+              </strong>
+
+              <small>
+                ${escapeHtml(
+                  transaction.description ||
+                  ""
+                )}
+              </small>
+
+            </div>
+
+            <div class="amount">
+              ${amount}
+            </div>
 
           </div>
 
-          <div class="amount">
-            ${amount}
-          </div>
+          `;
 
-        </div>
-
-      `;
-
-    }).join("");
+        }
+      )
+      .join("");
 
 }
 
@@ -1729,7 +2073,9 @@ async function loadTransactions(){
    DEPOSIT
 ===================================================== */
 
-function openDeposit(currency=null){
+function openDeposit(
+  currency=null
+){
 
   const selected =
     currency || "AED";
@@ -1745,95 +2091,102 @@ function openDeposit(currency=null){
     .getElementById("modalBody")
     .innerHTML = `
 
-      <div class="field">
+    <div class="field">
 
-        <label>Currency</label>
+      <label>
+        Currency
+      </label>
 
-        <select id="depositCurrency">
+      <select id="depositCurrency">
 
-          <option value="AED"
-            ${selected==="AED"?"selected":""}>
-            AED — UAE Dirham
-          </option>
+        <option value="AED"
+          ${selected==="AED"?"selected":""}>
+          AED — UAE Dirham
+        </option>
 
-          <option value="UGX"
-            ${selected==="UGX"?"selected":""}>
-            UGX — Ugandan Shilling
-          </option>
+        <option value="UGX"
+          ${selected==="UGX"?"selected":""}>
+          UGX — Ugandan Shilling
+        </option>
 
-        </select>
+      </select>
 
-      </div>
-
-
-      <div class="field">
-
-        <label>Amount</label>
-
-        <input
-          id="depositAmount"
-          type="number"
-          min="1"
-          placeholder="Enter amount"
-        >
-
-      </div>
+    </div>
 
 
-      <div class="field">
+    <div class="field">
 
-        <label>Payment reference</label>
+      <label>
+        Amount
+      </label>
 
-        <input
-          id="depositReference"
-          type="text"
-          placeholder="Reference from your payment"
-        >
+      <input
+        id="depositAmount"
+        type="number"
+        min="1"
+        placeholder="Enter amount">
 
-      </div>
-
-
-      <div class="field">
-
-        <label>Payment method</label>
-
-        <select id="depositMethod">
-
-          <option value="Bank transfer">
-            Bank transfer
-          </option>
-
-          <option value="Mobile money">
-            Mobile money
-          </option>
-
-        </select>
-
-      </div>
+    </div>
 
 
-      <div class="field">
+    <div class="field">
 
-        <label>Note (optional)</label>
+      <label>
+        Payment reference
+      </label>
 
-        <input
-          id="depositNote"
-          type="text"
-          placeholder="Anything we should know?"
-        >
+      <input
+        id="depositReference"
+        type="text"
+        placeholder="Reference from your payment">
 
-      </div>
+    </div>
 
 
-      <button
-        class="modal-submit"
-        onclick="submitDeposit()">
+    <div class="field">
 
-        Submit deposit
+      <label>
+        Payment method
+      </label>
 
-      </button>
+      <select id="depositMethod">
 
-    `;
+        <option>
+          Bank transfer
+        </option>
+
+        <option>
+          Mobile money
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Note
+      </label>
+
+      <input
+        id="depositNote"
+        type="text"
+        placeholder="Optional">
+
+    </div>
+
+
+    <button
+      class="modal-submit"
+      onclick="submitDeposit()">
+
+      Submit deposit
+
+    </button>
+
+  `;
 
 
   openModal();
@@ -1845,37 +2198,56 @@ async function submitDeposit(){
 
   const currency =
     document
-      .getElementById("depositCurrency")
+      .getElementById(
+        "depositCurrency"
+      )
       .value;
+
 
   const amount =
     Number(
       document
-        .getElementById("depositAmount")
+        .getElementById(
+          "depositAmount"
+        )
         .value
     );
 
+
   const reference =
     document
-      .getElementById("depositReference")
+      .getElementById(
+        "depositReference"
+      )
       .value
       .trim();
+
 
   const method =
     document
-      .getElementById("depositMethod")
+      .getElementById(
+        "depositMethod"
+      )
       .value;
+
 
   const note =
     document
-      .getElementById("depositNote")
+      .getElementById(
+        "depositNote"
+      )
       .value
       .trim();
 
 
-  if(!amount || amount <= 0){
+  if(
+    !amount ||
+    amount <= 0
+  ){
 
-    alert("Enter a valid amount.");
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
@@ -1884,14 +2256,16 @@ async function submitDeposit(){
 
   const wallet =
     wallets.find(
-      w => w.currency === currency
+      w =>
+        w.currency ===
+        currency
     );
 
 
   if(!wallet){
 
     alert(
-      "Your wallet is not available yet."
+      "Wallet not found."
     );
 
     return;
@@ -1904,13 +2278,17 @@ async function submitDeposit(){
       .from("deposits")
       .insert({
 
-        user_id:currentUser.id,
+        user_id:
+          currentUser.id,
 
-        wallet_id:wallet.id,
+        wallet_id:
+          wallet.id,
 
-        currency:currency,
+        currency:
+          currency,
 
-        amount:amount,
+        amount:
+          amount,
 
         payment_reference:
           reference || null,
@@ -1921,7 +2299,8 @@ async function submitDeposit(){
         customer_note:
           note || null,
 
-        status:"pending"
+        status:
+          "pending"
 
       });
 
@@ -1952,7 +2331,9 @@ async function submitDeposit(){
    WITHDRAW
 ===================================================== */
 
-function openWithdraw(currency=null){
+function openWithdraw(
+  currency=null
+){
 
   const selected =
     currency || "AED";
@@ -1968,63 +2349,67 @@ function openWithdraw(currency=null){
     .getElementById("modalBody")
     .innerHTML = `
 
-      <div class="field">
+    <div class="field">
 
-        <label>Currency</label>
+      <label>
+        Currency
+      </label>
 
-        <select id="withdrawCurrency">
+      <select id="withdrawCurrency">
 
-          <option value="AED"
-            ${selected==="AED"?"selected":""}>
-            AED — UAE Dirham
-          </option>
+        <option value="AED"
+          ${selected==="AED"?"selected":""}>
+          AED — UAE Dirham
+        </option>
 
-          <option value="UGX"
-            ${selected==="UGX"?"selected":""}>
-            UGX — Ugandan Shilling
-          </option>
+        <option value="UGX"
+          ${selected==="UGX"?"selected":""}>
+          UGX — Ugandan Shilling
+        </option>
 
-        </select>
+      </select>
 
-      </div>
-
-
-      <div class="field">
-
-        <label>Amount</label>
-
-        <input
-          id="withdrawAmount"
-          type="number"
-          min="1"
-          placeholder="Enter amount"
-        >
-
-      </div>
+    </div>
 
 
-      <div class="field">
+    <div class="field">
 
-        <label>Where should we send it?</label>
+      <label>
+        Amount
+      </label>
 
-        <input
-          id="withdrawDestination"
-          type="text"
-          placeholder="Bank account / mobile number"
-        >
+      <input
+        id="withdrawAmount"
+        type="number"
+        min="1"
+        placeholder="Enter amount">
 
-      </div>
+    </div>
 
 
-      <button
-        class="modal-submit"
-        onclick="submitWithdraw()">
+    <div class="field">
 
-        Request withdrawal
+      <label>
+        Destination
+      </label>
 
-      </button>
+      <input
+        id="withdrawDestination"
+        type="text"
+        placeholder="Bank account or mobile number">
 
-    `;
+    </div>
+
+
+    <button
+      class="modal-submit"
+      onclick="submitWithdraw()">
+
+      Request withdrawal
+
+    </button>
+
+  `;
 
 
   openModal();
@@ -2036,26 +2421,39 @@ async function submitWithdraw(){
 
   const currency =
     document
-      .getElementById("withdrawCurrency")
+      .getElementById(
+        "withdrawCurrency"
+      )
       .value;
+
 
   const amount =
     Number(
       document
-        .getElementById("withdrawAmount")
+        .getElementById(
+          "withdrawAmount"
+        )
         .value
     );
 
+
   const destination =
     document
-      .getElementById("withdrawDestination")
+      .getElementById(
+        "withdrawDestination"
+      )
       .value
       .trim();
 
 
-  if(!amount || amount <= 0){
+  if(
+    !amount ||
+    amount <= 0
+  ){
 
-    alert("Enter a valid amount.");
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
@@ -2065,7 +2463,7 @@ async function submitWithdraw(){
   if(!destination){
 
     alert(
-      "Enter your bank account or mobile number."
+      "Enter your destination."
     );
 
     return;
@@ -2075,20 +2473,27 @@ async function submitWithdraw(){
 
   const wallet =
     wallets.find(
-      w => w.currency === currency
+      w =>
+        w.currency ===
+        currency
     );
 
 
   if(!wallet){
 
-    alert("Wallet not found.");
+    alert(
+      "Wallet not found."
+    );
 
     return;
 
   }
 
 
-  if(Number(wallet.balance) < amount){
+  if(
+    Number(wallet.balance) <
+    amount
+  ){
 
     alert(
       "You don't have enough money in this wallet."
@@ -2099,22 +2504,35 @@ async function submitWithdraw(){
   }
 
 
+  /*
+    NOTE:
+    The exact columns in your withdraws table
+    have not yet been confirmed.
+    This attempts the common structure.
+  */
+
   const {error} =
     await db
       .from("withdraws")
       .insert({
 
-        user_id:currentUser.id,
+        user_id:
+          currentUser.id,
 
-        wallet_id:wallet.id,
+        wallet_id:
+          wallet.id,
 
-        currency:currency,
+        currency:
+          currency,
 
-        amount:amount,
+        amount:
+          amount,
 
-        destination:destination,
+        destination:
+          destination,
 
-        status:"pending"
+        status:
+          "pending"
 
       });
 
@@ -2124,7 +2542,7 @@ async function submitWithdraw(){
     console.error(error);
 
     alert(
-      "Withdrawal request could not be submitted."
+      "Withdrawal could not be submitted. We may need to match the exact Withdraws table columns."
     );
 
     return;
@@ -2142,106 +2560,116 @@ async function submitWithdraw(){
 
 
 /* =====================================================
-   LOAN
+   LOANS
 ===================================================== */
 
 function openLoan(){
 
   document
-    .getElementById("modalTitle")
+    .getElementById(
+      "modalTitle"
+    )
     .textContent =
       "Apply for a loan";
 
 
   document
-    .getElementById("modalBody")
+    .getElementById(
+      "modalBody"
+    )
     .innerHTML = `
 
-      <div class="loan-info">
+    <div class="loan-info">
 
-        Loans are available up to
-        <strong>AED 3,000</strong>.
+      Loans are available up to
+      <strong>AED 3,000</strong>.
 
-        Choose either a
-        <strong>1 month</strong>
-        or
-        <strong>2 month</strong>
-        repayment period.
+      Choose either a
+      <strong>1 month</strong>
+      or
+      <strong>2 month</strong>
+      repayment period.
 
-        The current interest rate is
-        <strong>10%</strong>.
+      Interest:
+      <strong>10%</strong>.
 
-      </div>
-
-
-      <div class="field">
-
-        <label>Loan amount (AED)</label>
-
-        <input
-          id="loanAmount"
-          type="number"
-          min="1"
-          max="3000"
-          placeholder="Maximum AED 3,000"
-          oninput="updateLoanTotal()"
-        >
-
-      </div>
+    </div>
 
 
-      <div class="field">
+    <div class="field">
 
-        <label>Repayment period</label>
+      <label>
+        Loan amount (AED)
+      </label>
 
-        <select id="loanTerm"
-          onchange="updateLoanTotal()">
+      <input
+        id="loanAmount"
+        type="number"
+        min="1"
+        max="3000"
+        placeholder="Maximum AED 3,000"
+        oninput="updateLoanTotal()">
 
-          <option value="1">
-            1 month
-          </option>
-
-          <option value="2">
-            2 months
-          </option>
-
-        </select>
-
-      </div>
+    </div>
 
 
-      <div class="loan-info">
+    <div class="field">
 
-        Estimated repayment:
-        <strong id="loanTotal">
-          AED 0.00
-        </strong>
+      <label>
+        Repayment period
+      </label>
 
-      </div>
+      <select
+        id="loanTerm"
+        onchange="updateLoanTotal()">
+
+        <option value="1">
+          1 month
+        </option>
+
+        <option value="2">
+          2 months
+        </option>
+
+      </select>
+
+    </div>
 
 
-      <div class="field">
+    <div class="loan-info">
 
-        <label>Application note</label>
+      Estimated repayment:
 
-        <input
-          id="loanNote"
-          type="text"
-          placeholder="Optional"
-        >
+      <strong id="loanTotal">
+        AED 0.00
+      </strong>
 
-      </div>
+    </div>
 
 
-      <button
-        class="modal-submit"
-        onclick="submitLoan()">
+    <div class="field">
 
-        Submit application
+      <label>
+        Application note
+      </label>
 
-      </button>
+      <input
+        id="loanNote"
+        type="text"
+        placeholder="Optional">
 
-    `;
+    </div>
+
+
+    <button
+      class="modal-submit"
+      onclick="submitLoan()">
+
+      Submit application
+
+    </button>
+
+  `;
 
 
   openModal();
@@ -2254,17 +2682,23 @@ function updateLoanTotal(){
   const amount =
     Number(
       document
-        .getElementById("loanAmount")
+        .getElementById(
+          "loanAmount"
+        )
         ?.value || 0
     );
 
+
   const total =
     amount +
-    (amount * 0.10);
+    amount * 0.10;
 
 
   const output =
-    document.getElementById("loanTotal");
+    document
+      .getElementById(
+        "loanTotal"
+      );
 
 
   if(output){
@@ -2289,25 +2723,37 @@ async function submitLoan(){
   const amount =
     Number(
       document
-        .getElementById("loanAmount")
+        .getElementById(
+          "loanAmount"
+        )
         .value
     );
+
 
   const term =
     Number(
       document
-        .getElementById("loanTerm")
+        .getElementById(
+          "loanTerm"
+        )
         .value
     );
 
+
   const note =
     document
-      .getElementById("loanNote")
+      .getElementById(
+        "loanNote"
+      )
       .value
       .trim();
 
 
-  if(!amount || amount < 1 || amount > 3000){
+  if(
+    !amount ||
+    amount < 1 ||
+    amount > 3000
+  ){
 
     alert(
       "Loan amount must be between AED 1 and AED 3,000."
@@ -2323,15 +2769,20 @@ async function submitLoan(){
       .from("loans")
       .insert({
 
-        user_id:currentUser.id,
+        user_id:
+          currentUser.id,
 
-        currency:"AED",
+        currency:
+          "AED",
 
-        requested_amount:amount,
+        requested_amount:
+          amount,
 
-        interest_rate:10,
+        interest_rate:
+          10,
 
-        status:"pending",
+        status:
+          "pending",
 
         application_note:
           (note || "") +
@@ -2365,55 +2816,77 @@ async function submitLoan(){
 
 
 /* =====================================================
-   CARDS
+   CARD APPLICATION
 ===================================================== */
 
 function openCard(){
 
   document
-    .getElementById("modalTitle")
+    .getElementById(
+      "modalTitle"
+    )
     .textContent =
       "Nathaflex cards";
 
 
   document
-    .getElementById("modalBody")
+    .getElementById(
+      "modalBody"
+    )
     .innerHTML = `
 
-      <div class="loan-info">
+    <div class="loan-info">
 
-        <strong>Nathaflex Card — AED 25</strong><br>
-        A smart everyday card with delivery
-        within 3 working days.
+      <strong>
+        Nathaflex Card — AED 25
+      </strong>
 
-        <br><br>
+      <br>
 
-        <strong>Platinum Card — AED 30</strong><br>
-        A premium black Nathaflex Platinum design
-        with delivery within 3 working days.
-
-      </div>
-
-
-      <button
-        class="modal-submit"
-        onclick="applyForCard('Nathaflex',25)">
-
-        Apply for Nathaflex • AED 25
-
-      </button>
+      Everyday Nathaflex card.
 
       <br><br>
 
-      <button
-        class="modal-submit"
-        onclick="applyForCard('Platinum',30)">
+      <strong>
+        Platinum Card — AED 30
+      </strong>
 
-        Apply for Platinum • AED 30
+      <br>
 
-      </button>
+      Premium black Nathaflex Platinum card.
 
-    `;
+      <br><br>
+
+      Target delivery:
+      <strong>
+        3 working days
+      </strong>
+      after approval and processing.
+
+    </div>
+
+
+    <button
+      class="modal-submit"
+      onclick="openCardApplication('Nathaflex',25)">
+
+      Apply for Nathaflex • AED 25
+
+    </button>
+
+
+    <br><br>
+
+
+    <button
+      class="modal-submit"
+      onclick="openCardApplication('Platinum',30)">
+
+      Apply for Platinum • AED 30
+
+    </button>
+
+  `;
 
 
   openModal();
@@ -2421,38 +2894,286 @@ function openCard(){
 }
 
 
-/*
-  Your current database column list did NOT show
-  a card_applications table.
+function openCardApplication(
+  type,
+  fee
+){
 
-  Therefore this version does not pretend to save
-  card applications into a table that may not exist.
-*/
+  document
+    .getElementById(
+      "modalTitle"
+    )
+    .textContent =
+      type + " Card";
 
-async function applyForCard(type,fee){
+
+  document
+    .getElementById(
+      "modalBody"
+    )
+    .innerHTML = `
+
+    <div class="card-status">
+
+      <strong>
+        ${type} Card
+      </strong>
+
+      <br><br>
+
+      Card fee:
+      <strong>
+        AED ${fee}
+      </strong>
+
+      <br>
+
+      Target delivery:
+      <strong>
+        3 working days
+      </strong>
+      after approval and processing.
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Delivery address
+      </label>
+
+      <input
+        id="cardAddress"
+        type="text"
+        placeholder="Where should the card be delivered?">
+
+    </div>
+
+
+    <button
+      class="modal-submit"
+      onclick="submitCardApplication('${type}',${fee})">
+
+      Submit application
+
+    </button>
+
+  `;
+
+}
+
+
+async function submitCardApplication(
+  type,
+  fee
+){
+
+  const address =
+    document
+      .getElementById(
+        "cardAddress"
+      )
+      .value
+      .trim();
+
+
+  if(!address){
+
+    alert(
+      "Please enter a delivery address."
+    );
+
+    return;
+
+  }
+
+
+  const {data,error} =
+    await db
+      .from("card_applications")
+      .insert({
+
+        user_id:
+          currentUser.id,
+
+        card_type:
+          type,
+
+        fee:
+          fee,
+
+        status:
+          "pending",
+
+        delivery_address:
+          address
+
+      })
+      .select()
+      .single();
+
+
+  if(error){
+
+    console.error(
+      "Card application error:",
+      error
+    );
+
+    alert(
+      "We couldn't submit your card application. Please try again."
+    );
+
+    return;
+
+  }
+
+
+  closeModal();
+
+
+  await loadCardApplications();
+
 
   alert(
+    "Application submitted successfully.\n\n" +
     type +
-    " card selected.\n\n" +
-    "Price: AED " +
+    " Card — AED " +
     fee +
-    "\n" +
-    "Delivery: 3 working days.\n\n" +
-    "We'll connect card applications to the database after the card table is added."
+    "\n\n" +
+    "Your application is now pending review."
   );
 
 }
 
 
 /* =====================================================
-   MODAL CONTROL
+   LOAD CARD APPLICATIONS
+===================================================== */
+
+async function loadCardApplications(){
+
+  const box =
+    document
+      .getElementById(
+        "cardApplications"
+      );
+
+
+  const {data,error} =
+    await db
+      .from("card_applications")
+      .select("*")
+      .eq(
+        "user_id",
+        currentUser.id
+      )
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
+
+
+  if(error){
+
+    console.error(
+      "Card application load error:",
+      error
+    );
+
+    box.innerHTML =
+      `
+      <div class="empty">
+        Card applications could not be loaded.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  if(
+    !data ||
+    data.length === 0
+  ){
+
+    box.innerHTML =
+      `
+      <div class="empty">
+        No card applications yet.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    data
+      .map(
+        application => {
+
+          const date =
+            new Date(
+              application.created_at
+            ).toLocaleDateString();
+
+
+          return `
+
+          <div class="transaction">
+
+            <div>
+
+              <strong>
+                ${escapeHtml(
+                  application.card_type
+                )} Card
+              </strong>
+
+              <small>
+                Applied ${date}
+                • AED ${Number(
+                  application.fee
+                ).toFixed(0)}
+              </small>
+
+            </div>
+
+            <div class="amount">
+              ${escapeHtml(
+                application.status
+              )}
+            </div>
+
+          </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+
+/* =====================================================
+   MODAL
 ===================================================== */
 
 function openModal(){
 
   document
-    .getElementById("modal")
-    .classList.remove("hidden");
+    .getElementById(
+      "modal"
+    )
+    .classList
+    .remove("hidden");
 
 }
 
@@ -2460,8 +3181,11 @@ function openModal(){
 function closeModal(){
 
   document
-    .getElementById("modal")
-    .classList.add("hidden");
+    .getElementById(
+      "modal"
+    )
+    .classList
+    .add("hidden");
 
 }
 
@@ -2475,6 +3199,7 @@ async function logout(){
   await db.auth.signOut();
 
   currentUser = null;
+
   wallets = [];
 
   showLanding();
@@ -2483,17 +3208,37 @@ async function logout(){
 
 
 /* =====================================================
-   SECURITY / HTML ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHtml(value){
 
   return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 
 }
 
@@ -2506,6 +3251,7 @@ function escapeHtml(value){
 
   const {data} =
     await db.auth.getSession();
+
 
   if(data.session){
 
