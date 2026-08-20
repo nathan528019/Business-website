@@ -3,3376 +3,1270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>Nathaflex | Save. Borrow. Grow.</title>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
-  --bg:#f5f3ee;
-  --white:#ffffff;
-  --soft:#efede7;
-  --text:#17201b;
-  --muted:#68726c;
-  --line:#ddd9cf;
-  --green:#205b4b;
-  --green-dark:#143d33;
-  --gold:#b18a45;
-  --gold-light:#eee3c9;
-  --black:#111514;
-  --red:#a63d3d;
-  --shadow:0 8px 28px rgba(22,30,26,.07);
+--bg:#f5f3ee;
+--white:#fff;
+--soft:#efede7;
+--text:#17201b;
+--muted:#68726c;
+--line:#ddd9cf;
+--green:#205b4b;
+--green-dark:#143d33;
+--gold:#b18a45;
+--gold-light:#eee3c9;
+--black:#111514;
+--red:#a63d3d;
+--blue:#416d8d;
+--shadow:0 8px 28px rgba(22,30,26,.07);
 }
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:var(--bg);color:var(--text);min-height:100vh
 }
+button,input,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
 
-button,
-input,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
-
-
-/* =========================
-   LANDING
-========================= */
+.logo{font-size:23px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--gold)}
 
 .nav{
-  height:68px;
-  padding:0 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:rgba(245,243,238,.97);
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:20;
-  backdrop-filter:blur(10px);
+height:68px;padding:0 20px;display:flex;align-items:center;
+justify-content:space-between;background:rgba(245,243,238,.97);
+border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+backdrop-filter:blur(10px)
+}
+.nav-login,.logout{
+border:1px solid var(--line);background:white;color:var(--text);
+padding:9px 15px;border-radius:9px;font-weight:700
 }
 
-.logo{
-  font-size:23px;
-  font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:var(--gold);
-}
-
-.nav-login{
-  border:1px solid var(--line);
-  background:white;
-  color:var(--text);
-  padding:9px 15px;
-  border-radius:9px;
-  font-weight:700;
-}
-
-.hero{
-  max-width:1050px;
-  margin:auto;
-  padding:80px 22px 70px;
-  text-align:center;
-}
-
+.hero{max-width:1050px;margin:auto;padding:80px 22px 70px;text-align:center}
 .eyebrow{
-  display:inline-block;
-  padding:7px 13px;
-  border-radius:30px;
-  background:var(--gold-light);
-  color:#765b29;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:22px;
+display:inline-block;padding:7px 13px;border-radius:30px;background:var(--gold-light);
+color:#765b29;font-size:13px;font-weight:700;margin-bottom:22px
 }
-
-.hero h1{
-  font-size:clamp(40px,8vw,68px);
-  line-height:1.02;
-  letter-spacing:-3px;
+.hero h1{font-size:clamp(40px,8vw,68px);line-height:1.02;letter-spacing:-3px}
+.hero h1 span{color:var(--green)}
+.hero p{max-width:590px;margin:22px auto 0;color:var(--muted);font-size:17px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.primary,.secondary{
+border-radius:10px;padding:13px 21px;font-weight:800
 }
-
-.hero h1 span{
-  color:var(--green);
-}
-
-.hero p{
-  max-width:590px;
-  margin:22px auto 0;
-  color:var(--muted);
-  font-size:17px;
-}
-
-.actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-
-.primary,
-.secondary{
-  border-radius:10px;
-  padding:13px 21px;
-  font-weight:800;
-}
-
-.primary{
-  background:var(--green);
-  color:white;
-  border:0;
-}
-
-.secondary{
-  background:white;
-  color:var(--text);
-  border:1px solid var(--line);
-}
-
+.primary{background:var(--green);color:white;border:0}
+.secondary{background:white;color:var(--text);border:1px solid var(--line)}
 .features{
-  max-width:1050px;
-  margin:auto;
-  padding:10px 20px 70px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+max-width:1050px;margin:auto;padding:10px 20px 70px;
+display:grid;grid-template-columns:repeat(3,1fr);gap:15px
 }
-
 .feature{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:22px;
-  box-shadow:var(--shadow);
+background:white;border:1px solid var(--line);border-radius:15px;
+padding:22px;box-shadow:var(--shadow)
 }
+.feature-icon{font-size:21px;margin-bottom:13px}
+.feature h3{margin-bottom:6px}
+.feature p{color:var(--muted);font-size:14px;line-height:1.55}
+footer{padding:35px 20px;text-align:center;color:var(--muted);font-size:12px}
 
-.feature-icon{
-  font-size:21px;
-  margin-bottom:13px;
-}
-
-.feature h3{
-  margin-bottom:6px;
-}
-
-.feature p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.55;
-}
-
-footer{
-  padding:35px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-}
-
-
-/* =========================
-   AUTH
-========================= */
-
+/* AUTH */
 .auth-page{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
+min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px
 }
-
 .auth-card{
-  width:100%;
-  max-width:420px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:28px;
-  box-shadow:var(--shadow);
+width:100%;max-width:420px;background:white;border:1px solid var(--line);
+border-radius:18px;padding:28px;box-shadow:var(--shadow)
 }
-
-.back{
-  border:0;
-  background:none;
-  color:var(--muted);
-  margin-bottom:22px;
+.back{border:0;background:none;color:var(--muted);margin-bottom:22px}
+.auth-card h2{font-size:28px;margin-top:20px;margin-bottom:7px}
+.auth-sub{color:var(--muted);font-size:14px;margin-bottom:23px}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.field input,.field select{
+width:100%;border:1px solid var(--line);background:#faf9f6;
+border-radius:9px;padding:12px;outline:none
 }
-
-.auth-card h2{
-  font-size:28px;
-  margin-top:20px;
-  margin-bottom:7px;
+.field input:focus,.field select:focus{border-color:var(--green)}
+.auth-submit,.modal-submit{
+width:100%;border:0;border-radius:10px;padding:13px;
+background:var(--green);color:white;font-weight:800
 }
+.auth-submit:disabled,.modal-submit:disabled{opacity:.6}
+.switch-auth{text-align:center;margin-top:18px;color:var(--muted);font-size:14px}
+.switch-auth button{border:0;background:none;color:var(--green);font-weight:800}
 
-.auth-sub{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:23px;
-}
-
-.field{
-  margin-bottom:15px;
-}
-
-.field label{
-  display:block;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:6px;
-}
-
-.field input,
-.field select{
-  width:100%;
-  border:1px solid var(--line);
-  background:#faf9f6;
-  border-radius:9px;
-  padding:12px;
-  outline:none;
-}
-
-.field input:focus,
-.field select:focus{
-  border-color:var(--green);
-}
-
-.auth-submit{
-  width:100%;
-  border:0;
-  border-radius:10px;
-  padding:13px;
-  background:var(--green);
-  color:white;
-  font-weight:800;
-}
-
-.auth-submit:disabled{
-  opacity:.6;
-}
-
-.switch-auth{
-  text-align:center;
-  margin-top:18px;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.switch-auth button{
-  border:0;
-  background:none;
-  color:var(--green);
-  font-weight:800;
-}
-
-.message{
-  margin-bottom:15px;
-  padding:11px 12px;
-  border-radius:9px;
-  font-size:13px;
-  background:#eef4f0;
-  color:var(--green-dark);
-}
-
-.message.error{
-  background:#faeeee;
-  color:var(--red);
-}
-
-
-/* =========================
-   DASHBOARD
-========================= */
-
-.dashboard{
-  min-height:100vh;
-  background:var(--bg);
-}
-
+/* DASHBOARD */
+.dashboard{min-height:100vh;background:var(--bg)}
 .dashboard-nav{
-  height:68px;
-  padding:0 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:white;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:20;
+height:68px;padding:0 18px;display:flex;align-items:center;
+justify-content:space-between;background:white;border-bottom:1px solid var(--line);
+position:sticky;top:0;z-index:20
 }
-
-.user-area{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
+.user-area{display:flex;align-items:center;gap:10px}
 .user-dot{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--green);
-  color:white;
-  font-weight:800;
+width:35px;height:35px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;background:var(--green);
+color:white;font-weight:800
 }
+.dashboard-main{max-width:1050px;margin:auto;padding:28px 18px 70px}
+.welcome{margin-bottom:24px}
+.welcome small{color:var(--muted)}
+.welcome h1{font-size:28px;margin-top:3px}
 
-.logout{
-  border:1px solid var(--line);
-  background:white;
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:13px;
-  font-weight:700;
-}
-
-.dashboard-main{
-  max-width:1050px;
-  margin:auto;
-  padding:28px 18px 70px;
-}
-
-.welcome{
-  margin-bottom:24px;
-}
-
-.welcome small{
-  color:var(--muted);
-}
-
-.welcome h1{
-  font-size:28px;
-  margin-top:3px;
-}
-
-
-/* =========================
-   WALLETS
-========================= */
-
-.wallet-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin-bottom:25px;
-}
-
+/* WALLETS */
+.wallet-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:25px}
 .wallet{
-  border-radius:17px;
-  padding:21px;
-  color:white;
-  min-height:145px;
-  position:relative;
-  overflow:hidden;
+border-radius:17px;padding:21px;color:white;min-height:145px;
+position:relative;overflow:hidden
 }
-
-.wallet.aed{
-  background:var(--green-dark);
-}
-
-.wallet.ugx{
-  background:#292d2a;
-}
-
-.wallet-label{
-  font-size:13px;
-  opacity:.75;
-}
-
-.wallet-balance{
-  font-size:29px;
-  font-weight:900;
-  margin-top:12px;
-  letter-spacing:-1px;
-}
-
-.wallet-code{
-  position:absolute;
-  right:18px;
-  top:18px;
-  font-size:12px;
-  opacity:.65;
-}
-
-.wallet-actions{
-  display:flex;
-  gap:8px;
-  margin-top:17px;
-}
-
+.wallet.aed{background:var(--green-dark)}
+.wallet.ugx{background:#292d2a}
+.wallet-label{font-size:13px;opacity:.75}
+.wallet-balance{font-size:29px;font-weight:900;margin-top:12px;letter-spacing:-1px}
+.wallet-code{position:absolute;right:18px;top:18px;font-size:12px;opacity:.65}
+.wallet-actions{display:flex;gap:8px;margin-top:17px}
 .wallet-actions button{
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  color:white;
-  border-radius:7px;
-  padding:7px 10px;
-  font-size:12px;
+border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);
+color:white;border-radius:7px;padding:7px 10px;font-size:12px
 }
 
-
-/* =========================
-   ACTIONS
-========================= */
-
+/* ACTIONS */
 .section-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:25px 0 12px;
+display:flex;align-items:center;justify-content:space-between;margin:25px 0 12px
 }
-
-.section-title h2{
-  font-size:19px;
-}
-
-.action-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
+.section-title h2{font-size:19px}
+.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .action{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:17px 12px;
-  text-align:left;
-  box-shadow:var(--shadow);
+background:white;border:1px solid var(--line);border-radius:12px;
+padding:17px 12px;text-align:left;box-shadow:var(--shadow)
 }
+.action-icon{font-size:19px;margin-bottom:10px}
+.action strong{display:block;font-size:14px}
+.action span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
 
-.action-icon{
-  font-size:19px;
-  margin-bottom:10px;
-}
-
-.action strong{
-  display:block;
-  font-size:14px;
-}
-
-.action span{
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  margin-top:3px;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.cards-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
+/* CARDS */
+.cards-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .bank-card{
-  min-height:190px;
-  border-radius:18px;
-  padding:22px;
-  position:relative;
-  overflow:hidden;
-  color:white;
+min-height:190px;border-radius:18px;padding:22px;position:relative;
+overflow:hidden;color:white
 }
-
-.natha-card{
-  background:
-    linear-gradient(
-      135deg,
-      #c5a15f,
-      #8a6a32
-    );
-}
-
-.platinum-card{
-  background:
-    linear-gradient(
-      135deg,
-      #151817,
-      #303432
-    );
-}
-
-.card-brand{
-  font-size:18px;
-  font-weight:900;
-}
-
-.card-brand span{
-  color:#efd69a;
-}
-
-.card-type{
-  position:absolute;
-  right:20px;
-  top:22px;
-  font-size:11px;
-  letter-spacing:1px;
-  opacity:.75;
-}
-
+.natha-card{background:linear-gradient(135deg,#c5a15f,#8a6a32)}
+.platinum-card{background:linear-gradient(135deg,#151817,#303432)}
+.card-brand{font-size:18px;font-weight:900}
+.card-brand span{color:#efd69a}
+.card-type{position:absolute;right:20px;top:22px;font-size:11px;letter-spacing:1px;opacity:.75}
 .card-chip{
-  width:38px;
-  height:28px;
-  border-radius:6px;
-  background:
-    linear-gradient(
-      135deg,
-      #ead29b,
-      #b18a45
-    );
-  margin-top:38px;
+width:38px;height:28px;border-radius:6px;
+background:linear-gradient(135deg,#ead29b,#b18a45);margin-top:38px
 }
-
-.card-number{
-  margin-top:28px;
-  letter-spacing:2px;
-  font-size:13px;
-}
-
-.card-note{
-  position:absolute;
-  bottom:18px;
-  left:22px;
-  font-size:11px;
-  opacity:.75;
-}
-
+.card-number{margin-top:28px;letter-spacing:2px;font-size:13px}
+.card-note{position:absolute;bottom:18px;left:22px;font-size:11px;opacity:.75}
 .apply-card{
-  margin-top:12px;
-  width:100%;
-  padding:10px;
-  border:1px solid var(--line);
-  background:white;
-  border-radius:8px;
-  font-weight:700;
+margin-top:12px;width:100%;padding:10px;border:1px solid var(--line);
+background:white;border-radius:8px;font-weight:700
 }
 
-
-/* =========================
-   ACTIVITY
-========================= */
-
+/* ACTIVITY */
 .activity{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:14px;
-  overflow:hidden;
+background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden
 }
-
-.empty{
-  padding:35px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-}
-
+.empty{padding:35px 20px;text-align:center;color:var(--muted);font-size:14px}
 .transaction{
-  padding:14px 16px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+padding:14px 16px;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between;align-items:center;gap:10px
 }
+.transaction:last-child{border-bottom:0}
+.transaction strong{font-size:13px}
+.transaction small{display:block;color:var(--muted);margin-top:3px}
+.amount{font-weight:800;text-align:right}
 
-.transaction:last-child{
-  border-bottom:0;
-}
-
-.transaction strong{
-  font-size:13px;
-}
-
-.transaction small{
-  display:block;
-  color:var(--muted);
-  margin-top:3px;
-}
-
-.amount{
-  font-weight:800;
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
+/* MODAL */
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(10,15,13,.48);
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+position:fixed;inset:0;background:rgba(10,15,13,.48);z-index:100;
+display:flex;align-items:center;justify-content:center;padding:20px
 }
-
 .modal-card{
-  width:100%;
-  max-width:430px;
-  background:white;
-  border-radius:17px;
-  padding:24px;
-  max-height:90vh;
-  overflow:auto;
+width:100%;max-width:430px;background:white;border-radius:17px;padding:24px;
+max-height:90vh;overflow:auto
 }
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-}
-
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .close{
-  border:0;
-  background:var(--soft);
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  font-size:18px;
+border:0;background:var(--soft);width:32px;height:32px;border-radius:50%;font-size:18px
+}
+.loan-info,.card-status{
+background:var(--soft);border-radius:10px;padding:13px;margin-bottom:16px;
+font-size:13px;color:var(--muted);line-height:1.6
+}
+.loan-info strong,.card-status strong{color:var(--text)}
+
+/* NOTIFICATION */
+.toast-wrap{
+position:fixed;top:78px;right:18px;z-index:500;display:flex;
+flex-direction:column;gap:10px;width:min(370px,calc(100vw - 36px))
+}
+.toast{
+background:white;border:1px solid var(--line);border-left:4px solid var(--green);
+border-radius:12px;padding:15px 16px;box-shadow:0 12px 35px rgba(0,0,0,.12);
+animation:toastIn .25s ease
+}
+.toast.error{border-left-color:var(--red)}
+.toast-title{font-weight:800;font-size:14px;margin-bottom:4px}
+.toast-text{font-size:13px;color:var(--muted);line-height:1.45}
+@keyframes toastIn{
+from{opacity:0;transform:translateY(-8px)}
+to{opacity:1;transform:translateY(0)}
 }
 
-.modal-submit{
-  width:100%;
-  border:0;
-  background:var(--green);
-  color:white;
-  padding:12px;
-  border-radius:9px;
-  font-weight:800;
+/* ADMIN */
+.admin{
+min-height:100vh;background:var(--bg)
 }
-
-.loan-info{
-  background:var(--soft);
-  border-radius:10px;
-  padding:13px;
-  margin-bottom:16px;
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.6;
+.admin-nav{
+height:68px;background:white;border-bottom:1px solid var(--line);
+display:flex;align-items:center;justify-content:space-between;padding:0 18px;
+position:sticky;top:0;z-index:30
 }
-
-.loan-info strong{
-  color:var(--text);
+.admin-badge{
+background:var(--gold-light);color:#765b29;border-radius:20px;
+padding:6px 10px;font-size:11px;font-weight:800;margin-right:8px
 }
-
-.card-status{
-  background:var(--soft);
-  border-radius:10px;
-  padding:13px;
-  margin-bottom:15px;
-  font-size:13px;
-  line-height:1.6;
+.admin-main{max-width:1200px;margin:auto;padding:25px 18px 70px}
+.admin-heading{margin-bottom:22px}
+.admin-heading h1{font-size:29px}
+.admin-heading p{color:var(--muted);font-size:14px;margin-top:5px}
+.stat-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px
 }
-
-
-/* =========================
-   MOBILE
-========================= */
+.stat{
+background:white;border:1px solid var(--line);border-radius:14px;padding:18px;
+box-shadow:var(--shadow)
+}
+.stat-label{font-size:12px;color:var(--muted)}
+.stat-value{font-size:25px;font-weight:900;margin-top:8px}
+.admin-tabs{
+display:flex;gap:7px;overflow:auto;margin-bottom:15px;padding-bottom:3px
+}
+.admin-tab{
+white-space:nowrap;border:1px solid var(--line);background:white;
+padding:9px 13px;border-radius:9px;font-weight:700;font-size:13px
+}
+.admin-tab.active{background:var(--green);color:white;border-color:var(--green)}
+.admin-panel{
+background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden
+}
+.admin-panel-head{
+padding:17px;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between;align-items:center
+}
+.admin-panel-head h2{font-size:17px}
+.admin-row{
+padding:15px 17px;border-bottom:1px solid var(--line);
+display:flex;align-items:center;justify-content:space-between;gap:15px
+}
+.admin-row:last-child{border-bottom:0}
+.admin-info strong{font-size:14px}
+.admin-info small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.status{
+display:inline-flex;padding:5px 8px;border-radius:20px;
+font-size:11px;font-weight:800;background:var(--soft)
+}
+.status.pending{background:#f5ead3;color:#795b25}
+.status.approved{background:#e5f1ea;color:#245b43}
+.status.rejected{background:#f8e7e7;color:#963d3d}
+.admin-buttons{display:flex;gap:6px;margin-top:8px}
+.small-btn{
+border:1px solid var(--line);background:white;border-radius:7px;
+padding:6px 9px;font-size:11px;font-weight:700
+}
+.small-btn.approve{background:var(--green);color:white;border-color:var(--green)}
+.small-btn.reject{color:var(--red)}
+.back-customer{
+border:1px solid var(--line);background:white;border-radius:8px;
+padding:8px 11px;font-size:12px;font-weight:700
+}
 
 @media(max-width:700px){
-
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .wallet-grid{
-    grid-template-columns:1fr;
-  }
-
-  .action-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .cards-row{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:65px;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
-
+.features,.wallet-grid,.cards-row{grid-template-columns:1fr}
+.action-grid{grid-template-columns:1fr 1fr}
+.stat-grid{grid-template-columns:1fr 1fr}
+.hero{padding-top:65px}
+.hero h1{letter-spacing:-2px}
+.admin-row{align-items:flex-start}
 }
 </style>
 </head>
 
-
 <body>
 
+<div id="toastWrap" class="toast-wrap"></div>
 
-<!-- =====================================================
-     LANDING PAGE
-===================================================== -->
-
+<!-- LANDING -->
 <div id="landing">
-
 <nav class="nav">
-
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
-
-  <button
-    class="nav-login"
-    onclick="showAuth('login')">
-
-    Login
-
-  </button>
-
+<div class="logo">Natha<span>flex</span></div>
+<button class="nav-login" onclick="showAuth('login')">Login</button>
 </nav>
-
 
 <section class="hero">
-
-  <div class="eyebrow">
-    🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
-  </div>
-
-  <h1>
-    Your money.<br>
-    <span>Your flexibility.</span>
-  </h1>
-
-  <p>
-    Save when you want, apply for short-term loans,
-    and keep track of your money from one simple account.
-  </p>
-
-  <div class="actions">
-
-    <button
-      class="primary"
-      onclick="showAuth('signup')">
-
-      Get Started
-
-    </button>
-
-    <button
-      class="secondary"
-      onclick="showAuth('login')">
-
-      Login
-
-    </button>
-
-  </div>
-
+<div class="eyebrow">🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda</div>
+<h1>Your money.<br><span>Your flexibility.</span></h1>
+<p>Save when you want, apply for short-term loans, and keep track of your money from one simple account.</p>
+<div class="actions">
+<button class="primary" onclick="showAuth('signup')">Get Started</button>
+<button class="secondary" onclick="showAuth('login')">Login</button>
+</div>
 </section>
-
 
 <section class="features">
-
-  <div class="feature">
-
-    <div class="feature-icon">
-      ◎
-    </div>
-
-    <h3>Save</h3>
-
-    <p>
-      Keep track of your AED and UGX savings
-      from your personal Nathaflex account.
-    </p>
-
-  </div>
-
-
-  <div class="feature">
-
-    <div class="feature-icon">
-      ↗
-    </div>
-
-    <h3>Loans</h3>
-
-    <p>
-      Apply for a short-term loan of up to AED 3,000
-      with a 1 or 2 month repayment option.
-    </p>
-
-  </div>
-
-
-  <div class="feature">
-
-    <div class="feature-icon">
-      ▣
-    </div>
-
-    <h3>Cards</h3>
-
-    <p>
-      Apply for a Nathaflex or Platinum card
-      with delivery targeted within 3 working days.
-    </p>
-
-  </div>
-
+<div class="feature">
+<div class="feature-icon">◎</div>
+<h3>Save</h3>
+<p>Keep track of your AED and UGX savings from your personal Nathaflex account.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">↗</div>
+<h3>Loans</h3>
+<p>Apply for a short-term loan of up to AED 3,000 with a 1 or 2 month repayment option.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">▣</div>
+<h3>Cards</h3>
+<p>Apply for a Nathaflex or Platinum card with delivery targeted within 3 working days.</p>
+</div>
 </section>
 
-
-<footer>
-  Nathaflex • Save • Borrow • Grow
-  <br><br>
-  © 2026 Nathaflex
-</footer>
-
+<footer>Nathaflex • Save • Borrow • Grow<br><br>© 2026 Nathaflex</footer>
 </div>
 
-
-
-<!-- =====================================================
-     AUTH
-===================================================== -->
-
-<div
-  id="authPage"
-  class="auth-page hidden">
-
+<!-- AUTH -->
+<div id="authPage" class="auth-page hidden">
 <div class="auth-card">
+<button class="back" onclick="showLanding()">← Back</button>
+<div class="logo">Natha<span>flex</span></div>
+<h2 id="authTitle">Create your account</h2>
+<p class="auth-sub" id="authSubtitle">Open your Nathaflex account.</p>
 
-  <button
-    class="back"
-    onclick="showLanding()">
+<form id="authForm">
+<div id="nameField" class="field">
+<label>Full name</label>
+<input id="fullName" type="text" placeholder="Your full name">
+</div>
+<div id="phoneField" class="field">
+<label>Mobile number</label>
+<input id="phone" type="tel" placeholder="+971...">
+</div>
+<div class="field">
+<label>Email</label>
+<input id="email" type="email" placeholder="you@example.com" required>
+</div>
+<div class="field">
+<label>Password</label>
+<input id="password" type="password" placeholder="At least 6 characters" minlength="6" required>
+</div>
+<button class="auth-submit" id="authButton">Create Account</button>
+</form>
 
-    ← Back
-
-  </button>
-
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
-
-  <h2 id="authTitle">
-    Create your account
-  </h2>
-
-  <p
-    class="auth-sub"
-    id="authSubtitle">
-
-    Open your Nathaflex account.
-
-  </p>
-
-  <div
-    id="authMessage"
-    class="message hidden">
-  </div>
-
-
-  <form id="authForm">
-
-    <div
-      id="nameField"
-      class="field">
-
-      <label>
-        Full name
-      </label>
-
-      <input
-        id="fullName"
-        type="text"
-        placeholder="Your full name">
-
-    </div>
-
-
-    <div
-      id="phoneField"
-      class="field">
-
-      <label>
-        Mobile number
-      </label>
-
-      <input
-        id="phone"
-        type="tel"
-        placeholder="+971...">
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Email
-      </label>
-
-      <input
-        id="email"
-        type="email"
-        placeholder="you@example.com"
-        required>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Password
-      </label>
-
-      <input
-        id="password"
-        type="password"
-        placeholder="At least 6 characters"
-        minlength="6"
-        required>
-
-    </div>
-
-
-    <button
-      class="auth-submit"
-      id="authButton">
-
-      Create Account
-
-    </button>
-
-  </form>
-
-
-  <div class="switch-auth">
-
-    <span id="switchText">
-      Already have an account?
-    </span>
-
-    <button
-      id="switchButton"
-      onclick="toggleAuthMode()">
-
-      Login
-
-    </button>
-
-  </div>
-
+<div class="switch-auth">
+<span id="switchText">Already have an account?</span>
+<button id="switchButton" onclick="toggleAuthMode()">Login</button>
+</div>
+</div>
 </div>
 
-</div>
-
-
-
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
-
-<div
-  id="dashboard"
-  class="dashboard hidden">
-
+<!-- CUSTOMER DASHBOARD -->
+<div id="dashboard" class="dashboard hidden">
 <nav class="dashboard-nav">
-
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
-
-  <div class="user-area">
-
-    <div
-      class="user-dot"
-      id="userInitial">
-
-      N
-
-    </div>
-
-    <button
-      class="logout"
-      onclick="logout()">
-
-      Logout
-
-    </button>
-
-  </div>
-
+<div class="logo">Natha<span>flex</span></div>
+<div class="user-area">
+<div class="user-dot" id="userInitial">N</div>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
 </nav>
 
-
 <main class="dashboard-main">
-
-
 <section class="welcome">
-
-  <small>
-    Welcome back
-  </small>
-
-  <h1 id="customerName">
-    Nathaflex customer
-  </h1>
-
+<small>Welcome back</small>
+<h1 id="customerName">Nathaflex customer</h1>
 </section>
-
-
-<!-- WALLETS -->
 
 <section class="wallet-grid">
-
-
 <div class="wallet aed">
-
-  <div class="wallet-label">
-    UAE Dirham
-  </div>
-
-  <div
-    class="wallet-balance"
-    id="aedBalance">
-
-    AED 0.00
-
-  </div>
-
-  <div class="wallet-code">
-    AED
-  </div>
-
-  <div class="wallet-actions">
-
-    <button onclick="openDeposit('AED')">
-      Deposit
-    </button>
-
-    <button onclick="openWithdraw('AED')">
-      Withdraw
-    </button>
-
-  </div>
-
+<div class="wallet-label">UAE Dirham</div>
+<div class="wallet-balance" id="aedBalance">AED 0.00</div>
+<div class="wallet-code">AED</div>
+<div class="wallet-actions">
+<button onclick="openDeposit('AED')">Deposit</button>
+<button onclick="openWithdraw('AED')">Withdraw</button>
 </div>
-
+</div>
 
 <div class="wallet ugx">
-
-  <div class="wallet-label">
-    Ugandan Shilling
-  </div>
-
-  <div
-    class="wallet-balance"
-    id="ugxBalance">
-
-    UGX 0
-
-  </div>
-
-  <div class="wallet-code">
-    UGX
-  </div>
-
-  <div class="wallet-actions">
-
-    <button onclick="openDeposit('UGX')">
-      Deposit
-    </button>
-
-    <button onclick="openWithdraw('UGX')">
-      Withdraw
-    </button>
-
-  </div>
-
+<div class="wallet-label">Ugandan Shilling</div>
+<div class="wallet-balance" id="ugxBalance">UGX 0</div>
+<div class="wallet-code">UGX</div>
+<div class="wallet-actions">
+<button onclick="openDeposit('UGX')">Deposit</button>
+<button onclick="openWithdraw('UGX')">Withdraw</button>
 </div>
-
+</div>
 </section>
 
-
-
-<!-- QUICK ACTIONS -->
-
-<div class="section-title">
-
-  <h2>
-    Quick actions
-  </h2>
-
-</div>
-
+<div class="section-title"><h2>Quick actions</h2></div>
 
 <section class="action-grid">
-
-
-<button
-  class="action"
-  onclick="openLoan()">
-
-  <div class="action-icon">
-    ↗
-  </div>
-
-  <strong>
-    Loans
-  </strong>
-
-  <span>
-    Apply up to AED 3,000
-  </span>
-
+<button class="action" onclick="openLoan()">
+<div class="action-icon">↗</div><strong>Loans</strong><span>Apply up to AED 3,000</span>
 </button>
-
-
-<button
-  class="action"
-  onclick="openDeposit()">
-
-  <div class="action-icon">
-    +
-  </div>
-
-  <strong>
-    Deposit
-  </strong>
-
-  <span>
-    Add money
-  </span>
-
+<button class="action" onclick="openDeposit()">
+<div class="action-icon">+</div><strong>Deposit</strong><span>Add money</span>
 </button>
-
-
-<button
-  class="action"
-  onclick="openWithdraw()">
-
-  <div class="action-icon">
-    −
-  </div>
-
-  <strong>
-    Withdraw
-  </strong>
-
-  <span>
-    Request withdrawal
-  </span>
-
+<button class="action" onclick="openWithdraw()">
+<div class="action-icon">−</div><strong>Withdraw</strong><span>Request withdrawal</span>
 </button>
-
-
-<button
-  class="action"
-  onclick="openCard()">
-
-  <div class="action-icon">
-    ▣
-  </div>
-
-  <strong>
-    Cards
-  </strong>
-
-  <span>
-    Apply for a card
-  </span>
-
+<button class="action" onclick="openCard()">
+<div class="action-icon">▣</div><strong>Cards</strong><span>Apply for a card</span>
 </button>
-
 </section>
 
-
-
-<!-- CARDS -->
-
-<div class="section-title">
-
-  <h2>
-    Nathaflex cards
-  </h2>
-
-</div>
-
+<div class="section-title"><h2>Nathaflex cards</h2></div>
 
 <section class="cards-row">
-
+<div>
+<div class="bank-card natha-card">
+<div class="card-brand">Natha<span>flex</span></div>
+<div class="card-type">NATHAFLEX</div>
+<div class="card-chip"></div>
+<div class="card-number">•••• &nbsp; •••• &nbsp; •••• &nbsp; ••••</div>
+<div class="card-note">Your name • 3 working day target</div>
+</div>
+<button class="apply-card" onclick="openCardApplication('Nathaflex',25)">Apply • AED 25</button>
+</div>
 
 <div>
-
-  <div class="bank-card natha-card">
-
-    <div class="card-brand">
-      Natha<span>flex</span>
-    </div>
-
-    <div class="card-type">
-      NATHAFLEX
-    </div>
-
-    <div class="card-chip"></div>
-
-    <div class="card-number">
-      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-    </div>
-
-    <div class="card-note">
-      Your name • 3 working day target
-    </div>
-
-  </div>
-
-
-  <button
-    class="apply-card"
-    onclick="openCardApplication('Nathaflex',25)">
-
-    Apply • AED 25
-
-  </button>
-
+<div class="bank-card platinum-card">
+<div class="card-brand">Natha<span>flex</span></div>
+<div class="card-type">PLATINUM</div>
+<div class="card-chip"></div>
+<div class="card-number">•••• &nbsp; •••• &nbsp; •••• &nbsp; ••••</div>
+<div class="card-note">Platinum • 3 working day target</div>
 </div>
-
-
-<div>
-
-  <div class="bank-card platinum-card">
-
-    <div class="card-brand">
-      Natha<span>flex</span>
-    </div>
-
-    <div class="card-type">
-      PLATINUM
-    </div>
-
-    <div class="card-chip"></div>
-
-    <div class="card-number">
-      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-    </div>
-
-    <div class="card-note">
-      Platinum • 3 working day target
-    </div>
-
-  </div>
-
-
-  <button
-    class="apply-card"
-    onclick="openCardApplication('Platinum',30)">
-
-    Apply • AED 30
-
-  </button>
-
+<button class="apply-card" onclick="openCardApplication('Platinum',30)">Apply • AED 30</button>
 </div>
-
 </section>
 
-
-
-<!-- CARD APPLICATIONS -->
-
-<div class="section-title">
-
-  <h2>
-    My card applications
-  </h2>
-
-</div>
-
-
-<section
-  class="activity"
-  id="cardApplications">
-
-  <div class="empty">
-    No card applications yet.
-  </div>
-
+<div class="section-title"><h2>My card applications</h2></div>
+<section class="activity" id="cardApplications">
+<div class="empty">No card applications yet.</div>
 </section>
 
-
-
-<!-- ACTIVITY -->
-
-<div class="section-title">
-
-  <h2>
-    Recent activity
-  </h2>
-
-</div>
-
-
-<section
-  class="activity"
-  id="activity">
-
-  <div class="empty">
-    No transactions yet.
-  </div>
-
+<div class="section-title"><h2>Recent activity</h2></div>
+<section class="activity" id="activity">
+<div class="empty">No transactions yet.</div>
 </section>
-
-
 </main>
-
 </div>
 
+<!-- ADMIN -->
+<div id="admin" class="admin hidden">
+<nav class="admin-nav">
+<div class="logo">Natha<span>flex</span></div>
+<div>
+<span class="admin-badge">ADMIN</span>
+<button class="back-customer" onclick="showCustomerDashboard()">Customer view</button>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+</nav>
 
+<main class="admin-main">
+<div class="admin-heading">
+<h1>Admin dashboard</h1>
+<p>Manage Nathaflex customers, requests and account activity.</p>
+</div>
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<section class="stat-grid">
+<div class="stat"><div class="stat-label">Customers</div><div class="stat-value" id="statCustomers">0</div></div>
+<div class="stat"><div class="stat-label">Pending deposits</div><div class="stat-value" id="statDeposits">0</div></div>
+<div class="stat"><div class="stat-label">Pending loans</div><div class="stat-value" id="statLoans">0</div></div>
+<div class="stat"><div class="stat-label">Card applications</div><div class="stat-value" id="statCards">0</div></div>
+</section>
 
-<div
-  id="modal"
-  class="modal hidden">
+<div class="admin-tabs">
+<button class="admin-tab active" onclick="adminTab('overview',this)">Overview</button>
+<button class="admin-tab" onclick="adminTab('customers',this)">Customers</button>
+<button class="admin-tab" onclick="adminTab('deposits',this)">Deposits</button>
+<button class="admin-tab" onclick="adminTab('loans',this)">Loans</button>
+<button class="admin-tab" onclick="adminTab('cards',this)">Cards</button>
+<button class="admin-tab" onclick="adminTab('wallets',this)">Wallets</button>
+<button class="admin-tab" onclick="adminTab('transactions',this)">Transactions</button>
+</div>
 
+<div id="adminContent"></div>
+</main>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
 <div class="modal-card">
-
-  <div class="modal-head">
-
-    <h2 id="modalTitle">
-      Request
-    </h2>
-
-    <button
-      class="close"
-      onclick="closeModal()">
-
-      ×
-
-    </button>
-
-  </div>
-
-  <div id="modalBody"></div>
-
+<div class="modal-head">
+<h2 id="modalTitle">Request</h2>
+<button class="close" onclick="closeModal()">×</button>
 </div>
-
+<div id="modalBody"></div>
 </div>
-
-
+</div>
 
 <script>
+const SUPABASE_URL="https://uwcgfgztlcyydzsbjrrt.supabase.co";
+const SUPABASE_KEY="sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-/* =====================================================
-   SUPABASE
-===================================================== */
+let authMode="signup";
+let currentUser=null;
+let currentProfile=null;
+let wallets=[];
 
-const SUPABASE_URL =
-"https://uwcgfgztlcyydzsbjrrt.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
-
-const supabaseClient =
-window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-
-
-/* =====================================================
-   STATE
-===================================================== */
-
-let authMode = "signup";
-
-let currentUser = null;
-
-let wallets = [];
-
-
-/* =====================================================
-   PAGE CONTROL
-===================================================== */
-
-function showLanding(){
-
-  document
-    .getElementById("landing")
-    .classList
-    .remove("hidden");
-
-  document
-    .getElementById("authPage")
-    .classList
-    .add("hidden");
-
-  document
-    .getElementById("dashboard")
-    .classList
-    .add("hidden");
-
+/* =========================
+NOTIFICATIONS
+========================= */
+function notify(title,text,type="success"){
+const wrap=document.getElementById("toastWrap");
+const toast=document.createElement("div");
+toast.className="toast"+(type==="error"?" error":"");
+toast.innerHTML=
+`<div class="toast-title">${escapeHtml(title)}</div>
+<div class="toast-text">${escapeHtml(text)}</div>`;
+wrap.appendChild(toast);
+setTimeout(()=>toast.remove(),4500);
 }
 
-
+/* =========================
+PAGE CONTROL
+========================= */
+function hideAll(){
+["landing","authPage","dashboard","admin"].forEach(id=>{
+document.getElementById(id).classList.add("hidden");
+});
+}
+function showLanding(){hideAll();document.getElementById("landing").classList.remove("hidden")}
 function showAuth(mode){
-
-  authMode = mode;
-
-  document
-    .getElementById("landing")
-    .classList
-    .add("hidden");
-
-  document
-    .getElementById("dashboard")
-    .classList
-    .add("hidden");
-
-  document
-    .getElementById("authPage")
-    .classList
-    .remove("hidden");
-
-  updateAuthUI();
-
+authMode=mode;hideAll();
+document.getElementById("authPage").classList.remove("hidden");
+updateAuthUI();
 }
-
-
 function toggleAuthMode(){
-
-  authMode =
-    authMode === "signup"
-      ? "login"
-      : "signup";
-
-  updateAuthUI();
-
+authMode=authMode==="signup"?"login":"signup";
+updateAuthUI();
 }
-
-
 function updateAuthUI(){
-
-  const signup =
-    authMode === "signup";
-
-
-  document
-    .getElementById("authTitle")
-    .textContent =
-      signup
-        ? "Create your account"
-        : "Welcome back";
-
-
-  document
-    .getElementById("authSubtitle")
-    .textContent =
-      signup
-        ? "Open your Nathaflex account."
-        : "Login to your Nathaflex account.";
-
-
-  document
-    .getElementById("authButton")
-    .textContent =
-      signup
-        ? "Create Account"
-        : "Login";
-
-
-  document
-    .getElementById("nameField")
-    .classList
-    .toggle(
-      "hidden",
-      !signup
-    );
-
-
-  document
-    .getElementById("phoneField")
-    .classList
-    .toggle(
-      "hidden",
-      !signup
-    );
-
-
-  document
-    .getElementById("switchText")
-    .textContent =
-      signup
-        ? "Already have an account?"
-        : "Don't have an account?";
-
-
-  document
-    .getElementById("switchButton")
-    .textContent =
-      signup
-        ? "Login"
-        : "Create Account";
-
-
-  clearMessage();
-
+const signup=authMode==="signup";
+document.getElementById("authTitle").textContent=signup?"Create your account":"Welcome back";
+document.getElementById("authSubtitle").textContent=signup?"Open your Nathaflex account.":"Login to your Nathaflex account.";
+document.getElementById("authButton").textContent=signup?"Create Account":"Login";
+document.getElementById("nameField").classList.toggle("hidden",!signup);
+document.getElementById("phoneField").classList.toggle("hidden",!signup);
+document.getElementById("switchText").textContent=signup?"Already have an account?":"Don't have an account?";
+document.getElementById("switchButton").textContent=signup?"Login":"Create Account";
 }
 
+/* =========================
+AUTH
+========================= */
+document.getElementById("authForm").addEventListener("submit",async e=>{
+e.preventDefault();
 
-function showMessage(
-  text,
-  error=false
-){
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+const button=document.getElementById("authButton");
 
-  const box =
-    document
-      .getElementById("authMessage");
+button.disabled=true;
+button.textContent="Please wait...";
 
+try{
+if(authMode==="signup"){
+const fullName=document.getElementById("fullName").value.trim();
+const phone=document.getElementById("phone").value.trim();
 
-  box.textContent = text;
-
-  box.classList.remove("hidden");
-
-  box.classList.toggle(
-    "error",
-    error
-  );
-
+if(!fullName||!phone){
+notify("Missing information","Please enter your name and mobile number.","error");
+return;
 }
 
+const {data,error}=await supabaseClient.auth.signUp({
+email,password,
+options:{data:{full_name:fullName,phone:phone}}
+});
+if(error)throw error;
 
-function clearMessage(){
-
-  document
-    .getElementById("authMessage")
-    .classList
-    .add("hidden");
-
+if(data.session){
+currentUser=data.user;
+await loadDashboard();
+}else{
+notify("Account created","Check your email to verify your account, then log in.");
+authMode="login";
+updateAuthUI();
 }
-
-
-/* =====================================================
-   AUTHENTICATION
-===================================================== */
-
-document
-.getElementById("authForm")
-.addEventListener(
-  "submit",
-  async function(e){
-
-    e.preventDefault();
-
-    clearMessage();
-
-
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
-
-
-    const password =
-      document
-        .getElementById("password")
-        .value;
-
-
-    const button =
-      document
-        .getElementById("authButton");
-
-
-    button.disabled = true;
-
-    button.textContent =
-      "Please wait...";
-
-
-    try{
-
-      if(authMode === "signup"){
-
-        const fullName =
-          document
-            .getElementById("fullName")
-            .value
-            .trim();
-
-
-        const phone =
-          document
-            .getElementById("phone")
-            .value
-            .trim();
-
-
-        const {data,error} =
-          await supabaseClient.auth.signUp({
-
-            email,
-            password,
-
-            options:{
-              data:{
-                full_name:fullName,
-                phone:phone
-              }
-            }
-
-          });
-
-
-        if(error)
-          throw error;
-
-
-        if(data.session){
-
-          currentUser =
-            data.user;
-
-          await loadDashboard();
-
-        }else{
-
-          showMessage(
-            "Account created. Check your email to verify your account, then log in."
-          );
-
-          authMode = "login";
-
-          updateAuthUI();
-
-        }
-
-
-      }else{
-
-        const {data,error} =
-          await supabaseClient.auth
-            .signInWithPassword({
-
-              email,
-              password
-
-            });
-
-
-        if(error)
-          throw error;
-
-
-        currentUser =
-          data.user;
-
-        await loadDashboard();
-
-      }
-
-
-    }catch(error){
-
-      console.error(error);
-
-      showMessage(
-        error.message ||
-        "Something went wrong.",
-        true
-      );
-
-    }finally{
-
-      button.disabled = false;
-
-      updateAuthUI();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   SESSION
-===================================================== */
-
-supabaseClient.auth.onAuthStateChange(
-  async(event,session)=>{
-
-    if(session){
-
-      currentUser =
-        session.user;
-
-      if(
-        event === "SIGNED_IN"
-      ){
-
-        await loadDashboard();
-
-      }
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-async function loadDashboard(){
-
-  if(!currentUser)
-    return;
-
-
-  document
-    .getElementById("landing")
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById("authPage")
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById("dashboard")
-    .classList
-    .remove("hidden");
-
-
-  const profile =
-    await loadProfile();
-
-
-  const name =
-    profile?.full_name ||
-    currentUser
-      .user_metadata
-      ?.full_name ||
-    currentUser
-      .email
-      ?.split("@")[0] ||
-    "Nathaflex customer";
-
-
-  document
-    .getElementById("customerName")
-    .textContent =
-      name;
-
-
-  document
-    .getElementById("userInitial")
-    .textContent =
-      name
-        .charAt(0)
-        .toUpperCase();
-
-
-  await ensureWallets();
-
-  await loadWallets();
-
-  await loadTransactions();
-
-  await loadCardApplications();
-
+}else{
+const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+if(error)throw error;
+currentUser=data.user;
+await loadDashboard();
 }
+}catch(error){
+console.error(error);
+notify("Something went wrong",error.message||"Please try again.","error");
+}finally{
+button.disabled=false;
+updateAuthUI();
+}
+});
 
+supabaseClient.auth.onAuthStateChange(async(event,session)=>{
+if(session&&event==="SIGNED_IN"){
+currentUser=session.user;
+await loadDashboard();
+}
+});
 
-/* =====================================================
-   PROFILE
-===================================================== */
-
+/* =========================
+PROFILE
+========================= */
 async function loadProfile(){
-
-  const {data,error} =
-    await supabaseClient
-      .from("profiles")
-      .select("*")
-      .eq(
-        "id",
-        currentUser.id
-      )
-      .maybeSingle();
-
-
-  if(error){
-
-    console.error(
-      "Profile error:",
-      error
-    );
-
-    return null;
-
-  }
-
-
-  return data;
-
+const {data,error}=await supabaseClient.from("profiles")
+.select("*").eq("id",currentUser.id).maybeSingle();
+if(error){console.error(error);return null}
+return data;
 }
 
+/* =========================
+CUSTOMER DASHBOARD
+========================= */
+async function loadDashboard(){
+if(!currentUser)return;
 
-/* =====================================================
-   WALLETS
-===================================================== */
+currentProfile=await loadProfile();
 
+if(currentProfile?.role==="admin"){
+await loadAdminDashboard();
+return;
+}
+
+hideAll();
+document.getElementById("dashboard").classList.remove("hidden");
+
+const name=currentProfile?.full_name||
+currentUser.user_metadata?.full_name||
+currentUser.email?.split("@")[0]||
+"Nathaflex customer";
+
+document.getElementById("customerName").textContent=name;
+document.getElementById("userInitial").textContent=name.charAt(0).toUpperCase();
+
+await ensureWallets();
+await loadWallets();
+await loadTransactions();
+await loadCardApplications();
+}
+
+function showCustomerDashboard(){
+hideAll();
+document.getElementById("dashboard").classList.remove("hidden");
+}
+
+/* =========================
+WALLETS
+========================= */
 async function ensureWallets(){
+const {data,error}=await supabaseClient.from("wallets")
+.select("id,currency,balance").eq("user_id",currentUser.id);
+if(error){console.error(error);return}
 
-  const {data,error} =
-    await supabaseClient
-      .from("wallets")
-      .select(
-        "id,currency,balance"
-      )
-      .eq(
-        "user_id",
-        currentUser.id
-      );
+const currencies=(data||[]).map(w=>w.currency);
 
-
-  if(error){
-
-    console.error(
-      "Wallet error:",
-      error
-    );
-
-    return;
-
-  }
-
-
-  const existing =
-    data || [];
-
-
-  const currencies =
-    existing.map(
-      w => w.currency
-    );
-
-
-  const missing = [];
-
-
-  if(
-    !currencies.includes("AED")
-  ){
-
-    missing.push("AED");
-
-  }
-
-
-  if(
-    !currencies.includes("UGX")
-  ){
-
-    missing.push("UGX");
-
-  }
-
-
-  for(
-    const currency of missing
-  ){
-
-    const {error:insertError} =
-      await supabaseClient
-        .from("wallets")
-        .insert({
-
-          user_id:
-            currentUser.id,
-
-          currency:
-            currency,
-
-          balance:0
-
-        });
-
-
-    if(insertError){
-
-      console.error(
-        "Wallet creation error:",
-        insertError
-      );
-
-    }
-
-  }
-
+for(const currency of ["AED","UGX"]){
+if(!currencies.includes(currency)){
+const {error:insertError}=await supabaseClient.from("wallets").insert({
+user_id:currentUser.id,currency,balance:0
+});
+if(insertError)console.error(insertError);
 }
-
+}
+}
 
 async function loadWallets(){
+const {data,error}=await supabaseClient.from("wallets")
+.select("*").eq("user_id",currentUser.id);
+if(error){console.error(error);return}
 
-  const {data,error} =
-    await supabaseClient
-      .from("wallets")
-      .select("*")
-      .eq(
-        "user_id",
-        currentUser.id
-      );
+wallets=data||[];
 
+const aed=wallets.find(w=>w.currency==="AED");
+const ugx=wallets.find(w=>w.currency==="UGX");
 
-  if(error){
+document.getElementById("aedBalance").textContent=
+"AED "+Number(aed?.balance||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 
-    console.error(error);
-
-    return;
-
-  }
-
-
-  wallets =
-    data || [];
-
-
-  const aed =
-    wallets.find(
-      w => w.currency === "AED"
-    );
-
-
-  const ugx =
-    wallets.find(
-      w => w.currency === "UGX"
-    );
-
-
-  document
-    .getElementById("aedBalance")
-    .textContent =
-      "AED " +
-      Number(
-        aed?.balance || 0
-      ).toLocaleString(
-        undefined,
-        {
-          minimumFractionDigits:2,
-          maximumFractionDigits:2
-        }
-      );
-
-
-  document
-    .getElementById("ugxBalance")
-    .textContent =
-      "UGX " +
-      Number(
-        ugx?.balance || 0
-      ).toLocaleString();
-
+document.getElementById("ugxBalance").textContent=
+"UGX "+Number(ugx?.balance||0).toLocaleString();
 }
 
-
-/* =====================================================
-   TRANSACTIONS
-===================================================== */
-
+/* =========================
+TRANSACTIONS
+========================= */
 async function loadTransactions(){
+const box=document.getElementById("activity");
 
-  const activity =
-    document
-      .getElementById(
-        "activity"
-      );
+const {data,error}=await supabaseClient.from("transactions")
+.select("*").eq("user_id",currentUser.id)
+.order("created_at",{ascending:false}).limit(10);
 
-
-  const {data,error} =
-    await supabaseClient
-      .from("transactions")
-      .select("*")
-      .eq(
-        "user_id",
-        currentUser.id
-      )
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      )
-      .limit(10);
-
-
-  if(error){
-
-    console.error(error);
-
-    activity.innerHTML =
-      `
-      <div class="empty">
-        No transactions yet.
-      </div>
-      `;
-
-    return;
-
-  }
-
-
-  if(
-    !data ||
-    data.length === 0
-  ){
-
-    activity.innerHTML =
-      `
-      <div class="empty">
-        No transactions yet.
-      </div>
-      `;
-
-    return;
-
-  }
-
-
-  activity.innerHTML =
-    data.map(
-      transaction => `
-
-      <div class="transaction">
-
-        <div>
-
-          <strong>
-            ${escapeHtml(
-              transaction.type ||
-              "Transaction"
-            )}
-          </strong>
-
-          <small>
-            ${escapeHtml(
-              transaction.description ||
-              ""
-            )}
-          </small>
-
-        </div>
-
-        <div class="amount">
-
-          ${Number(
-            transaction.amount || 0
-          ).toLocaleString()}
-
-        </div>
-
-      </div>
-
-      `
-    ).join("");
-
+if(error||!data?.length){
+box.innerHTML=`<div class="empty">No transactions yet.</div>`;
+return;
 }
 
-
-/* =====================================================
-   DEPOSITS
-===================================================== */
-
-function openDeposit(
-  currency=null
-){
-
-  const selected =
-    currency || "AED";
-
-
-  document
-    .getElementById("modalTitle")
-    .textContent =
-      "Deposit money";
-
-
-  document
-    .getElementById("modalBody")
-    .innerHTML = `
-
-    <div class="field">
-
-      <label>
-        Currency
-      </label>
-
-      <select id="depositCurrency">
-
-        <option value="AED"
-          ${selected==="AED"?"selected":""}>
-          AED — UAE Dirham
-        </option>
-
-        <option value="UGX"
-          ${selected==="UGX"?"selected":""}>
-          UGX — Ugandan Shilling
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Amount
-      </label>
-
-      <input
-        id="depositAmount"
-        type="number"
-        min="1"
-        placeholder="Enter amount">
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Payment reference
-      </label>
-
-      <input
-        id="depositReference"
-        type="text"
-        placeholder="Payment reference">
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Payment method
-      </label>
-
-      <select id="depositMethod">
-
-        <option>
-          Bank transfer
-        </option>
-
-        <option>
-          Mobile money
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Note
-      </label>
-
-      <input
-        id="depositNote"
-        type="text"
-        placeholder="Optional">
-
-    </div>
-
-
-    <button
-      class="modal-submit"
-      onclick="submitDeposit()">
-
-      Submit deposit
-
-    </button>
-
-  `;
-
-
-  openModal();
-
+box.innerHTML=data.map(t=>`
+<div class="transaction">
+<div>
+<strong>${escapeHtml(t.type||"Transaction")}</strong>
+<small>${escapeHtml(t.description||"")}</small>
+</div>
+<div class="amount">${Number(t.amount||0).toLocaleString()}</div>
+</div>`).join("");
 }
 
+/* =========================
+DEPOSITS
+========================= */
+function openDeposit(currency=null){
+const selected=currency||"AED";
+
+document.getElementById("modalTitle").textContent="Deposit money";
+document.getElementById("modalBody").innerHTML=`
+<div class="field"><label>Currency</label>
+<select id="depositCurrency">
+<option value="AED" ${selected==="AED"?"selected":""}>AED — UAE Dirham</option>
+<option value="UGX" ${selected==="UGX"?"selected":""}>UGX — Ugandan Shilling</option>
+</select></div>
+
+<div class="field"><label>Amount</label>
+<input id="depositAmount" type="number" min="1" placeholder="Enter amount"></div>
+
+<div class="field"><label>Payment reference</label>
+<input id="depositReference" type="text" placeholder="Payment reference"></div>
+
+<div class="field"><label>Payment method</label>
+<select id="depositMethod">
+<option>Bank transfer</option>
+<option>Mobile money</option>
+</select></div>
+
+<div class="field"><label>Note</label>
+<input id="depositNote" type="text" placeholder="Optional"></div>
+
+<button class="modal-submit" onclick="submitDeposit()">Submit deposit</button>`;
+openModal();
+}
 
 async function submitDeposit(){
+const currency=document.getElementById("depositCurrency").value;
+const amount=Number(document.getElementById("depositAmount").value);
+const reference=document.getElementById("depositReference").value.trim();
+const method=document.getElementById("depositMethod").value;
+const note=document.getElementById("depositNote").value.trim();
 
-  const currency =
-    document
-      .getElementById(
-        "depositCurrency"
-      )
-      .value;
-
-
-  const amount =
-    Number(
-      document
-        .getElementById(
-          "depositAmount"
-        )
-        .value
-    );
-
-
-  const reference =
-    document
-      .getElementById(
-        "depositReference"
-      )
-      .value
-      .trim();
-
-
-  const method =
-    document
-      .getElementById(
-        "depositMethod"
-      )
-      .value;
-
-
-  const note =
-    document
-      .getElementById(
-        "depositNote"
-      )
-      .value
-      .trim();
-
-
-  if(
-    !amount ||
-    amount <= 0
-  ){
-
-    alert(
-      "Enter a valid amount."
-    );
-
-    return;
-
-  }
-
-
-  const wallet =
-    wallets.find(
-      w =>
-        w.currency ===
-        currency
-    );
-
-
-  if(!wallet){
-
-    alert(
-      "Wallet not found."
-    );
-
-    return;
-
-  }
-
-
-  const {error} =
-    await supabaseClient
-      .from("deposits")
-      .insert({
-
-        user_id:
-          currentUser.id,
-
-        wallet_id:
-          wallet.id,
-
-        currency:
-          currency,
-
-        amount:
-          amount,
-
-        payment_reference:
-          reference || null,
-
-        payment_method:
-          method,
-
-        customer_note:
-          note || null,
-
-        status:
-          "pending"
-
-      });
-
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      error.message
-    );
-
-    return;
-
-  }
-
-
-  closeModal();
-
-  alert(
-    "Deposit request submitted. It will appear after verification."
-  );
-
+if(!amount||amount<=0){
+notify("Invalid amount","Enter a valid deposit amount.","error");return;
 }
 
-
-/* =====================================================
-   WITHDRAWALS
-===================================================== */
-
-function openWithdraw(
-  currency=null
-){
-
-  const selected =
-    currency || "AED";
-
-
-  document
-    .getElementById("modalTitle")
-    .textContent =
-      "Withdraw money";
-
-
-  document
-    .getElementById("modalBody")
-    .innerHTML = `
-
-    <div class="field">
-
-      <label>
-        Currency
-      </label>
-
-      <select id="withdrawCurrency">
-
-        <option value="AED"
-          ${selected==="AED"?"selected":""}>
-          AED — UAE Dirham
-        </option>
-
-        <option value="UGX"
-          ${selected==="UGX"?"selected":""}>
-          UGX — Ugandan Shilling
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Amount
-      </label>
-
-      <input
-        id="withdrawAmount"
-        type="number"
-        min="1"
-        placeholder="Enter amount">
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Destination
-      </label>
-
-      <input
-        id="withdrawDestination"
-        type="text"
-        placeholder="Bank account or mobile number">
-
-    </div>
-
-
-    <button
-      class="modal-submit"
-      onclick="submitWithdraw()">
-
-      Request withdrawal
-
-    </button>
-
-  `;
-
-
-  openModal();
-
+const wallet=wallets.find(w=>w.currency===currency);
+if(!wallet){
+notify("Wallet unavailable","Your wallet could not be found.","error");return;
 }
 
+const {error}=await supabaseClient.from("deposits").insert({
+user_id:currentUser.id,wallet_id:wallet.id,currency,amount,
+payment_reference:reference||null,payment_method:method,
+customer_note:note||null,status:"pending"
+});
+
+if(error){
+notify("Deposit failed",error.message,"error");return;
+}
+
+closeModal();
+notify("Deposit submitted","Your deposit is waiting for verification.");
+}
+
+/* =========================
+WITHDRAWALS
+========================= */
+function openWithdraw(currency=null){
+const selected=currency||"AED";
+
+document.getElementById("modalTitle").textContent="Withdraw money";
+document.getElementById("modalBody").innerHTML=`
+<div class="field"><label>Currency</label>
+<select id="withdrawCurrency">
+<option value="AED" ${selected==="AED"?"selected":""}>AED — UAE Dirham</option>
+<option value="UGX" ${selected==="UGX"?"selected":""}>UGX — Ugandan Shilling</option>
+</select></div>
+
+<div class="field"><label>Amount</label>
+<input id="withdrawAmount" type="number" min="1" placeholder="Enter amount"></div>
+
+<div class="field"><label>Destination</label>
+<input id="withdrawDestination" type="text" placeholder="Bank account or mobile number"></div>
+
+<div class="card-status">
+Withdrawals will be reviewed before funds are released.
+</div>
+
+<button class="modal-submit" onclick="submitWithdraw()">Request withdrawal</button>`;
+openModal();
+}
 
 async function submitWithdraw(){
-
-  const currency =
-    document
-      .getElementById(
-        "withdrawCurrency"
-      )
-      .value;
-
-
-  const amount =
-    Number(
-      document
-        .getElementById(
-          "withdrawAmount"
-        )
-        .value
-    );
-
-
-  const destination =
-    document
-      .getElementById(
-        "withdrawDestination"
-      )
-      .value
-      .trim();
-
-
-  if(
-    !amount ||
-    amount <= 0
-  ){
-
-    alert(
-      "Enter a valid amount."
-    );
-
-    return;
-
-  }
-
-
-  if(!destination){
-
-    alert(
-      "Enter your destination."
-    );
-
-    return;
-
-  }
-
-
-  const wallet =
-    wallets.find(
-      w =>
-        w.currency ===
-        currency
-    );
-
-
-  if(!wallet){
-
-    alert(
-      "Wallet not found."
-    );
-
-    return;
-
-  }
-
-
-  if(
-    Number(wallet.balance) <
-    amount
-  ){
-
-    alert(
-      "You don't have enough money in this wallet."
-    );
-
-    return;
-
-  }
-
-
-  /*
-    Your Withdraws table columns have not
-    been confirmed yet.
-
-    We therefore do not silently write
-    incorrect data into that table.
-  */
-
-  alert(
-    "Withdrawal requests are being prepared. We need to match the exact Withdraws table columns before enabling this."
-  );
-
+notify("Withdrawal setup","The withdrawal table needs to be connected to its exact columns before we activate real withdrawal requests.","error");
 }
 
-
-/* =====================================================
-   LOANS
-===================================================== */
-
+/* =========================
+LOANS
+========================= */
 function openLoan(){
+document.getElementById("modalTitle").textContent="Apply for a loan";
+document.getElementById("modalBody").innerHTML=`
+<div class="loan-info">
+Loans are available up to <strong>AED 3,000</strong>.<br>
+Choose either a <strong>1 month</strong> or <strong>2 month</strong> repayment period.<br>
+Interest: <strong>10%</strong>.
+</div>
 
-  document
-    .getElementById("modalTitle")
-    .textContent =
-      "Apply for a loan";
+<div class="field"><label>Loan amount (AED)</label>
+<input id="loanAmount" type="number" min="1" max="3000"
+placeholder="Maximum AED 3,000" oninput="updateLoanTotal()"></div>
 
+<div class="field"><label>Repayment period</label>
+<select id="loanTerm" onchange="updateLoanTotal()">
+<option value="1">1 month</option>
+<option value="2">2 months</option>
+</select></div>
 
-  document
-    .getElementById("modalBody")
-    .innerHTML = `
+<div class="loan-info">
+Estimated total repayment: <strong id="loanTotal">AED 0.00</strong>
+</div>
 
-    <div class="loan-info">
+<div class="field"><label>Application note</label>
+<input id="loanNote" type="text" placeholder="Optional"></div>
 
-      Loans are available up to
-      <strong>AED 3,000</strong>.
-
-      <br>
-
-      Choose either a
-      <strong>1 month</strong>
-      or
-      <strong>2 month</strong>
-      repayment period.
-
-      <br>
-
-      Interest:
-      <strong>10%</strong>.
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Loan amount (AED)
-      </label>
-
-      <input
-        id="loanAmount"
-        type="number"
-        min="1"
-        max="3000"
-        placeholder="Maximum AED 3,000"
-        oninput="updateLoanTotal()">
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Repayment period
-      </label>
-
-      <select
-        id="loanTerm"
-        onchange="updateLoanTotal()">
-
-        <option value="1">
-          1 month
-        </option>
-
-        <option value="2">
-          2 months
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="loan-info">
-
-      Estimated total repayment:
-
-      <strong id="loanTotal">
-        AED 0.00
-      </strong>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Application note
-      </label>
-
-      <input
-        id="loanNote"
-        type="text"
-        placeholder="Optional">
-
-    </div>
-
-
-    <button
-      class="modal-submit"
-      onclick="submitLoan()">
-
-      Submit application
-
-    </button>
-
-  `;
-
-
-  openModal();
-
+<button class="modal-submit" onclick="submitLoan()">Submit application</button>`;
+openModal();
 }
-
 
 function updateLoanTotal(){
-
-  const amount =
-    Number(
-      document
-        .getElementById(
-          "loanAmount"
-        )
-        ?.value || 0
-    );
-
-
-  const total =
-    amount +
-    amount * .10;
-
-
-  const output =
-    document
-      .getElementById(
-        "loanTotal"
-      );
-
-
-  if(output){
-
-    output.textContent =
-      "AED " +
-      total.toLocaleString(
-        undefined,
-        {
-          minimumFractionDigits:2,
-          maximumFractionDigits:2
-        }
-      );
-
-  }
-
+const amount=Number(document.getElementById("loanAmount")?.value||0);
+const output=document.getElementById("loanTotal");
+if(output)output.textContent="AED "+(amount+amount*.10).toLocaleString(undefined,{
+minimumFractionDigits:2,maximumFractionDigits:2
+});
 }
-
 
 async function submitLoan(){
+const amount=Number(document.getElementById("loanAmount").value);
+const term=Number(document.getElementById("loanTerm").value);
+const note=document.getElementById("loanNote").value.trim();
 
-  const amount =
-    Number(
-      document
-        .getElementById(
-          "loanAmount"
-        )
-        .value
-    );
-
-
-  const term =
-    Number(
-      document
-        .getElementById(
-          "loanTerm"
-        )
-        .value
-    );
-
-
-  const note =
-    document
-      .getElementById(
-        "loanNote"
-      )
-      .value
-      .trim();
-
-
-  if(
-    !amount ||
-    amount < 1 ||
-    amount > 3000
-  ){
-
-    alert(
-      "Loan amount must be between AED 1 and AED 3,000."
-    );
-
-    return;
-
-  }
-
-
-  const applicationNote =
-    (note || "") +
-    " | Repayment term: " +
-    term +
-    " month(s)";
-
-
-  const {error} =
-    await supabaseClient
-      .from("loans")
-      .insert({
-
-        user_id:
-          currentUser.id,
-
-        currency:
-          "AED",
-
-        requested_amount:
-          amount,
-
-        interest_rate:
-          10,
-
-        status:
-          "pending",
-
-        application_note:
-          applicationNote
-
-      });
-
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      error.message
-    );
-
-    return;
-
-  }
-
-
-  closeModal();
-
-  alert(
-    "Loan application submitted successfully."
-  );
-
+if(!amount||amount<1||amount>3000){
+notify("Invalid loan amount","Loan amount must be between AED 1 and AED 3,000.","error");
+return;
 }
 
+const applicationNote=(note||"")+" | Repayment term: "+term+" month(s)";
 
-/* =====================================================
-   CARD MENU
-===================================================== */
+const {error}=await supabaseClient.from("loans").insert({
+user_id:currentUser.id,currency:"AED",requested_amount:amount,
+interest_rate:10,status:"pending",application_note:applicationNote
+});
 
+if(error){
+notify("Loan application failed",error.message,"error");return;
+}
+
+closeModal();
+notify("Loan application submitted","Your application is now waiting for review.");
+}
+
+/* =========================
+CARDS
+========================= */
 function openCard(){
-
-  document
-    .getElementById("modalTitle")
-    .textContent =
-      "Nathaflex cards";
-
-
-  document
-    .getElementById("modalBody")
-    .innerHTML = `
-
-    <div class="card-status">
-
-      <strong>
-        Nathaflex Card — AED 25
-      </strong>
-
-      <br>
-
-      Everyday Nathaflex card.
-
-      <br><br>
-
-      <strong>
-        Platinum Card — AED 30
-      </strong>
-
-      <br>
-
-      Premium black Nathaflex Platinum card.
-
-      <br><br>
-
-      Target delivery:
-      <strong>
-        3 working days
-      </strong>
-      after approval and processing.
-
-    </div>
-
-
-    <button
-      class="modal-submit"
-      onclick="openCardApplication('Nathaflex',25)">
-
-      Apply for Nathaflex • AED 25
-
-    </button>
-
-
-    <br><br>
-
-
-    <button
-      class="modal-submit"
-      onclick="openCardApplication('Platinum',30)">
-
-      Apply for Platinum • AED 30
-
-    </button>
-
-  `;
-
-
-  openModal();
-
+document.getElementById("modalTitle").textContent="Nathaflex cards";
+document.getElementById("modalBody").innerHTML=`
+<div class="card-status">
+<strong>Nathaflex Card — AED 25</strong><br>
+Everyday Nathaflex card.<br><br>
+<strong>Platinum Card — AED 30</strong><br>
+Premium black Nathaflex Platinum card.<br><br>
+Target delivery: <strong>3 working days</strong> after approval and processing.
+</div>
+<button class="modal-submit" onclick="openCardApplication('Nathaflex',25)">Apply for Nathaflex • AED 25</button>
+<br><br>
+<button class="modal-submit" onclick="openCardApplication('Platinum',30)">Apply for Platinum • AED 30</button>`;
+openModal();
 }
 
-
-/* =====================================================
-   CARD APPLICATION FORM
-===================================================== */
-
-function openCardApplication(
-  type,
-  fee
-){
-
-  document
-    .getElementById("modalTitle")
-    .textContent =
-      type + " Card";
-
-
-  document
-    .getElementById("modalBody")
-    .innerHTML = `
-
-    <div class="card-status">
-
-      <strong>
-        ${type} Card
-      </strong>
-
-      <br><br>
-
-      Price:
-      <strong>
-        AED ${fee}
-      </strong>
-
-      <br>
-
-      Delivery:
-      <strong>
-        3 working days
-      </strong>
-
-      after approval and processing.
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Delivery address
-      </label>
-
-      <input
-        id="cardAddress"
-        type="text"
-        placeholder="Where should the card be delivered?">
-
-    </div>
-
-
-    <button
-      class="modal-submit"
-      onclick="submitCardApplication('${type}',${fee})">
-
-      Submit application
-
-    </button>
-
-  `;
-
-
-  openModal();
-
+function openCardApplication(type,fee){
+document.getElementById("modalTitle").textContent=type+" Card";
+document.getElementById("modalBody").innerHTML=`
+<div class="card-status">
+<strong>${escapeHtml(type)} Card</strong><br><br>
+Price: <strong>AED ${fee}</strong><br>
+Delivery: <strong>3 working days</strong> after approval and processing.
+</div>
+<div class="field"><label>Delivery address</label>
+<input id="cardAddress" type="text" placeholder="Where should the card be delivered?"></div>
+<button class="modal-submit" onclick="submitCardApplication('${type}',${fee})">Submit application</button>`;
+openModal();
 }
 
-
-/* =====================================================
-   SUBMIT CARD APPLICATION
-===================================================== */
-
-async function submitCardApplication(
-  type,
-  fee
-){
-
-  try{
-
-    if(!currentUser){
-
-      alert(
-        "Please log in again before applying."
-      );
-
-      return;
-
-    }
-
-
-    const addressInput =
-      document.getElementById(
-        "cardAddress"
-      );
-
-
-    if(!addressInput){
-
-      alert(
-        "Delivery address field could not be found."
-      );
-
-      return;
-
-    }
-
-
-    const address =
-      addressInput.value.trim();
-
-
-    if(!address){
-
-      alert(
-        "Please enter a delivery address."
-      );
-
-      return;
-
-    }
-
-
-    const button =
-      document.querySelector(
-        "#modalBody .modal-submit"
-      );
-
-
-    if(button){
-
-      button.disabled = true;
-
-      button.textContent =
-        "Submitting...";
-
-    }
-
-
-    const {data,error} =
-      await supabaseClient
-        .from("card_applications")
-        .insert({
-
-          user_id:
-            currentUser.id,
-
-          card_type:
-            type,
-
-          fee:
-            fee,
-
-          status:
-            "pending",
-
-          delivery_address:
-            address
-
-        })
-        .select()
-        .single();
-
-
-    if(error){
-
-      console.error(
-        "CARD APPLICATION ERROR:",
-        error
-      );
-
-      if(button){
-
-        button.disabled = false;
-
-        button.textContent =
-          "Submit application";
-
-      }
-
-
-      alert(
-        "Application could not be submitted.\n\n" +
-        error.message
-      );
-
-      return;
-
-    }
-
-
-    console.log(
-      "Card application created:",
-      data
-    );
-
-
-    closeModal();
-
-
-    await loadCardApplications();
-
-
-    alert(
-      "Application submitted successfully!\n\n" +
-      type +
-      " Card\n" +
-      "Price: AED " +
-      fee +
-      "\n" +
-      "Status: Pending\n\n" +
-      "Target delivery: 3 working days after approval and processing."
-    );
-
-
-  }catch(error){
-
-    console.error(
-      "Unexpected card error:",
-      error
-    );
-
-    alert(
-      "Something went wrong while submitting the application."
-    );
-
-  }
-
+async function submitCardApplication(type,fee){
+if(!currentUser){
+notify("Session expired","Please log in again.","error");return;
 }
 
+const address=document.getElementById("cardAddress")?.value.trim();
+if(!address){
+notify("Address required","Please enter a delivery address.","error");return;
+}
 
-/* =====================================================
-   LOAD CARD APPLICATIONS
-===================================================== */
+const button=document.querySelector("#modalBody .modal-submit");
+if(button){button.disabled=true;button.textContent="Submitting..."}
+
+const {error}=await supabaseClient.from("card_applications").insert({
+user_id:currentUser.id,card_type:type,fee,status:"pending",delivery_address:address
+});
+
+if(error){
+if(button){button.disabled=false;button.textContent="Submit application"}
+notify("Application failed",error.message,"error");return;
+}
+
+closeModal();
+await loadCardApplications();
+notify("Application submitted",
+`${type} Card application received. Target delivery is 3 working days after approval and processing.`);
+}
 
 async function loadCardApplications(){
+const box=document.getElementById("cardApplications");
+const {data,error}=await supabaseClient.from("card_applications")
+.select("*").eq("user_id",currentUser.id)
+.order("created_at",{ascending:false});
 
-  const box =
-    document
-      .getElementById(
-        "cardApplications"
-      );
-
-
-  if(!currentUser){
-
-    return;
-
-  }
-
-
-  const {data,error} =
-    await supabaseClient
-      .from("card_applications")
-      .select("*")
-      .eq(
-        "user_id",
-        currentUser.id
-      )
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
-
-
-  if(error){
-
-    console.error(
-      "Card applications error:",
-      error
-    );
-
-
-    box.innerHTML =
-      `
-      <div class="empty">
-        No card applications yet.
-      </div>
-      `;
-
-    return;
-
-  }
-
-
-  if(
-    !data ||
-    data.length === 0
-  ){
-
-    box.innerHTML =
-      `
-      <div class="empty">
-        No card applications yet.
-      </div>
-      `;
-
-    return;
-
-  }
-
-
-  box.innerHTML =
-    data
-      .map(
-        application => {
-
-          const date =
-            application.created_at
-              ? new Date(
-                  application.created_at
-                ).toLocaleDateString()
-              : "";
-
-
-          return `
-
-          <div class="transaction">
-
-            <div>
-
-              <strong>
-                ${escapeHtml(
-                  application.card_type
-                )} Card
-              </strong>
-
-              <small>
-                AED ${Number(
-                  application.fee || 0
-                ).toFixed(0)}
-                • Applied ${date}
-              </small>
-
-            </div>
-
-            <div class="amount">
-
-              ${escapeHtml(
-                application.status ||
-                "pending"
-              )}
-
-            </div>
-
-          </div>
-
-          `;
-
-        }
-      )
-      .join("");
-
+if(error||!data?.length){
+box.innerHTML=`<div class="empty">No card applications yet.</div>`;return;
 }
 
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-function openModal(){
-
-  document
-    .getElementById("modal")
-    .classList
-    .remove("hidden");
-
+box.innerHTML=data.map(a=>`
+<div class="transaction">
+<div>
+<strong>${escapeHtml(a.card_type)} Card</strong>
+<small>AED ${Number(a.fee||0).toFixed(0)} • ${new Date(a.created_at).toLocaleDateString()}</small>
+</div>
+<div class="amount"><span class="status ${escapeHtml(a.status||"pending")}">${escapeHtml(a.status||"pending")}</span></div>
+</div>`).join("");
 }
 
+/* =========================
+MODAL
+========================= */
+function openModal(){document.getElementById("modal").classList.remove("hidden")}
+function closeModal(){document.getElementById("modal").classList.add("hidden")}
 
-function closeModal(){
-
-  document
-    .getElementById("modal")
-    .classList
-    .add("hidden");
-
+/* =========================
+ADMIN DASHBOARD
+========================= */
+async function loadAdminDashboard(){
+hideAll();
+document.getElementById("admin").classList.remove("hidden");
+await loadAdminOverview();
 }
 
+async function loadAdminOverview(){
+const [profiles,deposits,loans,cards]=await Promise.all([
+supabaseClient.from("profiles").select("id,full_name,phone,country,role,created_at"),
+supabaseClient.from("deposits").select("id,status"),
+supabaseClient.from("loans").select("id,status"),
+supabaseClient.from("card_applications").select("id,status")
+]);
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+const p=profiles.data||[];
+const d=deposits.data||[];
+const l=loans.data||[];
+const c=cards.data||[];
 
+document.getElementById("statCustomers").textContent=p.length;
+document.getElementById("statDeposits").textContent=d.filter(x=>x.status==="pending").length;
+document.getElementById("statLoans").textContent=l.filter(x=>x.status==="pending").length;
+document.getElementById("statCards").textContent=c.filter(x=>x.status==="pending").length;
+
+adminTab("overview",document.querySelector(".admin-tab"));
+}
+
+function adminTab(tab,button){
+document.querySelectorAll(".admin-tab").forEach(x=>x.classList.remove("active"));
+if(button)button.classList.add("active");
+
+const content=document.getElementById("adminContent");
+
+if(tab==="overview"){
+content.innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Admin overview</h2></div>
+<div class="empty">
+Choose Customers, Deposits, Loans, Cards, Wallets or Transactions above to manage your Nathaflex system.
+</div>
+</div>`;
+return;
+}
+
+if(tab==="customers")loadAdminCustomers();
+if(tab==="deposits")loadAdminDeposits();
+if(tab==="loans")loadAdminLoans();
+if(tab==="cards")loadAdminCards();
+if(tab==="wallets")loadAdminWallets();
+if(tab==="transactions")loadAdminTransactions();
+}
+
+/* CUSTOMERS */
+async function loadAdminCustomers(){
+const {data,error}=await supabaseClient.from("profiles")
+.select("id,full_name,phone,country,role,created_at")
+.order("created_at",{ascending:false});
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Customers</h2></div>
+${data?.length?data.map(p=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>${escapeHtml(p.full_name||"Unnamed customer")}</strong>
+<small>${escapeHtml(p.phone||"No phone")} • ${escapeHtml(p.country||"")}</small>
+<small>Role: ${escapeHtml(p.role||"customer")}</small>
+</div>
+<div><span class="status">${new Date(p.created_at).toLocaleDateString()}</span></div>
+</div>`).join(""):`<div class="empty">No customers found.</div>`}
+</div>`;
+}
+
+/* DEPOSITS */
+async function loadAdminDeposits(){
+const {data,error}=await supabaseClient.from("deposits")
+.select("*").order("created_at",{ascending:false});
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Deposit requests</h2></div>
+${data?.length?data.map(d=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>${escapeHtml(d.currency)} ${Number(d.amount||0).toLocaleString()}</strong>
+<small>Reference: ${escapeHtml(d.payment_reference||"None")}</small>
+<small>${new Date(d.created_at).toLocaleString()}</small>
+</div>
+<div>
+<span class="status ${escapeHtml(d.status||"pending")}">${escapeHtml(d.status||"pending")}</span>
+${d.status==="pending"?`
+<div class="admin-buttons">
+<button class="small-btn approve" onclick="updateDeposit('${d.id}','approved')">Approve</button>
+<button class="small-btn reject" onclick="updateDeposit('${d.id}','rejected')">Reject</button>
+</div>`:""}
+</div>
+</div>`).join(""):`<div class="empty">No deposits found.</div>`}
+</div>`;
+}
+
+async function updateDeposit(id,status){
+const {error}=await supabaseClient.from("deposits").update({
+status,verified_by:currentUser.id,verified_at:new Date().toISOString()
+}).eq("id",id);
+
+if(error){notify("Update failed",error.message,"error");return}
+notify("Deposit updated",`Deposit marked ${status}.`);
+await loadAdminDeposits();
+await loadAdminOverview();
+}
+
+/* LOANS */
+async function loadAdminLoans(){
+const {data,error}=await supabaseClient.from("loans")
+.select("*").order("created_at",{ascending:false});
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Loan applications</h2></div>
+${data?.length?data.map(l=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>AED ${Number(l.requested_amount||0).toLocaleString()}</strong>
+<small>Requested • Interest ${Number(l.interest_rate||0)}%</small>
+<small>${escapeHtml(l.application_note||"")}</small>
+</div>
+<div>
+<span class="status ${escapeHtml(l.status||"pending")}">${escapeHtml(l.status||"pending")}</span>
+${l.status==="pending"?`
+<div class="admin-buttons">
+<button class="small-btn approve" onclick="updateLoan('${l.id}','approved',${Number(l.requested_amount||0)})">Approve</button>
+<button class="small-btn reject" onclick="updateLoan('${l.id}','rejected',0)">Reject</button>
+</div>`:""}
+</div>
+</div>`).join(""):`<div class="empty">No loan applications found.</div>`}
+</div>`;
+}
+
+async function updateLoan(id,status,amount){
+const update={status,approved_by:currentUser.id,approved_at:new Date().toISOString()};
+if(status==="approved"){
+update.approved_amount=amount;
+update.outstanding_amount=amount+(amount*.10);
+}
+const {error}=await supabaseClient.from("loans").update(update).eq("id",id);
+if(error){notify("Update failed",error.message,"error");return}
+notify("Loan updated",`Loan marked ${status}.`);
+await loadAdminLoans();
+await loadAdminOverview();
+}
+
+/* CARDS */
+async function loadAdminCards(){
+const {data,error}=await supabaseClient.from("card_applications")
+.select("*").order("created_at",{ascending:false});
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Card applications</h2></div>
+${data?.length?data.map(c=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>${escapeHtml(c.card_type)} Card • AED ${Number(c.fee||0)}</strong>
+<small>Address: ${escapeHtml(c.delivery_address||"Not provided")}</small>
+<small>${new Date(c.created_at).toLocaleString()}</small>
+</div>
+<div>
+<span class="status ${escapeHtml(c.status||"pending")}">${escapeHtml(c.status||"pending")}</span>
+${c.status==="pending"?`
+<div class="admin-buttons">
+<button class="small-btn approve" onclick="updateCard('${c.id}','approved')">Approve</button>
+<button class="small-btn reject" onclick="updateCard('${c.id}','rejected')">Reject</button>
+</div>`:""}
+</div>
+</div>`).join(""):`<div class="empty">No card applications found.</div>`}
+</div>`;
+}
+
+async function updateCard(id,status){
+const {error}=await supabaseClient.from("card_applications")
+.update({status}).eq("id",id);
+if(error){notify("Update failed",error.message,"error");return}
+notify("Card application updated",`Card application marked ${status}.`);
+await loadAdminCards();
+await loadAdminOverview();
+}
+
+/* WALLETS */
+async function loadAdminWallets(){
+const {data,error}=await supabaseClient.from("wallets")
+.select("*").order("created_at",{ascending:false});
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Wallets</h2></div>
+${data?.length?data.map(w=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>${escapeHtml(w.currency)} wallet</strong>
+<small>User: ${escapeHtml(w.user_id)}</small>
+</div>
+<div><strong>${Number(w.balance||0).toLocaleString()}</strong></div>
+</div>`).join(""):`<div class="empty">No wallets found.</div>`}
+</div>`;
+}
+
+/* TRANSACTIONS */
+async function loadAdminTransactions(){
+const {data,error}=await supabaseClient.from("transactions")
+.select("*").order("created_at",{ascending:false}).limit(100);
+
+if(error){adminError(error);return}
+
+document.getElementById("adminContent").innerHTML=`
+<div class="admin-panel">
+<div class="admin-panel-head"><h2>Transactions</h2></div>
+${data?.length?data.map(t=>`
+<div class="admin-row">
+<div class="admin-info">
+<strong>${escapeHtml(t.type||"Transaction")}</strong>
+<small>User: ${escapeHtml(t.user_id)}</small>
+<small>${escapeHtml(t.description||"")} • ${new Date(t.created_at).toLocaleString()}</small>
+</div>
+<div><strong>${Number(t.amount||0).toLocaleString()}</strong></div>
+</div>`).join(""):`<div class="empty">No transactions found.</div>`}
+</div>`;
+}
+
+function adminError(error){
+document.getElementById("adminContent").innerHTML=
+`<div class="admin-panel"><div class="empty">Could not load this section.<br><br>${escapeHtml(error.message)}</div></div>`;
+}
+
+/* =========================
+LOGOUT
+========================= */
 async function logout(){
-
-  await supabaseClient
-    .auth
-    .signOut();
-
-  currentUser = null;
-
-  wallets = [];
-
-  showLanding();
-
+await supabaseClient.auth.signOut();
+currentUser=null;
+currentProfile=null;
+wallets=[];
+showLanding();
 }
 
-
-/* =====================================================
-   HTML SAFETY
-===================================================== */
-
+/* =========================
+SAFETY
+========================= */
 function escapeHtml(value){
-
-  return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-
+return String(value??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 }
 
-
-/* =====================================================
-   START
-===================================================== */
-
+/* =========================
+START
+========================= */
 (async function(){
-
-  const {data} =
-    await supabaseClient
-      .auth
-      .getSession();
-
-
-  if(data.session){
-
-    currentUser =
-      data.session.user;
-
-    await loadDashboard();
-
-  }else{
-
-    showLanding();
-
-  }
-
+const {data}=await supabaseClient.auth.getSession();
+if(data.session){
+currentUser=data.session.user;
+await loadDashboard();
+}else{
+showLanding();
+}
 })();
-
 </script>
-
 </body>
 </html>
