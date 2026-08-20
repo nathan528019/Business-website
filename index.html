@@ -7,9 +7,9 @@
 <title>Nathaflex | Save. Borrow. Grow.</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+
 :root{
   --bg:#f5f3ee;
   --white:#fff;
@@ -51,11 +51,6 @@ button{
   display:none!important;
 }
 
-
-/* =========================
-   GENERAL
-========================= */
-
 .logo{
   font-size:23px;
   font-weight:900;
@@ -85,10 +80,7 @@ button{
   border:1px solid var(--line);
 }
 
-
-/* =========================
-   LANDING
-========================= */
+/* LANDING */
 
 .nav{
   height:68px;
@@ -195,10 +187,7 @@ footer{
   font-size:12px;
 }
 
-
-/* =========================
-   AUTH
-========================= */
+/* AUTH */
 
 .auth-page{
   min-height:100vh;
@@ -305,10 +294,7 @@ footer{
   color:var(--red);
 }
 
-
-/* =========================
-   CUSTOMER DASHBOARD
-========================= */
+/* DASHBOARD */
 
 .dashboard,
 .admin-dashboard{
@@ -376,10 +362,7 @@ footer{
   margin-top:3px;
 }
 
-
-/* =========================
-   WALLETS
-========================= */
+/* WALLETS */
 
 .wallet-grid{
   display:grid;
@@ -440,10 +423,7 @@ footer{
   font-size:12px;
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 .section-title{
   display:flex;
@@ -488,10 +468,7 @@ footer{
   margin-top:3px;
 }
 
-
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 
 .cards-row{
   display:grid;
@@ -566,10 +543,7 @@ footer{
   font-weight:700;
 }
 
-
-/* =========================
-   ACTIVITY
-========================= */
+/* ACTIVITY */
 
 .activity{
   background:white;
@@ -613,10 +587,7 @@ footer{
   white-space:nowrap;
 }
 
-
-/* =========================
-   ADMIN
-========================= */
+/* ADMIN */
 
 .admin-banner{
   background:var(--green-dark);
@@ -666,94 +637,6 @@ footer{
   font-size:25px;
   margin-top:7px;
 }
-
-
-/* =========================
-   BUSINESS GRAPH
-========================= */
-
-.business-card{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:20px;
-  margin-top:25px;
-  box-shadow:var(--shadow);
-}
-
-.business-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  margin-bottom:18px;
-}
-
-.business-head h2{
-  font-size:19px;
-}
-
-.business-head p{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:5px;
-}
-
-.graph-range{
-  display:flex;
-  gap:5px;
-}
-
-.graph-range button{
-  border:1px solid var(--line);
-  background:white;
-  padding:7px 10px;
-  border-radius:7px;
-  font-size:11px;
-  font-weight:700;
-}
-
-.graph-range button.active{
-  background:var(--green);
-  color:white;
-  border-color:var(--green);
-}
-
-.chart-wrap{
-  position:relative;
-  width:100%;
-  height:320px;
-}
-
-.business-summary{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:15px;
-}
-
-.business-mini{
-  background:var(--soft);
-  border-radius:10px;
-  padding:12px;
-}
-
-.business-mini small{
-  color:var(--muted);
-  display:block;
-  font-size:11px;
-}
-
-.business-mini strong{
-  display:block;
-  margin-top:5px;
-  font-size:17px;
-}
-
-
-/* =========================
-   ADMIN TABLE
-========================= */
 
 .admin-section{
   margin-top:25px;
@@ -849,10 +732,7 @@ footer{
   border-color:var(--green);
 }
 
-
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
   position:fixed;
@@ -917,10 +797,7 @@ footer{
   color:var(--text);
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -947,26 +824,6 @@ footer{
     justify-content:flex-start;
   }
 
-  .business-head{
-    flex-direction:column;
-  }
-
-  .graph-range{
-    width:100%;
-  }
-
-  .graph-range button{
-    flex:1;
-  }
-
-  .business-summary{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .chart-wrap{
-    height:270px;
-  }
-
   .hero{
     padding-top:65px;
   }
@@ -983,224 +840,213 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .business-summary{
-    grid-template-columns:1fr;
-  }
-
 }
+
 </style>
 </head>
 
 <body>
 
-
-<!-- =====================================================
-     LANDING
-===================================================== -->
+<!-- LANDING -->
 
 <div id="landing">
 
 <nav class="nav">
 
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
+<div class="logo">
+Natha<span>flex</span>
+</div>
 
-  <button class="nav-login" onclick="showAuth('login')">
-    Login
-  </button>
+<button class="nav-login" onclick="showAuth('login')">
+Login
+</button>
 
 </nav>
 
 <section class="hero">
 
-  <div class="eyebrow">
-    🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
-  </div>
+<div class="eyebrow">
+🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
+</div>
 
-  <h1>
-    Your money.<br>
-    <span>Your flexibility.</span>
-  </h1>
+<h1>
+Your money.<br>
+<span>Your flexibility.</span>
+</h1>
 
-  <p>
-    Save when you want, apply for short-term loans,
-    and keep track of your money from one simple account.
-  </p>
+<p>
+Save when you want, apply for short-term loans,
+and keep track of your money from one simple account.
+</p>
 
-  <div class="actions">
+<div class="actions">
 
-    <button class="primary" onclick="showAuth('signup')">
-      Get Started
-    </button>
+<button class="primary" onclick="showAuth('signup')">
+Get Started
+</button>
 
-    <button class="secondary" onclick="showAuth('login')">
-      Login
-    </button>
+<button class="secondary" onclick="showAuth('login')">
+Login
+</button>
 
-  </div>
+</div>
 
 </section>
 
 <section class="features">
 
-  <div class="feature">
-    <div class="feature-icon">◎</div>
-    <h3>Save</h3>
-    <p>
-      Keep track of your AED and UGX savings
-      from your personal Nathaflex account.
-    </p>
-  </div>
+<div class="feature">
+<div class="feature-icon">◎</div>
+<h3>Save</h3>
+<p>
+Keep track of your AED and UGX savings
+from your personal Nathaflex account.
+</p>
+</div>
 
-  <div class="feature">
-    <div class="feature-icon">↗</div>
-    <h3>Loans</h3>
-    <p>
-      Apply for a short-term loan of up to AED 3,000.
-    </p>
-  </div>
+<div class="feature">
+<div class="feature-icon">↗</div>
+<h3>Loans</h3>
+<p>
+Apply for a short-term loan of up to AED 3,000.
+</p>
+</div>
 
-  <div class="feature">
-    <div class="feature-icon">▣</div>
-    <h3>Cards</h3>
-    <p>
-      Apply for a Nathaflex or Platinum card.
-    </p>
-  </div>
+<div class="feature">
+<div class="feature-icon">▣</div>
+<h3>Cards</h3>
+<p>
+Apply for a Nathaflex or Platinum card.
+</p>
+</div>
 
 </section>
 
 <footer>
-  Nathaflex • Save • Borrow • Grow
-  <br><br>
-  © 2026 Nathaflex
+Nathaflex • Save • Borrow • Grow
+<br><br>
+© 2026 Nathaflex
 </footer>
 
 </div>
 
 
-<!-- =====================================================
-     AUTH
-===================================================== -->
+<!-- AUTH -->
 
 <div id="authPage" class="auth-page hidden">
 
 <div class="auth-card">
 
-  <button class="back" onclick="showLanding()">
-    ← Back
-  </button>
+<button class="back" onclick="showLanding()">
+← Back
+</button>
 
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
+<div class="logo">
+Natha<span>flex</span>
+</div>
 
-  <h2 id="authTitle">
-    Create your account
-  </h2>
+<h2 id="authTitle">
+Create your account
+</h2>
 
-  <p class="auth-sub" id="authSubtitle">
-    Open your Nathaflex account.
-  </p>
+<p class="auth-sub" id="authSubtitle">
+Open your Nathaflex account.
+</p>
 
-  <div id="authMessage" class="message hidden"></div>
+<div id="authMessage" class="message hidden"></div>
 
-  <form id="authForm">
+<form id="authForm">
 
-    <div id="nameField" class="field">
+<div id="nameField" class="field">
 
-      <label>Full name</label>
+<label>Full name</label>
 
-      <input
-        id="fullName"
-        type="text"
-        placeholder="Your full name">
+<input
+id="fullName"
+type="text"
+placeholder="Your full name">
 
-    </div>
+</div>
 
-    <div id="phoneField" class="field">
+<div id="phoneField" class="field">
 
-      <label>Mobile number</label>
+<label>Mobile number</label>
 
-      <input
-        id="phone"
-        type="tel"
-        placeholder="+971...">
+<input
+id="phone"
+type="tel"
+placeholder="+971...">
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Email</label>
+<label>Email</label>
 
-      <input
-        id="email"
-        type="email"
-        placeholder="you@example.com"
-        required>
+<input
+id="email"
+type="email"
+placeholder="you@example.com"
+required>
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Password</label>
+<label>Password</label>
 
-      <input
-        id="password"
-        type="password"
-        placeholder="At least 6 characters"
-        minlength="6"
-        required>
+<input
+id="password"
+type="password"
+placeholder="At least 6 characters"
+minlength="6"
+required>
 
-    </div>
+</div>
 
-    <button class="auth-submit" id="authButton">
-      Create Account
-    </button>
+<button class="auth-submit" id="authButton">
+Create Account
+</button>
 
-  </form>
+</form>
 
-  <div class="switch-auth">
+<div class="switch-auth">
 
-    <span id="switchText">
-      Already have an account?
-    </span>
+<span id="switchText">
+Already have an account?
+</span>
 
-    <button id="switchButton" onclick="toggleAuthMode()">
-      Login
-    </button>
-
-  </div>
+<button id="switchButton" onclick="toggleAuthMode()">
+Login
+</button>
 
 </div>
 
 </div>
+</div>
 
 
-<!-- =====================================================
-     CUSTOMER DASHBOARD
-===================================================== -->
+<!-- CUSTOMER DASHBOARD -->
 
 <div id="dashboard" class="dashboard hidden">
 
 <nav class="dashboard-nav">
 
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
+<div class="logo">
+Natha<span>flex</span>
+</div>
 
-  <div class="user-area">
+<div class="user-area">
 
-    <div class="user-dot" id="userInitial">
-      N
-    </div>
+<div class="user-dot" id="userInitial">
+N
+</div>
 
-    <button class="logout" onclick="logout()">
-      Logout
-    </button>
+<button class="logout" onclick="logout()">
+Logout
+</button>
 
-  </div>
+</div>
 
 </nav>
 
@@ -1208,11 +1054,11 @@ footer{
 
 <section class="welcome">
 
-  <small>Welcome back</small>
+<small>Welcome back</small>
 
-  <h1 id="customerName">
-    Nathaflex customer
-  </h1>
+<h1 id="customerName">
+Nathaflex customer
+</h1>
 
 </section>
 
@@ -1221,54 +1067,54 @@ footer{
 
 <div class="wallet aed">
 
-  <div class="wallet-label">
-    UAE Dirham
-  </div>
+<div class="wallet-label">
+UAE Dirham
+</div>
 
-  <div class="wallet-balance" id="aedBalance">
-    AED 0.00
-  </div>
+<div class="wallet-balance" id="aedBalance">
+AED 0.00
+</div>
 
-  <div class="wallet-code">AED</div>
+<div class="wallet-code">AED</div>
 
-  <div class="wallet-actions">
+<div class="wallet-actions">
 
-    <button onclick="openDeposit('AED')">
-      Deposit
-    </button>
+<button onclick="openDeposit('AED')">
+Deposit
+</button>
 
-    <button onclick="openWithdraw('AED')">
-      Withdraw
-    </button>
+<button onclick="openWithdraw('AED')">
+Withdraw
+</button>
 
-  </div>
+</div>
 
 </div>
 
 
 <div class="wallet ugx">
 
-  <div class="wallet-label">
-    Ugandan Shilling
-  </div>
+<div class="wallet-label">
+Ugandan Shilling
+</div>
 
-  <div class="wallet-balance" id="ugxBalance">
-    UGX 0
-  </div>
+<div class="wallet-balance" id="ugxBalance">
+UGX 0
+</div>
 
-  <div class="wallet-code">UGX</div>
+<div class="wallet-code">UGX</div>
 
-  <div class="wallet-actions">
+<div class="wallet-actions">
 
-    <button onclick="openDeposit('UGX')">
-      Deposit
-    </button>
+<button onclick="openDeposit('UGX')">
+Deposit
+</button>
 
-    <button onclick="openWithdraw('UGX')">
-      Withdraw
-    </button>
+<button onclick="openWithdraw('UGX')">
+Withdraw
+</button>
 
-  </div>
+</div>
 
 </div>
 
@@ -1276,110 +1122,110 @@ footer{
 
 
 <div class="section-title">
-  <h2>Quick actions</h2>
+<h2>Quick actions</h2>
 </div>
 
 <section class="action-grid">
 
 <button class="action" onclick="openLoan()">
-  <div class="action-icon">↗</div>
-  <strong>Loans</strong>
-  <span>Apply up to AED 3,000</span>
+<div class="action-icon">↗</div>
+<strong>Loans</strong>
+<span>Apply up to AED 3,000</span>
 </button>
 
 <button class="action" onclick="openDeposit()">
-  <div class="action-icon">+</div>
-  <strong>Deposit</strong>
-  <span>Add money</span>
+<div class="action-icon">+</div>
+<strong>Deposit</strong>
+<span>Add money</span>
 </button>
 
 <button class="action" onclick="openWithdraw()">
-  <div class="action-icon">−</div>
-  <strong>Withdraw</strong>
-  <span>Request withdrawal</span>
+<div class="action-icon">−</div>
+<strong>Withdraw</strong>
+<span>Request withdrawal</span>
 </button>
 
 <button class="action" onclick="openCard()">
-  <div class="action-icon">▣</div>
-  <strong>Cards</strong>
-  <span>Apply for a card</span>
+<div class="action-icon">▣</div>
+<strong>Cards</strong>
+<span>Apply for a card</span>
 </button>
 
 </section>
 
 
 <div class="section-title">
-  <h2>Nathaflex cards</h2>
+<h2>Nathaflex cards</h2>
 </div>
 
 <section class="cards-row">
 
 <div>
 
-  <div class="bank-card natha-card">
+<div class="bank-card natha-card">
 
-    <div class="card-brand">
-      Natha<span>flex</span>
-    </div>
+<div class="card-brand">
+Natha<span>flex</span>
+</div>
 
-    <div class="card-type">
-      NATHAFLEX
-    </div>
+<div class="card-type">
+NATHAFLEX
+</div>
 
-    <div class="card-chip"></div>
+<div class="card-chip"></div>
 
-    <div class="card-number">
-      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-    </div>
+<div class="card-number">
+•••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
+</div>
 
-    <div class="card-note">
-      Your name • 3 working day target
-    </div>
+<div class="card-note">
+Your name • 3 working day target
+</div>
 
-  </div>
+</div>
 
-  <button
-    class="apply-card"
-    onclick="openCardApplication('Nathaflex',25)">
+<button
+class="apply-card"
+onclick="openCardApplication('Nathaflex',25)">
 
-    Apply • AED 25
+Apply • AED 25
 
-  </button>
+</button>
 
 </div>
 
 
 <div>
 
-  <div class="bank-card platinum-card">
+<div class="bank-card platinum-card">
 
-    <div class="card-brand">
-      Natha<span>flex</span>
-    </div>
+<div class="card-brand">
+Natha<span>flex</span>
+</div>
 
-    <div class="card-type">
-      PLATINUM
-    </div>
+<div class="card-type">
+PLATINUM
+</div>
 
-    <div class="card-chip"></div>
+<div class="card-chip"></div>
 
-    <div class="card-number">
-      •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
-    </div>
+<div class="card-number">
+•••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
+</div>
 
-    <div class="card-note">
-      Platinum • 3 working day target
-    </div>
+<div class="card-note">
+Platinum • 3 working day target
+</div>
 
-  </div>
+</div>
 
-  <button
-    class="apply-card"
-    onclick="openCardApplication('Platinum',30)">
+<button
+class="apply-card"
+onclick="openCardApplication('Platinum',30)">
 
-    Apply • AED 30
+Apply • AED 30
 
-  </button>
+</button>
 
 </div>
 
@@ -1387,73 +1233,69 @@ footer{
 
 
 <div class="section-title">
-  <h2>My card applications</h2>
+<h2>My card applications</h2>
 </div>
 
 <section class="activity" id="cardApplications">
 
-  <div class="empty">
-    No card applications yet.
-  </div>
+<div class="empty">
+No card applications yet.
+</div>
 
 </section>
 
 
 <div class="section-title">
-  <h2>Recent activity</h2>
+<h2>Recent activity</h2>
 </div>
 
 <section class="activity" id="activity">
 
-  <div class="empty">
-    No transactions yet.
-  </div>
+<div class="empty">
+No transactions yet.
+</div>
 
 </section>
 
 </main>
-
 </div>
 
 
-<!-- =====================================================
-     ADMIN DASHBOARD
-===================================================== -->
+<!-- ADMIN DASHBOARD -->
 
 <div id="adminDashboard" class="admin-dashboard hidden">
 
 <nav class="dashboard-nav">
 
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
+<div class="logo">
+Natha<span>flex</span>
+</div>
 
-  <div class="user-area">
+<div class="user-area">
 
-    <div class="user-dot" id="adminInitial">
-      A
-    </div>
+<div class="user-dot" id="adminInitial">
+A
+</div>
 
-    <button class="logout" onclick="logout()">
-      Logout
-    </button>
+<button class="logout" onclick="logout()">
+Logout
+</button>
 
-  </div>
+</div>
 
 </nav>
-
 
 <main class="admin-main">
 
 <section class="admin-banner">
 
-  <small>Nathaflex management</small>
+<small>Nathaflex management</small>
 
-  <h1>Admin Dashboard</h1>
+<h1>Admin Dashboard</h1>
 
-  <div class="admin-badge">
-    ADMINISTRATOR
-  </div>
+<div class="admin-badge">
+ADMINISTRATOR
+</div>
 
 </section>
 
@@ -1461,119 +1303,24 @@ footer{
 <section class="admin-stats">
 
 <div class="admin-stat">
-  <small>Customers</small>
-  <strong id="statCustomers">0</strong>
+<small>Customers</small>
+<strong id="statCustomers">0</strong>
 </div>
 
 <div class="admin-stat">
-  <small>Deposits</small>
-  <strong id="statDeposits">0</strong>
+<small>Deposits</small>
+<strong id="statDeposits">0</strong>
 </div>
 
 <div class="admin-stat">
-  <small>Loans</small>
-  <strong id="statLoans">0</strong>
+<small>Loans</small>
+<strong id="statLoans">0</strong>
 </div>
 
 <div class="admin-stat">
-  <small>Cards</small>
-  <strong id="statCards">0</strong>
+<small>Cards</small>
+<strong id="statCards">0</strong>
 </div>
-
-</section>
-
-
-<!-- =====================================================
-     BUSINESS GROWTH GRAPH
-===================================================== -->
-
-<section class="business-card">
-
-  <div class="business-head">
-
-    <div>
-      <h2>Business growth</h2>
-      <p>
-        Track how Nathaflex is growing as customers and activity increase.
-      </p>
-    </div>
-
-    <div class="graph-range">
-
-      <button
-        class="active"
-        id="range3"
-        onclick="changeGraphRange(3)">
-        3M
-      </button>
-
-      <button
-        id="range6"
-        onclick="changeGraphRange(6)">
-        6M
-      </button>
-
-      <button
-        id="range12"
-        onclick="changeGraphRange(12)">
-        12M
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="chart-wrap">
-
-    <canvas id="businessChart"></canvas>
-
-  </div>
-
-
-  <div class="business-summary">
-
-    <div class="business-mini">
-
-      <small>New customers</small>
-
-      <strong id="graphCustomers">
-        0
-      </strong>
-
-    </div>
-
-    <div class="business-mini">
-
-      <small>Deposits</small>
-
-      <strong id="graphDeposits">
-        0
-      </strong>
-
-    </div>
-
-    <div class="business-mini">
-
-      <small>Loans</small>
-
-      <strong id="graphLoans">
-        0
-      </strong>
-
-    </div>
-
-    <div class="business-mini">
-
-      <small>Cards</small>
-
-      <strong id="graphCards">
-        0
-      </strong>
-
-    </div>
-
-  </div>
 
 </section>
 
@@ -1581,28 +1328,28 @@ footer{
 <div class="admin-tabs">
 
 <button class="admin-tab active"
-  onclick="showAdminTab('deposits',this)">
-  Deposits
+onclick="showAdminTab('deposits',this)">
+Deposits
 </button>
 
 <button class="admin-tab"
-  onclick="showAdminTab('withdrawals',this)">
-  Withdrawals
+onclick="showAdminTab('withdrawals',this)">
+Withdrawals
 </button>
 
 <button class="admin-tab"
-  onclick="showAdminTab('loans',this)">
-  Loans
+onclick="showAdminTab('loans',this)">
+Loans
 </button>
 
 <button class="admin-tab"
-  onclick="showAdminTab('cards',this)">
-  Cards
+onclick="showAdminTab('cards',this)">
+Cards
 </button>
 
 <button class="admin-tab"
-  onclick="showAdminTab('customers',this)">
-  Customers
+onclick="showAdminTab('customers',this)">
+Customers
 </button>
 
 </div>
@@ -1611,57 +1358,53 @@ footer{
 <section class="admin-section">
 
 <div class="section-title">
-  <h2 id="adminSectionTitle">
-    Deposit requests
-  </h2>
+<h2 id="adminSectionTitle">
+Deposit requests
+</h2>
 </div>
 
 <div class="admin-table" id="adminContent">
 
-  <div class="empty">
-    Loading...
-  </div>
+<div class="empty">
+Loading...
+</div>
 
 </div>
 
 </section>
 
 </main>
-
 </div>
 
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- MODAL -->
 
 <div id="modal" class="modal hidden">
 
 <div class="modal-card">
 
-  <div class="modal-head">
+<div class="modal-head">
 
-    <h2 id="modalTitle">
-      Request
-    </h2>
+<h2 id="modalTitle">
+Request
+</h2>
 
-    <button class="close" onclick="closeModal()">
-      ×
-    </button>
-
-  </div>
-
-  <div id="modalBody"></div>
+<button class="close" onclick="closeModal()">
+×
+</button>
 
 </div>
 
+<div id="modalBody"></div>
+
+</div>
 </div>
 
 
 <script>
 
 /* =====================================================
-   SUPABASE
+SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
@@ -1672,13 +1415,13 @@ const SUPABASE_KEY =
 
 const supabaseClient =
 window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 
 /* =====================================================
-   STATE
+STATE
 ===================================================== */
 
 let authMode = "signup";
@@ -1686,2226 +1429,2007 @@ let currentUser = null;
 let currentProfile = null;
 let wallets = [];
 let adminTab = "deposits";
-let businessChart = null;
-let graphMonths = 3;
 
 
 /* =====================================================
-   PAGE CONTROL
+PAGE CONTROL
 ===================================================== */
 
 function showLanding(){
 
-  document.getElementById("landing")
-    .classList.remove("hidden");
+document.getElementById("landing")
+.classList.remove("hidden");
 
-  document.getElementById("authPage")
-    .classList.add("hidden");
+document.getElementById("authPage")
+.classList.add("hidden");
 
-  document.getElementById("dashboard")
-    .classList.add("hidden");
+document.getElementById("dashboard")
+.classList.add("hidden");
 
-  document.getElementById("adminDashboard")
-    .classList.add("hidden");
+document.getElementById("adminDashboard")
+.classList.add("hidden");
 
 }
 
 
 function showAuth(mode){
 
-  authMode = mode;
+authMode = mode;
 
-  document.getElementById("landing")
-    .classList.add("hidden");
+document.getElementById("landing")
+.classList.add("hidden");
 
-  document.getElementById("dashboard")
-    .classList.add("hidden");
+document.getElementById("dashboard")
+.classList.add("hidden");
 
-  document.getElementById("adminDashboard")
-    .classList.add("hidden");
+document.getElementById("adminDashboard")
+.classList.add("hidden");
 
-  document.getElementById("authPage")
-    .classList.remove("hidden");
+document.getElementById("authPage")
+.classList.remove("hidden");
 
-  updateAuthUI();
+updateAuthUI();
 
 }
 
 
 function toggleAuthMode(){
 
-  authMode =
-    authMode === "signup"
-      ? "login"
-      : "signup";
+authMode =
+authMode === "signup"
+? "login"
+: "signup";
 
-  updateAuthUI();
+updateAuthUI();
 
 }
 
 
 function updateAuthUI(){
 
-  const signup =
-    authMode === "signup";
+const signup =
+authMode === "signup";
 
-  document.getElementById("authTitle")
-    .textContent =
-      signup
-        ? "Create your account"
-        : "Welcome back";
+document.getElementById("authTitle")
+.textContent =
+signup
+? "Create your account"
+: "Welcome back";
 
-  document.getElementById("authSubtitle")
-    .textContent =
-      signup
-        ? "Open your Nathaflex account."
-        : "Login to your Nathaflex account.";
+document.getElementById("authSubtitle")
+.textContent =
+signup
+? "Open your Nathaflex account."
+: "Login to your Nathaflex account.";
 
-  document.getElementById("authButton")
-    .textContent =
-      signup
-        ? "Create Account"
-        : "Login";
+document.getElementById("authButton")
+.textContent =
+signup
+? "Create Account"
+: "Login";
 
-  document.getElementById("nameField")
-    .classList
-    .toggle("hidden",!signup);
+document.getElementById("nameField")
+.classList
+.toggle("hidden",!signup);
 
-  document.getElementById("phoneField")
-    .classList
-    .toggle("hidden",!signup);
+document.getElementById("phoneField")
+.classList
+.toggle("hidden",!signup);
 
-  document.getElementById("switchText")
-    .textContent =
-      signup
-        ? "Already have an account?"
-        : "Don't have an account?";
+document.getElementById("switchText")
+.textContent =
+signup
+? "Already have an account?"
+: "Don't have an account?";
 
-  document.getElementById("switchButton")
-    .textContent =
-      signup
-        ? "Login"
-        : "Create Account";
+document.getElementById("switchButton")
+.textContent =
+signup
+? "Login"
+: "Create Account";
 
-  clearMessage();
+clearMessage();
 
 }
 
 
 function showMessage(text,error=false){
 
-  const box =
-    document.getElementById("authMessage");
+const box =
+document.getElementById("authMessage");
 
-  box.textContent = text;
+box.textContent = text;
 
-  box.classList.remove("hidden");
+box.classList.remove("hidden");
 
-  box.classList.toggle("error",error);
+box.classList.toggle("error",error);
 
 }
 
 
 function clearMessage(){
 
-  document.getElementById("authMessage")
-    .classList.add("hidden");
+document.getElementById("authMessage")
+.classList.add("hidden");
 
 }
 
 
 /* =====================================================
-   AUTHENTICATION
+AUTHENTICATION
 ===================================================== */
 
 document.getElementById("authForm")
 .addEventListener("submit",async function(e){
 
-  e.preventDefault();
+e.preventDefault();
 
-  clearMessage();
+clearMessage();
 
-  const email =
-    document.getElementById("email")
-      .value.trim();
+const email =
+document.getElementById("email")
+.value.trim();
 
-  const password =
-    document.getElementById("password")
-      .value;
+const password =
+document.getElementById("password")
+.value;
 
-  const button =
-    document.getElementById("authButton");
+const button =
+document.getElementById("authButton");
 
-  button.disabled = true;
-  button.textContent = "Please wait...";
+button.disabled = true;
+button.textContent = "Please wait...";
 
-  try{
+try{
 
-    if(authMode === "signup"){
+if(authMode === "signup"){
 
-      const fullName =
-        document.getElementById("fullName")
-          .value.trim();
+const fullName =
+document.getElementById("fullName")
+.value.trim();
 
-      const phone =
-        document.getElementById("phone")
-          .value.trim();
+const phone =
+document.getElementById("phone")
+.value.trim();
 
-      const {data,error} =
-        await supabaseClient.auth.signUp({
+const {data,error} =
+await supabaseClient.auth.signUp({
 
-          email,
-          password,
+email,
+password,
 
-          options:{
-            data:{
-              full_name:fullName,
-              phone:phone
-            }
-          }
+options:{
+data:{
+full_name:fullName,
+phone:phone
+}
+}
 
-        });
+});
 
-      if(error) throw error;
+if(error) throw error;
 
-      if(data.session){
+if(data.session){
 
-        currentUser = data.user;
+currentUser = data.user;
 
-        await loadDashboard();
+await loadDashboard();
 
-      }else{
+}else{
 
-        showMessage(
-          "Account created. Check your email to verify your account, then log in."
-        );
+showMessage(
+"Account created. Check your email to verify your account, then log in."
+);
 
-        authMode = "login";
+authMode = "login";
 
-        updateAuthUI();
+updateAuthUI();
 
-      }
+}
 
-    }else{
+}else{
 
-      const {data,error} =
-        await supabaseClient.auth
-          .signInWithPassword({
-            email,
-            password
-          });
+const {data,error} =
+await supabaseClient.auth
+.signInWithPassword({
+email,
+password
+});
 
-      if(error) throw error;
+if(error) throw error;
 
-      currentUser = data.user;
+currentUser = data.user;
 
-      await loadDashboard();
+await loadDashboard();
 
-    }
+}
 
-  }catch(error){
+}catch(error){
 
-    console.error(error);
+console.error(error);
 
-    showMessage(
-      error.message || "Something went wrong.",
-      true
-    );
+showMessage(
+error.message || "Something went wrong.",
+true
+);
 
-  }finally{
+}finally{
 
-    button.disabled = false;
+button.disabled = false;
 
-    updateAuthUI();
+updateAuthUI();
 
-  }
+}
 
 });
 
 
 /* =====================================================
-   SESSION
+SESSION
 ===================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-  async(event,session)=>{
+async(event,session)=>{
 
-    if(session){
+if(session){
 
-      currentUser = session.user;
+currentUser = session.user;
 
-      if(event === "SIGNED_IN"){
+if(event === "SIGNED_IN"){
 
-        await loadDashboard();
+await loadDashboard();
 
-      }
+}
 
-    }
+}
 
-  }
-);
+});
 
 
 /* =====================================================
-   LOAD PROFILE
+PROFILE
 ===================================================== */
 
 async function loadProfile(){
 
-  const {data,error} =
-    await supabaseClient
-      .from("profiles")
-      .select("*")
-      .eq("id",currentUser.id)
-      .maybeSingle();
+const {data,error} =
+await supabaseClient
+.from("profiles")
+.select("*")
+.eq("id",currentUser.id)
+.maybeSingle();
 
-  if(error){
+if(error){
 
-    console.error("Profile error:",error);
+console.error("Profile error:",error);
 
-    return null;
+return null;
 
-  }
+}
 
-  return data;
+return data;
 
 }
 
 
 /* =====================================================
-   MAIN DASHBOARD ROUTER
+DASHBOARD ROUTER
 ===================================================== */
 
 async function loadDashboard(){
 
-  if(!currentUser) return;
+if(!currentUser) return;
 
-  currentProfile =
-    await loadProfile();
+currentProfile =
+await loadProfile();
 
-  if(!currentProfile){
+if(!currentProfile){
 
-    alert(
-      "Your Nathaflex profile could not be loaded."
-    );
+alert(
+"Your Nathaflex profile could not be loaded."
+);
 
-    return;
+return;
 
-  }
+}
 
-  if(currentProfile.role === "admin"){
+if(currentProfile.role === "admin"){
 
-    await loadAdminDashboard();
+await loadAdminDashboard();
 
-  }else{
+}else{
 
-    await loadCustomerDashboard();
+await loadCustomerDashboard();
 
-  }
+}
 
 }
 
 
 /* =====================================================
-   CUSTOMER DASHBOARD
+CUSTOMER
 ===================================================== */
 
 async function loadCustomerDashboard(){
 
-  document.getElementById("landing")
-    .classList.add("hidden");
+document.getElementById("landing")
+.classList.add("hidden");
 
-  document.getElementById("authPage")
-    .classList.add("hidden");
+document.getElementById("authPage")
+.classList.add("hidden");
 
-  document.getElementById("adminDashboard")
-    .classList.add("hidden");
+document.getElementById("adminDashboard")
+.classList.add("hidden");
 
-  document.getElementById("dashboard")
-    .classList.remove("hidden");
+document.getElementById("dashboard")
+.classList.remove("hidden");
 
+const name =
+currentProfile.full_name ||
+currentUser.user_metadata?.full_name ||
+currentUser.email?.split("@")[0] ||
+"Nathaflex customer";
 
-  const name =
-    currentProfile.full_name ||
-    currentUser.user_metadata?.full_name ||
-    currentUser.email?.split("@")[0] ||
-    "Nathaflex customer";
+document.getElementById("customerName")
+.textContent = name;
 
+document.getElementById("userInitial")
+.textContent =
+name.charAt(0).toUpperCase();
 
-  document.getElementById("customerName")
-    .textContent = name;
-
-  document.getElementById("userInitial")
-    .textContent =
-      name.charAt(0).toUpperCase();
-
-
-  await ensureWallets();
-  await loadWallets();
-  await loadTransactions();
-  await loadCardApplications();
+await ensureWallets();
+await loadWallets();
+await loadTransactions();
+await loadCardApplications();
 
 }
 
 
 /* =====================================================
-   WALLETS
+WALLETS
 ===================================================== */
 
 async function ensureWallets(){
 
-  const {data,error} =
-    await supabaseClient
-      .from("wallets")
-      .select("id,currency,balance")
-      .eq("user_id",currentUser.id);
+const {data,error} =
+await supabaseClient
+.from("wallets")
+.select("id,currency,balance")
+.eq("user_id",currentUser.id);
 
-  if(error){
+if(error){
 
-    console.error("Wallet error:",error);
+console.error("Wallet error:",error);
 
-    return;
+return;
 
-  }
+}
 
-  const existing = data || [];
+const existing = data || [];
 
-  const currencies =
-    existing.map(w=>w.currency);
+const currencies =
+existing.map(w=>w.currency);
 
-  const missing = [];
+const missing = [];
 
-  if(!currencies.includes("AED"))
-    missing.push("AED");
+if(!currencies.includes("AED"))
+missing.push("AED");
 
-  if(!currencies.includes("UGX"))
-    missing.push("UGX");
+if(!currencies.includes("UGX"))
+missing.push("UGX");
 
-  for(const currency of missing){
+for(const currency of missing){
 
-    const {error:insertError} =
-      await supabaseClient
-        .from("wallets")
-        .insert({
-          user_id:currentUser.id,
-          currency,
-          balance:0
-        });
+const {error:insertError} =
+await supabaseClient
+.from("wallets")
+.insert({
+user_id:currentUser.id,
+currency,
+balance:0
+});
 
-    if(insertError)
-      console.error(
-        "Wallet creation error:",
-        insertError
-      );
+if(insertError)
+console.error(
+"Wallet creation error:",
+insertError
+);
 
-  }
+}
 
 }
 
 
 async function loadWallets(){
 
-  const {data,error} =
-    await supabaseClient
-      .from("wallets")
-      .select("*")
-      .eq("user_id",currentUser.id);
+const {data,error} =
+await supabaseClient
+.from("wallets")
+.select("*")
+.eq("user_id",currentUser.id);
 
-  if(error){
+if(error){
 
-    console.error(error);
-    return;
+console.error(error);
+return;
 
-  }
+}
 
-  wallets = data || [];
+wallets = data || [];
 
-  const aed =
-    wallets.find(w=>w.currency==="AED");
+const aed =
+wallets.find(w=>w.currency==="AED");
 
-  const ugx =
-    wallets.find(w=>w.currency==="UGX");
+const ugx =
+wallets.find(w=>w.currency==="UGX");
 
-  document.getElementById("aedBalance")
-    .textContent =
-      "AED " +
-      Number(aed?.balance || 0)
-        .toLocaleString(undefined,{
-          minimumFractionDigits:2,
-          maximumFractionDigits:2
-        });
+document.getElementById("aedBalance")
+.textContent =
+"AED " +
+Number(aed?.balance || 0)
+.toLocaleString(undefined,{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
 
-  document.getElementById("ugxBalance")
-    .textContent =
-      "UGX " +
-      Number(ugx?.balance || 0)
-        .toLocaleString();
+document.getElementById("ugxBalance")
+.textContent =
+"UGX " +
+Number(ugx?.balance || 0)
+.toLocaleString();
 
 }
 
 
 /* =====================================================
-   CUSTOMER TRANSACTIONS
+TRANSACTIONS
 ===================================================== */
 
 async function loadTransactions(){
 
-  const activity =
-    document.getElementById("activity");
+const activity =
+document.getElementById("activity");
 
-  const {data,error} =
-    await supabaseClient
-      .from("transactions")
-      .select("*")
-      .eq("user_id",currentUser.id)
-      .order("created_at",{ascending:false})
-      .limit(10);
+const {data,error} =
+await supabaseClient
+.from("transactions")
+.select("*")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:false})
+.limit(10);
 
-  if(error || !data || !data.length){
+if(error || !data || !data.length){
 
-    activity.innerHTML =
-      `<div class="empty">
-        No transactions yet.
-      </div>`;
+activity.innerHTML =
+`<div class="empty">
+No transactions yet.
+</div>`;
 
-    return;
+return;
 
-  }
+}
 
-  activity.innerHTML =
-    data.map(t=>`
+activity.innerHTML =
+data.map(t=>`
 
-      <div class="transaction">
+<div class="transaction">
 
-        <div>
-          <strong>
-            ${escapeHtml(t.type || "Transaction")}
-          </strong>
+<div>
 
-          <small>
-            ${escapeHtml(t.description || "")}
-          </small>
-        </div>
+<strong>
+${escapeHtml(t.type || "Transaction")}
+</strong>
 
-        <div class="amount">
-          ${Number(t.amount || 0).toLocaleString()}
-        </div>
+<small>
+${escapeHtml(t.description || "")}
+</small>
 
-      </div>
+</div>
 
-    `).join("");
+<div class="amount">
+${Number(t.amount || 0).toLocaleString()}
+</div>
+
+</div>
+
+`).join("");
 
 }
 
 
 /* =====================================================
-   DEPOSIT
+DEPOSIT
 ===================================================== */
 
 function openDeposit(currency=null){
 
-  const selected =
-    currency || "AED";
+const selected =
+currency || "AED";
 
-  document.getElementById("modalTitle")
-    .textContent = "Deposit money";
+document.getElementById("modalTitle")
+.textContent = "Deposit money";
 
-  document.getElementById("modalBody")
-    .innerHTML = `
+document.getElementById("modalBody")
+.innerHTML = `
 
-    <div class="field">
-      <label>Currency</label>
+<div class="field">
 
-      <select id="depositCurrency">
+<label>Currency</label>
 
-        <option value="AED"
-          ${selected==="AED"?"selected":""}>
-          AED — UAE Dirham
-        </option>
+<select id="depositCurrency">
 
-        <option value="UGX"
-          ${selected==="UGX"?"selected":""}>
-          UGX — Ugandan Shilling
-        </option>
+<option value="AED"
+${selected==="AED"?"selected":""}>
+AED — UAE Dirham
+</option>
 
-      </select>
-    </div>
+<option value="UGX"
+${selected==="UGX"?"selected":""}>
+UGX — Ugandan Shilling
+</option>
 
-    <div class="field">
-      <label>Amount</label>
+</select>
 
-      <input
-        id="depositAmount"
-        type="number"
-        min="1"
-        placeholder="Enter amount">
-    </div>
+</div>
 
-    <div class="field">
-      <label>Payment reference</label>
+<div class="field">
 
-      <input
-        id="depositReference"
-        type="text"
-        placeholder="Payment reference">
-    </div>
+<label>Amount</label>
 
-    <div class="field">
-      <label>Payment method</label>
+<input
+id="depositAmount"
+type="number"
+min="1"
+placeholder="Enter amount">
 
-      <select id="depositMethod">
-        <option>Bank transfer</option>
-        <option>Mobile money</option>
-      </select>
-    </div>
+</div>
 
-    <div class="field">
-      <label>Note</label>
+<div class="field">
 
-      <input
-        id="depositNote"
-        type="text"
-        placeholder="Optional">
-    </div>
+<label>Payment reference</label>
 
-    <button
-      class="modal-submit"
-      onclick="submitDeposit()">
-      Submit deposit
-    </button>
+<input
+id="depositReference"
+type="text"
+placeholder="Payment reference">
 
-  `;
+</div>
 
-  openModal();
+<div class="field">
+
+<label>Payment method</label>
+
+<select id="depositMethod">
+
+<option>Bank transfer</option>
+
+<option>Mobile money</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Note</label>
+
+<input
+id="depositNote"
+type="text"
+placeholder="Optional">
+
+</div>
+
+<button
+class="modal-submit"
+onclick="submitDeposit()">
+
+Submit deposit
+
+</button>
+
+`;
+
+openModal();
 
 }
 
 
 async function submitDeposit(){
 
-  const currency =
-    document.getElementById("depositCurrency").value;
+const currency =
+document.getElementById("depositCurrency").value;
 
-  const amount =
-    Number(
-      document.getElementById("depositAmount").value
-    );
+const amount =
+Number(
+document.getElementById("depositAmount").value
+);
 
-  const reference =
-    document.getElementById("depositReference")
-      .value.trim();
+const reference =
+document.getElementById("depositReference")
+.value.trim();
 
-  const method =
-    document.getElementById("depositMethod").value;
+const method =
+document.getElementById("depositMethod").value;
 
-  const note =
-    document.getElementById("depositNote")
-      .value.trim();
+const note =
+document.getElementById("depositNote")
+.value.trim();
 
-  if(!amount || amount<=0){
+if(!amount || amount<=0){
 
-    alert("Enter a valid amount.");
-    return;
+alert("Enter a valid amount.");
+return;
 
-  }
+}
 
-  const wallet =
-    wallets.find(w=>w.currency===currency);
+const wallet =
+wallets.find(w=>w.currency===currency);
 
-  if(!wallet){
+if(!wallet){
 
-    alert("Wallet not found.");
-    return;
+alert("Wallet not found.");
+return;
 
-  }
+}
 
-  const {error} =
-    await supabaseClient
-      .from("deposits")
-      .insert({
+const {error} =
+await supabaseClient
+.from("deposits")
+.insert({
 
-        user_id:currentUser.id,
-        wallet_id:wallet.id,
-        currency,
-        amount,
-        payment_reference:reference || null,
-        payment_method:method,
-        customer_note:note || null,
-        status:"pending"
+user_id:currentUser.id,
+wallet_id:wallet.id,
+currency,
+amount,
+payment_reference:reference || null,
+payment_method:method,
+customer_note:note || null,
+status:"pending"
 
-      });
+});
 
-  if(error){
+if(error){
 
-    alert(error.message);
-    return;
+alert(error.message);
+return;
 
-  }
+}
 
-  closeModal();
+closeModal();
 
-  alert(
-    "Deposit request submitted. It will appear after verification."
-  );
+alert(
+"Deposit request submitted. It will appear after verification."
+);
 
 }
 
 
 /* =====================================================
-   WITHDRAW
+WITHDRAW
 ===================================================== */
 
 function openWithdraw(currency=null){
 
-  const selected =
-    currency || "AED";
+const selected =
+currency || "AED";
 
-  document.getElementById("modalTitle")
-    .textContent = "Withdraw money";
+document.getElementById("modalTitle")
+.textContent = "Withdraw money";
 
-  document.getElementById("modalBody")
-    .innerHTML = `
+document.getElementById("modalBody")
+.innerHTML = `
 
-    <div class="field">
-      <label>Currency</label>
+<div class="field">
 
-      <select id="withdrawCurrency">
+<label>Currency</label>
 
-        <option value="AED"
-          ${selected==="AED"?"selected":""}>
-          AED — UAE Dirham
-        </option>
+<select id="withdrawCurrency">
 
-        <option value="UGX"
-          ${selected==="UGX"?"selected":""}>
-          UGX — Ugandan Shilling
-        </option>
+<option value="AED"
+${selected==="AED"?"selected":""}>
+AED — UAE Dirham
+</option>
 
-      </select>
-    </div>
+<option value="UGX"
+${selected==="UGX"?"selected":""}>
+UGX — Ugandan Shilling
+</option>
 
-    <div class="field">
-      <label>Amount</label>
+</select>
 
-      <input
-        id="withdrawAmount"
-        type="number"
-        min="1"
-        placeholder="Enter amount">
-    </div>
+</div>
 
-    <div class="field">
-      <label>Destination</label>
+<div class="field">
 
-      <input
-        id="withdrawDestination"
-        type="text"
-        placeholder="Bank account or mobile number">
-    </div>
+<label>Amount</label>
 
-    <button
-      class="modal-submit"
-      onclick="submitWithdraw()">
-      Request withdrawal
-    </button>
+<input
+id="withdrawAmount"
+type="number"
+min="1"
+placeholder="Enter amount">
 
-  `;
+</div>
 
-  openModal();
+<div class="field">
+
+<label>Destination</label>
+
+<input
+id="withdrawDestination"
+type="text"
+placeholder="Bank account or mobile number">
+
+</div>
+
+<button
+class="modal-submit"
+onclick="submitWithdraw()">
+
+Request withdrawal
+
+</button>
+
+`;
+
+openModal();
 
 }
 
 
 async function submitWithdraw(){
 
-  alert(
-    "Withdrawal processing will be connected to the withdrawal table in the next stage."
-  );
+alert(
+"Withdrawal processing will be connected to the withdrawal system in the next stage."
+);
 
 }
 
 
 /* =====================================================
-   LOANS
+LOANS
 ===================================================== */
 
 function openLoan(){
 
-  document.getElementById("modalTitle")
-    .textContent = "Apply for a loan";
+document.getElementById("modalTitle")
+.textContent = "Apply for a loan";
 
-  document.getElementById("modalBody")
-    .innerHTML = `
+document.getElementById("modalBody")
+.innerHTML = `
 
-    <div class="loan-info">
+<div class="loan-info">
 
-      Loans are available up to
-      <strong>AED 3,000</strong>.
+Loans are available up to
+<strong>AED 3,000</strong>.
 
-      <br>
+<br>
 
-      Repayment:
-      <strong>1 or 2 months</strong>.
+Repayment:
+<strong>1 or 2 months</strong>.
 
-      <br>
+<br>
 
-      Interest:
-      <strong>10%</strong>.
+Interest:
+<strong>10%</strong>.
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Loan amount (AED)</label>
+<label>Loan amount (AED)</label>
 
-      <input
-        id="loanAmount"
-        type="number"
-        min="1"
-        max="3000"
-        placeholder="Maximum AED 3,000">
+<input
+id="loanAmount"
+type="number"
+min="1"
+max="3000"
+placeholder="Maximum AED 3,000">
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Repayment period</label>
+<label>Repayment period</label>
 
-      <select id="loanTerm">
+<select id="loanTerm">
 
-        <option value="1">
-          1 month
-        </option>
+<option value="1">
+1 month
+</option>
 
-        <option value="2">
-          2 months
-        </option>
+<option value="2">
+2 months
+</option>
 
-      </select>
+</select>
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Application note</label>
+<label>Application note</label>
 
-      <input
-        id="loanNote"
-        type="text"
-        placeholder="Optional">
+<input
+id="loanNote"
+type="text"
+placeholder="Optional">
 
-    </div>
+</div>
 
-    <button
-      class="modal-submit"
-      onclick="submitLoan()">
-      Submit application
-    </button>
+<button
+class="modal-submit"
+onclick="submitLoan()">
 
-  `;
+Submit application
 
-  openModal();
+</button>
+
+`;
+
+openModal();
 
 }
 
 
 async function submitLoan(){
 
-  const amount =
-    Number(
-      document.getElementById("loanAmount").value
-    );
+const amount =
+Number(
+document.getElementById("loanAmount").value
+);
 
-  const term =
-    Number(
-      document.getElementById("loanTerm").value
-    );
+const term =
+Number(
+document.getElementById("loanTerm").value
+);
 
-  const note =
-    document.getElementById("loanNote")
-      .value.trim();
+const note =
+document.getElementById("loanNote")
+.value.trim();
 
-  if(!amount || amount<1 || amount>3000){
+if(!amount || amount<1 || amount>3000){
 
-    alert(
-      "Loan amount must be between AED 1 and AED 3,000."
-    );
+alert(
+"Loan amount must be between AED 1 and AED 3,000."
+);
 
-    return;
+return;
 
-  }
+}
 
-  const applicationNote =
-    (note || "") +
-    " | Repayment term: " +
-    term +
-    " month(s)";
+const applicationNote =
+(note || "") +
+" | Repayment term: " +
+term +
+" month(s)";
 
-  const {error} =
-    await supabaseClient
-      .from("loans")
-      .insert({
+const {error} =
+await supabaseClient
+.from("loans")
+.insert({
 
-        user_id:currentUser.id,
-        currency:"AED",
-        requested_amount:amount,
-        interest_rate:10,
-        status:"pending",
-        application_note:applicationNote
+user_id:currentUser.id,
+currency:"AED",
+requested_amount:amount,
+interest_rate:10,
+status:"pending",
+application_note:applicationNote
 
-      });
+});
 
-  if(error){
+if(error){
 
-    alert(error.message);
-    return;
+alert(error.message);
+return;
 
-  }
+}
 
-  closeModal();
+closeModal();
 
-  alert(
-    "Loan application submitted successfully."
-  );
+alert(
+"Loan application submitted successfully."
+);
 
 }
 
 
 /* =====================================================
-   CARDS
+CARDS
 ===================================================== */
 
 function openCard(){
 
-  document.getElementById("modalTitle")
-    .textContent = "Nathaflex cards";
+document.getElementById("modalTitle")
+.textContent = "Nathaflex cards";
 
-  document.getElementById("modalBody")
-    .innerHTML = `
+document.getElementById("modalBody")
+.innerHTML = `
 
-    <div class="card-status">
+<div class="card-status">
 
-      <strong>Nathaflex Card — AED 25</strong>
-      <br>
-      Everyday Nathaflex card.
+<strong>Nathaflex Card — AED 25</strong>
 
-      <br><br>
+<br>
+Everyday Nathaflex card.
 
-      <strong>Platinum Card — AED 30</strong>
-      <br>
-      Premium Nathaflex Platinum card.
+<br><br>
 
-      <br><br>
+<strong>Platinum Card — AED 30</strong>
 
-      Target delivery:
-      <strong>3 working days</strong>
-      after approval and processing.
+<br>
+Premium Nathaflex Platinum card.
 
-    </div>
+<br><br>
 
-    <button
-      class="modal-submit"
-      onclick="openCardApplication('Nathaflex',25)">
-      Apply for Nathaflex • AED 25
-    </button>
+Target delivery:
+<strong>3 working days</strong>
+after approval and processing.
 
-    <br><br>
+</div>
 
-    <button
-      class="modal-submit"
-      onclick="openCardApplication('Platinum',30)">
-      Apply for Platinum • AED 30
-    </button>
+<button
+class="modal-submit"
+onclick="openCardApplication('Nathaflex',25)">
 
-  `;
+Apply for Nathaflex • AED 25
 
-  openModal();
+</button>
+
+<br><br>
+
+<button
+class="modal-submit"
+onclick="openCardApplication('Platinum',30)">
+
+Apply for Platinum • AED 30
+
+</button>
+
+`;
+
+openModal();
 
 }
 
 
 function openCardApplication(type,fee){
 
-  document.getElementById("modalTitle")
-    .textContent = type + " Card";
+document.getElementById("modalTitle")
+.textContent = type + " Card";
 
-  document.getElementById("modalBody")
-    .innerHTML = `
+document.getElementById("modalBody")
+.innerHTML = `
 
-    <div class="card-status">
+<div class="card-status">
 
-      <strong>${type} Card</strong>
+<strong>${type} Card</strong>
 
-      <br><br>
+<br><br>
 
-      Price:
-      <strong>AED ${fee}</strong>
+Price:
+<strong>AED ${fee}</strong>
 
-      <br>
+<br>
 
-      Delivery:
-      <strong>3 working days</strong>
-      after approval and processing.
+Delivery:
+<strong>3 working days</strong>
+after approval and processing.
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Delivery address</label>
+<label>Delivery address</label>
 
-      <input
-        id="cardAddress"
-        type="text"
-        placeholder="Where should the card be delivered?">
+<input
+id="cardAddress"
+type="text"
+placeholder="Where should the card be delivered?">
 
-    </div>
+</div>
 
-    <button
-      class="modal-submit"
-      onclick="submitCardApplication('${type}',${fee})">
-      Submit application
-    </button>
+<button
+class="modal-submit"
+onclick="submitCardApplication('${type}',${fee})">
 
-  `;
+Submit application
 
-  openModal();
+</button>
+
+`;
+
+openModal();
 
 }
 
 
 async function submitCardApplication(type,fee){
 
-  const address =
-    document.getElementById("cardAddress")
-      .value.trim();
+const address =
+document.getElementById("cardAddress")
+.value.trim();
 
-  if(!address){
+if(!address){
 
-    alert(
-      "Please enter a delivery address."
-    );
+alert(
+"Please enter a delivery address."
+);
 
-    return;
+return;
 
-  }
+}
 
-  const {error} =
-    await supabaseClient
-      .from("card_applications")
-      .insert({
+const {error} =
+await supabaseClient
+.from("card_applications")
+.insert({
 
-        user_id:currentUser.id,
-        card_type:type,
-        fee,
-        status:"pending",
-        delivery_address:address
+user_id:currentUser.id,
+card_type:type,
+fee,
+status:"pending",
+delivery_address:address
 
-      });
+});
 
-  if(error){
+if(error){
 
-    alert(error.message);
-    return;
+alert(error.message);
+return;
 
-  }
+}
 
-  closeModal();
+closeModal();
 
-  await loadCardApplications();
+await loadCardApplications();
 
-  alert(
-    "Application submitted successfully."
-  );
+alert(
+"Application submitted successfully."
+);
 
 }
 
 
 async function loadCardApplications(){
 
-  const box =
-    document.getElementById("cardApplications");
+const box =
+document.getElementById("cardApplications");
 
-  const {data,error} =
-    await supabaseClient
-      .from("card_applications")
-      .select("*")
-      .eq("user_id",currentUser.id)
-      .order("created_at",{ascending:false});
+const {data,error} =
+await supabaseClient
+.from("card_applications")
+.select("*")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:false});
 
-  if(error || !data || !data.length){
+if(error || !data || !data.length){
 
-    box.innerHTML =
-      `<div class="empty">
-        No card applications yet.
-      </div>`;
+box.innerHTML =
+`<div class="empty">
+No card applications yet.
+</div>`;
 
-    return;
+return;
 
-  }
+}
 
-  box.innerHTML =
-    data.map(a=>`
+box.innerHTML =
+data.map(a=>`
 
-      <div class="transaction">
+<div class="transaction">
 
-        <div>
+<div>
 
-          <strong>
-            ${escapeHtml(a.card_type)} Card
-          </strong>
+<strong>
+${escapeHtml(a.card_type)} Card
+</strong>
 
-          <small>
-            AED ${Number(a.fee || 0).toFixed(0)}
-            • Applied
-            ${a.created_at
-              ? new Date(a.created_at)
-                  .toLocaleDateString()
-              : ""}
-          </small>
+<small>
+AED ${Number(a.fee || 0).toFixed(0)}
+• Applied
+${a.created_at
+? new Date(a.created_at).toLocaleDateString()
+: ""}
+</small>
 
-        </div>
+</div>
 
-        <div class="amount">
-          ${escapeHtml(a.status || "pending")}
-        </div>
+<div class="amount">
+${escapeHtml(a.status || "pending")}
+</div>
 
-      </div>
+</div>
 
-    `).join("");
+`).join("");
 
 }
 
 
 /* =====================================================
-   ADMIN DASHBOARD
+ADMIN DASHBOARD
 ===================================================== */
 
 async function loadAdminDashboard(){
 
-  document.getElementById("landing")
-    .classList.add("hidden");
+document.getElementById("landing")
+.classList.add("hidden");
 
-  document.getElementById("authPage")
-    .classList.add("hidden");
+document.getElementById("authPage")
+.classList.add("hidden");
 
-  document.getElementById("dashboard")
-    .classList.add("hidden");
+document.getElementById("dashboard")
+.classList.add("hidden");
 
-  document.getElementById("adminDashboard")
-    .classList.remove("hidden");
+document.getElementById("adminDashboard")
+.classList.remove("hidden");
 
+const name =
+currentProfile.full_name ||
+"Administrator";
 
-  const name =
-    currentProfile.full_name ||
-    "Administrator";
+document.getElementById("adminInitial")
+.textContent =
+name.charAt(0).toUpperCase();
 
-  document.getElementById("adminInitial")
-    .textContent =
-      name.charAt(0).toUpperCase();
+await loadAdminStats();
 
-
-  await loadAdminStats();
-
-  await loadBusinessGrowth();
-
-  await showAdminTab("deposits");
+await showAdminTab("deposits");
 
 }
 
 
 /* =====================================================
-   ADMIN STATS
+ADMIN STATS
 ===================================================== */
 
 async function loadAdminStats(){
 
-  const customers =
-    await countTable("profiles");
+const customers =
+await countTable("profiles");
 
-  const deposits =
-    await countTable("deposits");
+const deposits =
+await countTable("deposits");
 
-  const loans =
-    await countTable("loans");
+const loans =
+await countTable("loans");
 
-  const cards =
-    await countTable("card_applications");
+const cards =
+await countTable("card_applications");
 
+document.getElementById("statCustomers")
+.textContent = customers;
 
-  document.getElementById("statCustomers")
-    .textContent = customers;
+document.getElementById("statDeposits")
+.textContent = deposits;
 
-  document.getElementById("statDeposits")
-    .textContent = deposits;
+document.getElementById("statLoans")
+.textContent = loans;
 
-  document.getElementById("statLoans")
-    .textContent = loans;
-
-  document.getElementById("statCards")
-    .textContent = cards;
+document.getElementById("statCards")
+.textContent = cards;
 
 }
 
 
 async function countTable(table){
 
-  const {count,error} =
-    await supabaseClient
-      .from(table)
-      .select("*",{count:"exact",head:true});
+const {count,error} =
+await supabaseClient
+.from(table)
+.select("*",{count:"exact",head:true);
 
-  if(error){
+if(error){
 
-    console.error(
-      "Admin count error:",
-      table,
-      error
-    );
+console.error(
+"Admin count error:",
+table,
+error
+);
 
-    return 0;
+return 0;
 
-  }
+}
 
-  return count || 0;
+return count || 0;
 
 }
 
 
 /* =====================================================
-   BUSINESS GROWTH GRAPH
-===================================================== */
-
-function getMonthKey(date){
-
-  const d = new Date(date);
-
-  if(isNaN(d.getTime()))
-    return null;
-
-  return (
-    d.getFullYear() +
-    "-" +
-    String(d.getMonth()+1).padStart(2,"0")
-  );
-
-}
-
-
-function getMonthLabel(date){
-
-  return new Intl.DateTimeFormat(
-    undefined,
-    {
-      month:"short",
-      year:"numeric"
-    }
-  ).format(date);
-
-}
-
-
-function createMonthRange(months){
-
-  const result = [];
-
-  const now = new Date();
-
-  now.setDate(1);
-  now.setHours(0,0,0,0);
-
-  for(let i=months-1;i>=0;i--){
-
-    const date =
-      new Date(
-        now.getFullYear(),
-        now.getMonth()-i,
-        1
-      );
-
-    result.push({
-
-      key:getMonthKey(date),
-
-      label:getMonthLabel(date),
-
-      date
-
-    });
-
-  }
-
-  return result;
-
-}
-
-
-async function loadBusinessGrowth(){
-
-  const months =
-    createMonthRange(graphMonths);
-
-  const startDate =
-    months[0].date.toISOString();
-
-
-  /*
-    We query the existing tables directly.
-    No RPC/function is required.
-  */
-
-  const [
-    profilesResult,
-    depositsResult,
-    loansResult,
-    cardsResult
-  ] = await Promise.all([
-
-    supabaseClient
-      .from("profiles")
-      .select("id,created_at,role")
-      .gte("created_at",startDate),
-
-    supabaseClient
-      .from("deposits")
-      .select("id,created_at,status,amount,currency")
-      .gte("created_at",startDate),
-
-    supabaseClient
-      .from("loans")
-      .select("id,created_at,status,requested_amount")
-      .gte("created_at",startDate),
-
-    supabaseClient
-      .from("card_applications")
-      .select("id,created_at,status,fee")
-      .gte("created_at",startDate)
-
-  ]);
-
-
-  if(profilesResult.error)
-    console.error(
-      "Business profiles:",
-      profilesResult.error
-    );
-
-  if(depositsResult.error)
-    console.error(
-      "Business deposits:",
-      depositsResult.error
-    );
-
-  if(loansResult.error)
-    console.error(
-      "Business loans:",
-      loansResult.error
-    );
-
-  if(cardsResult.error)
-    console.error(
-      "Business cards:",
-      cardsResult.error
-    );
-
-
-  const profiles =
-    profilesResult.data || [];
-
-  const deposits =
-    depositsResult.data || [];
-
-  const loans =
-    loansResult.data || [];
-
-  const cards =
-    cardsResult.data || [];
-
-
-  const customerCounts =
-    months.map(m =>
-      profiles.filter(p =>
-        getMonthKey(p.created_at) === m.key &&
-        p.role !== "admin"
-      ).length
-    );
-
-
-  const depositCounts =
-    months.map(m =>
-      deposits.filter(d =>
-        getMonthKey(d.created_at) === m.key
-      ).length
-    );
-
-
-  const loanCounts =
-    months.map(m =>
-      loans.filter(l =>
-        getMonthKey(l.created_at) === m.key
-      ).length
-    );
-
-
-  const cardCounts =
-    months.map(m =>
-      cards.filter(c =>
-        getMonthKey(c.created_at) === m.key
-      ).length
-    );
-
-
-  const totalCustomers =
-    customerCounts.reduce(
-      (sum,value)=>sum+value,
-      0
-    );
-
-  const totalDeposits =
-    depositCounts.reduce(
-      (sum,value)=>sum+value,
-      0
-    );
-
-  const totalLoans =
-    loanCounts.reduce(
-      (sum,value)=>sum+value,
-      0
-    );
-
-  const totalCards =
-    cardCounts.reduce(
-      (sum,value)=>sum+value,
-      0
-    );
-
-
-  document.getElementById("graphCustomers")
-    .textContent = totalCustomers;
-
-  document.getElementById("graphDeposits")
-    .textContent = totalDeposits;
-
-  document.getElementById("graphLoans")
-    .textContent = totalLoans;
-
-  document.getElementById("graphCards")
-    .textContent = totalCards;
-
-
-  drawBusinessChart(
-    months.map(m=>m.label),
-    customerCounts,
-    depositCounts,
-    loanCounts,
-    cardCounts
-  );
-
-}
-
-
-function drawBusinessChart(
-  labels,
-  customers,
-  deposits,
-  loans,
-  cards
-){
-
-  const canvas =
-    document.getElementById("businessChart");
-
-  if(!canvas) return;
-
-
-  if(businessChart){
-
-    businessChart.destroy();
-
-  }
-
-
-  const ctx =
-    canvas.getContext("2d");
-
-
-  businessChart =
-    new Chart(ctx,{
-
-      type:"line",
-
-      data:{
-
-        labels,
-
-        datasets:[
-
-          {
-            label:"Customers",
-            data:customers,
-            tension:.35,
-            borderWidth:3,
-            pointRadius:4
-          },
-
-          {
-            label:"Deposits",
-            data:deposits,
-            tension:.35,
-            borderWidth:2,
-            pointRadius:3
-          },
-
-          {
-            label:"Loans",
-            data:loans,
-            tension:.35,
-            borderWidth:2,
-            pointRadius:3
-          },
-
-          {
-            label:"Cards",
-            data:cards,
-            tension:.35,
-            borderWidth:2,
-            pointRadius:3
-          }
-
-        ]
-
-      },
-
-      options:{
-
-        responsive:true,
-
-        maintainAspectRatio:false,
-
-        interaction:{
-          intersect:false,
-          mode:"index"
-        },
-
-        plugins:{
-
-          legend:{
-            position:"bottom",
-            labels:{
-              usePointStyle:true,
-              padding:15
-            }
-          }
-
-        },
-
-        scales:{
-
-          y:{
-            beginAtZero:true,
-
-            ticks:{
-              precision:0
-            },
-
-            grid:{
-              color:"rgba(0,0,0,.06)"
-            }
-
-          },
-
-          x:{
-            grid:{
-              display:false
-            }
-
-          }
-
-        }
-
-      }
-
-    });
-
-}
-
-
-async function changeGraphRange(months){
-
-  graphMonths = months;
-
-
-  document
-    .querySelectorAll(".graph-range button")
-    .forEach(button =>
-      button.classList.remove("active")
-    );
-
-
-  const selected =
-    document.getElementById(
-      "range" + months
-    );
-
-  if(selected)
-    selected.classList.add("active");
-
-
-  await loadBusinessGrowth();
-
-}
-
-
-/* =====================================================
-   ADMIN TABS
+ADMIN TABS
 ===================================================== */
 
 async function showAdminTab(tab,button=null){
 
-  adminTab = tab;
+adminTab = tab;
 
-  document.querySelectorAll(".admin-tab")
-    .forEach(b=>b.classList.remove("active"));
+document.querySelectorAll(".admin-tab")
+.forEach(b=>b.classList.remove("active"));
 
-  if(button)
-    button.classList.add("active");
+if(button){
 
-  else{
+button.classList.add("active");
 
-    const tabs =
-      document.querySelectorAll(".admin-tab");
+}else{
 
-    const index =
-      ["deposits","withdrawals","loans","cards","customers"]
-        .indexOf(tab);
+const tabs =
+document.querySelectorAll(".admin-tab");
 
-    if(tabs[index])
-      tabs[index].classList.add("active");
+const index =
+[
+"deposits",
+"withdrawals",
+"loans",
+"cards",
+"customers"
+].indexOf(tab);
 
-  }
+if(tabs[index])
+tabs[index].classList.add("active");
 
+}
 
-  const title =
-    document.getElementById("adminSectionTitle");
+const title =
+document.getElementById("adminSectionTitle");
 
-  if(tab==="deposits"){
+if(tab==="deposits"){
 
-    title.textContent =
-      "Deposit requests";
+title.textContent =
+"Deposit requests";
 
-    await loadAdminDeposits();
+await loadAdminDeposits();
 
-  }
+}
 
-  else if(tab==="withdrawals"){
+else if(tab==="withdrawals"){
 
-    title.textContent =
-      "Withdrawal requests";
+title.textContent =
+"Withdrawal requests";
 
-    await loadAdminWithdrawals();
+await loadAdminWithdrawals();
 
-  }
+}
 
-  else if(tab==="loans"){
+else if(tab==="loans"){
 
-    title.textContent =
-      "Loan applications";
+title.textContent =
+"Loan applications";
 
-    await loadAdminLoans();
+await loadAdminLoans();
 
-  }
+}
 
-  else if(tab==="cards"){
+else if(tab==="cards"){
 
-    title.textContent =
-      "Card applications";
+title.textContent =
+"Card applications";
 
-    await loadAdminCards();
+await loadAdminCards();
 
-  }
+}
 
-  else if(tab==="customers"){
+else if(tab==="customers"){
 
-    title.textContent =
-      "Customers";
+title.textContent =
+"Customers";
 
-    await loadAdminCustomers();
+await loadAdminCustomers();
 
-  }
+}
 
 }
 
 
 /* =====================================================
-   ADMIN DEPOSITS
+ADMIN DEPOSITS
 ===================================================== */
 
 async function loadAdminDeposits(){
 
-  const box =
-    document.getElementById("adminContent");
+const box =
+document.getElementById("adminContent");
 
-  box.innerHTML =
-    `<div class="empty">Loading deposits...</div>`;
+box.innerHTML =
+`<div class="empty">
+Loading deposits...
+</div>`;
 
-  const {data,error} =
-    await supabaseClient
-      .from("deposits")
-      .select("*")
-      .order("created_at",{ascending:false})
-      .limit(100);
+const {data,error} =
+await supabaseClient
+.from("deposits")
+.select("*")
+.order("created_at",{ascending:false})
+.limit(100);
 
-  if(error){
+if(error){
 
-    box.innerHTML =
-      `<div class="empty">
-        Unable to load deposits.
-        <br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
+box.innerHTML =
+`<div class="empty">
 
-    return;
+Unable to load deposits.
 
-  }
+<br><br>
 
-  if(!data || !data.length){
+${escapeHtml(error.message)}
 
-    box.innerHTML =
-      `<div class="empty">
-        No deposit requests.
-      </div>`;
+</div>`;
 
-    return;
+return;
 
-  }
+}
 
-  box.innerHTML =
-    data.map(d=>`
+if(!data || !data.length){
 
-      <div class="admin-row">
+box.innerHTML =
+`<div class="empty">
+No deposit requests.
+</div>`;
 
-        <div class="admin-info">
+return;
 
-          <strong>
-            ${Number(d.amount || 0).toLocaleString()}
-            ${escapeHtml(d.currency || "")}
-          </strong>
+}
 
-          <small>
-            User: ${escapeHtml(d.user_id)}
-            <br>
-            Method: ${escapeHtml(d.payment_method || "—")}
-            <br>
-            Reference: ${escapeHtml(d.payment_reference || "—")}
-          </small>
+box.innerHTML =
+data.map(d=>`
 
-        </div>
+<div class="admin-row">
 
-        <div class="admin-buttons">
+<div class="admin-info">
 
-          <span class="status">
-            ${escapeHtml(d.status || "pending")}
-          </span>
+<strong>
 
-          ${
-            d.status==="pending"
-            ? `
-              <button
-                class="approve"
-                onclick="updateDeposit('${d.id}','approved')">
-                Approve
-              </button>
+${Number(d.amount || 0).toLocaleString()}
+${escapeHtml(d.currency || "")}
 
-              <button
-                class="reject"
-                onclick="updateDeposit('${d.id}','rejected')">
-                Reject
-              </button>
-            `
-            : ""
-          }
+</strong>
 
-        </div>
+<small>
 
-      </div>
+User:
+${escapeHtml(d.user_id)}
 
-    `).join("");
+<br>
+
+Method:
+${escapeHtml(d.payment_method || "—")}
+
+<br>
+
+Reference:
+${escapeHtml(d.payment_reference || "—")}
+
+</small>
+
+</div>
+
+<div class="admin-buttons">
+
+<span class="status">
+
+${escapeHtml(d.status || "pending")}
+
+</span>
+
+${
+d.status==="pending"
+? `
+
+<button
+class="approve"
+onclick="updateDeposit('${d.id}','approved')">
+
+Approve
+
+</button>
+
+<button
+class="reject"
+onclick="updateDeposit('${d.id}','rejected')">
+
+Reject
+
+</button>
+
+`
+: ""
+}
+
+</div>
+
+</div>
+
+`).join("");
 
 }
 
 
 /* =====================================================
-   ADMIN LOANS
-===================================================== */
-
-async function loadAdminLoans(){
-
-  const box =
-    document.getElementById("adminContent");
-
-  box.innerHTML =
-    `<div class="empty">Loading loans...</div>`;
-
-  const {data,error} =
-    await supabaseClient
-      .from("loans")
-      .select("*")
-      .order("created_at",{ascending:false})
-      .limit(100);
-
-  if(error){
-
-    box.innerHTML =
-      `<div class="empty">
-        Unable to load loans.
-        <br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
-
-    return;
-
-  }
-
-  if(!data || !data.length){
-
-    box.innerHTML =
-      `<div class="empty">
-        No loan applications.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML =
-    data.map(l=>`
-
-      <div class="admin-row">
-
-        <div class="admin-info">
-
-          <strong>
-            AED ${Number(
-              l.requested_amount || 0
-            ).toLocaleString()}
-          </strong>
-
-          <small>
-            User: ${escapeHtml(l.user_id)}
-            <br>
-            Interest: ${Number(
-              l.interest_rate || 0
-            )}%
-            <br>
-            ${escapeHtml(l.application_note || "")}
-          </small>
-
-        </div>
-
-        <div class="admin-buttons">
-
-          <span class="status">
-            ${escapeHtml(l.status || "pending")}
-          </span>
-
-          ${
-            l.status==="pending"
-            ? `
-              <button
-                class="approve"
-                onclick="updateLoan('${l.id}','approved')">
-                Approve
-              </button>
-
-              <button
-                class="reject"
-                onclick="updateLoan('${l.id}','rejected')">
-                Reject
-              </button>
-            `
-            : ""
-          }
-
-        </div>
-
-      </div>
-
-    `).join("");
-
-}
-
-
-/* =====================================================
-   ADMIN CARDS
-===================================================== */
-
-async function loadAdminCards(){
-
-  const box =
-    document.getElementById("adminContent");
-
-  box.innerHTML =
-    `<div class="empty">Loading cards...</div>`;
-
-  const {data,error} =
-    await supabaseClient
-      .from("card_applications")
-      .select("*")
-      .order("created_at",{ascending:false})
-      .limit(100);
-
-  if(error){
-
-    box.innerHTML =
-      `<div class="empty">
-        Unable to load card applications.
-        <br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
-
-    return;
-
-  }
-
-  if(!data || !data.length){
-
-    box.innerHTML =
-      `<div class="empty">
-        No card applications.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML =
-    data.map(c=>`
-
-      <div class="admin-row">
-
-        <div class="admin-info">
-
-          <strong>
-            ${escapeHtml(c.card_type || "")} Card
-          </strong>
-
-          <small>
-            User: ${escapeHtml(c.user_id)}
-            <br>
-            Fee: AED ${Number(c.fee || 0).toFixed(0)}
-            <br>
-            Address:
-            ${escapeHtml(c.delivery_address || "—")}
-          </small>
-
-        </div>
-
-        <div class="admin-buttons">
-
-          <span class="status">
-            ${escapeHtml(c.status || "pending")}
-          </span>
-
-          ${
-            c.status==="pending"
-            ? `
-              <button
-                class="approve"
-                onclick="updateCard('${c.id}','approved')">
-                Approve
-              </button>
-
-              <button
-                class="reject"
-                onclick="updateCard('${c.id}','rejected')">
-                Reject
-              </button>
-            `
-            : ""
-          }
-
-        </div>
-
-      </div>
-
-    `).join("");
-
-}
-
-
-/* =====================================================
-   ADMIN WITHDRAWALS
-===================================================== */
-
-async function loadAdminWithdrawals(){
-
-  const box =
-    document.getElementById("adminContent");
-
-  box.innerHTML =
-    `<div class="empty">
-      Withdrawal table connection will be activated after we confirm its columns.
-    </div>`;
-
-}
-
-
-/* =====================================================
-   ADMIN CUSTOMERS
-===================================================== */
-
-async function loadAdminCustomers(){
-
-  const box =
-    document.getElementById("adminContent");
-
-  box.innerHTML =
-    `<div class="empty">Loading customers...</div>`;
-
-  const {data,error} =
-    await supabaseClient
-      .from("profiles")
-      .select("*")
-      .order("created_at",{ascending:false})
-      .limit(100);
-
-  if(error){
-
-    box.innerHTML =
-      `<div class="empty">
-        Unable to load customers.
-        <br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
-
-    return;
-
-  }
-
-  if(!data || !data.length){
-
-    box.innerHTML =
-      `<div class="empty">
-        No customers found.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML =
-    data.map(p=>`
-
-      <div class="admin-row">
-
-        <div class="admin-info">
-
-          <strong>
-            ${escapeHtml(
-              p.full_name || "Unnamed customer"
-            )}
-          </strong>
-
-          <small>
-            User ID:
-            ${escapeHtml(p.id)}
-            <br>
-            Phone:
-            ${escapeHtml(p.phone || "—")}
-            <br>
-            Role:
-            ${escapeHtml(p.role || "customer")}
-          </small>
-
-        </div>
-
-      </div>
-
-    `).join("");
-
-}
-
-
-/* =====================================================
-   ADMIN APPROVAL ACTIONS
+IMPORTANT:
+ADMIN APPROVAL NOW CREDITS THE WALLET
 ===================================================== */
 
 async function updateDeposit(id,status){
 
-  const {error} =
-    await supabaseClient
-      .from("deposits")
-      .update({
-        status,
-        verified_by:currentUser.id,
-        verified_at:new Date().toISOString()
-      })
-      .eq("id",id);
+if(status === "approved"){
 
-  if(error){
+const {data,error} =
+await supabaseClient
+.rpc("approve_deposit",{
+p_deposit_id:id
+});
 
-    alert(error.message);
-    return;
+if(error){
 
-  }
+console.error(
+"Deposit approval error:",
+error
+);
 
-  await loadAdminStats();
-  await loadBusinessGrowth();
-  await loadAdminDeposits();
+alert(
+"Deposit approval failed:\n\n" +
+error.message
+);
 
-  alert(
-    status==="approved"
-      ? "Deposit approved."
-      : "Deposit rejected."
-  );
+return;
+
+}
+
+await loadAdminStats();
+await loadAdminDeposits();
+
+const amount =
+Number(data.amount || 0)
+.toLocaleString();
+
+alert(
+"Deposit approved successfully.\n\n" +
+amount +
+" " +
+data.currency +
+" has been added to the customer's wallet."
+);
+
+return;
 
 }
 
 
-async function updateLoan(id,status){
+/* REJECT DEPOSIT */
 
-  const {error} =
-    await supabaseClient
-      .from("loans")
-      .update({
-        status,
-        approved_by:currentUser.id,
-        approved_at:new Date().toISOString()
-      })
-      .eq("id",id);
+const {error} =
+await supabaseClient
+.from("deposits")
+.update({
 
-  if(error){
+status:"rejected",
 
-    alert(error.message);
-    return;
+verified_by:currentUser.id,
 
-  }
+verified_at:new Date().toISOString()
 
-  await loadAdminStats();
-  await loadBusinessGrowth();
-  await loadAdminLoans();
+})
+.eq("id",id)
+.eq("status","pending");
 
-  alert(
-    status==="approved"
-      ? "Loan approved."
-      : "Loan rejected."
-  );
+if(error){
+
+alert(error.message);
+return;
 
 }
 
+await loadAdminStats();
+await loadAdminDeposits();
 
-async function updateCard(id,status){
-
-  const {error} =
-    await supabaseClient
-      .from("card_applications")
-      .update({
-        status
-      })
-      .eq("id",id);
-
-  if(error){
-
-    alert(error.message);
-    return;
-
-  }
-
-  await loadAdminStats();
-  await loadBusinessGrowth();
-  await loadAdminCards();
-
-  alert(
-    status==="approved"
-      ? "Card application approved."
-      : "Card application rejected."
-  );
+alert("Deposit rejected.");
 
 }
 
 
 /* =====================================================
-   MODAL
+ADMIN LOANS
+===================================================== */
+
+async function loadAdminLoans(){
+
+const box =
+document.getElementById("adminContent");
+
+box.innerHTML =
+`<div class="empty">
+Loading loans...
+</div>`;
+
+const {data,error} =
+await supabaseClient
+.from("loans")
+.select("*")
+.order("created_at",{ascending:false})
+.limit(100);
+
+if(error){
+
+box.innerHTML =
+`<div class="empty">
+
+Unable to load loans.
+
+<br><br>
+
+${escapeHtml(error.message)}
+
+</div>`;
+
+return;
+
+}
+
+if(!data || !data.length){
+
+box.innerHTML =
+`<div class="empty">
+No loan applications.
+</div>`;
+
+return;
+
+}
+
+box.innerHTML =
+data.map(l=>`
+
+<div class="admin-row">
+
+<div class="admin-info">
+
+<strong>
+
+AED ${Number(
+l.requested_amount || 0
+).toLocaleString()}
+
+</strong>
+
+<small>
+
+User:
+${escapeHtml(l.user_id)}
+
+<br>
+
+Interest:
+${Number(l.interest_rate || 0)}%
+
+<br>
+
+${escapeHtml(l.application_note || "")}
+
+</small>
+
+</div>
+
+<div class="admin-buttons">
+
+<span class="status">
+${escapeHtml(l.status || "pending")}
+</span>
+
+${
+l.status==="pending"
+? `
+
+<button
+class="approve"
+onclick="updateLoan('${l.id}','approved')">
+
+Approve
+
+</button>
+
+<button
+class="reject"
+onclick="updateLoan('${l.id}','rejected')">
+
+Reject
+
+</button>
+
+`
+: ""
+}
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+ADMIN CARDS
+===================================================== */
+
+async function loadAdminCards(){
+
+const box =
+document.getElementById("adminContent");
+
+box.innerHTML =
+`<div class="empty">
+Loading cards...
+</div>`;
+
+const {data,error} =
+await supabaseClient
+.from("card_applications")
+.select("*")
+.order("created_at",{ascending:false})
+.limit(100);
+
+if(error){
+
+box.innerHTML =
+`<div class="empty">
+
+Unable to load card applications.
+
+<br><br>
+
+${escapeHtml(error.message)}
+
+</div>`;
+
+return;
+
+}
+
+if(!data || !data.length){
+
+box.innerHTML =
+`<div class="empty">
+No card applications.
+</div>`;
+
+return;
+
+}
+
+box.innerHTML =
+data.map(c=>`
+
+<div class="admin-row">
+
+<div class="admin-info">
+
+<strong>
+${escapeHtml(c.card_type || "")} Card
+</strong>
+
+<small>
+
+User:
+${escapeHtml(c.user_id)}
+
+<br>
+
+Fee:
+AED ${Number(c.fee || 0).toFixed(0)}
+
+<br>
+
+Address:
+${escapeHtml(c.delivery_address || "—")}
+
+</small>
+
+</div>
+
+<div class="admin-buttons">
+
+<span class="status">
+${escapeHtml(c.status || "pending")}
+</span>
+
+${
+c.status==="pending"
+? `
+
+<button
+class="approve"
+onclick="updateCard('${c.id}','approved')">
+
+Approve
+
+</button>
+
+<button
+class="reject"
+onclick="updateCard('${c.id}','rejected')">
+
+Reject
+
+</button>
+
+`
+: ""
+}
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+ADMIN WITHDRAWALS
+===================================================== */
+
+async function loadAdminWithdrawals(){
+
+const box =
+document.getElementById("adminContent");
+
+box.innerHTML =
+`<div class="empty">
+
+Withdrawal table connection will be activated
+after we confirm its columns.
+
+</div>`;
+
+}
+
+
+/* =====================================================
+ADMIN CUSTOMERS
+===================================================== */
+
+async function loadAdminCustomers(){
+
+const box =
+document.getElementById("adminContent");
+
+box.innerHTML =
+`<div class="empty">
+Loading customers...
+</div>`;
+
+const {data,error} =
+await supabaseClient
+.from("profiles")
+.select("*")
+.order("created_at",{ascending:false})
+.limit(100);
+
+if(error){
+
+box.innerHTML =
+`<div class="empty">
+
+Unable to load customers.
+
+<br><br>
+
+${escapeHtml(error.message)}
+
+</div>`;
+
+return;
+
+}
+
+if(!data || !data.length){
+
+box.innerHTML =
+`<div class="empty">
+No customers found.
+</div>`;
+
+return;
+
+}
+
+box.innerHTML =
+data.map(p=>`
+
+<div class="admin-row">
+
+<div class="admin-info">
+
+<strong>
+
+${escapeHtml(
+p.full_name || "Unnamed customer"
+)}
+
+</strong>
+
+<small>
+
+User ID:
+${escapeHtml(p.id)}
+
+<br>
+
+Phone:
+${escapeHtml(p.phone || "—")}
+
+<br>
+
+Role:
+${escapeHtml(p.role || "customer")}
+
+</small>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+ADMIN LOAN APPROVAL
+===================================================== */
+
+async function updateLoan(id,status){
+
+const {error} =
+await supabaseClient
+.from("loans")
+.update({
+
+status,
+
+approved_by:
+status==="approved"
+? currentUser.id
+: null,
+
+approved_at:
+status==="approved"
+? new Date().toISOString()
+: null
+
+})
+.eq("id",id);
+
+if(error){
+
+alert(error.message);
+return;
+
+}
+
+await loadAdminStats();
+await loadAdminLoans();
+
+alert(
+status==="approved"
+? "Loan approved."
+: "Loan rejected."
+);
+
+}
+
+
+/* =====================================================
+ADMIN CARD APPROVAL
+===================================================== */
+
+async function updateCard(id,status){
+
+const {error} =
+await supabaseClient
+.from("card_applications")
+.update({
+status
+})
+.eq("id",id);
+
+if(error){
+
+alert(error.message);
+return;
+
+}
+
+await loadAdminStats();
+await loadAdminCards();
+
+alert(
+status==="approved"
+? "Card application approved."
+: "Card application rejected."
+);
+
+}
+
+
+/* =====================================================
+MODAL
 ===================================================== */
 
 function openModal(){
 
-  document.getElementById("modal")
-    .classList.remove("hidden");
+document.getElementById("modal")
+.classList.remove("hidden");
 
 }
 
 
 function closeModal(){
 
-  document.getElementById("modal")
-    .classList.add("hidden");
+document.getElementById("modal")
+.classList.add("hidden");
 
 }
 
 
 /* =====================================================
-   LOGOUT
+LOGOUT
 ===================================================== */
 
 async function logout(){
 
-  await supabaseClient.auth.signOut();
+await supabaseClient.auth.signOut();
 
-  currentUser = null;
-  currentProfile = null;
-  wallets = [];
+currentUser = null;
+currentProfile = null;
+wallets = [];
 
-  if(businessChart){
-
-    businessChart.destroy();
-
-    businessChart = null;
-
-  }
-
-  showLanding();
+showLanding();
 
 }
 
 
 /* =====================================================
-   HTML SAFETY
+HTML SAFETY
 ===================================================== */
 
 function escapeHtml(value){
 
-  return String(value)
+return String(value)
 
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 /* =====================================================
-   START
+START
 ===================================================== */
 
 (async function(){
 
-  const {data} =
-    await supabaseClient.auth.getSession();
+const {data} =
+await supabaseClient.auth.getSession();
 
-  if(data.session){
+if(data.session){
 
-    currentUser =
-      data.session.user;
+currentUser =
+data.session.user;
 
-    await loadDashboard();
+await loadDashboard();
 
-  }else{
+}else{
 
-    showLanding();
+showLanding();
 
-  }
+}
 
 })();
 
