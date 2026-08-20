@@ -4,1340 +4,918 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nathaflex | Save • Loans • Manage</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Nathaflex | Save. Borrow. Grow.</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root{
+  --bg:#f5f3ee;
+  --surface:#ffffff;
+  --surface2:#eeece6;
+  --text:#17201b;
+  --muted:#69736d;
+  --line:#dedbd2;
+  --green:#1f5c4a;
+  --green-dark:#143d32;
+  --gold:#b28a42;
+  --gold-soft:#eee2c5;
+  --black:#111514;
+  --danger:#a43b3b;
+  --shadow:0 10px 30px rgba(25,32,28,.07);
 }
 
-:root {
-  --navy: #101827;
-  --navy2: #172233;
-  --dark: #0b1220;
-  --text: #182230;
-  --muted: #667085;
-  --line: #e4e7ec;
-  --bg: #f4f5f7;
-  --white: #ffffff;
-  --accent: #177e9e;
-  --gold: #c8a45d;
-  --gold2: #e2cc91;
-  --platinum: #cbd0d7;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
 }
 
-body {
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
+button,input,select{
+  font:inherit;
 }
 
-button,
-input {
-  font-family: inherit;
+button{
+  cursor:pointer;
 }
 
+.hidden{
+  display:none!important;
+}
 
 /* =========================
-   NAVIGATION
+   LANDING
 ========================= */
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  background: rgba(16,24,39,.97);
-  backdrop-filter: blur(12px);
-
-  padding: 15px 20px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  border-bottom: 1px solid rgba(255,255,255,.07);
+.nav{
+  height:68px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  background:rgba(245,243,238,.95);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(12px);
 }
 
-.logo {
-  color: white;
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: -1.4px;
+.logo{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
-.logo span {
-  color: var(--gold2);
+.logo span{
+  color:var(--gold);
 }
 
-.login {
-  color: white;
-  text-decoration: none;
-
-  border: 1px solid #475467;
-  border-radius: 8px;
-
-  padding: 8px 14px;
-
-  font-size: 13px;
-  font-weight: 700;
+.nav-login{
+  border:1px solid var(--line);
+  background:white;
+  padding:9px 15px;
+  border-radius:9px;
+  font-weight:700;
+  color:var(--text);
 }
 
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  background:
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(41,73,87,.4),
-      transparent 32%
-    ),
-    var(--navy);
-
-  color: white;
-
-  padding: 62px 20px 68px;
-
-  text-align: center;
+.hero{
+  max-width:1050px;
+  margin:auto;
+  padding:85px 22px 70px;
+  text-align:center;
 }
 
-.badge {
-  display: inline-block;
-
-  border: 1px solid #344054;
-  background: #182234;
-
-  color: #d0d5dd;
-
-  border-radius: 30px;
-
-  padding: 6px 12px;
-
-  font-size: 11px;
-
-  margin-bottom: 20px;
+.eyebrow{
+  display:inline-flex;
+  padding:7px 13px;
+  border-radius:30px;
+  background:var(--gold-soft);
+  color:#765b27;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:22px;
 }
 
-.hero h1 {
-  font-size: 42px;
-  line-height: 1.06;
-
-  letter-spacing: -2px;
-
-  font-weight: 800;
+.hero h1{
+  font-size:clamp(40px,8vw,68px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  max-width:800px;
+  margin:auto;
 }
 
-.hero h1 span {
-  color: var(--gold2);
+.hero h1 span{
+  color:var(--green);
 }
 
-.hero p {
-  max-width: 550px;
-
-  margin: 18px auto 0;
-
-  color: #b8c1ce;
-
-  font-size: 15px;
+.hero p{
+  max-width:590px;
+  margin:22px auto 0;
+  color:var(--muted);
+  font-size:17px;
 }
 
-.hero-buttons {
-  margin-top: 28px;
-
-  display: flex;
-  justify-content: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
 }
 
 .primary,
-.secondary {
-  display: inline-block;
-
-  padding: 12px 19px;
-
-  border-radius: 9px;
-
-  text-decoration: none;
-
-  font-weight: 800;
-
-  cursor: pointer;
+.secondary{
+  border:0;
+  border-radius:10px;
+  padding:13px 21px;
+  font-weight:800;
 }
 
-.primary {
-  background: var(--gold2);
-  color: #19150d;
-  border: none;
+.primary{
+  background:var(--green);
+  color:white;
 }
 
-.secondary {
-  background: transparent;
-  color: white;
-  border: 1px solid #667085;
+.secondary{
+  background:white;
+  color:var(--text);
+  border:1px solid var(--line);
 }
 
+.features{
+  max-width:1050px;
+  margin:auto;
+  padding:15px 20px 70px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.feature{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+
+.feature-icon{
+  font-size:22px;
+  margin-bottom:13px;
+}
+
+.feature h3{
+  margin-bottom:6px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:14px;
+}
 
 /* =========================
-   MAIN
+   AUTH
 ========================= */
 
-.container {
-  max-width: 1000px;
-
-  margin: auto;
-
-  padding: 45px 18px;
+.auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
 }
 
-.section-title {
-  margin-bottom: 19px;
+.auth-card{
+  width:100%;
+  max-width:420px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:var(--shadow);
 }
 
-.section-title h2 {
-  font-size: 23px;
-  font-weight: 800;
+.back{
+  border:0;
+  background:none;
+  color:var(--muted);
+  margin-bottom:22px;
 }
 
-.section-title p {
-  color: var(--muted);
-
-  font-size: 13px;
-
-  margin-top: 4px;
+.auth-card h2{
+  font-size:28px;
+  margin-bottom:7px;
 }
 
-
-/* =========================
-   SERVICE CARDS
-========================= */
-
-.services {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 11px;
+.auth-sub{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:23px;
 }
 
-.service {
-  background: white;
-
-  border: 1px solid var(--line);
-
-  border-radius: 14px;
-
-  padding: 17px 15px;
-
-  cursor: pointer;
-
-  transition: .2s;
+.field{
+  margin-bottom:15px;
 }
 
-.service:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 9px 22px
-    rgba(16,24,40,.07);
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
 }
 
-.service-icon {
-  font-size: 21px;
-
-  margin-bottom: 7px;
+.field input,
+.field select{
+  width:100%;
+  border:1px solid var(--line);
+  background:#faf9f6;
+  border-radius:9px;
+  padding:12px;
+  outline:none;
 }
 
-.service h3 {
-  font-size: 14px;
-
-  margin-bottom: 3px;
-
-  font-weight: 800;
+.field input:focus,
+.field select:focus{
+  border-color:var(--green);
 }
 
-.service p {
-  color: var(--muted);
-
-  font-size: 11px;
+.auth-submit{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:13px;
+  background:var(--green);
+  color:white;
+  font-weight:800;
 }
 
-
-/* =========================
-   LOANS
-========================= */
-
-.loan-box {
-  background: white;
-
-  border: 1px solid var(--line);
-
-  border-radius: 16px;
-
-  padding: 20px;
-
-  margin-top: 15px;
-
-  display: none;
+.switch-auth{
+  text-align:center;
+  margin-top:18px;
+  color:var(--muted);
+  font-size:14px;
 }
 
-.loan-top {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
+.switch-auth button{
+  border:0;
+  background:none;
+  color:var(--green);
+  font-weight:800;
 }
 
-.loan-top h3 {
-  font-size: 18px;
-
-  font-weight: 800;
+.message{
+  margin-bottom:15px;
+  padding:11px 12px;
+  border-radius:9px;
+  font-size:13px;
+  background:#f0f4f1;
+  color:var(--green-dark);
 }
 
-.loan-limit {
-  color: var(--muted);
-
-  font-size: 11px;
-
-  margin-top: 2px;
+.message.error{
+  background:#faeeee;
+  color:var(--danger);
 }
-
-.loan-options {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 9px;
-
-  margin-top: 14px;
-}
-
-.loan-option {
-  border: 1px solid var(--line);
-
-  border-radius: 10px;
-
-  padding: 11px;
-
-  cursor: pointer;
-
-  background: #fafafa;
-}
-
-.loan-option.selected {
-  border-color: var(--accent);
-
-  background: #f1f8fa;
-}
-
-.loan-option strong {
-  display: block;
-
-  font-size: 13px;
-}
-
-.loan-option span {
-  font-size: 11px;
-
-  color: var(--muted);
-}
-
-.loan-calculator {
-  margin-top: 14px;
-
-  padding-top: 14px;
-
-  border-top: 1px solid var(--line);
-}
-
-.loan-input {
-  width: 100%;
-
-  padding: 11px;
-
-  border: 1px solid #d0d5dd;
-
-  border-radius: 9px;
-
-  font-size: 15px;
-
-  outline: none;
-}
-
-.loan-input:focus {
-  border-color: var(--accent);
-}
-
-.calculation {
-  margin-top: 11px;
-
-  background: #f8fafc;
-
-  border-radius: 10px;
-
-  padding: 12px;
-
-  font-size: 12px;
-}
-
-.calculation div {
-  display: flex;
-
-  justify-content: space-between;
-
-  margin: 4px 0;
-}
-
-.total {
-  font-weight: 900;
-
-  font-size: 14px !important;
-
-  padding-top: 8px;
-
-  border-top: 1px solid #dfe3e8;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.cards-section {
-  margin-top: 42px;
-}
-
-.card-products {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 15px;
-}
-
-.bank-card {
-  min-height: 202px;
-
-  border-radius: 18px;
-
-  padding: 20px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 12px 28px
-    rgba(16,24,40,.14);
-}
-
-
-/* GOLD CARD */
-
-.gold-card {
-  background:
-    linear-gradient(
-      135deg,
-      #a9843f,
-      #d8bd7b 48%,
-      #ae8b49
-    );
-
-  color: #20190d;
-}
-
-.gold-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 170px;
-  height: 170px;
-
-  border-radius: 50%;
-
-  right: -70px;
-  bottom: -80px;
-
-  border: 1px solid
-    rgba(255,255,255,.25);
-}
-
-
-/* PLATINUM */
-
-.platinum-card {
-  background:
-    linear-gradient(
-      135deg,
-      #07090d,
-      #191c22 55%,
-      #080a0e
-    );
-
-  color: white;
-
-  border: 1px solid #464b54;
-}
-
-.platinum-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 200px;
-  height: 200px;
-
-  border-radius: 50%;
-
-  right: -100px;
-  top: -120px;
-
-  border: 1px solid
-    rgba(203,208,215,.18);
-}
-
-
-/* CARD BRAND */
-
-.card-brand {
-  font-size: 17px;
-
-  font-weight: 800;
-
-  letter-spacing: -.7px;
-}
-
-.platinum-card .card-brand {
-  color: #e1e4e8;
-}
-
-
-/* CHIP */
-
-.card-chip {
-  width: 35px;
-  height: 26px;
-
-  border-radius: 5px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f0f0f0,
-      #b9bdc3
-    );
-
-  margin-top: 27px;
-
-  opacity: .85;
-}
-
-
-/* CARD NUMBER */
-
-.card-number {
-  margin-top: 19px;
-
-  font-size: 14px;
-
-  letter-spacing: 2px;
-}
-
-
-/* CARD FOOTER */
-
-.card-bottom {
-  position: absolute;
-
-  bottom: 17px;
-
-  left: 20px;
-  right: 20px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: end;
-}
-
-.card-name {
-  font-size: 9px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .7px;
-
-  opacity: .8;
-}
-
-.card-type {
-  font-size: 11px;
-
-  font-weight: 900;
-
-  letter-spacing: 1.2px;
-}
-
-.platinum-card .card-type {
-  color: #d3d7dc;
-}
-
-
-/* CARD INFO */
-
-.card-info {
-  margin-top: 9px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-}
-
-.card-info strong {
-  display: block;
-
-  font-size: 13px;
-}
-
-.card-info span {
-  display: block;
-
-  color: var(--muted);
-
-  font-size: 10px;
-
-  margin-top: 2px;
-}
-
-.apply-card {
-  padding: 8px 12px;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: var(--navy);
-
-  color: white;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
 
 /* =========================
    DASHBOARD
 ========================= */
 
-.dashboard {
-  display: none;
-
-  max-width: 1000px;
-
-  margin: 25px auto;
-
-  padding: 18px;
+.dashboard{
+  min-height:100vh;
+  background:var(--bg);
 }
 
-.dashboard-header {
-  background: var(--navy);
-
-  color: white;
-
-  border-radius: 17px;
-
-  padding: 21px;
+.dashboard-nav{
+  height:68px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:white;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
-.dashboard-header h2 {
-  font-size: 20px;
+.user-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.dashboard-header p {
-  color: #aab4c2;
-
-  font-size: 12px;
+.user-dot{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--green);
+  color:white;
+  font-weight:800;
 }
 
-.wallets {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 12px;
-
-  margin-top: 13px;
+.logout{
+  border:1px solid var(--line);
+  background:white;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:700;
 }
 
-.wallet {
-  color: white;
-
-  border-radius: 15px;
-
-  padding: 19px;
+.dashboard-main{
+  max-width:1050px;
+  margin:auto;
+  padding:28px 18px 70px;
 }
 
-.aed-wallet {
-  background: #19394a;
+.welcome{
+  margin-bottom:24px;
 }
 
-.ugx-wallet {
-  background: #214436;
+.welcome small{
+  color:var(--muted);
 }
 
-.wallet-label {
-  color: #cbd5e1;
-
-  font-size: 12px;
+.welcome h1{
+  font-size:28px;
+  margin-top:3px;
 }
 
-.balance {
-  font-size: 26px;
+/* Wallets */
 
-  font-weight: 900;
-
-  margin-top: 5px;
+.wallet-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:25px;
 }
 
-.wallet-note {
-  color: #aab4c2;
-
-  font-size: 10px;
-
-  margin-top: 3px;
+.wallet{
+  border-radius:17px;
+  padding:21px;
+  color:white;
+  min-height:145px;
+  position:relative;
+  overflow:hidden;
 }
 
-.dashboard-actions {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap: 9px;
-
-  margin-top: 13px;
+.wallet.aed{
+  background:var(--green-dark);
 }
 
-.dash-action {
-  background: white;
-
-  border: 1px solid var(--line);
-
-  border-radius: 12px;
-
-  padding: 13px 7px;
-
-  text-align: center;
-
-  font-size: 12px;
-
-  font-weight: 800;
-
-  cursor: pointer;
+.wallet.ugx{
+  background:#292c29;
 }
 
-.activity {
-  background: white;
-
-  border: 1px solid var(--line);
-
-  border-radius: 15px;
-
-  padding: 17px;
-
-  margin-top: 13px;
+.wallet-label{
+  font-size:13px;
+  opacity:.75;
 }
 
-.activity h3 {
-  font-size: 15px;
+.wallet-balance{
+  font-size:29px;
+  font-weight:900;
+  margin-top:12px;
+  letter-spacing:-1px;
 }
 
-.activity p {
-  color: var(--muted);
-
-  font-size: 12px;
-
-  margin-top: 4px;
+.wallet-code{
+  position:absolute;
+  right:18px;
+  top:18px;
+  font-size:12px;
+  opacity:.7;
 }
 
-.logout {
-  margin-top: 12px;
-
-  padding: 7px 11px;
-
-  border: 0;
-
-  border-radius: 7px;
-
-  background: #fee4e2;
-
-  color: #b42318;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  cursor: pointer;
+.wallet-actions{
+  display:flex;
+  gap:8px;
+  margin-top:17px;
 }
 
+.wallet-actions button{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  color:white;
+  border-radius:7px;
+  padding:7px 10px;
+  font-size:12px;
+}
+
+/* Quick actions */
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:25px 0 12px;
+}
+
+.section-title h2{
+  font-size:19px;
+}
+
+.action-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.action{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:17px 12px;
+  text-align:left;
+  box-shadow:var(--shadow);
+}
+
+.action-icon{
+  font-size:19px;
+  margin-bottom:10px;
+}
+
+.action strong{
+  display:block;
+  font-size:14px;
+}
+
+.action span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* Cards */
+
+.cards-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.bank-card{
+  min-height:190px;
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+  color:white;
+}
+
+.natha-card{
+  background:linear-gradient(135deg,#c19b55,#80632e);
+}
+
+.platinum-card{
+  background:linear-gradient(135deg,#161918,#303533);
+}
+
+.card-brand{
+  font-size:18px;
+  font-weight:900;
+}
+
+.card-brand span{
+  color:#f2d99e;
+}
+
+.card-type{
+  position:absolute;
+  right:20px;
+  top:22px;
+  font-size:11px;
+  letter-spacing:1px;
+  opacity:.75;
+}
+
+.card-chip{
+  width:38px;
+  height:28px;
+  border-radius:6px;
+  background:linear-gradient(135deg,#e8d19a,#b28a42);
+  margin-top:38px;
+}
+
+.card-number{
+  margin-top:28px;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+.card-note{
+  position:absolute;
+  bottom:18px;
+  left:22px;
+  font-size:11px;
+  opacity:.75;
+}
+
+.apply-card{
+  margin-top:12px;
+  width:100%;
+  padding:10px;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:8px;
+  font-weight:700;
+}
+
+/* Activity */
+
+.activity{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.empty{
+  padding:35px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.transaction{
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.transaction:last-child{
+  border-bottom:0;
+}
+
+.transaction strong{
+  font-size:13px;
+}
+
+.transaction small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.amount{
+  font-weight:800;
+}
 
 /* =========================
-   MODAL
+   MODALS
 ========================= */
 
-.modal {
-  display: none;
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 100;
-
-  background:
-    rgba(0,0,0,.65);
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 18px;
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(10,15,13,.45);
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.modal-box {
-  width: 100%;
-
-  max-width: 405px;
-
-  background: white;
-
-  border-radius: 17px;
-
-  padding: 24px;
-
-  position: relative;
+.modal-card{
+  width:100%;
+  max-width:430px;
+  background:white;
+  border-radius:17px;
+  padding:24px;
+  max-height:90vh;
+  overflow:auto;
 }
 
-.close {
-  position: absolute;
-
-  right: 14px;
-
-  top: 8px;
-
-  border: 0;
-
-  background: none;
-
-  font-size: 27px;
-
-  color: #667085;
-
-  cursor: pointer;
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
 
-.modal-box h2 {
-  font-size: 20px;
+.close{
+  border:0;
+  background:var(--surface2);
+  width:32px;
+  height:32px;
+  border-radius:50%;
 }
 
-.modal-subtitle {
-  color: var(--muted);
-
-  font-size: 12px;
-
-  margin: 3px 0 18px;
+.modal-submit{
+  width:100%;
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:12px;
+  border-radius:9px;
+  font-weight:800;
 }
 
-.tabs {
-  display: flex;
-
-  border-bottom: 1px solid var(--line);
-
-  margin-bottom: 17px;
+.loan-info{
+  background:var(--surface2);
+  border-radius:10px;
+  padding:13px;
+  margin-bottom:16px;
+  font-size:13px;
+  color:var(--muted);
 }
 
-.tab {
-  flex: 1;
-
-  border: 0;
-
-  background: none;
-
-  padding: 9px;
-
-  font-weight: 700;
-
-  cursor: pointer;
+.loan-info strong{
+  color:var(--text);
 }
 
-.tab.active {
-  color: var(--accent);
-
-  border-bottom: 2px solid var(--accent);
+footer{
+  padding:35px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
 }
-
-.input {
-  width: 100%;
-
-  padding: 11px;
-
-  margin-bottom: 9px;
-
-  border: 1px solid #d0d5dd;
-
-  border-radius: 8px;
-
-  font-size: 13px;
-}
-
-.auth-button {
-  width: 100%;
-
-  padding: 11px;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: var(--navy);
-
-  color: white;
-
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
-.message {
-  text-align: center;
-
-  margin-top: 9px;
-
-  font-size: 12px;
-
-  color: var(--muted);
-}
-
 
 /* =========================
-   FOOTER
+   RESPONSIVE
 ========================= */
 
-footer {
-  background: #0b1220;
+@media(max-width:700px){
 
-  color: #667085;
-
-  text-align: center;
-
-  padding: 28px 20px;
-
-  font-size: 12px;
-}
-
-footer strong {
-  color: white;
-
-  font-size: 17px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:700px) {
-
-  .hero h1 {
-    font-size: 36px;
+  .features{
+    grid-template-columns:1fr;
   }
 
-  .services {
-    grid-template-columns: 1fr 1fr;
+  .wallet-grid{
+    grid-template-columns:1fr;
   }
 
-  .card-products {
-    grid-template-columns: 1fr;
+  .action-grid{
+    grid-template-columns:1fr 1fr;
   }
 
-  .wallets {
-    grid-template-columns: 1fr;
+  .cards-row{
+    grid-template-columns:1fr;
   }
 
-  .dashboard-actions {
-    grid-template-columns: 1fr 1fr;
+  .hero{
+    padding-top:65px;
   }
 
+  .hero h1{
+    letter-spacing:-2px;
+  }
 }
 </style>
 </head>
 
-
 <body>
 
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<div id="landing">
 
-<nav>
+  <nav class="nav">
+    <div class="logo">Natha<span>flex</span></div>
 
-  <div class="logo">
-    Natha<span>flex</span>
-  </div>
+    <button class="nav-login" onclick="showAuth('login')">
+      Login
+    </button>
+  </nav>
 
-  <a href="#" class="login" id="loginButton">
-    Login
-  </a>
+  <section class="hero">
 
-</nav>
+    <div class="eyebrow">
+      🇦🇪 UAE &nbsp; • &nbsp; 🇺🇬 Uganda
+    </div>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-  <div class="badge">
-    🇦🇪 UAE • 🇺🇬 Uganda
-  </div>
-
-  <h1>
-    Your money.<br>
-    <span>Your flexibility.</span>
-  </h1>
-
-  <p>
-    Save, manage your money and access
-    Nathaflex services from one simple account.
-  </p>
-
-  <div class="hero-buttons">
-
-    <a href="#" class="primary" id="startButton">
-      Get Started
-    </a>
-
-    <a href="#services" class="secondary">
-      Explore
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SERVICES
-========================= -->
-
-<section class="container" id="services">
-
-  <div class="section-title">
-
-    <h2>Nathaflex services</h2>
+    <h1>
+      Your money.<br>
+      <span>Your flexibility.</span>
+    </h1>
 
     <p>
-      Simple tools for managing your money.
+      Save when you want, apply for short-term loans,
+      and keep track of your money from one simple account.
     </p>
 
-  </div>
+    <div class="actions">
 
+      <button class="primary" onclick="showAuth('signup')">
+        Get Started
+      </button>
 
-  <div class="services">
-
-
-    <div class="service" id="saveService">
-
-      <div class="service-icon">
-        💰
-      </div>
-
-      <h3>Save</h3>
-
-      <p>
-        Keep your money with Nathaflex.
-      </p>
-
-    </div>
-
-
-    <div class="service" id="loanService">
-
-      <div class="service-icon">
-        🏦
-      </div>
-
-      <h3>Loans</h3>
-
-      <p>
-        Up to AED 3,000.
-      </p>
-
-    </div>
-
-
-    <div class="service" id="cardService">
-
-      <div class="service-icon">
-        💳
-      </div>
-
-      <h3>Cards</h3>
-
-      <p>
-        Apply for a Nathaflex card.
-      </p>
-
-    </div>
-
-
-    <div class="service" id="transactionService">
-
-      <div class="service-icon">
-        📊
-      </div>
-
-      <h3>Transactions</h3>
-
-      <p>
-        Track your activity.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       LOAN PANEL
-  ========================= -->
-
-  <div class="loan-box" id="loanBox">
-
-    <div class="loan-top">
-
-      <div>
-
-        <h3>Nathaflex Loans</h3>
-
-        <div class="loan-limit">
-          Maximum loan: AED 3,000
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="loan-options">
-
-      <div
-        class="loan-option selected"
-        data-months="1"
-      >
-
-        <strong>
-          1 Month
-        </strong>
-
-        <span>
-          Repay within 1 month
-        </span>
-
-      </div>
-
-
-      <div
-        class="loan-option"
-        data-months="2"
-      >
-
-        <strong>
-          2 Months
-        </strong>
-
-        <span>
-          Repay within 2 months
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="loan-calculator">
-
-      <input
-        class="loan-input"
-        id="loanAmount"
-        type="number"
-        min="1"
-        max="3000"
-        placeholder="Enter loan amount (AED)"
-      >
-
-
-      <div class="calculation">
-
-        <div>
-
-          <span>
-            Loan amount
-          </span>
-
-          <strong id="calcAmount">
-            AED 0.00
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <span>
-            Interest
-          </span>
-
-          <strong id="calcInterest">
-            AED 0.00
-          </strong>
-
-        </div>
-
-
-        <div class="total">
-
-          <span>
-            Total repayment
-          </span>
-
-          <strong id="calcTotal">
-            AED 0.00
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="primary"
-        id="applyLoanButton"
-        style="
-          margin-top:12px;
-          width:100%;
-        "
-      >
-        Apply for Loan
+      <button class="secondary" onclick="showAuth('login')">
+        Login
       </button>
 
     </div>
 
+  </section>
+
+  <section class="features">
+
+    <div class="feature">
+      <div class="feature-icon">◎</div>
+      <h3>Save</h3>
+      <p>
+        Keep track of your AED and UGX savings
+        from your personal Nathaflex account.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">↗</div>
+      <h3>Loans</h3>
+      <p>
+        Apply for a short-term loan of up to AED 3,000
+        with a 1 or 2 month repayment option.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">▣</div>
+      <h3>Cards</h3>
+      <p>
+        Apply for a Nathaflex or Platinum card
+        and have it delivered within 3 working days.
+      </p>
+    </div>
+
+  </section>
+
+  <footer>
+    Nathaflex • Save • Borrow • Grow<br><br>
+    © 2026 Nathaflex
+  </footer>
+
+</div>
+
+
+<!-- =====================================================
+     AUTH
+===================================================== -->
+
+<div id="authPage" class="auth-page hidden">
+
+  <div class="auth-card">
+
+    <button class="back" onclick="showLanding()">
+      ← Back
+    </button>
+
+    <div class="logo">
+      Natha<span>flex</span>
+    </div>
+
+    <br>
+
+    <h2 id="authTitle">Create your account</h2>
+
+    <p class="auth-sub" id="authSubtitle">
+      Open your Nathaflex account.
+    </p>
+
+    <div id="authMessage" class="message hidden"></div>
+
+    <form id="authForm">
+
+      <div id="nameField" class="field">
+        <label>Full name</label>
+        <input
+          id="fullName"
+          type="text"
+          placeholder="Your full name"
+        >
+      </div>
+
+      <div id="phoneField" class="field">
+        <label>Mobile number</label>
+        <input
+          id="phone"
+          type="tel"
+          placeholder="+971..."
+        >
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="At least 6 characters"
+          minlength="6"
+          required
+        >
+      </div>
+
+      <button class="auth-submit" id="authButton">
+        Create Account
+      </button>
+
+    </form>
+
+    <div class="switch-auth">
+      <span id="switchText">Already have an account?</span>
+
+      <button id="switchButton" onclick="toggleAuthMode()">
+        Login
+      </button>
+    </div>
+
   </div>
 
+</div>
 
-  <!-- =========================
-       CARDS
-  ========================= -->
 
-  <div class="cards-section">
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
 
-    <div class="section-title">
+<div id="dashboard" class="dashboard hidden">
 
-      <h2>
-        Nathaflex Cards
-      </h2>
+  <nav class="dashboard-nav">
 
-      <p>
-        Premium cards for Nathaflex customers.
-      </p>
+    <div class="logo">
+      Natha<span>flex</span>
+    </div>
+
+    <div class="user-area">
+
+      <div class="user-dot" id="userInitial">
+        N
+      </div>
+
+      <button class="logout" onclick="logout()">
+        Logout
+      </button>
 
     </div>
 
+  </nav>
 
-    <div class="card-products">
+  <main class="dashboard-main">
+
+    <section class="welcome">
+
+      <small>Welcome back</small>
+
+      <h1 id="customerName">
+        Nathaflex customer
+      </h1>
+
+    </section>
 
 
-      <!-- GOLD -->
+    <!-- WALLETS -->
 
-      <div>
+    <section class="wallet-grid">
 
-        <div class="bank-card gold-card">
+      <div class="wallet aed">
 
-          <div class="card-brand">
-            Natha<span style="color:#fff1c8;">flex</span>
-          </div>
-
-          <div class="card-chip"></div>
-
-          <div class="card-number">
-            •••• •••• •••• ••••
-          </div>
-
-          <div class="card-bottom">
-
-            <div class="card-name">
-              NATHAFLEX
-            </div>
-
-            <div class="card-type">
-              NATHAFLEX
-            </div>
-
-          </div>
-
+        <div class="wallet-label">
+          UAE Dirham
         </div>
 
+        <div class="wallet-balance" id="aedBalance">
+          AED 0.00
+        </div>
 
-        <div class="card-info">
+        <div class="wallet-code">
+          AED
+        </div>
 
-          <div>
+        <div class="wallet-actions">
 
-            <strong>
-              Nathaflex Card
-            </strong>
+          <button onclick="openDeposit('AED')">
+            Deposit
+          </button>
 
-            <span>
-              AED 25 • 3 working days
-            </span>
-
-          </div>
-
-          <button
-            class="apply-card"
-            data-card="Nathaflex Card"
-            data-fee="25"
-          >
-            Apply
+          <button onclick="openWithdraw('AED')">
+            Withdraw
           </button>
 
         </div>
@@ -1345,307 +923,184 @@ footer strong {
       </div>
 
 
-      <!-- PLATINUM -->
+      <div class="wallet ugx">
+
+        <div class="wallet-label">
+          Ugandan Shilling
+        </div>
+
+        <div class="wallet-balance" id="ugxBalance">
+          UGX 0
+        </div>
+
+        <div class="wallet-code">
+          UGX
+        </div>
+
+        <div class="wallet-actions">
+
+          <button onclick="openDeposit('UGX')">
+            Deposit
+          </button>
+
+          <button onclick="openWithdraw('UGX')">
+            Withdraw
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="section-title">
+      <h2>Quick actions</h2>
+    </div>
+
+    <section class="action-grid">
+
+      <button class="action" onclick="openLoan()">
+        <div class="action-icon">↗</div>
+        <strong>Loans</strong>
+        <span>Apply up to AED 3,000</span>
+      </button>
+
+      <button class="action" onclick="openDeposit()">
+        <div class="action-icon">+</div>
+        <strong>Deposit</strong>
+        <span>Add money</span>
+      </button>
+
+      <button class="action" onclick="openWithdraw()">
+        <div class="action-icon">−</div>
+        <strong>Withdraw</strong>
+        <span>Request withdrawal</span>
+      </button>
+
+      <button class="action" onclick="openCard()">
+        <div class="action-icon">▣</div>
+        <strong>Nathaflex Card</strong>
+        <span>Apply for a card</span>
+      </button>
+
+    </section>
+
+
+    <!-- CARDS -->
+
+    <div class="section-title">
+      <h2>Nathaflex cards</h2>
+    </div>
+
+    <section class="cards-row">
+
+      <div>
+
+        <div class="bank-card natha-card">
+
+          <div class="card-brand">
+            Natha<span>flex</span>
+          </div>
+
+          <div class="card-type">
+            NATHAFLEX
+          </div>
+
+          <div class="card-chip"></div>
+
+          <div class="card-number">
+            •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
+          </div>
+
+          <div class="card-note">
+            Your name • Delivered in 3 working days
+          </div>
+
+        </div>
+
+        <button class="apply-card" onclick="applyForCard('Nathaflex',25)">
+          Apply • AED 25
+        </button>
+
+      </div>
+
 
       <div>
 
         <div class="bank-card platinum-card">
 
           <div class="card-brand">
-            Natha<span style="color:#d4d8de;">flex</span>
+            Natha<span>flex</span>
+          </div>
+
+          <div class="card-type">
+            PLATINUM
           </div>
 
           <div class="card-chip"></div>
 
           <div class="card-number">
-            •••• •••• •••• ••••
+            •••• &nbsp; •••• &nbsp; •••• &nbsp; ••••
           </div>
 
-          <div class="card-bottom">
-
-            <div class="card-name">
-              NATHAFLEX
-            </div>
-
-            <div class="card-type">
-              PLATINUM
-            </div>
-
+          <div class="card-note">
+            Platinum • Delivered in 3 working days
           </div>
 
         </div>
 
-
-        <div class="card-info">
-
-          <div>
-
-            <strong>
-              Nathaflex Platinum
-            </strong>
-
-            <span>
-              AED 30 • 3 working days
-            </span>
-
-          </div>
-
-          <button
-            class="apply-card"
-            data-card="Nathaflex Platinum"
-            data-fee="30"
-          >
-            Apply
-          </button>
-
-        </div>
+        <button class="apply-card" onclick="applyForCard('Platinum',30)">
+          Apply • AED 30
+        </button>
 
       </div>
 
+    </section>
+
+
+    <!-- ACTIVITY -->
+
+    <div class="section-title">
+      <h2>Recent activity</h2>
     </div>
 
-  </div>
+    <section class="activity" id="activity">
 
-</section>
-
-
-<!-- =========================
-     CUSTOMER DASHBOARD
-========================= -->
-
-<section
-  class="dashboard"
-  id="dashboard"
->
-
-  <div class="dashboard-header">
-
-    <h2>
-      Welcome to Nathaflex 👋
-    </h2>
-
-    <p id="customerEmail">
-      Your account
-    </p>
-
-    <button
-      class="logout"
-      id="logoutButton"
-    >
-      Logout
-    </button>
-
-  </div>
-
-
-  <div class="wallets">
-
-
-    <div class="wallet aed-wallet">
-
-      <div class="wallet-label">
-        🇦🇪 UAE Dirham
+      <div class="empty">
+        No transactions yet.
       </div>
 
-      <div
-        class="balance"
-        id="aedBalance"
-      >
-        AED 0.00
-      </div>
+    </section>
 
-      <div class="wallet-note">
-        Available balance
-      </div>
+  </main>
 
-    </div>
+</div>
 
 
-    <div class="wallet ugx-wallet">
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
-      <div class="wallet-label">
-        🇺🇬 Ugandan Shilling
-      </div>
+<div id="modal" class="modal hidden">
 
-      <div
-        class="balance"
-        id="ugxBalance"
-      >
-        UGX 0
-      </div>
+  <div class="modal-card">
 
-      <div class="wallet-note">
-        Available balance
-      </div>
+    <div class="modal-head">
 
-    </div>
+      <h2 id="modalTitle">
+        Request
+      </h2>
 
-  </div>
-
-
-  <div class="dashboard-actions">
-
-    <div
-      class="dash-action"
-      id="depositButton"
-    >
-      💰<br>
-      Deposit
-    </div>
-
-    <div
-      class="dash-action"
-      id="withdrawButton"
-    >
-      💸<br>
-      Withdraw
-    </div>
-
-    <div
-      class="dash-action"
-      id="dashboardLoanButton"
-    >
-      🏦<br>
-      Loans
-    </div>
-
-    <div
-      class="dash-action"
-      id="dashboardTransactions"
-    >
-      📊<br>
-      Transactions
-    </div>
-
-  </div>
-
-
-  <div class="activity">
-
-    <h3>
-      Recent activity
-    </h3>
-
-    <p>
-      Your deposits, withdrawals,
-      loans and repayments will appear here.
-    </p>
-
-  </div>
-
-
-  <div class="activity">
-
-    <h3>
-      Your Nathaflex Card
-    </h3>
-
-    <p>
-      Card applications and status
-      will appear here.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <strong>
-    Natha<span style="color:#d2b46d;">flex</span>
-  </strong>
-
-  <p>
-    Save • Loans • Manage
-  </p>
-
-  <p>
-    © 2026 Nathaflex. All rights reserved.
-  </p>
-
-</footer>
-
-
-<!-- =========================
-     AUTH MODAL
-========================= -->
-
-<div
-  class="modal"
-  id="authModal"
->
-
-  <div class="modal-box">
-
-    <button
-      class="close"
-      id="closeModal"
-    >
-      ×
-    </button>
-
-
-    <h2 id="authTitle">
-      Welcome to Nathaflex
-    </h2>
-
-    <p class="modal-subtitle">
-      Your money. Your flexibility.
-    </p>
-
-
-    <div class="tabs">
-
-      <button
-        class="tab active"
-        id="loginTab"
-      >
-        Login
-      </button>
-
-      <button
-        class="tab"
-        id="signupTab"
-      >
-        Create Account
+      <button class="close" onclick="closeModal()">
+        ×
       </button>
 
     </div>
 
-
-    <input
-      class="input"
-      id="email"
-      type="email"
-      placeholder="Email address"
-    >
-
-
-    <input
-      class="input"
-      id="password"
-      type="password"
-      placeholder="Password"
-    >
-
-
-    <button
-      class="auth-button"
-      id="authSubmit"
-    >
-      Login
-    </button>
-
-
-    <div
-      class="message"
-      id="authMessage"
-    ></div>
+    <div id="modalBody"></div>
 
   </div>
 
@@ -1654,293 +1109,250 @@ footer strong {
 
 <script>
 
-/* =========================================
+/* =====================================================
    SUPABASE CONNECTION
-========================================= */
+===================================================== */
 
 const SUPABASE_URL =
-  "https://uwcgfgztlcyydzsbjrrt.supabase.co";
+"https://uwcgfgztlcyydzsbjrrt.supabase.co";
 
-const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
+const SUPABASE_KEY =
+"sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
+
+const { createClient } =
+supabase;
 
 const db =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
+createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* =====================================================
+   GLOBAL STATE
+===================================================== */
+
+let authMode = "signup";
+let currentUser = null;
+let wallets = [];
+
+
+/* =====================================================
+   PAGE CONTROL
+===================================================== */
+
+function showLanding(){
+
+  document
+    .getElementById("landing")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("authPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("dashboard")
+    .classList.add("hidden");
+}
+
+
+function showAuth(mode){
+
+  authMode = mode;
+
+  document
+    .getElementById("landing")
+    .classList.add("hidden");
+
+  document
+    .getElementById("dashboard")
+    .classList.add("hidden");
+
+  document
+    .getElementById("authPage")
+    .classList.remove("hidden");
+
+  updateAuthUI();
+}
+
+
+function toggleAuthMode(){
+
+  authMode =
+    authMode === "signup"
+      ? "login"
+      : "signup";
+
+  updateAuthUI();
+}
+
+
+function updateAuthUI(){
+
+  const signup =
+    authMode === "signup";
+
+  document.getElementById("authTitle").textContent =
+    signup
+      ? "Create your account"
+      : "Welcome back";
+
+  document.getElementById("authSubtitle").textContent =
+    signup
+      ? "Open your Nathaflex account."
+      : "Login to your Nathaflex account.";
+
+  document.getElementById("authButton").textContent =
+    signup
+      ? "Create Account"
+      : "Login";
+
+  document.getElementById("nameField").classList.toggle(
+    "hidden",
+    !signup
   );
 
+  document.getElementById("phoneField").classList.toggle(
+    "hidden",
+    !signup
+  );
 
-/* =========================================
-   ELEMENTS
-========================================= */
+  document.getElementById("switchText").textContent =
+    signup
+      ? "Already have an account?"
+      : "Don't have an account?";
 
-const modal =
-  document.getElementById("authModal");
+  document.getElementById("switchButton").textContent =
+    signup
+      ? "Login"
+      : "Create Account";
 
-const loginButton =
-  document.getElementById("loginButton");
-
-const startButton =
-  document.getElementById("startButton");
-
-const closeModal =
-  document.getElementById("closeModal");
-
-const loginTab =
-  document.getElementById("loginTab");
-
-const signupTab =
-  document.getElementById("signupTab");
-
-const authSubmit =
-  document.getElementById("authSubmit");
-
-const authMessage =
-  document.getElementById("authMessage");
-
-const authTitle =
-  document.getElementById("authTitle");
-
-const emailInput =
-  document.getElementById("email");
-
-const passwordInput =
-  document.getElementById("password");
-
-const dashboard =
-  document.getElementById("dashboard");
-
-const customerEmail =
-  document.getElementById("customerEmail");
-
-const logoutButton =
-  document.getElementById("logoutButton");
-
-const loanBox =
-  document.getElementById("loanBox");
-
-const loanAmount =
-  document.getElementById("loanAmount");
-
-const calcAmount =
-  document.getElementById("calcAmount");
-
-const calcInterest =
-  document.getElementById("calcInterest");
-
-const calcTotal =
-  document.getElementById("calcTotal");
-
-
-let mode = "login";
-
-let loanMonths = 1;
-
-
-/* =========================================
-   OPEN AUTH
-========================================= */
-
-function openLogin() {
-
-  modal.style.display = "flex";
-
-  mode = "login";
-
-  loginTab.classList.add("active");
-
-  signupTab.classList.remove("active");
-
-  authTitle.textContent =
-    "Welcome back to Nathaflex";
-
-  authSubmit.textContent =
-    "Login";
-
-  authMessage.textContent = "";
-
+  clearMessage();
 }
 
 
-function openSignup() {
+/* =====================================================
+   AUTH MESSAGE
+===================================================== */
 
-  modal.style.display = "flex";
+function showMessage(text,error=false){
 
-  mode = "signup";
+  const box =
+    document.getElementById("authMessage");
 
-  signupTab.classList.add("active");
+  box.textContent = text;
 
-  loginTab.classList.remove("active");
+  box.classList.remove("hidden");
 
-  authTitle.textContent =
-    "Create your Nathaflex account";
-
-  authSubmit.textContent =
-    "Create Account";
-
-  authMessage.textContent = "";
-
+  box.classList.toggle("error",error);
 }
 
 
-loginButton.addEventListener(
-  "click",
-  function(e) {
+function clearMessage(){
 
-    e.preventDefault();
-
-    openLogin();
-
-  }
-);
+  document
+    .getElementById("authMessage")
+    .classList.add("hidden");
+}
 
 
-startButton.addEventListener(
-  "click",
-  function(e) {
+/* =====================================================
+   SIGNUP / LOGIN
+===================================================== */
 
-    e.preventDefault();
+document
+.getElementById("authForm")
+.addEventListener("submit", async function(e){
 
-    openSignup();
+  e.preventDefault();
 
-  }
-);
+  clearMessage();
 
+  const email =
+    document
+      .getElementById("email")
+      .value
+      .trim();
 
-closeModal.addEventListener(
-  "click",
-  function() {
+  const password =
+    document
+      .getElementById("password")
+      .value;
 
-    modal.style.display =
-      "none";
+  const button =
+    document.getElementById("authButton");
 
-  }
-);
-
-
-loginTab.addEventListener(
-  "click",
-  openLogin
-);
-
-
-signupTab.addEventListener(
-  "click",
-  openSignup
-);
+  button.disabled = true;
+  button.textContent = "Please wait...";
 
 
-modal.addEventListener(
-  "click",
-  function(e) {
+  try{
 
-    if (e.target === modal) {
+    if(authMode === "signup"){
 
-      modal.style.display =
-        "none";
+      const fullName =
+        document
+          .getElementById("fullName")
+          .value
+          .trim();
 
-    }
-
-  }
-);
-
-
-/* =========================================
-   AUTH
-========================================= */
-
-authSubmit.addEventListener(
-  "click",
-  async function() {
-
-    const email =
-      emailInput.value.trim();
-
-    const password =
-      passwordInput.value;
-
-    authMessage.textContent = "";
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
 
 
-    if (!email || !password) {
-
-      authMessage.textContent =
-        "Please enter your email and password.";
-
-      return;
-
-    }
-
-
-    if (password.length < 6) {
-
-      authMessage.textContent =
-        "Password must be at least 6 characters.";
-
-      return;
-
-    }
-
-
-    authSubmit.disabled = true;
-
-    authSubmit.textContent =
-      "Please wait...";
-
-
-    try {
-
-      if (mode === "signup") {
-
-        const {
-          data,
-          error
-        } =
+      const { data,error } =
         await db.auth.signUp({
 
           email,
-          password
+          password,
+
+          options:{
+            data:{
+              full_name:fullName,
+              phone:phone
+            }
+          }
 
         });
 
 
-        if (error) {
+      if(error)
+        throw error;
 
-          authMessage.textContent =
-            error.message;
 
-        } else {
+      /*
+        If email confirmation is enabled,
+        Supabase may not immediately create
+        an active session.
+      */
 
-          authMessage.textContent =
-            "Account created successfully.";
+      if(data.session){
 
-          if (data.user) {
+        currentUser =
+          data.user;
 
-            showDashboard(
-              data.user
-            );
+        await loadDashboard();
 
-          }
+      }else{
 
-          setTimeout(
-            function() {
+        showMessage(
+          "Account created. Check your email to confirm your account, then log in."
+        );
 
-              modal.style.display =
-                "none";
+        authMode = "login";
 
-            },
-            700
-          );
+        updateAuthUI();
+      }
 
-        }
 
-      } else {
+    }else{
 
-        const {
-          data,
-          error
-        } =
+      const { data,error } =
         await db.auth.signInWithPassword({
 
           email,
@@ -1949,416 +1361,1166 @@ authSubmit.addEventListener(
         });
 
 
-        if (error) {
+      if(error)
+        throw error;
 
-          authMessage.textContent =
-            error.message;
 
-        } else {
+      currentUser =
+        data.user;
 
-          modal.style.display =
-            "none";
+      await loadDashboard();
 
-          showDashboard(
-            data.user
-          );
+    }
 
-        }
+
+  }catch(error){
+
+    console.error(error);
+
+    showMessage(
+      error.message || "Something went wrong.",
+      true
+    );
+
+  }finally{
+
+    button.disabled = false;
+
+    updateAuthUI();
+
+  }
+
+});
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+db.auth.onAuthStateChange(
+  async (event,session)=>{
+
+    if(session){
+
+      currentUser =
+        session.user;
+
+      if(event === "SIGNED_IN"){
+
+        await loadDashboard();
 
       }
 
-    } catch (error) {
-
-      authMessage.textContent =
-        "Something went wrong. Please try again.";
-
     }
-
-
-    authSubmit.disabled = false;
-
-    authSubmit.textContent =
-      mode === "login"
-        ? "Login"
-        : "Create Account";
 
   }
 );
 
 
-/* =========================================
+/* =====================================================
    DASHBOARD
-========================================= */
+===================================================== */
 
-function showDashboard(user) {
+async function loadDashboard(){
 
-  if (!user) return;
-
-  customerEmail.textContent =
-    user.email;
-
-  dashboard.style.display =
-    "block";
-
-  loginButton.textContent =
-    "My Account";
-
-  dashboard.scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
+  if(!currentUser)
+    return;
 
 
-async function checkUser() {
+  document
+    .getElementById("landing")
+    .classList.add("hidden");
 
-  const {
-    data: { user }
-  } =
-  await db.auth.getUser();
+  document
+    .getElementById("authPage")
+    .classList.add("hidden");
 
-  if (user) {
-
-    showDashboard(user);
-
-  }
-
-}
+  document
+    .getElementById("dashboard")
+    .classList.remove("hidden");
 
 
-logoutButton.addEventListener(
-  "click",
-  async function() {
-
-    await db.auth.signOut();
-
-    dashboard.style.display =
-      "none";
-
-    loginButton.textContent =
-      "Login";
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
-);
+  const profile =
+    await loadProfile();
 
 
-db.auth.onAuthStateChange(
-  function(event, session) {
-
-    if (
-      session &&
-      session.user
-    ) {
-
-      showDashboard(
-        session.user
-      );
-
-    }
-
-  }
-);
+  const name =
+    profile?.full_name ||
+    currentUser.user_metadata?.full_name ||
+    currentUser.email?.split("@")[0] ||
+    "Nathaflex customer";
 
 
-/* =========================================
-   LOANS
-========================================= */
-
-function openLoans() {
-
-  loanBox.style.display =
-    loanBox.style.display === "block"
-      ? "none"
-      : "block";
+  document
+    .getElementById("customerName")
+    .textContent = name;
 
 
-  if (
-    loanBox.style.display === "block"
-  ) {
+  document
+    .getElementById("userInitial")
+    .textContent =
+      name.charAt(0).toUpperCase();
 
-    loanBox.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
 
-  }
+  await ensureWallets();
+
+  await loadWallets();
+
+  await loadTransactions();
 
 }
 
 
-document
-  .getElementById("loanService")
-  .addEventListener(
-    "click",
-    openLoans
-  );
+/* =====================================================
+   PROFILE
+===================================================== */
+
+async function loadProfile(){
+
+  const {data,error} =
+    await db
+      .from("profiles")
+      .select("*")
+      .eq("id",currentUser.id)
+      .maybeSingle();
+
+  if(error){
+
+    console.error(
+      "Profile error:",
+      error
+    );
+
+    return null;
+
+  }
+
+  return data;
+}
 
 
-document
-  .getElementById("dashboardLoanButton")
-  .addEventListener(
-    "click",
-    openLoans
-  );
+/* =====================================================
+   ENSURE WALLETS
+===================================================== */
 
+async function ensureWallets(){
 
-document
-  .querySelectorAll(".loan-option")
-  .forEach(
-    option => {
+  /*
+    This is a second layer of protection.
+    If the signup trigger failed,
+    the website creates missing wallets.
+  */
 
-      option.addEventListener(
-        "click",
-        function() {
+  const {data,error} =
+    await db
+      .from("wallets")
+      .select("id,currency,balance")
+      .eq("user_id",currentUser.id);
 
-          document
-            .querySelectorAll(
-              ".loan-option"
-            )
-            .forEach(
-              item =>
-                item.classList.remove(
-                  "selected"
-                )
-            );
+  if(error){
 
+    console.error(
+      "Wallet check error:",
+      error
+    );
 
-          this.classList.add(
-            "selected"
-          );
-
-
-          loanMonths =
-            Number(
-              this.dataset.months
-            );
-
-
-          calculateLoan();
-
-        }
-      );
-
-    }
-  );
-
-
-loanAmount.addEventListener(
-  "input",
-  calculateLoan
-);
-
-
-function calculateLoan() {
-
-  let amount =
-    Number(
-      loanAmount.value
-    ) || 0;
-
-
-  if (amount > 3000) {
-
-    amount = 3000;
-
-    loanAmount.value =
-      3000;
+    return;
 
   }
 
 
-  const interest =
-    amount * 0.10;
+  const existing =
+    data || [];
 
 
-  const total =
-    amount + interest;
+  const currencies =
+    existing.map(w => w.currency);
 
 
-  calcAmount.textContent =
-    "AED " +
-    amount.toFixed(2);
+  const missing = [];
 
 
-  calcInterest.textContent =
-    "AED " +
-    interest.toFixed(2);
+  if(!currencies.includes("AED"))
+    missing.push("AED");
+
+  if(!currencies.includes("UGX"))
+    missing.push("UGX");
 
 
-  calcTotal.textContent =
-    "AED " +
-    total.toFixed(2);
+  for(const currency of missing){
 
-}
+    const {error:insertError} =
+      await db
+        .from("wallets")
+        .insert({
 
+          user_id:currentUser.id,
 
-document
-  .getElementById("applyLoanButton")
-  .addEventListener(
-    "click",
-    function() {
+          currency:currency,
 
-      openSignup();
+          balance:0
 
-      authMessage.textContent =
-        "Create an account to apply for a Nathaflex loan.";
-
-    }
-  );
-
-
-/* =========================================
-   CARD APPLICATIONS
-========================================= */
-
-document
-  .querySelectorAll(".apply-card")
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          const card =
-            this.dataset.card;
-
-          const fee =
-            this.dataset.fee;
-
-
-          openSignup();
-
-
-          authMessage.textContent =
-            card +
-            " application — AED " +
-            fee +
-            ". Create or log into your Nathaflex account to continue.";
-
-        }
-      );
-
-    }
-  );
-
-
-/* =========================================
-   SAVE
-========================================= */
-
-document
-  .getElementById("saveService")
-  .addEventListener(
-    "click",
-    function() {
-
-      openSignup();
-
-      authMessage.textContent =
-        "Create an account to start saving with Nathaflex.";
-
-    }
-  );
-
-
-/* =========================================
-   TRANSACTIONS
-========================================= */
-
-document
-  .getElementById("transactionService")
-  .addEventListener(
-    "click",
-    function() {
-
-      openLogin();
-
-      authMessage.textContent =
-        "Login to view your transactions.";
-
-    }
-  );
-
-
-/* =========================================
-   CARD SECTION
-========================================= */
-
-document
-  .getElementById("cardService")
-  .addEventListener(
-    "click",
-    function() {
-
-      document
-        .querySelector(
-          ".cards-section"
-        )
-        .scrollIntoView({
-          behavior: "smooth"
         });
 
-    }
-  );
 
-
-/* =========================================
-   DASHBOARD BUTTONS
-========================================= */
-
-document
-  .getElementById("depositButton")
-  .addEventListener(
-    "click",
-    function() {
-
-      alert(
-        "Deposit system will be connected to your payment details next."
+    if(insertError)
+      console.error(
+        "Wallet creation error:",
+        insertError
       );
 
-    }
+  }
+
+}
+
+
+/* =====================================================
+   LOAD WALLETS
+===================================================== */
+
+async function loadWallets(){
+
+  const {data,error} =
+    await db
+      .from("wallets")
+      .select("*")
+      .eq("user_id",currentUser.id)
+      .order("currency");
+
+  if(error){
+
+    console.error(error);
+
+    return;
+
+  }
+
+
+  wallets =
+    data || [];
+
+
+  const aed =
+    wallets.find(
+      w => w.currency === "AED"
+    );
+
+  const ugx =
+    wallets.find(
+      w => w.currency === "UGX"
+    );
+
+
+  document
+    .getElementById("aedBalance")
+    .textContent =
+      "AED " +
+      Number(aed?.balance || 0)
+        .toLocaleString(
+          undefined,
+          {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+          }
+        );
+
+
+  document
+    .getElementById("ugxBalance")
+    .textContent =
+      "UGX " +
+      Number(ugx?.balance || 0)
+        .toLocaleString();
+
+}
+
+
+/* =====================================================
+   LOAD TRANSACTIONS
+===================================================== */
+
+async function loadTransactions(){
+
+  const {data,error} =
+    await db
+      .from("transactions")
+      .select("*")
+      .eq("user_id",currentUser.id)
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      )
+      .limit(10);
+
+
+  const activity =
+    document.getElementById("activity");
+
+
+  if(error){
+
+    console.error(error);
+
+    activity.innerHTML =
+      `<div class="empty">
+        Activity could not be loaded.
+      </div>`;
+
+    return;
+
+  }
+
+
+  if(!data || data.length === 0){
+
+    activity.innerHTML =
+      `<div class="empty">
+        No transactions yet.
+      </div>`;
+
+    return;
+
+  }
+
+
+  activity.innerHTML =
+    data.map(transaction => {
+
+      const amount =
+        Number(transaction.amount || 0)
+          .toLocaleString();
+
+      return `
+
+        <div class="transaction">
+
+          <div>
+
+            <strong>
+              ${escapeHtml(
+                transaction.type || "Transaction"
+              )}
+            </strong>
+
+            <small>
+              ${escapeHtml(
+                transaction.description || ""
+              )}
+            </small>
+
+          </div>
+
+          <div class="amount">
+            ${amount}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =====================================================
+   DEPOSIT
+===================================================== */
+
+function openDeposit(currency=null){
+
+  const selected =
+    currency || "AED";
+
+
+  document
+    .getElementById("modalTitle")
+    .textContent =
+      "Deposit money";
+
+
+  document
+    .getElementById("modalBody")
+    .innerHTML = `
+
+      <div class="field">
+
+        <label>Currency</label>
+
+        <select id="depositCurrency">
+
+          <option value="AED"
+            ${selected==="AED"?"selected":""}>
+            AED — UAE Dirham
+          </option>
+
+          <option value="UGX"
+            ${selected==="UGX"?"selected":""}>
+            UGX — Ugandan Shilling
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Amount</label>
+
+        <input
+          id="depositAmount"
+          type="number"
+          min="1"
+          placeholder="Enter amount"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Payment reference</label>
+
+        <input
+          id="depositReference"
+          type="text"
+          placeholder="Reference from your payment"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Payment method</label>
+
+        <select id="depositMethod">
+
+          <option value="Bank transfer">
+            Bank transfer
+          </option>
+
+          <option value="Mobile money">
+            Mobile money
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Note (optional)</label>
+
+        <input
+          id="depositNote"
+          type="text"
+          placeholder="Anything we should know?"
+        >
+
+      </div>
+
+
+      <button
+        class="modal-submit"
+        onclick="submitDeposit()">
+
+        Submit deposit
+
+      </button>
+
+    `;
+
+
+  openModal();
+
+}
+
+
+async function submitDeposit(){
+
+  const currency =
+    document
+      .getElementById("depositCurrency")
+      .value;
+
+  const amount =
+    Number(
+      document
+        .getElementById("depositAmount")
+        .value
+    );
+
+  const reference =
+    document
+      .getElementById("depositReference")
+      .value
+      .trim();
+
+  const method =
+    document
+      .getElementById("depositMethod")
+      .value;
+
+  const note =
+    document
+      .getElementById("depositNote")
+      .value
+      .trim();
+
+
+  if(!amount || amount <= 0){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+
+  const wallet =
+    wallets.find(
+      w => w.currency === currency
+    );
+
+
+  if(!wallet){
+
+    alert(
+      "Your wallet is not available yet."
+    );
+
+    return;
+
+  }
+
+
+  const {error} =
+    await db
+      .from("deposits")
+      .insert({
+
+        user_id:currentUser.id,
+
+        wallet_id:wallet.id,
+
+        currency:currency,
+
+        amount:amount,
+
+        payment_reference:
+          reference || null,
+
+        payment_method:
+          method,
+
+        customer_note:
+          note || null,
+
+        status:"pending"
+
+      });
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Deposit request could not be submitted."
+    );
+
+    return;
+
+  }
+
+
+  closeModal();
+
+  alert(
+    "Deposit request submitted. It will appear after verification."
   );
 
+}
 
-document
-  .getElementById("withdrawButton")
-  .addEventListener(
-    "click",
-    function() {
 
-      alert(
-        "Withdrawal system will be connected next."
+/* =====================================================
+   WITHDRAW
+===================================================== */
+
+function openWithdraw(currency=null){
+
+  const selected =
+    currency || "AED";
+
+
+  document
+    .getElementById("modalTitle")
+    .textContent =
+      "Withdraw money";
+
+
+  document
+    .getElementById("modalBody")
+    .innerHTML = `
+
+      <div class="field">
+
+        <label>Currency</label>
+
+        <select id="withdrawCurrency">
+
+          <option value="AED"
+            ${selected==="AED"?"selected":""}>
+            AED — UAE Dirham
+          </option>
+
+          <option value="UGX"
+            ${selected==="UGX"?"selected":""}>
+            UGX — Ugandan Shilling
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Amount</label>
+
+        <input
+          id="withdrawAmount"
+          type="number"
+          min="1"
+          placeholder="Enter amount"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Where should we send it?</label>
+
+        <input
+          id="withdrawDestination"
+          type="text"
+          placeholder="Bank account / mobile number"
+        >
+
+      </div>
+
+
+      <button
+        class="modal-submit"
+        onclick="submitWithdraw()">
+
+        Request withdrawal
+
+      </button>
+
+    `;
+
+
+  openModal();
+
+}
+
+
+async function submitWithdraw(){
+
+  const currency =
+    document
+      .getElementById("withdrawCurrency")
+      .value;
+
+  const amount =
+    Number(
+      document
+        .getElementById("withdrawAmount")
+        .value
+    );
+
+  const destination =
+    document
+      .getElementById("withdrawDestination")
+      .value
+      .trim();
+
+
+  if(!amount || amount <= 0){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+
+  if(!destination){
+
+    alert(
+      "Enter your bank account or mobile number."
+    );
+
+    return;
+
+  }
+
+
+  const wallet =
+    wallets.find(
+      w => w.currency === currency
+    );
+
+
+  if(!wallet){
+
+    alert("Wallet not found.");
+
+    return;
+
+  }
+
+
+  if(Number(wallet.balance) < amount){
+
+    alert(
+      "You don't have enough money in this wallet."
+    );
+
+    return;
+
+  }
+
+
+  const {error} =
+    await db
+      .from("withdraws")
+      .insert({
+
+        user_id:currentUser.id,
+
+        wallet_id:wallet.id,
+
+        currency:currency,
+
+        amount:amount,
+
+        destination:destination,
+
+        status:"pending"
+
+      });
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Withdrawal request could not be submitted."
+    );
+
+    return;
+
+  }
+
+
+  closeModal();
+
+  alert(
+    "Withdrawal request submitted."
+  );
+
+}
+
+
+/* =====================================================
+   LOAN
+===================================================== */
+
+function openLoan(){
+
+  document
+    .getElementById("modalTitle")
+    .textContent =
+      "Apply for a loan";
+
+
+  document
+    .getElementById("modalBody")
+    .innerHTML = `
+
+      <div class="loan-info">
+
+        Loans are available up to
+        <strong>AED 3,000</strong>.
+
+        Choose either a
+        <strong>1 month</strong>
+        or
+        <strong>2 month</strong>
+        repayment period.
+
+        The current interest rate is
+        <strong>10%</strong>.
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Loan amount (AED)</label>
+
+        <input
+          id="loanAmount"
+          type="number"
+          min="1"
+          max="3000"
+          placeholder="Maximum AED 3,000"
+          oninput="updateLoanTotal()"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Repayment period</label>
+
+        <select id="loanTerm"
+          onchange="updateLoanTotal()">
+
+          <option value="1">
+            1 month
+          </option>
+
+          <option value="2">
+            2 months
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="loan-info">
+
+        Estimated repayment:
+        <strong id="loanTotal">
+          AED 0.00
+        </strong>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Application note</label>
+
+        <input
+          id="loanNote"
+          type="text"
+          placeholder="Optional"
+        >
+
+      </div>
+
+
+      <button
+        class="modal-submit"
+        onclick="submitLoan()">
+
+        Submit application
+
+      </button>
+
+    `;
+
+
+  openModal();
+
+}
+
+
+function updateLoanTotal(){
+
+  const amount =
+    Number(
+      document
+        .getElementById("loanAmount")
+        ?.value || 0
+    );
+
+  const total =
+    amount +
+    (amount * 0.10);
+
+
+  const output =
+    document.getElementById("loanTotal");
+
+
+  if(output){
+
+    output.textContent =
+      "AED " +
+      total.toLocaleString(
+        undefined,
+        {
+          minimumFractionDigits:2,
+          maximumFractionDigits:2
+        }
       );
 
-    }
+  }
+
+}
+
+
+async function submitLoan(){
+
+  const amount =
+    Number(
+      document
+        .getElementById("loanAmount")
+        .value
+    );
+
+  const term =
+    Number(
+      document
+        .getElementById("loanTerm")
+        .value
+    );
+
+  const note =
+    document
+      .getElementById("loanNote")
+      .value
+      .trim();
+
+
+  if(!amount || amount < 1 || amount > 3000){
+
+    alert(
+      "Loan amount must be between AED 1 and AED 3,000."
+    );
+
+    return;
+
+  }
+
+
+  const {error} =
+    await db
+      .from("loans")
+      .insert({
+
+        user_id:currentUser.id,
+
+        currency:"AED",
+
+        requested_amount:amount,
+
+        interest_rate:10,
+
+        status:"pending",
+
+        application_note:
+          (note || "") +
+          " | Repayment term: " +
+          term +
+          " month(s)"
+
+      });
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Loan application could not be submitted."
+    );
+
+    return;
+
+  }
+
+
+  closeModal();
+
+  alert(
+    "Loan application submitted successfully."
   );
 
+}
 
-document
-  .getElementById("dashboardTransactions")
-  .addEventListener(
-    "click",
-    function() {
 
-      alert(
-        "Your transaction history will appear here."
-      );
+/* =====================================================
+   CARDS
+===================================================== */
 
-    }
+function openCard(){
+
+  document
+    .getElementById("modalTitle")
+    .textContent =
+      "Nathaflex cards";
+
+
+  document
+    .getElementById("modalBody")
+    .innerHTML = `
+
+      <div class="loan-info">
+
+        <strong>Nathaflex Card — AED 25</strong><br>
+        A smart everyday card with delivery
+        within 3 working days.
+
+        <br><br>
+
+        <strong>Platinum Card — AED 30</strong><br>
+        A premium black Nathaflex Platinum design
+        with delivery within 3 working days.
+
+      </div>
+
+
+      <button
+        class="modal-submit"
+        onclick="applyForCard('Nathaflex',25)">
+
+        Apply for Nathaflex • AED 25
+
+      </button>
+
+      <br><br>
+
+      <button
+        class="modal-submit"
+        onclick="applyForCard('Platinum',30)">
+
+        Apply for Platinum • AED 30
+
+      </button>
+
+    `;
+
+
+  openModal();
+
+}
+
+
+/*
+  Your current database column list did NOT show
+  a card_applications table.
+
+  Therefore this version does not pretend to save
+  card applications into a table that may not exist.
+*/
+
+async function applyForCard(type,fee){
+
+  alert(
+    type +
+    " card selected.\n\n" +
+    "Price: AED " +
+    fee +
+    "\n" +
+    "Delivery: 3 working days.\n\n" +
+    "We'll connect card applications to the database after the card table is added."
   );
 
+}
 
-/* =========================================
-   START
-========================================= */
 
-checkUser();
+/* =====================================================
+   MODAL CONTROL
+===================================================== */
+
+function openModal(){
+
+  document
+    .getElementById("modal")
+    .classList.remove("hidden");
+
+}
+
+
+function closeModal(){
+
+  document
+    .getElementById("modal")
+    .classList.add("hidden");
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+async function logout(){
+
+  await db.auth.signOut();
+
+  currentUser = null;
+  wallets = [];
+
+  showLanding();
+
+}
+
+
+/* =====================================================
+   SECURITY / HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================================
+   STARTUP
+===================================================== */
+
+(async function(){
+
+  const {data} =
+    await db.auth.getSession();
+
+  if(data.session){
+
+    currentUser =
+      data.session.user;
+
+    await loadDashboard();
+
+  }else{
+
+    showLanding();
+
+  }
+
+})();
 
 </script>
 
