@@ -7,6 +7,7 @@
 <title>Nathaflex | Save. Borrow. Grow.</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 :root{
@@ -666,6 +667,94 @@ footer{
   margin-top:7px;
 }
 
+
+/* =========================
+   BUSINESS GRAPH
+========================= */
+
+.business-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:20px;
+  margin-top:25px;
+  box-shadow:var(--shadow);
+}
+
+.business-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  margin-bottom:18px;
+}
+
+.business-head h2{
+  font-size:19px;
+}
+
+.business-head p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.graph-range{
+  display:flex;
+  gap:5px;
+}
+
+.graph-range button{
+  border:1px solid var(--line);
+  background:white;
+  padding:7px 10px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.graph-range button.active{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+.chart-wrap{
+  position:relative;
+  width:100%;
+  height:320px;
+}
+
+.business-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.business-mini{
+  background:var(--soft);
+  border-radius:10px;
+  padding:12px;
+}
+
+.business-mini small{
+  color:var(--muted);
+  display:block;
+  font-size:11px;
+}
+
+.business-mini strong{
+  display:block;
+  margin-top:5px;
+  font-size:17px;
+}
+
+
+/* =========================
+   ADMIN TABLE
+========================= */
+
 .admin-section{
   margin-top:25px;
 }
@@ -858,6 +947,26 @@ footer{
     justify-content:flex-start;
   }
 
+  .business-head{
+    flex-direction:column;
+  }
+
+  .graph-range{
+    width:100%;
+  }
+
+  .graph-range button{
+    flex:1;
+  }
+
+  .business-summary{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .chart-wrap{
+    height:270px;
+  }
+
   .hero{
     padding-top:65px;
   }
@@ -871,6 +980,10 @@ footer{
 @media(max-width:400px){
 
   .action-grid{
+    grid-template-columns:1fr;
+  }
+
+  .business-summary{
     grid-template-columns:1fr;
   }
 
@@ -1370,6 +1483,101 @@ footer{
 </section>
 
 
+<!-- =====================================================
+     BUSINESS GROWTH GRAPH
+===================================================== -->
+
+<section class="business-card">
+
+  <div class="business-head">
+
+    <div>
+      <h2>Business growth</h2>
+      <p>
+        Track how Nathaflex is growing as customers and activity increase.
+      </p>
+    </div>
+
+    <div class="graph-range">
+
+      <button
+        class="active"
+        id="range3"
+        onclick="changeGraphRange(3)">
+        3M
+      </button>
+
+      <button
+        id="range6"
+        onclick="changeGraphRange(6)">
+        6M
+      </button>
+
+      <button
+        id="range12"
+        onclick="changeGraphRange(12)">
+        12M
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="chart-wrap">
+
+    <canvas id="businessChart"></canvas>
+
+  </div>
+
+
+  <div class="business-summary">
+
+    <div class="business-mini">
+
+      <small>New customers</small>
+
+      <strong id="graphCustomers">
+        0
+      </strong>
+
+    </div>
+
+    <div class="business-mini">
+
+      <small>Deposits</small>
+
+      <strong id="graphDeposits">
+        0
+      </strong>
+
+    </div>
+
+    <div class="business-mini">
+
+      <small>Loans</small>
+
+      <strong id="graphLoans">
+        0
+      </strong>
+
+    </div>
+
+    <div class="business-mini">
+
+      <small>Cards</small>
+
+      <strong id="graphCards">
+        0
+      </strong>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <div class="admin-tabs">
 
 <button class="admin-tab active"
@@ -1478,6 +1686,8 @@ let currentUser = null;
 let currentProfile = null;
 let wallets = [];
 let adminTab = "deposits";
+let businessChart = null;
+let graphMonths = 3;
 
 
 /* =====================================================
@@ -1782,14 +1992,6 @@ async function loadDashboard(){
     return;
 
   }
-
-
-  /*
-    IMPORTANT:
-    The dashboard is selected from the
-    database role, not from a button
-    or browser variable.
-  */
 
   if(currentProfile.role === "admin"){
 
@@ -2604,10 +2806,16 @@ async function loadAdminDashboard(){
 
   await loadAdminStats();
 
+  await loadBusinessGrowth();
+
   await showAdminTab("deposits");
 
 }
 
+
+/* =====================================================
+   ADMIN STATS
+===================================================== */
 
 async function loadAdminStats(){
 
@@ -2659,6 +2867,390 @@ async function countTable(table){
   }
 
   return count || 0;
+
+}
+
+
+/* =====================================================
+   BUSINESS GROWTH GRAPH
+===================================================== */
+
+function getMonthKey(date){
+
+  const d = new Date(date);
+
+  if(isNaN(d.getTime()))
+    return null;
+
+  return (
+    d.getFullYear() +
+    "-" +
+    String(d.getMonth()+1).padStart(2,"0")
+  );
+
+}
+
+
+function getMonthLabel(date){
+
+  return new Intl.DateTimeFormat(
+    undefined,
+    {
+      month:"short",
+      year:"numeric"
+    }
+  ).format(date);
+
+}
+
+
+function createMonthRange(months){
+
+  const result = [];
+
+  const now = new Date();
+
+  now.setDate(1);
+  now.setHours(0,0,0,0);
+
+  for(let i=months-1;i>=0;i--){
+
+    const date =
+      new Date(
+        now.getFullYear(),
+        now.getMonth()-i,
+        1
+      );
+
+    result.push({
+
+      key:getMonthKey(date),
+
+      label:getMonthLabel(date),
+
+      date
+
+    });
+
+  }
+
+  return result;
+
+}
+
+
+async function loadBusinessGrowth(){
+
+  const months =
+    createMonthRange(graphMonths);
+
+  const startDate =
+    months[0].date.toISOString();
+
+
+  /*
+    We query the existing tables directly.
+    No RPC/function is required.
+  */
+
+  const [
+    profilesResult,
+    depositsResult,
+    loansResult,
+    cardsResult
+  ] = await Promise.all([
+
+    supabaseClient
+      .from("profiles")
+      .select("id,created_at,role")
+      .gte("created_at",startDate),
+
+    supabaseClient
+      .from("deposits")
+      .select("id,created_at,status,amount,currency")
+      .gte("created_at",startDate),
+
+    supabaseClient
+      .from("loans")
+      .select("id,created_at,status,requested_amount")
+      .gte("created_at",startDate),
+
+    supabaseClient
+      .from("card_applications")
+      .select("id,created_at,status,fee")
+      .gte("created_at",startDate)
+
+  ]);
+
+
+  if(profilesResult.error)
+    console.error(
+      "Business profiles:",
+      profilesResult.error
+    );
+
+  if(depositsResult.error)
+    console.error(
+      "Business deposits:",
+      depositsResult.error
+    );
+
+  if(loansResult.error)
+    console.error(
+      "Business loans:",
+      loansResult.error
+    );
+
+  if(cardsResult.error)
+    console.error(
+      "Business cards:",
+      cardsResult.error
+    );
+
+
+  const profiles =
+    profilesResult.data || [];
+
+  const deposits =
+    depositsResult.data || [];
+
+  const loans =
+    loansResult.data || [];
+
+  const cards =
+    cardsResult.data || [];
+
+
+  const customerCounts =
+    months.map(m =>
+      profiles.filter(p =>
+        getMonthKey(p.created_at) === m.key &&
+        p.role !== "admin"
+      ).length
+    );
+
+
+  const depositCounts =
+    months.map(m =>
+      deposits.filter(d =>
+        getMonthKey(d.created_at) === m.key
+      ).length
+    );
+
+
+  const loanCounts =
+    months.map(m =>
+      loans.filter(l =>
+        getMonthKey(l.created_at) === m.key
+      ).length
+    );
+
+
+  const cardCounts =
+    months.map(m =>
+      cards.filter(c =>
+        getMonthKey(c.created_at) === m.key
+      ).length
+    );
+
+
+  const totalCustomers =
+    customerCounts.reduce(
+      (sum,value)=>sum+value,
+      0
+    );
+
+  const totalDeposits =
+    depositCounts.reduce(
+      (sum,value)=>sum+value,
+      0
+    );
+
+  const totalLoans =
+    loanCounts.reduce(
+      (sum,value)=>sum+value,
+      0
+    );
+
+  const totalCards =
+    cardCounts.reduce(
+      (sum,value)=>sum+value,
+      0
+    );
+
+
+  document.getElementById("graphCustomers")
+    .textContent = totalCustomers;
+
+  document.getElementById("graphDeposits")
+    .textContent = totalDeposits;
+
+  document.getElementById("graphLoans")
+    .textContent = totalLoans;
+
+  document.getElementById("graphCards")
+    .textContent = totalCards;
+
+
+  drawBusinessChart(
+    months.map(m=>m.label),
+    customerCounts,
+    depositCounts,
+    loanCounts,
+    cardCounts
+  );
+
+}
+
+
+function drawBusinessChart(
+  labels,
+  customers,
+  deposits,
+  loans,
+  cards
+){
+
+  const canvas =
+    document.getElementById("businessChart");
+
+  if(!canvas) return;
+
+
+  if(businessChart){
+
+    businessChart.destroy();
+
+  }
+
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  businessChart =
+    new Chart(ctx,{
+
+      type:"line",
+
+      data:{
+
+        labels,
+
+        datasets:[
+
+          {
+            label:"Customers",
+            data:customers,
+            tension:.35,
+            borderWidth:3,
+            pointRadius:4
+          },
+
+          {
+            label:"Deposits",
+            data:deposits,
+            tension:.35,
+            borderWidth:2,
+            pointRadius:3
+          },
+
+          {
+            label:"Loans",
+            data:loans,
+            tension:.35,
+            borderWidth:2,
+            pointRadius:3
+          },
+
+          {
+            label:"Cards",
+            data:cards,
+            tension:.35,
+            borderWidth:2,
+            pointRadius:3
+          }
+
+        ]
+
+      },
+
+      options:{
+
+        responsive:true,
+
+        maintainAspectRatio:false,
+
+        interaction:{
+          intersect:false,
+          mode:"index"
+        },
+
+        plugins:{
+
+          legend:{
+            position:"bottom",
+            labels:{
+              usePointStyle:true,
+              padding:15
+            }
+          }
+
+        },
+
+        scales:{
+
+          y:{
+            beginAtZero:true,
+
+            ticks:{
+              precision:0
+            },
+
+            grid:{
+              color:"rgba(0,0,0,.06)"
+            }
+
+          },
+
+          x:{
+            grid:{
+              display:false
+            }
+
+          }
+
+        }
+
+      }
+
+    });
+
+}
+
+
+async function changeGraphRange(months){
+
+  graphMonths = months;
+
+
+  document
+    .querySelectorAll(".graph-range button")
+    .forEach(button =>
+      button.classList.remove("active")
+    );
+
+
+  const selected =
+    document.getElementById(
+      "range" + months
+    );
+
+  if(selected)
+    selected.classList.add("active");
+
+
+  await loadBusinessGrowth();
 
 }
 
@@ -3157,6 +3749,7 @@ async function updateDeposit(id,status){
   }
 
   await loadAdminStats();
+  await loadBusinessGrowth();
   await loadAdminDeposits();
 
   alert(
@@ -3188,6 +3781,7 @@ async function updateLoan(id,status){
   }
 
   await loadAdminStats();
+  await loadBusinessGrowth();
   await loadAdminLoans();
 
   alert(
@@ -3217,6 +3811,7 @@ async function updateCard(id,status){
   }
 
   await loadAdminStats();
+  await loadBusinessGrowth();
   await loadAdminCards();
 
   alert(
@@ -3259,6 +3854,14 @@ async function logout(){
   currentUser = null;
   currentProfile = null;
   wallets = [];
+
+  if(businessChart){
+
+    businessChart.destroy();
+
+    businessChart = null;
+
+  }
 
   showLanding();
 
