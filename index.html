@@ -11,18 +11,18 @@
 <style>
 :root{
   --bg:#f5f3ee;
-  --white:#fff;
-  --soft:#eeece6;
+  --white:#ffffff;
+  --soft:#efede7;
   --text:#17201b;
-  --muted:#69736d;
-  --line:#dedbd2;
-  --green:#1f5c4a;
-  --green-dark:#143d32;
-  --gold:#b28a42;
-  --gold-light:#eee2c5;
+  --muted:#68726c;
+  --line:#ddd9cf;
+  --green:#205b4b;
+  --green-dark:#143d33;
+  --gold:#b18a45;
+  --gold-light:#eee3c9;
   --black:#111514;
-  --red:#a43b3b;
-  --shadow:0 10px 30px rgba(25,32,28,.07);
+  --red:#a63d3d;
+  --shadow:0 8px 28px rgba(22,30,26,.07);
 }
 
 *{
@@ -32,13 +32,20 @@
 }
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
   background:var(--bg);
   color:var(--text);
   min-height:100vh;
 }
 
-button,input,select{
+button,
+input,
+select{
   font:inherit;
 }
 
@@ -61,12 +68,12 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  background:rgba(245,243,238,.97);
   border-bottom:1px solid var(--line);
-  background:rgba(245,243,238,.96);
   position:sticky;
   top:0;
   z-index:20;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
 }
 
 .logo{
@@ -82,25 +89,25 @@ button{
 .nav-login{
   border:1px solid var(--line);
   background:white;
+  color:var(--text);
   padding:9px 15px;
   border-radius:9px;
   font-weight:700;
-  color:var(--text);
 }
 
 .hero{
   max-width:1050px;
   margin:auto;
-  padding:82px 22px 70px;
+  padding:80px 22px 70px;
   text-align:center;
 }
 
 .eyebrow{
-  display:inline-flex;
+  display:inline-block;
   padding:7px 13px;
   border-radius:30px;
   background:var(--gold-light);
-  color:#765b27;
+  color:#765b29;
   font-size:13px;
   font-weight:700;
   margin-bottom:22px;
@@ -110,8 +117,6 @@ button{
   font-size:clamp(40px,8vw,68px);
   line-height:1.02;
   letter-spacing:-3px;
-  max-width:800px;
-  margin:auto;
 }
 
 .hero h1 span{
@@ -155,14 +160,14 @@ button{
 .features{
   max-width:1050px;
   margin:auto;
-  padding:15px 20px 70px;
+  padding:10px 20px 70px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
 
 .feature{
-  background:var(--white);
+  background:white;
   border:1px solid var(--line);
   border-radius:15px;
   padding:22px;
@@ -170,7 +175,7 @@ button{
 }
 
 .feature-icon{
-  font-size:22px;
+  font-size:21px;
   margin-bottom:13px;
 }
 
@@ -181,6 +186,7 @@ button{
 .feature p{
   color:var(--muted);
   font-size:14px;
+  line-height:1.55;
 }
 
 footer{
@@ -222,6 +228,7 @@ footer{
 
 .auth-card h2{
   font-size:28px;
+  margin-top:20px;
   margin-bottom:7px;
 }
 
@@ -267,6 +274,10 @@ footer{
   font-weight:800;
 }
 
+.auth-submit:disabled{
+  opacity:.6;
+}
+
 .switch-auth{
   text-align:center;
   margin-top:18px;
@@ -286,7 +297,7 @@ footer{
   padding:11px 12px;
   border-radius:9px;
   font-size:13px;
-  background:#f0f4f1;
+  background:#eef4f0;
   color:var(--green-dark);
 }
 
@@ -390,7 +401,7 @@ footer{
 }
 
 .wallet.ugx{
-  background:#292c29;
+  background:#292d2a;
 }
 
 .wallet-label{
@@ -410,7 +421,7 @@ footer{
   right:18px;
   top:18px;
   font-size:12px;
-  opacity:.7;
+  opacity:.65;
 }
 
 .wallet-actions{
@@ -430,7 +441,7 @@ footer{
 
 
 /* =========================
-   QUICK ACTIONS
+   ACTIONS
 ========================= */
 
 .section-title{
@@ -497,11 +508,21 @@ footer{
 }
 
 .natha-card{
-  background:linear-gradient(135deg,#c19b55,#80632e);
+  background:
+    linear-gradient(
+      135deg,
+      #c5a15f,
+      #8a6a32
+    );
 }
 
 .platinum-card{
-  background:linear-gradient(135deg,#161918,#303533);
+  background:
+    linear-gradient(
+      135deg,
+      #151817,
+      #303432
+    );
 }
 
 .card-brand{
@@ -510,7 +531,7 @@ footer{
 }
 
 .card-brand span{
-  color:#f2d99e;
+  color:#efd69a;
 }
 
 .card-type{
@@ -526,7 +547,12 @@ footer{
   width:38px;
   height:28px;
   border-radius:6px;
-  background:linear-gradient(135deg,#e8d19a,#b28a42);
+  background:
+    linear-gradient(
+      135deg,
+      #ead29b,
+      #b18a45
+    );
   margin-top:38px;
 }
 
@@ -607,7 +633,7 @@ footer{
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(10,15,13,.45);
+  background:rgba(10,15,13,.48);
   z-index:100;
   display:flex;
   align-items:center;
@@ -638,6 +664,7 @@ footer{
   width:32px;
   height:32px;
   border-radius:50%;
+  font-size:18px;
 }
 
 .modal-submit{
@@ -657,6 +684,7 @@ footer{
   margin-bottom:16px;
   font-size:13px;
   color:var(--muted);
+  line-height:1.6;
 }
 
 .loan-info strong{
@@ -669,6 +697,7 @@ footer{
   padding:13px;
   margin-bottom:15px;
   font-size:13px;
+  line-height:1.6;
 }
 
 
@@ -701,6 +730,7 @@ footer{
   .hero h1{
     letter-spacing:-2px;
   }
+
 }
 </style>
 </head>
@@ -854,8 +884,6 @@ footer{
   <div class="logo">
     Natha<span>flex</span>
   </div>
-
-  <br>
 
   <h2 id="authTitle">
     Create your account
@@ -1026,7 +1054,6 @@ footer{
 </section>
 
 
-
 <!-- WALLETS -->
 
 <section class="wallet-grid">
@@ -1063,7 +1090,6 @@ footer{
   </div>
 
 </div>
-
 
 
 <div class="wallet ugx">
@@ -1135,7 +1161,6 @@ footer{
 </button>
 
 
-
 <button
   class="action"
   onclick="openDeposit()">
@@ -1155,7 +1180,6 @@ footer{
 </button>
 
 
-
 <button
   class="action"
   onclick="openWithdraw()">
@@ -1173,7 +1197,6 @@ footer{
   </span>
 
 </button>
-
 
 
 <button
@@ -1246,7 +1269,6 @@ footer{
   </button>
 
 </div>
-
 
 
 <div>
@@ -1385,11 +1407,8 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
 
-const { createClient } =
-supabase;
-
-const db =
-createClient(
+const supabaseClient =
+window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -1414,15 +1433,18 @@ function showLanding(){
 
   document
     .getElementById("landing")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   document
     .getElementById("authPage")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("dashboard")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
 }
 
@@ -1433,15 +1455,18 @@ function showAuth(mode){
 
   document
     .getElementById("landing")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("dashboard")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("authPage")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   updateAuthUI();
 
@@ -1465,12 +1490,14 @@ function updateAuthUI(){
   const signup =
     authMode === "signup";
 
+
   document
     .getElementById("authTitle")
     .textContent =
       signup
         ? "Create your account"
         : "Welcome back";
+
 
   document
     .getElementById("authSubtitle")
@@ -1479,12 +1506,14 @@ function updateAuthUI(){
         ? "Open your Nathaflex account."
         : "Login to your Nathaflex account.";
 
+
   document
     .getElementById("authButton")
     .textContent =
       signup
         ? "Create Account"
         : "Login";
+
 
   document
     .getElementById("nameField")
@@ -1494,6 +1523,7 @@ function updateAuthUI(){
       !signup
     );
 
+
   document
     .getElementById("phoneField")
     .classList
@@ -1502,12 +1532,14 @@ function updateAuthUI(){
       !signup
     );
 
+
   document
     .getElementById("switchText")
     .textContent =
       signup
         ? "Already have an account?"
         : "Don't have an account?";
+
 
   document
     .getElementById("switchButton")
@@ -1516,19 +1548,21 @@ function updateAuthUI(){
         ? "Login"
         : "Create Account";
 
+
   clearMessage();
 
 }
 
 
-/* =====================================================
-   MESSAGES
-===================================================== */
-
-function showMessage(text,error=false){
+function showMessage(
+  text,
+  error=false
+){
 
   const box =
-    document.getElementById("authMessage");
+    document
+      .getElementById("authMessage");
+
 
   box.textContent = text;
 
@@ -1553,7 +1587,7 @@ function clearMessage(){
 
 
 /* =====================================================
-   SIGNUP / LOGIN
+   AUTHENTICATION
 ===================================================== */
 
 document
@@ -1566,20 +1600,24 @@ document
 
     clearMessage();
 
+
     const email =
       document
         .getElementById("email")
         .value
         .trim();
 
+
     const password =
       document
         .getElementById("password")
         .value;
 
+
     const button =
       document
         .getElementById("authButton");
+
 
     button.disabled = true;
 
@@ -1597,6 +1635,7 @@ document
             .value
             .trim();
 
+
         const phone =
           document
             .getElementById("phone")
@@ -1605,7 +1644,7 @@ document
 
 
         const {data,error} =
-          await db.auth.signUp({
+          await supabaseClient.auth.signUp({
 
             email,
             password,
@@ -1647,7 +1686,7 @@ document
       }else{
 
         const {data,error} =
-          await db.auth
+          await supabaseClient.auth
             .signInWithPassword({
 
               email,
@@ -1691,10 +1730,10 @@ document
 
 
 /* =====================================================
-   AUTH STATE
+   SESSION
 ===================================================== */
 
-db.auth.onAuthStateChange(
+supabaseClient.auth.onAuthStateChange(
   async(event,session)=>{
 
     if(session){
@@ -1702,7 +1741,9 @@ db.auth.onAuthStateChange(
       currentUser =
         session.user;
 
-      if(event === "SIGNED_IN"){
+      if(
+        event === "SIGNED_IN"
+      ){
 
         await loadDashboard();
 
@@ -1729,10 +1770,12 @@ async function loadDashboard(){
     .classList
     .add("hidden");
 
+
   document
     .getElementById("authPage")
     .classList
     .add("hidden");
+
 
   document
     .getElementById("dashboard")
@@ -1787,7 +1830,7 @@ async function loadDashboard(){
 async function loadProfile(){
 
   const {data,error} =
-    await db
+    await supabaseClient
       .from("profiles")
       .select("*")
       .eq(
@@ -1821,7 +1864,7 @@ async function loadProfile(){
 async function ensureWallets(){
 
   const {data,error} =
-    await db
+    await supabaseClient
       .from("wallets")
       .select(
         "id,currency,balance"
@@ -1857,20 +1900,30 @@ async function ensureWallets(){
   const missing = [];
 
 
-  if(!currencies.includes("AED"))
+  if(
+    !currencies.includes("AED")
+  ){
+
     missing.push("AED");
 
-  if(!currencies.includes("UGX"))
+  }
+
+
+  if(
+    !currencies.includes("UGX")
+  ){
+
     missing.push("UGX");
+
+  }
 
 
   for(
-    const currency
-    of missing
+    const currency of missing
   ){
 
     const {error:insertError} =
-      await db
+      await supabaseClient
         .from("wallets")
         .insert({
 
@@ -1885,11 +1938,14 @@ async function ensureWallets(){
         });
 
 
-    if(insertError)
+    if(insertError){
+
       console.error(
         "Wallet creation error:",
         insertError
       );
+
+    }
 
   }
 
@@ -1899,14 +1955,13 @@ async function ensureWallets(){
 async function loadWallets(){
 
   const {data,error} =
-    await db
+    await supabaseClient
       .from("wallets")
       .select("*")
       .eq(
         "user_id",
         currentUser.id
-      )
-      .order("currency");
+      );
 
 
   if(error){
@@ -1966,8 +2021,15 @@ async function loadWallets(){
 
 async function loadTransactions(){
 
+  const activity =
+    document
+      .getElementById(
+        "activity"
+      );
+
+
   const {data,error} =
-    await db
+    await supabaseClient
       .from("transactions")
       .select("*")
       .eq(
@@ -1983,11 +2045,6 @@ async function loadTransactions(){
       .limit(10);
 
 
-  const activity =
-    document
-      .getElementById("activity");
-
-
   if(error){
 
     console.error(error);
@@ -1995,7 +2052,7 @@ async function loadTransactions(){
     activity.innerHTML =
       `
       <div class="empty">
-        Activity could not be loaded.
+        No transactions yet.
       </div>
       `;
 
@@ -2022,55 +2079,47 @@ async function loadTransactions(){
 
 
   activity.innerHTML =
-    data
-      .map(
-        transaction => {
+    data.map(
+      transaction => `
 
-          const amount =
-            Number(
-              transaction.amount || 0
-            ).toLocaleString();
+      <div class="transaction">
 
+        <div>
 
-          return `
+          <strong>
+            ${escapeHtml(
+              transaction.type ||
+              "Transaction"
+            )}
+          </strong>
 
-          <div class="transaction">
+          <small>
+            ${escapeHtml(
+              transaction.description ||
+              ""
+            )}
+          </small>
 
-            <div>
+        </div>
 
-              <strong>
-                ${escapeHtml(
-                  transaction.type ||
-                  "Transaction"
-                )}
-              </strong>
+        <div class="amount">
 
-              <small>
-                ${escapeHtml(
-                  transaction.description ||
-                  ""
-                )}
-              </small>
+          ${Number(
+            transaction.amount || 0
+          ).toLocaleString()}
 
-            </div>
+        </div>
 
-            <div class="amount">
-              ${amount}
-            </div>
+      </div>
 
-          </div>
-
-          `;
-
-        }
-      )
-      .join("");
+      `
+    ).join("");
 
 }
 
 
 /* =====================================================
-   DEPOSIT
+   DEPOSITS
 ===================================================== */
 
 function openDeposit(
@@ -2138,7 +2187,7 @@ function openDeposit(
       <input
         id="depositReference"
         type="text"
-        placeholder="Reference from your payment">
+        placeholder="Payment reference">
 
     </div>
 
@@ -2274,7 +2323,7 @@ async function submitDeposit(){
 
 
   const {error} =
-    await db
+    await supabaseClient
       .from("deposits")
       .insert({
 
@@ -2310,7 +2359,7 @@ async function submitDeposit(){
     console.error(error);
 
     alert(
-      "Deposit request could not be submitted."
+      error.message
     );
 
     return;
@@ -2328,7 +2377,7 @@ async function submitDeposit(){
 
 
 /* =====================================================
-   WITHDRAW
+   WITHDRAWALS
 ===================================================== */
 
 function openWithdraw(
@@ -2505,55 +2554,15 @@ async function submitWithdraw(){
 
 
   /*
-    NOTE:
-    The exact columns in your withdraws table
-    have not yet been confirmed.
-    This attempts the common structure.
+    Your Withdraws table columns have not
+    been confirmed yet.
+
+    We therefore do not silently write
+    incorrect data into that table.
   */
 
-  const {error} =
-    await db
-      .from("withdraws")
-      .insert({
-
-        user_id:
-          currentUser.id,
-
-        wallet_id:
-          wallet.id,
-
-        currency:
-          currency,
-
-        amount:
-          amount,
-
-        destination:
-          destination,
-
-        status:
-          "pending"
-
-      });
-
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      "Withdrawal could not be submitted. We may need to match the exact Withdraws table columns."
-    );
-
-    return;
-
-  }
-
-
-  closeModal();
-
   alert(
-    "Withdrawal request submitted."
+    "Withdrawal requests are being prepared. We need to match the exact Withdraws table columns before enabling this."
   );
 
 }
@@ -2566,17 +2575,13 @@ async function submitWithdraw(){
 function openLoan(){
 
   document
-    .getElementById(
-      "modalTitle"
-    )
+    .getElementById("modalTitle")
     .textContent =
       "Apply for a loan";
 
 
   document
-    .getElementById(
-      "modalBody"
-    )
+    .getElementById("modalBody")
     .innerHTML = `
 
     <div class="loan-info">
@@ -2584,11 +2589,15 @@ function openLoan(){
       Loans are available up to
       <strong>AED 3,000</strong>.
 
+      <br>
+
       Choose either a
       <strong>1 month</strong>
       or
       <strong>2 month</strong>
       repayment period.
+
+      <br>
 
       Interest:
       <strong>10%</strong>.
@@ -2638,7 +2647,7 @@ function openLoan(){
 
     <div class="loan-info">
 
-      Estimated repayment:
+      Estimated total repayment:
 
       <strong id="loanTotal">
         AED 0.00
@@ -2691,7 +2700,7 @@ function updateLoanTotal(){
 
   const total =
     amount +
-    amount * 0.10;
+    amount * .10;
 
 
   const output =
@@ -2764,8 +2773,15 @@ async function submitLoan(){
   }
 
 
+  const applicationNote =
+    (note || "") +
+    " | Repayment term: " +
+    term +
+    " month(s)";
+
+
   const {error} =
-    await db
+    await supabaseClient
       .from("loans")
       .insert({
 
@@ -2785,10 +2801,7 @@ async function submitLoan(){
           "pending",
 
         application_note:
-          (note || "") +
-          " | Repayment term: " +
-          term +
-          " month(s)"
+          applicationNote
 
       });
 
@@ -2798,7 +2811,7 @@ async function submitLoan(){
     console.error(error);
 
     alert(
-      "Loan application could not be submitted."
+      error.message
     );
 
     return;
@@ -2816,26 +2829,22 @@ async function submitLoan(){
 
 
 /* =====================================================
-   CARD APPLICATION
+   CARD MENU
 ===================================================== */
 
 function openCard(){
 
   document
-    .getElementById(
-      "modalTitle"
-    )
+    .getElementById("modalTitle")
     .textContent =
       "Nathaflex cards";
 
 
   document
-    .getElementById(
-      "modalBody"
-    )
+    .getElementById("modalBody")
     .innerHTML = `
 
-    <div class="loan-info">
+    <div class="card-status">
 
       <strong>
         Nathaflex Card — AED 25
@@ -2894,23 +2903,23 @@ function openCard(){
 }
 
 
+/* =====================================================
+   CARD APPLICATION FORM
+===================================================== */
+
 function openCardApplication(
   type,
   fee
 ){
 
   document
-    .getElementById(
-      "modalTitle"
-    )
+    .getElementById("modalTitle")
     .textContent =
       type + " Card";
 
 
   document
-    .getElementById(
-      "modalBody"
-    )
+    .getElementById("modalBody")
     .innerHTML = `
 
     <div class="card-status">
@@ -2921,17 +2930,18 @@ function openCardApplication(
 
       <br><br>
 
-      Card fee:
+      Price:
       <strong>
         AED ${fee}
       </strong>
 
       <br>
 
-      Target delivery:
+      Delivery:
       <strong>
         3 working days
       </strong>
+
       after approval and processing.
 
     </div>
@@ -2961,89 +2971,170 @@ function openCardApplication(
 
   `;
 
+
+  openModal();
+
 }
 
+
+/* =====================================================
+   SUBMIT CARD APPLICATION
+===================================================== */
 
 async function submitCardApplication(
   type,
   fee
 ){
 
-  const address =
-    document
-      .getElementById(
+  try{
+
+    if(!currentUser){
+
+      alert(
+        "Please log in again before applying."
+      );
+
+      return;
+
+    }
+
+
+    const addressInput =
+      document.getElementById(
         "cardAddress"
-      )
-      .value
-      .trim();
+      );
 
 
-  if(!address){
+    if(!addressInput){
 
-    alert(
-      "Please enter a delivery address."
+      alert(
+        "Delivery address field could not be found."
+      );
+
+      return;
+
+    }
+
+
+    const address =
+      addressInput.value.trim();
+
+
+    if(!address){
+
+      alert(
+        "Please enter a delivery address."
+      );
+
+      return;
+
+    }
+
+
+    const button =
+      document.querySelector(
+        "#modalBody .modal-submit"
+      );
+
+
+    if(button){
+
+      button.disabled = true;
+
+      button.textContent =
+        "Submitting...";
+
+    }
+
+
+    const {data,error} =
+      await supabaseClient
+        .from("card_applications")
+        .insert({
+
+          user_id:
+            currentUser.id,
+
+          card_type:
+            type,
+
+          fee:
+            fee,
+
+          status:
+            "pending",
+
+          delivery_address:
+            address
+
+        })
+        .select()
+        .single();
+
+
+    if(error){
+
+      console.error(
+        "CARD APPLICATION ERROR:",
+        error
+      );
+
+      if(button){
+
+        button.disabled = false;
+
+        button.textContent =
+          "Submit application";
+
+      }
+
+
+      alert(
+        "Application could not be submitted.\n\n" +
+        error.message
+      );
+
+      return;
+
+    }
+
+
+    console.log(
+      "Card application created:",
+      data
     );
 
-    return;
 
-  }
-
-
-  const {data,error} =
-    await db
-      .from("card_applications")
-      .insert({
-
-        user_id:
-          currentUser.id,
-
-        card_type:
-          type,
-
-        fee:
-          fee,
-
-        status:
-          "pending",
-
-        delivery_address:
-          address
-
-      })
-      .select()
-      .single();
+    closeModal();
 
 
-  if(error){
+    await loadCardApplications();
+
+
+    alert(
+      "Application submitted successfully!\n\n" +
+      type +
+      " Card\n" +
+      "Price: AED " +
+      fee +
+      "\n" +
+      "Status: Pending\n\n" +
+      "Target delivery: 3 working days after approval and processing."
+    );
+
+
+  }catch(error){
 
     console.error(
-      "Card application error:",
+      "Unexpected card error:",
       error
     );
 
     alert(
-      "We couldn't submit your card application. Please try again."
+      "Something went wrong while submitting the application."
     );
 
-    return;
-
   }
-
-
-  closeModal();
-
-
-  await loadCardApplications();
-
-
-  alert(
-    "Application submitted successfully.\n\n" +
-    type +
-    " Card — AED " +
-    fee +
-    "\n\n" +
-    "Your application is now pending review."
-  );
 
 }
 
@@ -3061,8 +3152,15 @@ async function loadCardApplications(){
       );
 
 
+  if(!currentUser){
+
+    return;
+
+  }
+
+
   const {data,error} =
-    await db
+    await supabaseClient
       .from("card_applications")
       .select("*")
       .eq(
@@ -3080,14 +3178,15 @@ async function loadCardApplications(){
   if(error){
 
     console.error(
-      "Card application load error:",
+      "Card applications error:",
       error
     );
+
 
     box.innerHTML =
       `
       <div class="empty">
-        Card applications could not be loaded.
+        No card applications yet.
       </div>
       `;
 
@@ -3119,9 +3218,11 @@ async function loadCardApplications(){
         application => {
 
           const date =
-            new Date(
-              application.created_at
-            ).toLocaleDateString();
+            application.created_at
+              ? new Date(
+                  application.created_at
+                ).toLocaleDateString()
+              : "";
 
 
           return `
@@ -3137,18 +3238,21 @@ async function loadCardApplications(){
               </strong>
 
               <small>
-                Applied ${date}
-                • AED ${Number(
-                  application.fee
+                AED ${Number(
+                  application.fee || 0
                 ).toFixed(0)}
+                • Applied ${date}
               </small>
 
             </div>
 
             <div class="amount">
+
               ${escapeHtml(
-                application.status
+                application.status ||
+                "pending"
               )}
+
             </div>
 
           </div>
@@ -3169,9 +3273,7 @@ async function loadCardApplications(){
 function openModal(){
 
   document
-    .getElementById(
-      "modal"
-    )
+    .getElementById("modal")
     .classList
     .remove("hidden");
 
@@ -3181,9 +3283,7 @@ function openModal(){
 function closeModal(){
 
   document
-    .getElementById(
-      "modal"
-    )
+    .getElementById("modal")
     .classList
     .add("hidden");
 
@@ -3196,7 +3296,9 @@ function closeModal(){
 
 async function logout(){
 
-  await db.auth.signOut();
+  await supabaseClient
+    .auth
+    .signOut();
 
   currentUser = null;
 
@@ -3208,7 +3310,7 @@ async function logout(){
 
 
 /* =====================================================
-   ESCAPE HTML
+   HTML SAFETY
 ===================================================== */
 
 function escapeHtml(value){
@@ -3244,13 +3346,15 @@ function escapeHtml(value){
 
 
 /* =====================================================
-   STARTUP
+   START
 ===================================================== */
 
 (async function(){
 
   const {data} =
-    await db.auth.getSession();
+    await supabaseClient
+      .auth
+      .getSession();
 
 
   if(data.session){
