@@ -22,7 +22,6 @@
   --gold:#b18a45;
   --gold-light:#eee3c9;
   --red:#a63d3d;
-  --orange:#9b6a28;
   --shadow:0 8px 28px rgba(22,30,26,.07);
 }
 
@@ -80,7 +79,7 @@ button{
   border:1px solid var(--line);
 }
 
-/* LANDING */
+/* ================= LANDING ================= */
 
 .nav{
   height:68px;
@@ -187,7 +186,7 @@ footer{
   font-size:12px;
 }
 
-/* AUTH */
+/* ================= AUTH ================= */
 
 .auth-page{
   min-height:100vh;
@@ -294,7 +293,7 @@ footer{
   color:var(--red);
 }
 
-/* DASHBOARD */
+/* ================= DASHBOARD ================= */
 
 .dashboard,
 .admin-dashboard{
@@ -362,7 +361,7 @@ footer{
   margin-top:3px;
 }
 
-/* WALLETS */
+/* ================= WALLETS ================= */
 
 .wallet-grid{
   display:grid;
@@ -423,7 +422,7 @@ footer{
   font-size:12px;
 }
 
-/* SECTIONS */
+/* ================= ACTIONS ================= */
 
 .section-title{
   display:flex;
@@ -468,7 +467,7 @@ footer{
   margin-top:3px;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 
 .cards-row{
   display:grid;
@@ -543,7 +542,7 @@ footer{
   font-weight:700;
 }
 
-/* ACTIVITY */
+/* ================= ACTIVITY ================= */
 
 .activity{
   background:white;
@@ -587,7 +586,7 @@ footer{
   white-space:nowrap;
 }
 
-/* ADMIN */
+/* ================= ADMIN ================= */
 
 .admin-banner{
   background:var(--green-dark);
@@ -732,7 +731,7 @@ footer{
   border-color:var(--green);
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
   position:fixed;
@@ -797,7 +796,7 @@ footer{
   color:var(--text);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -847,7 +846,9 @@ footer{
 
 <body>
 
-<!-- LANDING -->
+<!-- =====================================================
+LANDING
+===================================================== -->
 
 <div id="landing">
 
@@ -857,7 +858,7 @@ footer{
 Natha<span>flex</span>
 </div>
 
-<button class="nav-login" onclick="showAuth('login')">
+<button type="button" class="nav-login" onclick="showAuth('login')">
 Login
 </button>
 
@@ -881,11 +882,11 @@ and keep track of your money from one simple account.
 
 <div class="actions">
 
-<button class="primary" onclick="showAuth('signup')">
+<button type="button" class="primary" onclick="showAuth('signup')">
 Get Started
 </button>
 
-<button class="secondary" onclick="showAuth('login')">
+<button type="button" class="secondary" onclick="showAuth('login')">
 Login
 </button>
 
@@ -931,13 +932,15 @@ Nathaflex • Save • Borrow • Grow
 </div>
 
 
-<!-- AUTH -->
+<!-- =====================================================
+AUTH
+===================================================== -->
 
 <div id="authPage" class="auth-page hidden">
 
 <div class="auth-card">
 
-<button class="back" onclick="showLanding()">
+<button type="button" class="back" onclick="showLanding()">
 ← Back
 </button>
 
@@ -1004,7 +1007,7 @@ required>
 
 </div>
 
-<button class="auth-submit" id="authButton">
+<button type="submit" class="auth-submit" id="authButton">
 Create Account
 </button>
 
@@ -1016,7 +1019,7 @@ Create Account
 Already have an account?
 </span>
 
-<button id="switchButton" onclick="toggleAuthMode()">
+<button type="button" id="switchButton" onclick="toggleAuthMode()">
 Login
 </button>
 
@@ -1026,7 +1029,9 @@ Login
 </div>
 
 
-<!-- CUSTOMER DASHBOARD -->
+<!-- =====================================================
+CUSTOMER DASHBOARD
+===================================================== -->
 
 <div id="dashboard" class="dashboard hidden">
 
@@ -1042,7 +1047,7 @@ Natha<span>flex</span>
 N
 </div>
 
-<button class="logout" onclick="logout()">
+<button type="button" class="logout" onclick="logout()">
 Logout
 </button>
 
@@ -1062,7 +1067,6 @@ Nathaflex customer
 
 </section>
 
-
 <section class="wallet-grid">
 
 <div class="wallet aed">
@@ -1075,22 +1079,23 @@ UAE Dirham
 AED 0.00
 </div>
 
-<div class="wallet-code">AED</div>
+<div class="wallet-code">
+AED
+</div>
 
 <div class="wallet-actions">
 
-<button onclick="openDeposit('AED')">
+<button type="button" onclick="openDeposit('AED')">
 Deposit
 </button>
 
-<button onclick="openWithdraw('AED')">
+<button type="button" onclick="openWithdraw('AED')">
 Withdraw
 </button>
 
 </div>
 
 </div>
-
 
 <div class="wallet ugx">
 
@@ -1102,15 +1107,17 @@ Ugandan Shilling
 UGX 0
 </div>
 
-<div class="wallet-code">UGX</div>
+<div class="wallet-code">
+UGX
+</div>
 
 <div class="wallet-actions">
 
-<button onclick="openDeposit('UGX')">
+<button type="button" onclick="openDeposit('UGX')">
 Deposit
 </button>
 
-<button onclick="openWithdraw('UGX')">
+<button type="button" onclick="openWithdraw('UGX')">
 Withdraw
 </button>
 
@@ -1120,39 +1127,37 @@ Withdraw
 
 </section>
 
-
 <div class="section-title">
 <h2>Quick actions</h2>
 </div>
 
 <section class="action-grid">
 
-<button class="action" onclick="openLoan()">
+<button type="button" class="action" onclick="openLoan()">
 <div class="action-icon">↗</div>
 <strong>Loans</strong>
 <span>Apply up to AED 3,000</span>
 </button>
 
-<button class="action" onclick="openDeposit()">
+<button type="button" class="action" onclick="openDeposit()">
 <div class="action-icon">+</div>
 <strong>Deposit</strong>
 <span>Add money</span>
 </button>
 
-<button class="action" onclick="openWithdraw()">
+<button type="button" class="action" onclick="openWithdraw()">
 <div class="action-icon">−</div>
 <strong>Withdraw</strong>
 <span>Request withdrawal</span>
 </button>
 
-<button class="action" onclick="openCard()">
+<button type="button" class="action" onclick="openCard()">
 <div class="action-icon">▣</div>
 <strong>Cards</strong>
 <span>Apply for a card</span>
 </button>
 
 </section>
-
 
 <div class="section-title">
 <h2>Nathaflex cards</h2>
@@ -1185,6 +1190,7 @@ Your name • 3 working day target
 </div>
 
 <button
+type="button"
 class="apply-card"
 onclick="openCardApplication('Nathaflex',25)">
 
@@ -1193,7 +1199,6 @@ Apply • AED 25
 </button>
 
 </div>
-
 
 <div>
 
@@ -1220,6 +1225,7 @@ Platinum • 3 working day target
 </div>
 
 <button
+type="button"
 class="apply-card"
 onclick="openCardApplication('Platinum',30)">
 
@@ -1230,7 +1236,6 @@ Apply • AED 30
 </div>
 
 </section>
-
 
 <div class="section-title">
 <h2>My card applications</h2>
@@ -1243,7 +1248,6 @@ No card applications yet.
 </div>
 
 </section>
-
 
 <div class="section-title">
 <h2>Recent activity</h2>
@@ -1261,7 +1265,9 @@ No transactions yet.
 </div>
 
 
-<!-- ADMIN DASHBOARD -->
+<!-- =====================================================
+ADMIN
+===================================================== -->
 
 <div id="adminDashboard" class="admin-dashboard hidden">
 
@@ -1277,7 +1283,7 @@ Natha<span>flex</span>
 A
 </div>
 
-<button class="logout" onclick="logout()">
+<button type="button" class="logout" onclick="logout()">
 Logout
 </button>
 
@@ -1298,7 +1304,6 @@ ADMINISTRATOR
 </div>
 
 </section>
-
 
 <section class="admin-stats">
 
@@ -1324,36 +1329,39 @@ ADMINISTRATOR
 
 </section>
 
-
 <div class="admin-tabs">
 
-<button class="admin-tab active"
+<button type="button"
+class="admin-tab active"
 onclick="showAdminTab('deposits',this)">
 Deposits
 </button>
 
-<button class="admin-tab"
+<button type="button"
+class="admin-tab"
 onclick="showAdminTab('withdrawals',this)">
 Withdrawals
 </button>
 
-<button class="admin-tab"
+<button type="button"
+class="admin-tab"
 onclick="showAdminTab('loans',this)">
 Loans
 </button>
 
-<button class="admin-tab"
+<button type="button"
+class="admin-tab"
 onclick="showAdminTab('cards',this)">
 Cards
 </button>
 
-<button class="admin-tab"
+<button type="button"
+class="admin-tab"
 onclick="showAdminTab('customers',this)">
 Customers
 </button>
 
 </div>
-
 
 <section class="admin-section">
 
@@ -1377,7 +1385,9 @@ Loading...
 </div>
 
 
-<!-- MODAL -->
+<!-- =====================================================
+MODAL
+===================================================== -->
 
 <div id="modal" class="modal hidden">
 
@@ -1389,7 +1399,7 @@ Loading...
 Request
 </h2>
 
-<button class="close" onclick="closeModal()">
+<button type="button" class="close" onclick="closeModal()">
 ×
 </button>
 
@@ -1404,7 +1414,7 @@ Request
 <script>
 
 /* =====================================================
-SUPABASE
+SUPABASE CONNECTION
 ===================================================== */
 
 const SUPABASE_URL =
@@ -1412,6 +1422,26 @@ const SUPABASE_URL =
 
 const SUPABASE_KEY =
 "sb_publishable_HRydr_wW_l0ROslCfb2qwQ_rMLt64a4";
+
+if(!window.supabase){
+
+  document.body.innerHTML = `
+    <div style="
+      padding:30px;
+      font-family:Arial;
+      color:#a63d3d;
+    ">
+      <h2>Nathaflex could not start</h2>
+      <p>
+        The Supabase JavaScript library did not load.
+        Check your internet connection and try again.
+      </p>
+    </div>
+  `;
+
+  throw new Error("Supabase library failed to load.");
+
+}
 
 const supabaseClient =
 window.supabase.createClient(
@@ -1432,258 +1462,395 @@ let adminTab = "deposits";
 
 
 /* =====================================================
+HELPERS
+===================================================== */
+
+function $(id){
+
+  return document.getElementById(id);
+
+}
+
+
+function showElement(id){
+
+  $(id).classList.remove("hidden");
+
+}
+
+
+function hideElement(id){
+
+  $(id).classList.add("hidden");
+
+}
+
+
+/* =====================================================
 PAGE CONTROL
 ===================================================== */
 
 function showLanding(){
 
-document.getElementById("landing")
-.classList.remove("hidden");
+  showElement("landing");
 
-document.getElementById("authPage")
-.classList.add("hidden");
-
-document.getElementById("dashboard")
-.classList.add("hidden");
-
-document.getElementById("adminDashboard")
-.classList.add("hidden");
+  hideElement("authPage");
+  hideElement("dashboard");
+  hideElement("adminDashboard");
 
 }
 
 
 function showAuth(mode){
 
-authMode = mode;
+  authMode = mode;
 
-document.getElementById("landing")
-.classList.add("hidden");
+  hideElement("landing");
+  hideElement("dashboard");
+  hideElement("adminDashboard");
 
-document.getElementById("dashboard")
-.classList.add("hidden");
+  showElement("authPage");
 
-document.getElementById("adminDashboard")
-.classList.add("hidden");
-
-document.getElementById("authPage")
-.classList.remove("hidden");
-
-updateAuthUI();
+  updateAuthUI();
 
 }
 
 
 function toggleAuthMode(){
 
-authMode =
-authMode === "signup"
-? "login"
-: "signup";
+  authMode =
+    authMode === "signup"
+      ? "login"
+      : "signup";
 
-updateAuthUI();
+  updateAuthUI();
 
 }
 
 
 function updateAuthUI(){
 
-const signup =
-authMode === "signup";
+  const signup =
+    authMode === "signup";
 
-document.getElementById("authTitle")
-.textContent =
-signup
-? "Create your account"
-: "Welcome back";
+  $("authTitle").textContent =
+    signup
+      ? "Create your account"
+      : "Welcome back";
 
-document.getElementById("authSubtitle")
-.textContent =
-signup
-? "Open your Nathaflex account."
-: "Login to your Nathaflex account.";
+  $("authSubtitle").textContent =
+    signup
+      ? "Open your Nathaflex account."
+      : "Login to your Nathaflex account.";
 
-document.getElementById("authButton")
-.textContent =
-signup
-? "Create Account"
-: "Login";
+  $("authButton").textContent =
+    signup
+      ? "Create Account"
+      : "Login";
 
-document.getElementById("nameField")
-.classList
-.toggle("hidden",!signup);
+  $("nameField").classList.toggle(
+    "hidden",
+    !signup
+  );
 
-document.getElementById("phoneField")
-.classList
-.toggle("hidden",!signup);
+  $("phoneField").classList.toggle(
+    "hidden",
+    !signup
+  );
 
-document.getElementById("switchText")
-.textContent =
-signup
-? "Already have an account?"
-: "Don't have an account?";
+  $("switchText").textContent =
+    signup
+      ? "Already have an account?"
+      : "Don't have an account?";
 
-document.getElementById("switchButton")
-.textContent =
-signup
-? "Login"
-: "Create Account";
+  $("switchButton").textContent =
+    signup
+      ? "Login"
+      : "Create Account";
 
-clearMessage();
+  clearMessage();
 
 }
 
 
 function showMessage(text,error=false){
 
-const box =
-document.getElementById("authMessage");
+  const box = $("authMessage");
 
-box.textContent = text;
+  box.textContent = text;
 
-box.classList.remove("hidden");
+  box.classList.remove("hidden");
 
-box.classList.toggle("error",error);
+  box.classList.toggle(
+    "error",
+    error
+  );
 
 }
 
 
 function clearMessage(){
 
-document.getElementById("authMessage")
-.classList.add("hidden");
+  $("authMessage")
+    .classList.add("hidden");
 
 }
 
 
 /* =====================================================
-AUTHENTICATION
+AUTH
 ===================================================== */
 
-document.getElementById("authForm")
-.addEventListener("submit",async function(e){
+$("authForm").addEventListener(
+  "submit",
+  async function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-clearMessage();
+    clearMessage();
 
-const email =
-document.getElementById("email")
-.value.trim();
+    const email =
+      $("email").value.trim();
 
-const password =
-document.getElementById("password")
-.value;
+    const password =
+      $("password").value;
 
-const button =
-document.getElementById("authButton");
+    if(!email || !password){
 
-button.disabled = true;
-button.textContent = "Please wait...";
+      showMessage(
+        "Enter your email and password.",
+        true
+      );
 
-try{
+      return;
 
-if(authMode === "signup"){
+    }
 
-const fullName =
-document.getElementById("fullName")
-.value.trim();
+    const button =
+      $("authButton");
 
-const phone =
-document.getElementById("phone")
-.value.trim();
+    button.disabled = true;
 
-const {data,error} =
-await supabaseClient.auth.signUp({
+    button.textContent =
+      "Please wait...";
 
-email,
-password,
+    try{
 
-options:{
-data:{
-full_name:fullName,
-phone:phone
-}
-}
+      if(authMode === "signup"){
 
-});
+        const fullName =
+          $("fullName").value.trim();
 
-if(error) throw error;
+        const phone =
+          $("phone").value.trim();
 
-if(data.session){
+        if(!fullName){
 
-currentUser = data.user;
+          throw new Error(
+            "Please enter your full name."
+          );
 
-await loadDashboard();
+        }
 
-}else{
+        const result =
+          await supabaseClient.auth.signUp({
 
-showMessage(
-"Account created. Check your email to verify your account, then log in."
+            email:email,
+
+            password:password,
+
+            options:{
+              data:{
+                full_name:fullName,
+                phone:phone
+              }
+            }
+
+          });
+
+        if(result.error)
+          throw result.error;
+
+        /*
+          If email confirmation is disabled,
+          Supabase gives us a session immediately.
+        */
+
+        if(result.data.session){
+
+          currentUser =
+            result.data.user;
+
+          await createProfileIfMissing();
+
+          await loadDashboard();
+
+        }else{
+
+          /*
+            Email confirmation is enabled.
+          */
+
+          showMessage(
+            "Account created. Check your email to verify the account, then log in."
+          );
+
+          authMode = "login";
+
+          updateAuthUI();
+
+          $("email").value =
+            email;
+
+        }
+
+      }else{
+
+        const result =
+          await supabaseClient.auth
+          .signInWithPassword({
+
+            email:email,
+
+            password:password
+
+          });
+
+        if(result.error)
+          throw result.error;
+
+        currentUser =
+          result.data.user;
+
+        await createProfileIfMissing();
+
+        await loadDashboard();
+
+      }
+
+    }catch(error){
+
+      console.error(
+        "AUTH ERROR:",
+        error
+      );
+
+      showMessage(
+        error.message ||
+        "Unable to complete authentication.",
+        true
+      );
+
+    }finally{
+
+      button.disabled = false;
+
+      updateAuthUI();
+
+    }
+
+  }
 );
-
-authMode = "login";
-
-updateAuthUI();
-
-}
-
-}else{
-
-const {data,error} =
-await supabaseClient.auth
-.signInWithPassword({
-email,
-password
-});
-
-if(error) throw error;
-
-currentUser = data.user;
-
-await loadDashboard();
-
-}
-
-}catch(error){
-
-console.error(error);
-
-showMessage(
-error.message || "Something went wrong.",
-true
-);
-
-}finally{
-
-button.disabled = false;
-
-updateAuthUI();
-
-}
-
-});
 
 
 /* =====================================================
-SESSION
+AUTH SESSION
 ===================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-async(event,session)=>{
+  function(event,session){
 
-if(session){
+    if(session){
 
-currentUser = session.user;
+      currentUser =
+        session.user;
 
-if(event === "SIGNED_IN"){
+    }else{
 
-await loadDashboard();
+      currentUser = null;
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+CREATE PROFILE
+===================================================== */
+
+async function createProfileIfMissing(){
+
+  if(!currentUser)
+    return null;
+
+  const existing =
+    await supabaseClient
+      .from("profiles")
+      .select("*")
+      .eq("id",currentUser.id)
+      .maybeSingle();
+
+  if(existing.error){
+
+    console.error(
+      "Profile lookup:",
+      existing.error
+    );
+
+    return null;
+
+  }
+
+  if(existing.data){
+
+    return existing.data;
+
+  }
+
+  const fullName =
+    currentUser.user_metadata?.full_name ||
+    currentUser.email?.split("@")[0] ||
+    "Nathaflex customer";
+
+  const phone =
+    currentUser.user_metadata?.phone ||
+    null;
+
+  const inserted =
+    await supabaseClient
+      .from("profiles")
+      .insert({
+
+        id:currentUser.id,
+
+        full_name:fullName,
+
+        phone:phone,
+
+        role:"customer"
+
+      })
+      .select("*")
+      .single();
+
+  if(inserted.error){
+
+    /*
+      Do not stop login if a database trigger
+      already created the profile.
+    */
+
+    console.error(
+      "Profile creation:",
+      inserted.error
+    );
+
+  }
+
+  return inserted.data || null;
 
 }
-
-}
-
-});
 
 
 /* =====================================================
@@ -1692,95 +1859,114 @@ PROFILE
 
 async function loadProfile(){
 
-const {data,error} =
-await supabaseClient
-.from("profiles")
-.select("*")
-.eq("id",currentUser.id)
-.maybeSingle();
+  if(!currentUser)
+    return null;
 
-if(error){
+  const result =
+    await supabaseClient
+      .from("profiles")
+      .select("*")
+      .eq("id",currentUser.id)
+      .maybeSingle();
 
-console.error("Profile error:",error);
+  if(result.error){
 
-return null;
+    console.error(
+      "Profile error:",
+      result.error
+    );
 
-}
+    return null;
 
-return data;
+  }
+
+  return result.data;
 
 }
 
 
 /* =====================================================
-DASHBOARD ROUTER
+MAIN DASHBOARD ROUTER
 ===================================================== */
 
 async function loadDashboard(){
 
-if(!currentUser) return;
+  if(!currentUser)
+    return;
 
-currentProfile =
-await loadProfile();
+  currentProfile =
+    await loadProfile();
 
-if(!currentProfile){
+  /*
+    If profile doesn't exist, try creating it.
+  */
 
-alert(
-"Your Nathaflex profile could not be loaded."
-);
+  if(!currentProfile){
 
-return;
+    currentProfile =
+      await createProfileIfMissing();
 
-}
+  }
 
-if(currentProfile.role === "admin"){
+  if(!currentProfile){
 
-await loadAdminDashboard();
+    showMessage(
+      "Your account exists, but your profile could not be loaded. Check the profiles table/RLS settings.",
+      true
+    );
 
-}else{
+    showAuth("login");
 
-await loadCustomerDashboard();
+    return;
 
-}
+  }
+
+  if(currentProfile.role === "admin"){
+
+    await loadAdminDashboard();
+
+  }else{
+
+    await loadCustomerDashboard();
+
+  }
 
 }
 
 
 /* =====================================================
-CUSTOMER
+CUSTOMER DASHBOARD
 ===================================================== */
 
 async function loadCustomerDashboard(){
 
-document.getElementById("landing")
-.classList.add("hidden");
+  hideElement("landing");
+  hideElement("authPage");
+  hideElement("adminDashboard");
 
-document.getElementById("authPage")
-.classList.add("hidden");
+  showElement("dashboard");
 
-document.getElementById("adminDashboard")
-.classList.add("hidden");
+  const name =
+    currentProfile.full_name ||
+    currentUser.user_metadata?.full_name ||
+    currentUser.email?.split("@")[0] ||
+    "Nathaflex customer";
 
-document.getElementById("dashboard")
-.classList.remove("hidden");
+  $("customerName").textContent =
+    name;
 
-const name =
-currentProfile.full_name ||
-currentUser.user_metadata?.full_name ||
-currentUser.email?.split("@")[0] ||
-"Nathaflex customer";
+  $("userInitial").textContent =
+    name
+      .charAt(0)
+      .toUpperCase();
 
-document.getElementById("customerName")
-.textContent = name;
+  await ensureWallets();
 
-document.getElementById("userInitial")
-.textContent =
-name.charAt(0).toUpperCase();
+  await loadWallets();
 
-await ensureWallets();
-await loadWallets();
-await loadTransactions();
-await loadCardApplications();
+  await loadTransactions();
+
+  await loadCardApplications();
 
 }
 
@@ -1791,92 +1977,115 @@ WALLETS
 
 async function ensureWallets(){
 
-const {data,error} =
-await supabaseClient
-.from("wallets")
-.select("id,currency,balance")
-.eq("user_id",currentUser.id);
+  const result =
+    await supabaseClient
+      .from("wallets")
+      .select("id,currency,balance")
+      .eq("user_id",currentUser.id);
 
-if(error){
+  if(result.error){
 
-console.error("Wallet error:",error);
+    console.error(
+      "Wallet lookup:",
+      result.error
+    );
 
-return;
+    return;
 
-}
+  }
 
-const existing = data || [];
+  const existing =
+    result.data || [];
 
-const currencies =
-existing.map(w=>w.currency);
+  const currencies =
+    existing.map(
+      w => w.currency
+    );
 
-const missing = [];
+  const missing = [];
 
-if(!currencies.includes("AED"))
-missing.push("AED");
+  if(!currencies.includes("AED"))
+    missing.push("AED");
 
-if(!currencies.includes("UGX"))
-missing.push("UGX");
+  if(!currencies.includes("UGX"))
+    missing.push("UGX");
 
-for(const currency of missing){
+  for(const currency of missing){
 
-const {error:insertError} =
-await supabaseClient
-.from("wallets")
-.insert({
-user_id:currentUser.id,
-currency,
-balance:0
-});
+    const insertResult =
+      await supabaseClient
+        .from("wallets")
+        .insert({
 
-if(insertError)
-console.error(
-"Wallet creation error:",
-insertError
-);
+          user_id:currentUser.id,
 
-}
+          currency:currency,
+
+          balance:0
+
+        });
+
+    if(insertResult.error){
+
+      console.error(
+        "Wallet creation:",
+        insertResult.error
+      );
+
+    }
+
+  }
 
 }
 
 
 async function loadWallets(){
 
-const {data,error} =
-await supabaseClient
-.from("wallets")
-.select("*")
-.eq("user_id",currentUser.id);
+  const result =
+    await supabaseClient
+      .from("wallets")
+      .select("*")
+      .eq("user_id",currentUser.id);
 
-if(error){
+  if(result.error){
 
-console.error(error);
-return;
+    console.error(
+      "Wallet load:",
+      result.error
+    );
 
-}
+    return;
 
-wallets = data || [];
+  }
 
-const aed =
-wallets.find(w=>w.currency==="AED");
+  wallets =
+    result.data || [];
 
-const ugx =
-wallets.find(w=>w.currency==="UGX");
+  const aed =
+    wallets.find(
+      w => w.currency === "AED"
+    );
 
-document.getElementById("aedBalance")
-.textContent =
-"AED " +
-Number(aed?.balance || 0)
-.toLocaleString(undefined,{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
+  const ugx =
+    wallets.find(
+      w => w.currency === "UGX"
+    );
 
-document.getElementById("ugxBalance")
-.textContent =
-"UGX " +
-Number(ugx?.balance || 0)
-.toLocaleString();
+  $("aedBalance").textContent =
+    "AED " +
+    Number(aed?.balance || 0)
+      .toLocaleString(
+        undefined,
+        {
+          minimumFractionDigits:2,
+          maximumFractionDigits:2
+        }
+      );
+
+  $("ugxBalance").textContent =
+    "UGX " +
+    Number(ugx?.balance || 0)
+      .toLocaleString();
 
 }
 
@@ -1887,52 +2096,80 @@ TRANSACTIONS
 
 async function loadTransactions(){
 
-const activity =
-document.getElementById("activity");
+  const result =
+    await supabaseClient
+      .from("transactions")
+      .select("*")
+      .eq("user_id",currentUser.id)
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(10);
 
-const {data,error} =
-await supabaseClient
-.from("transactions")
-.select("*")
-.eq("user_id",currentUser.id)
-.order("created_at",{ascending:false})
-.limit(10);
+  const activity =
+    $("activity");
 
-if(error || !data || !data.length){
+  if(result.error){
 
-activity.innerHTML =
-`<div class="empty">
-No transactions yet.
-</div>`;
+    console.error(
+      "Transaction load:",
+      result.error
+    );
 
-return;
+    activity.innerHTML =
+      `<div class="empty">
+        Unable to load transactions.
+      </div>`;
 
-}
+    return;
 
-activity.innerHTML =
-data.map(t=>`
+  }
 
-<div class="transaction">
+  const data =
+    result.data || [];
 
-<div>
+  if(!data.length){
 
-<strong>
-${escapeHtml(t.type || "Transaction")}
-</strong>
+    activity.innerHTML =
+      `<div class="empty">
+        No transactions yet.
+      </div>`;
 
-<small>
-${escapeHtml(t.description || "")}
-</small>
+    return;
 
-</div>
+  }
 
-<div class="amount">
-${Number(t.amount || 0).toLocaleString()}
-</div>
+  activity.innerHTML =
+    data.map(t => `
 
-</div>
+      <div class="transaction">
 
-`).join("");
+        <div>
+
+          <strong>
+            ${escapeHtml(
+              t.type || "Transaction"
+            )}
+          </strong>
+
+          <small>
+            ${escapeHtml(
+              t.description || ""
+            )}
+          </small>
+
+        </div>
+
+        <div class="amount">
+          ${Number(
+            t.amount || 0
+          ).toLocaleString()}
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
@@ -1943,164 +2180,203 @@ DEPOSIT
 
 function openDeposit(currency=null){
 
-const selected =
-currency || "AED";
+  const selected =
+    currency || "AED";
 
-document.getElementById("modalTitle")
-.textContent = "Deposit money";
+  $("modalTitle").textContent =
+    "Deposit money";
 
-document.getElementById("modalBody")
-.innerHTML = `
+  $("modalBody").innerHTML = `
 
-<div class="field">
+    <div class="field">
 
-<label>Currency</label>
+      <label>Currency</label>
 
-<select id="depositCurrency">
+      <select id="depositCurrency">
 
-<option value="AED"
-${selected==="AED"?"selected":""}>
-AED — UAE Dirham
-</option>
+        <option value="AED"
+        ${selected==="AED"?"selected":""}>
+          AED — UAE Dirham
+        </option>
 
-<option value="UGX"
-${selected==="UGX"?"selected":""}>
-UGX — Ugandan Shilling
-</option>
+        <option value="UGX"
+        ${selected==="UGX"?"selected":""}>
+          UGX — Ugandan Shilling
+        </option>
 
-</select>
+      </select>
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Amount</label>
+      <label>Amount</label>
 
-<input
-id="depositAmount"
-type="number"
-min="1"
-placeholder="Enter amount">
+      <input
+        id="depositAmount"
+        type="number"
+        min="1"
+        placeholder="Enter amount">
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Payment reference</label>
+      <label>Payment reference</label>
 
-<input
-id="depositReference"
-type="text"
-placeholder="Payment reference">
+      <input
+        id="depositReference"
+        type="text"
+        placeholder="Payment reference">
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Payment method</label>
+      <label>Payment method</label>
 
-<select id="depositMethod">
+      <select id="depositMethod">
 
-<option>Bank transfer</option>
+        <option>Bank transfer</option>
 
-<option>Mobile money</option>
+        <option>Mobile money</option>
 
-</select>
+      </select>
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Note</label>
+      <label>Note</label>
 
-<input
-id="depositNote"
-type="text"
-placeholder="Optional">
+      <input
+        id="depositNote"
+        type="text"
+        placeholder="Optional">
 
-</div>
+    </div>
 
-<button
-class="modal-submit"
-onclick="submitDeposit()">
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="submitDeposit()">
 
-Submit deposit
+      Submit deposit
 
-</button>
+    </button>
 
-`;
+  `;
 
-openModal();
+  openModal();
 
 }
 
 
 async function submitDeposit(){
 
-const currency =
-document.getElementById("depositCurrency").value;
+  if(!currentUser){
 
-const amount =
-Number(
-document.getElementById("depositAmount").value
-);
+    alert(
+      "You must be logged in."
+    );
 
-const reference =
-document.getElementById("depositReference")
-.value.trim();
+    return;
 
-const method =
-document.getElementById("depositMethod").value;
+  }
 
-const note =
-document.getElementById("depositNote")
-.value.trim();
+  const currency =
+    $("depositCurrency").value;
 
-if(!amount || amount<=0){
+  const amount =
+    Number(
+      $("depositAmount").value
+    );
 
-alert("Enter a valid amount.");
-return;
+  const reference =
+    $("depositReference")
+      .value
+      .trim();
 
-}
+  const method =
+    $("depositMethod").value;
 
-const wallet =
-wallets.find(w=>w.currency===currency);
+  const note =
+    $("depositNote")
+      .value
+      .trim();
 
-if(!wallet){
+  if(!amount || amount <= 0){
 
-alert("Wallet not found.");
-return;
+    alert(
+      "Enter a valid amount."
+    );
 
-}
+    return;
 
-const {error} =
-await supabaseClient
-.from("deposits")
-.insert({
+  }
 
-user_id:currentUser.id,
-wallet_id:wallet.id,
-currency,
-amount,
-payment_reference:reference || null,
-payment_method:method,
-customer_note:note || null,
-status:"pending"
+  const wallet =
+    wallets.find(
+      w => w.currency === currency
+    );
 
-});
+  if(!wallet){
 
-if(error){
+    alert(
+      "Wallet not found."
+    );
 
-alert(error.message);
-return;
+    return;
 
-}
+  }
 
-closeModal();
+  const result =
+    await supabaseClient
+      .from("deposits")
+      .insert({
 
-alert(
-"Deposit request submitted. It will appear after verification."
-);
+        user_id:currentUser.id,
+
+        wallet_id:wallet.id,
+
+        currency:currency,
+
+        amount:amount,
+
+        payment_reference:
+          reference || null,
+
+        payment_method:
+          method,
+
+        customer_note:
+          note || null,
+
+        status:"pending"
+
+      });
+
+  if(result.error){
+
+    console.error(
+      "Deposit:",
+      result.error
+    );
+
+    alert(
+      "Deposit request failed:\n\n" +
+      result.error.message
+    );
+
+    return;
+
+  }
+
+  closeModal();
+
+  alert(
+    "Deposit request submitted. It will be added to your wallet after admin verification."
+  );
 
 }
 
@@ -2111,78 +2387,185 @@ WITHDRAW
 
 function openWithdraw(currency=null){
 
-const selected =
-currency || "AED";
+  const selected =
+    currency || "AED";
 
-document.getElementById("modalTitle")
-.textContent = "Withdraw money";
+  $("modalTitle").textContent =
+    "Withdraw money";
 
-document.getElementById("modalBody")
-.innerHTML = `
+  $("modalBody").innerHTML = `
 
-<div class="field">
+    <div class="field">
 
-<label>Currency</label>
+      <label>Currency</label>
 
-<select id="withdrawCurrency">
+      <select id="withdrawCurrency">
 
-<option value="AED"
-${selected==="AED"?"selected":""}>
-AED — UAE Dirham
-</option>
+        <option value="AED"
+        ${selected==="AED"?"selected":""}>
+          AED — UAE Dirham
+        </option>
 
-<option value="UGX"
-${selected==="UGX"?"selected":""}>
-UGX — Ugandan Shilling
-</option>
+        <option value="UGX"
+        ${selected==="UGX"?"selected":""}>
+          UGX — Ugandan Shilling
+        </option>
 
-</select>
+      </select>
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Amount</label>
+      <label>Amount</label>
 
-<input
-id="withdrawAmount"
-type="number"
-min="1"
-placeholder="Enter amount">
+      <input
+        id="withdrawAmount"
+        type="number"
+        min="1"
+        placeholder="Enter amount">
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Destination</label>
+      <label>Destination</label>
 
-<input
-id="withdrawDestination"
-type="text"
-placeholder="Bank account or mobile number">
+      <input
+        id="withdrawDestination"
+        type="text"
+        placeholder="Bank account or mobile number">
 
-</div>
+    </div>
 
-<button
-class="modal-submit"
-onclick="submitWithdraw()">
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="submitWithdraw()">
 
-Request withdrawal
+      Request withdrawal
 
-</button>
+    </button>
 
-`;
+  `;
 
-openModal();
+  openModal();
 
 }
 
 
 async function submitWithdraw(){
 
-alert(
-"Withdrawal processing will be connected to the withdrawal system in the next stage."
-);
+  if(!currentUser){
+
+    alert(
+      "You must be logged in."
+    );
+
+    return;
+
+  }
+
+  const currency =
+    $("withdrawCurrency").value;
+
+  const amount =
+    Number(
+      $("withdrawAmount").value
+    );
+
+  const destination =
+    $("withdrawDestination")
+      .value
+      .trim();
+
+  if(!amount || amount <= 0){
+
+    alert(
+      "Enter a valid amount."
+    );
+
+    return;
+
+  }
+
+  if(!destination){
+
+    alert(
+      "Enter the withdrawal destination."
+    );
+
+    return;
+
+  }
+
+  /*
+    This assumes a withdrawals table exists.
+  */
+
+  const wallet =
+    wallets.find(
+      w => w.currency === currency
+    );
+
+  if(!wallet){
+
+    alert(
+      "Wallet not found."
+    );
+
+    return;
+
+  }
+
+  if(
+    Number(wallet.balance || 0)
+    < amount
+  ){
+
+    alert(
+      "Insufficient wallet balance."
+    );
+
+    return;
+
+  }
+
+  const result =
+    await supabaseClient
+      .from("withdrawals")
+      .insert({
+
+        user_id:currentUser.id,
+
+        wallet_id:wallet.id,
+
+        currency:currency,
+
+        amount:amount,
+
+        destination:destination,
+
+        status:"pending"
+
+      });
+
+  if(result.error){
+
+    alert(
+      "Withdrawal request failed:\n\n" +
+      result.error.message
+    );
+
+    return;
+
+  }
+
+  closeModal();
+
+  alert(
+    "Withdrawal request submitted."
+  );
 
 }
 
@@ -2193,144 +2576,158 @@ LOANS
 
 function openLoan(){
 
-document.getElementById("modalTitle")
-.textContent = "Apply for a loan";
+  $("modalTitle").textContent =
+    "Apply for a loan";
 
-document.getElementById("modalBody")
-.innerHTML = `
+  $("modalBody").innerHTML = `
 
-<div class="loan-info">
+    <div class="loan-info">
 
-Loans are available up to
-<strong>AED 3,000</strong>.
+      Loans are available up to
+      <strong>AED 3,000</strong>.
 
-<br>
+      <br>
 
-Repayment:
-<strong>1 or 2 months</strong>.
+      Repayment:
+      <strong>1 or 2 months</strong>.
 
-<br>
+      <br>
 
-Interest:
-<strong>10%</strong>.
+      Interest:
+      <strong>10%</strong>.
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Loan amount (AED)</label>
+      <label>Loan amount (AED)</label>
 
-<input
-id="loanAmount"
-type="number"
-min="1"
-max="3000"
-placeholder="Maximum AED 3,000">
+      <input
+        id="loanAmount"
+        type="number"
+        min="1"
+        max="3000"
+        placeholder="Maximum AED 3,000">
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Repayment period</label>
+      <label>Repayment period</label>
 
-<select id="loanTerm">
+      <select id="loanTerm">
 
-<option value="1">
-1 month
-</option>
+        <option value="1">
+          1 month
+        </option>
 
-<option value="2">
-2 months
-</option>
+        <option value="2">
+          2 months
+        </option>
 
-</select>
+      </select>
 
-</div>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-<label>Application note</label>
+      <label>Application note</label>
 
-<input
-id="loanNote"
-type="text"
-placeholder="Optional">
+      <input
+        id="loanNote"
+        type="text"
+        placeholder="Optional">
 
-</div>
+    </div>
 
-<button
-class="modal-submit"
-onclick="submitLoan()">
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="submitLoan()">
 
-Submit application
+      Submit application
 
-</button>
+    </button>
 
-`;
+  `;
 
-openModal();
+  openModal();
 
 }
 
 
 async function submitLoan(){
 
-const amount =
-Number(
-document.getElementById("loanAmount").value
-);
+  const amount =
+    Number(
+      $("loanAmount").value
+    );
 
-const term =
-Number(
-document.getElementById("loanTerm").value
-);
+  const term =
+    Number(
+      $("loanTerm").value
+    );
 
-const note =
-document.getElementById("loanNote")
-.value.trim();
+  const note =
+    $("loanNote")
+      .value
+      .trim();
 
-if(!amount || amount<1 || amount>3000){
+  if(
+    !amount ||
+    amount < 1 ||
+    amount > 3000
+  ){
 
-alert(
-"Loan amount must be between AED 1 and AED 3,000."
-);
+    alert(
+      "Loan amount must be between AED 1 and AED 3,000."
+    );
 
-return;
+    return;
 
-}
+  }
 
-const applicationNote =
-(note || "") +
-" | Repayment term: " +
-term +
-" month(s)";
+  const applicationNote =
+    (note || "") +
+    " | Repayment term: " +
+    term +
+    " month(s)";
 
-const {error} =
-await supabaseClient
-.from("loans")
-.insert({
+  const result =
+    await supabaseClient
+      .from("loans")
+      .insert({
 
-user_id:currentUser.id,
-currency:"AED",
-requested_amount:amount,
-interest_rate:10,
-status:"pending",
-application_note:applicationNote
+        user_id:currentUser.id,
 
-});
+        currency:"AED",
 
-if(error){
+        requested_amount:amount,
 
-alert(error.message);
-return;
+        interest_rate:10,
 
-}
+        status:"pending",
 
-closeModal();
+        application_note:
+          applicationNote
 
-alert(
-"Loan application submitted successfully."
-);
+      });
+
+  if(result.error){
+
+    alert(
+      result.error.message
+    );
+
+    return;
+
+  }
+
+  closeModal();
+
+  alert(
+    "Loan application submitted successfully."
+  );
 
 }
 
@@ -2341,208 +2738,270 @@ CARDS
 
 function openCard(){
 
-document.getElementById("modalTitle")
-.textContent = "Nathaflex cards";
+  $("modalTitle").textContent =
+    "Nathaflex cards";
 
-document.getElementById("modalBody")
-.innerHTML = `
+  $("modalBody").innerHTML = `
 
-<div class="card-status">
+    <div class="card-status">
 
-<strong>Nathaflex Card — AED 25</strong>
+      <strong>
+        Nathaflex Card — AED 25
+      </strong>
 
-<br>
-Everyday Nathaflex card.
+      <br>
+      Everyday Nathaflex card.
 
-<br><br>
+      <br><br>
 
-<strong>Platinum Card — AED 30</strong>
+      <strong>
+        Platinum Card — AED 30
+      </strong>
 
-<br>
-Premium Nathaflex Platinum card.
+      <br>
+      Premium Nathaflex Platinum card.
 
-<br><br>
+      <br><br>
 
-Target delivery:
-<strong>3 working days</strong>
-after approval and processing.
+      Target delivery:
+      <strong>
+        3 working days
+      </strong>
 
-</div>
+    </div>
 
-<button
-class="modal-submit"
-onclick="openCardApplication('Nathaflex',25)">
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="openCardApplication('Nathaflex',25)">
 
-Apply for Nathaflex • AED 25
+      Apply for Nathaflex • AED 25
 
-</button>
+    </button>
 
-<br><br>
+    <br><br>
 
-<button
-class="modal-submit"
-onclick="openCardApplication('Platinum',30)">
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="openCardApplication('Platinum',30)">
 
-Apply for Platinum • AED 30
+      Apply for Platinum • AED 30
 
-</button>
+    </button>
 
-`;
+  `;
 
-openModal();
-
-}
-
-
-function openCardApplication(type,fee){
-
-document.getElementById("modalTitle")
-.textContent = type + " Card";
-
-document.getElementById("modalBody")
-.innerHTML = `
-
-<div class="card-status">
-
-<strong>${type} Card</strong>
-
-<br><br>
-
-Price:
-<strong>AED ${fee}</strong>
-
-<br>
-
-Delivery:
-<strong>3 working days</strong>
-after approval and processing.
-
-</div>
-
-<div class="field">
-
-<label>Delivery address</label>
-
-<input
-id="cardAddress"
-type="text"
-placeholder="Where should the card be delivered?">
-
-</div>
-
-<button
-class="modal-submit"
-onclick="submitCardApplication('${type}',${fee})">
-
-Submit application
-
-</button>
-
-`;
-
-openModal();
+  openModal();
 
 }
 
 
-async function submitCardApplication(type,fee){
+function openCardApplication(
+  type,
+  fee
+){
 
-const address =
-document.getElementById("cardAddress")
-.value.trim();
+  $("modalTitle").textContent =
+    type + " Card";
 
-if(!address){
+  $("modalBody").innerHTML = `
 
-alert(
-"Please enter a delivery address."
-);
+    <div class="card-status">
 
-return;
+      <strong>
+        ${escapeHtml(type)} Card
+      </strong>
+
+      <br><br>
+
+      Price:
+      <strong>
+        AED ${fee}
+      </strong>
+
+      <br>
+
+      Delivery:
+      <strong>
+        3 working days
+      </strong>
+
+    </div>
+
+    <div class="field">
+
+      <label>
+        Delivery address
+      </label>
+
+      <input
+        id="cardAddress"
+        type="text"
+        placeholder="Where should the card be delivered?">
+
+    </div>
+
+    <button
+      type="button"
+      class="modal-submit"
+      onclick="submitCardApplication('${type}',${fee})">
+
+      Submit application
+
+    </button>
+
+  `;
+
+  openModal();
 
 }
 
-const {error} =
-await supabaseClient
-.from("card_applications")
-.insert({
 
-user_id:currentUser.id,
-card_type:type,
-fee,
-status:"pending",
-delivery_address:address
+async function submitCardApplication(
+  type,
+  fee
+){
 
-});
+  const address =
+    $("cardAddress")
+      .value
+      .trim();
 
-if(error){
+  if(!address){
 
-alert(error.message);
-return;
+    alert(
+      "Please enter a delivery address."
+    );
 
-}
+    return;
 
-closeModal();
+  }
 
-await loadCardApplications();
+  const result =
+    await supabaseClient
+      .from("card_applications")
+      .insert({
 
-alert(
-"Application submitted successfully."
-);
+        user_id:currentUser.id,
+
+        card_type:type,
+
+        fee:fee,
+
+        status:"pending",
+
+        delivery_address:
+          address
+
+      });
+
+  if(result.error){
+
+    alert(
+      result.error.message
+    );
+
+    return;
+
+  }
+
+  closeModal();
+
+  await loadCardApplications();
+
+  alert(
+    "Application submitted successfully."
+  );
 
 }
 
 
 async function loadCardApplications(){
 
-const box =
-document.getElementById("cardApplications");
+  const box =
+    $("cardApplications");
 
-const {data,error} =
-await supabaseClient
-.from("card_applications")
-.select("*")
-.eq("user_id",currentUser.id)
-.order("created_at",{ascending:false});
+  const result =
+    await supabaseClient
+      .from("card_applications")
+      .select("*")
+      .eq("user_id",currentUser.id)
+      .order(
+        "created_at",
+        {ascending:false}
+      );
 
-if(error || !data || !data.length){
+  if(result.error){
 
-box.innerHTML =
-`<div class="empty">
-No card applications yet.
-</div>`;
+    console.error(
+      "Cards:",
+      result.error
+    );
 
-return;
+    box.innerHTML =
+      `<div class="empty">
+        Unable to load card applications.
+      </div>`;
 
-}
+    return;
 
-box.innerHTML =
-data.map(a=>`
+  }
 
-<div class="transaction">
+  const data =
+    result.data || [];
 
-<div>
+  if(!data.length){
 
-<strong>
-${escapeHtml(a.card_type)} Card
-</strong>
+    box.innerHTML =
+      `<div class="empty">
+        No card applications yet.
+      </div>`;
 
-<small>
-AED ${Number(a.fee || 0).toFixed(0)}
-• Applied
-${a.created_at
-? new Date(a.created_at).toLocaleDateString()
-: ""}
-</small>
+    return;
 
-</div>
+  }
 
-<div class="amount">
-${escapeHtml(a.status || "pending")}
-</div>
+  box.innerHTML =
+    data.map(a => `
 
-</div>
+      <div class="transaction">
 
-`).join("");
+        <div>
+
+          <strong>
+            ${escapeHtml(
+              a.card_type || ""
+            )} Card
+          </strong>
+
+          <small>
+            AED ${Number(
+              a.fee || 0
+            ).toFixed(0)}
+
+            • Applied
+            ${
+              a.created_at
+              ? new Date(
+                  a.created_at
+                ).toLocaleDateString()
+              : ""
+            }
+
+          </small>
+
+        </div>
+
+        <div class="amount">
+          ${escapeHtml(
+            a.status || "pending"
+          )}
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
@@ -2553,29 +3012,26 @@ ADMIN DASHBOARD
 
 async function loadAdminDashboard(){
 
-document.getElementById("landing")
-.classList.add("hidden");
+  hideElement("landing");
+  hideElement("authPage");
+  hideElement("dashboard");
 
-document.getElementById("authPage")
-.classList.add("hidden");
+  showElement("adminDashboard");
 
-document.getElementById("dashboard")
-.classList.add("hidden");
+  const name =
+    currentProfile.full_name ||
+    "Administrator";
 
-document.getElementById("adminDashboard")
-.classList.remove("hidden");
+  $("adminInitial").textContent =
+    name
+      .charAt(0)
+      .toUpperCase();
 
-const name =
-currentProfile.full_name ||
-"Administrator";
+  await loadAdminStats();
 
-document.getElementById("adminInitial")
-.textContent =
-name.charAt(0).toUpperCase();
-
-await loadAdminStats();
-
-await showAdminTab("deposits");
+  await showAdminTab(
+    "deposits"
+  );
 
 }
 
@@ -2584,55 +3040,57 @@ await showAdminTab("deposits");
 ADMIN STATS
 ===================================================== */
 
-async function loadAdminStats(){
-
-const customers =
-await countTable("profiles");
-
-const deposits =
-await countTable("deposits");
-
-const loans =
-await countTable("loans");
-
-const cards =
-await countTable("card_applications");
-
-document.getElementById("statCustomers")
-.textContent = customers;
-
-document.getElementById("statDeposits")
-.textContent = deposits;
-
-document.getElementById("statLoans")
-.textContent = loans;
-
-document.getElementById("statCards")
-.textContent = cards;
-
-}
-
-
 async function countTable(table){
 
-const {count,error} =
-await supabaseClient
-.from(table)
-.select("*",{count:"exact",head:true);
+  const result =
+    await supabaseClient
+      .from(table)
+      .select(
+        "*",
+        {
+          count:"exact",
+          head:true
+        }
+      );
 
-if(error){
+  if(result.error){
 
-console.error(
-"Admin count error:",
-table,
-error
-);
+    console.error(
+      "Count error:",
+      table,
+      result.error
+    );
 
-return 0;
+    return 0;
+
+  }
+
+  return result.count || 0;
 
 }
 
-return count || 0;
+
+async function loadAdminStats(){
+
+  $("statCustomers").textContent =
+    await countTable(
+      "profiles"
+    );
+
+  $("statDeposits").textContent =
+    await countTable(
+      "deposits"
+    );
+
+  $("statLoans").textContent =
+    await countTable(
+      "loans"
+    );
+
+  $("statCards").textContent =
+    await countTable(
+      "card_applications"
+    );
 
 }
 
@@ -2641,83 +3099,93 @@ return count || 0;
 ADMIN TABS
 ===================================================== */
 
-async function showAdminTab(tab,button=null){
+async function showAdminTab(
+  tab,
+  button=null
+){
 
-adminTab = tab;
+  adminTab = tab;
 
-document.querySelectorAll(".admin-tab")
-.forEach(b=>b.classList.remove("active"));
+  document
+    .querySelectorAll(".admin-tab")
+    .forEach(
+      b =>
+        b.classList.remove("active")
+    );
 
-if(button){
+  if(button){
 
-button.classList.add("active");
+    button.classList.add("active");
 
-}else{
+  }else{
 
-const tabs =
-document.querySelectorAll(".admin-tab");
+    const tabs =
+      document.querySelectorAll(
+        ".admin-tab"
+      );
 
-const index =
-[
-"deposits",
-"withdrawals",
-"loans",
-"cards",
-"customers"
-].indexOf(tab);
+    const index =
+      [
+        "deposits",
+        "withdrawals",
+        "loans",
+        "cards",
+        "customers"
+      ].indexOf(tab);
 
-if(tabs[index])
-tabs[index].classList.add("active");
+    if(tabs[index])
+      tabs[index]
+        .classList.add("active");
 
-}
+  }
 
-const title =
-document.getElementById("adminSectionTitle");
+  const title =
+    $("adminSectionTitle");
 
-if(tab==="deposits"){
+  if(tab === "deposits"){
 
-title.textContent =
-"Deposit requests";
+    title.textContent =
+      "Deposit requests";
 
-await loadAdminDeposits();
+    await loadAdminDeposits();
 
-}
+  }
 
-else if(tab==="withdrawals"){
+  else if(tab === "withdrawals"){
 
-title.textContent =
-"Withdrawal requests";
+    title.textContent =
+      "Withdrawal requests";
 
-await loadAdminWithdrawals();
+    await loadAdminWithdrawals();
 
-}
+  }
 
-else if(tab==="loans"){
+  else if(tab === "loans"){
 
-title.textContent =
-"Loan applications";
+    title.textContent =
+      "Loan applications";
 
-await loadAdminLoans();
+    await loadAdminLoans();
 
-}
+  }
 
-else if(tab==="cards"){
+  else if(tab === "cards"){
 
-title.textContent =
-"Card applications";
+    title.textContent =
+      "Card applications";
 
-await loadAdminCards();
+    await loadAdminCards();
 
-}
+  }
 
-else if(tab==="customers"){
+  else if(tab === "customers"){
 
-title.textContent =
-"Customers";
+    title.textContent =
+      "Customers";
 
-await loadAdminCustomers();
+    await loadAdminCustomers();
 
-}
+  }
 
 }
 
@@ -2728,202 +3196,272 @@ ADMIN DEPOSITS
 
 async function loadAdminDeposits(){
 
-const box =
-document.getElementById("adminContent");
+  const box =
+    $("adminContent");
 
-box.innerHTML =
-`<div class="empty">
-Loading deposits...
-</div>`;
+  box.innerHTML =
+    `<div class="empty">
+      Loading deposits...
+    </div>`;
 
-const {data,error} =
-await supabaseClient
-.from("deposits")
-.select("*")
-.order("created_at",{ascending:false})
-.limit(100);
+  const result =
+    await supabaseClient
+      .from("deposits")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(100);
 
-if(error){
+  if(result.error){
 
-box.innerHTML =
-`<div class="empty">
+    box.innerHTML =
+      `<div class="empty">
 
-Unable to load deposits.
+        Unable to load deposits.
 
-<br><br>
+        <br><br>
 
-${escapeHtml(error.message)}
+        ${escapeHtml(
+          result.error.message
+        )}
 
-</div>`;
+      </div>`;
 
-return;
+    return;
 
-}
+  }
 
-if(!data || !data.length){
+  const data =
+    result.data || [];
 
-box.innerHTML =
-`<div class="empty">
-No deposit requests.
-</div>`;
+  if(!data.length){
 
-return;
+    box.innerHTML =
+      `<div class="empty">
+        No deposit requests.
+      </div>`;
 
-}
+    return;
 
-box.innerHTML =
-data.map(d=>`
+  }
 
-<div class="admin-row">
+  box.innerHTML =
+    data.map(d => `
 
-<div class="admin-info">
+      <div class="admin-row">
 
-<strong>
+        <div class="admin-info">
 
-${Number(d.amount || 0).toLocaleString()}
-${escapeHtml(d.currency || "")}
+          <strong>
 
-</strong>
+            ${Number(
+              d.amount || 0
+            ).toLocaleString()}
 
-<small>
+            ${escapeHtml(
+              d.currency || ""
+            )}
 
-User:
-${escapeHtml(d.user_id)}
+          </strong>
 
-<br>
+          <small>
 
-Method:
-${escapeHtml(d.payment_method || "—")}
+            User:
+            ${escapeHtml(
+              d.user_id
+            )}
 
-<br>
+            <br>
 
-Reference:
-${escapeHtml(d.payment_reference || "—")}
+            Method:
+            ${escapeHtml(
+              d.payment_method || "—"
+            )}
 
-</small>
+            <br>
 
-</div>
+            Reference:
+            ${escapeHtml(
+              d.payment_reference || "—"
+            )}
 
-<div class="admin-buttons">
+          </small>
 
-<span class="status">
+        </div>
 
-${escapeHtml(d.status || "pending")}
+        <div class="admin-buttons">
 
-</span>
+          <span class="status">
 
-${
-d.status==="pending"
-? `
+            ${escapeHtml(
+              d.status || "pending"
+            )}
 
-<button
-class="approve"
-onclick="updateDeposit('${d.id}','approved')">
+          </span>
 
-Approve
+          ${
+            d.status === "pending"
+            ? `
 
-</button>
+              <button
+                type="button"
+                class="approve"
+                onclick="updateDeposit('${d.id}','approved')">
 
-<button
-class="reject"
-onclick="updateDeposit('${d.id}','rejected')">
+                Approve
 
-Reject
+              </button>
 
-</button>
+              <button
+                type="button"
+                class="reject"
+                onclick="updateDeposit('${d.id}','rejected')">
 
-`
-: ""
-}
+                Reject
 
-</div>
+              </button>
 
-</div>
+            `
+            : ""
+          }
 
-`).join("");
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
 
 /* =====================================================
-IMPORTANT:
-ADMIN APPROVAL NOW CREDITS THE WALLET
+ADMIN APPROVES DEPOSIT
 ===================================================== */
 
-async function updateDeposit(id,status){
+async function updateDeposit(
+  id,
+  status
+){
 
-if(status === "approved"){
+  if(!currentUser){
 
-const {data,error} =
-await supabaseClient
-.rpc("approve_deposit",{
-p_deposit_id:id
-});
+    alert(
+      "Admin session expired."
+    );
 
-if(error){
+    return;
 
-console.error(
-"Deposit approval error:",
-error
-);
+  }
 
-alert(
-"Deposit approval failed:\n\n" +
-error.message
-);
+  if(status === "approved"){
 
-return;
+    /*
+      IMPORTANT:
 
-}
+      The wallet MUST NOT be updated from
+      the browser using a normal UPDATE.
 
-await loadAdminStats();
-await loadAdminDeposits();
+      The secure database RPC handles:
+      1. Checking the deposit
+      2. Checking it is pending
+      3. Adding the money to the wallet
+      4. Creating a transaction
+      5. Marking the deposit approved
+      6. Preventing double-crediting
+    */
 
-const amount =
-Number(data.amount || 0)
-.toLocaleString();
+    const result =
+      await supabaseClient
+        .rpc(
+          "approve_deposit",
+          {
+            p_deposit_id:id
+          }
+        );
 
-alert(
-"Deposit approved successfully.\n\n" +
-amount +
-" " +
-data.currency +
-" has been added to the customer's wallet."
-);
+    if(result.error){
 
-return;
+      console.error(
+        "Deposit approval error:",
+        result.error
+      );
 
-}
+      alert(
+        "Deposit approval failed:\n\n" +
+        result.error.message
+      );
+
+      return;
+
+    }
+
+    const data =
+      Array.isArray(result.data)
+      ? result.data[0]
+      : result.data;
+
+    await loadAdminStats();
+
+    await loadAdminDeposits();
+
+    const amount =
+      Number(
+        data?.amount || 0
+      ).toLocaleString();
+
+    alert(
+      "Deposit approved successfully.\n\n" +
+      amount +
+      " " +
+      (data?.currency || "") +
+      " has been added to the customer's wallet."
+    );
+
+    return;
+
+  }
 
 
-/* REJECT DEPOSIT */
+  /* ============================
+     REJECT
+     ============================ */
 
-const {error} =
-await supabaseClient
-.from("deposits")
-.update({
+  const result =
+    await supabaseClient
+      .from("deposits")
+      .update({
 
-status:"rejected",
+        status:"rejected",
 
-verified_by:currentUser.id,
+        verified_by:
+          currentUser.id,
 
-verified_at:new Date().toISOString()
+        verified_at:
+          new Date().toISOString()
 
-})
-.eq("id",id)
-.eq("status","pending");
+      })
+      .eq("id",id)
+      .eq("status","pending");
 
-if(error){
+  if(result.error){
 
-alert(error.message);
-return;
+    alert(
+      result.error.message
+    );
 
-}
+    return;
 
-await loadAdminStats();
-await loadAdminDeposits();
+  }
 
-alert("Deposit rejected.");
+  await loadAdminStats();
+
+  await loadAdminDeposits();
+
+  alert(
+    "Deposit rejected."
+  );
 
 }
 
@@ -2934,117 +3472,135 @@ ADMIN LOANS
 
 async function loadAdminLoans(){
 
-const box =
-document.getElementById("adminContent");
+  const box =
+    $("adminContent");
 
-box.innerHTML =
-`<div class="empty">
-Loading loans...
-</div>`;
+  box.innerHTML =
+    `<div class="empty">
+      Loading loans...
+    </div>`;
 
-const {data,error} =
-await supabaseClient
-.from("loans")
-.select("*")
-.order("created_at",{ascending:false})
-.limit(100);
+  const result =
+    await supabaseClient
+      .from("loans")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(100);
 
-if(error){
+  if(result.error){
 
-box.innerHTML =
-`<div class="empty">
+    box.innerHTML =
+      `<div class="empty">
 
-Unable to load loans.
+        Unable to load loans.
 
-<br><br>
+        <br><br>
 
-${escapeHtml(error.message)}
+        ${escapeHtml(
+          result.error.message
+        )}
 
-</div>`;
+      </div>`;
 
-return;
+    return;
 
-}
+  }
 
-if(!data || !data.length){
+  const data =
+    result.data || [];
 
-box.innerHTML =
-`<div class="empty">
-No loan applications.
-</div>`;
+  if(!data.length){
 
-return;
+    box.innerHTML =
+      `<div class="empty">
+        No loan applications.
+      </div>`;
 
-}
+    return;
 
-box.innerHTML =
-data.map(l=>`
+  }
 
-<div class="admin-row">
+  box.innerHTML =
+    data.map(l => `
 
-<div class="admin-info">
+      <div class="admin-row">
 
-<strong>
+        <div class="admin-info">
 
-AED ${Number(
-l.requested_amount || 0
-).toLocaleString()}
+          <strong>
 
-</strong>
+            AED ${Number(
+              l.requested_amount || 0
+            ).toLocaleString()}
 
-<small>
+          </strong>
 
-User:
-${escapeHtml(l.user_id)}
+          <small>
 
-<br>
+            User:
+            ${escapeHtml(
+              l.user_id
+            )}
 
-Interest:
-${Number(l.interest_rate || 0)}%
+            <br>
 
-<br>
+            Interest:
+            ${Number(
+              l.interest_rate || 0
+            )}%
 
-${escapeHtml(l.application_note || "")}
+            <br>
 
-</small>
+            ${escapeHtml(
+              l.application_note || ""
+            )}
 
-</div>
+          </small>
 
-<div class="admin-buttons">
+        </div>
 
-<span class="status">
-${escapeHtml(l.status || "pending")}
-</span>
+        <div class="admin-buttons">
 
-${
-l.status==="pending"
-? `
+          <span class="status">
+            ${escapeHtml(
+              l.status || "pending"
+            )}
+          </span>
 
-<button
-class="approve"
-onclick="updateLoan('${l.id}','approved')">
+          ${
+            l.status === "pending"
+            ? `
 
-Approve
+              <button
+                type="button"
+                class="approve"
+                onclick="updateLoan('${l.id}','approved')">
 
-</button>
+                Approve
 
-<button
-class="reject"
-onclick="updateLoan('${l.id}','rejected')">
+              </button>
 
-Reject
+              <button
+                type="button"
+                class="reject"
+                onclick="updateLoan('${l.id}','rejected')">
 
-</button>
+                Reject
 
-`
-: ""
-}
+              </button>
 
-</div>
+            `
+            : ""
+          }
 
-</div>
+        </div>
 
-`).join("");
+      </div>
+
+    `).join("");
 
 }
 
@@ -3055,114 +3611,134 @@ ADMIN CARDS
 
 async function loadAdminCards(){
 
-const box =
-document.getElementById("adminContent");
+  const box =
+    $("adminContent");
 
-box.innerHTML =
-`<div class="empty">
-Loading cards...
-</div>`;
+  box.innerHTML =
+    `<div class="empty">
+      Loading cards...
+    </div>`;
 
-const {data,error} =
-await supabaseClient
-.from("card_applications")
-.select("*")
-.order("created_at",{ascending:false})
-.limit(100);
+  const result =
+    await supabaseClient
+      .from("card_applications")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(100);
 
-if(error){
+  if(result.error){
 
-box.innerHTML =
-`<div class="empty">
+    box.innerHTML =
+      `<div class="empty">
 
-Unable to load card applications.
+        Unable to load card applications.
 
-<br><br>
+        <br><br>
 
-${escapeHtml(error.message)}
+        ${escapeHtml(
+          result.error.message
+        )}
 
-</div>`;
+      </div>`;
 
-return;
+    return;
 
-}
+  }
 
-if(!data || !data.length){
+  const data =
+    result.data || [];
 
-box.innerHTML =
-`<div class="empty">
-No card applications.
-</div>`;
+  if(!data.length){
 
-return;
+    box.innerHTML =
+      `<div class="empty">
+        No card applications.
+      </div>`;
 
-}
+    return;
 
-box.innerHTML =
-data.map(c=>`
+  }
 
-<div class="admin-row">
+  box.innerHTML =
+    data.map(c => `
 
-<div class="admin-info">
+      <div class="admin-row">
 
-<strong>
-${escapeHtml(c.card_type || "")} Card
-</strong>
+        <div class="admin-info">
 
-<small>
+          <strong>
+            ${escapeHtml(
+              c.card_type || ""
+            )} Card
+          </strong>
 
-User:
-${escapeHtml(c.user_id)}
+          <small>
 
-<br>
+            User:
+            ${escapeHtml(
+              c.user_id
+            )}
 
-Fee:
-AED ${Number(c.fee || 0).toFixed(0)}
+            <br>
 
-<br>
+            Fee:
+            AED ${Number(
+              c.fee || 0
+            ).toFixed(0)}
 
-Address:
-${escapeHtml(c.delivery_address || "—")}
+            <br>
 
-</small>
+            Address:
+            ${escapeHtml(
+              c.delivery_address || "—"
+            )}
 
-</div>
+          </small>
 
-<div class="admin-buttons">
+        </div>
 
-<span class="status">
-${escapeHtml(c.status || "pending")}
-</span>
+        <div class="admin-buttons">
 
-${
-c.status==="pending"
-? `
+          <span class="status">
+            ${escapeHtml(
+              c.status || "pending"
+            )}
+          </span>
 
-<button
-class="approve"
-onclick="updateCard('${c.id}','approved')">
+          ${
+            c.status === "pending"
+            ? `
 
-Approve
+              <button
+                type="button"
+                class="approve"
+                onclick="updateCard('${c.id}','approved')">
 
-</button>
+                Approve
 
-<button
-class="reject"
-onclick="updateCard('${c.id}','rejected')">
+              </button>
 
-Reject
+              <button
+                type="button"
+                class="reject"
+                onclick="updateCard('${c.id}','rejected')">
 
-</button>
+                Reject
 
-`
-: ""
-}
+              </button>
 
-</div>
+            `
+            : ""
+          }
 
-</div>
+        </div>
 
-`).join("");
+      </div>
+
+    `).join("");
 
 }
 
@@ -3173,16 +3749,102 @@ ADMIN WITHDRAWALS
 
 async function loadAdminWithdrawals(){
 
-const box =
-document.getElementById("adminContent");
+  const box =
+    $("adminContent");
 
-box.innerHTML =
-`<div class="empty">
+  const result =
+    await supabaseClient
+      .from("withdrawals")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(100);
 
-Withdrawal table connection will be activated
-after we confirm its columns.
+  if(result.error){
 
-</div>`;
+    box.innerHTML =
+      `<div class="empty">
+
+        Unable to load withdrawals.
+
+        <br><br>
+
+        ${escapeHtml(
+          result.error.message
+        )}
+
+      </div>`;
+
+    return;
+
+  }
+
+  const data =
+    result.data || [];
+
+  if(!data.length){
+
+    box.innerHTML =
+      `<div class="empty">
+        No withdrawal requests.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML =
+    data.map(w => `
+
+      <div class="admin-row">
+
+        <div class="admin-info">
+
+          <strong>
+
+            ${Number(
+              w.amount || 0
+            ).toLocaleString()}
+
+            ${escapeHtml(
+              w.currency || ""
+            )}
+
+          </strong>
+
+          <small>
+
+            User:
+            ${escapeHtml(
+              w.user_id
+            )}
+
+            <br>
+
+            Destination:
+            ${escapeHtml(
+              w.destination || "—"
+            )}
+
+          </small>
+
+        </div>
+
+        <div class="admin-buttons">
+
+          <span class="status">
+            ${escapeHtml(
+              w.status || "pending"
+            )}
+          </span>
+
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
@@ -3193,86 +3855,101 @@ ADMIN CUSTOMERS
 
 async function loadAdminCustomers(){
 
-const box =
-document.getElementById("adminContent");
+  const box =
+    $("adminContent");
 
-box.innerHTML =
-`<div class="empty">
-Loading customers...
-</div>`;
+  box.innerHTML =
+    `<div class="empty">
+      Loading customers...
+    </div>`;
 
-const {data,error} =
-await supabaseClient
-.from("profiles")
-.select("*")
-.order("created_at",{ascending:false})
-.limit(100);
+  const result =
+    await supabaseClient
+      .from("profiles")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(100);
 
-if(error){
+  if(result.error){
 
-box.innerHTML =
-`<div class="empty">
+    box.innerHTML =
+      `<div class="empty">
 
-Unable to load customers.
+        Unable to load customers.
 
-<br><br>
+        <br><br>
 
-${escapeHtml(error.message)}
+        ${escapeHtml(
+          result.error.message
+        )}
 
-</div>`;
+      </div>`;
 
-return;
+    return;
 
-}
+  }
 
-if(!data || !data.length){
+  const data =
+    result.data || [];
 
-box.innerHTML =
-`<div class="empty">
-No customers found.
-</div>`;
+  if(!data.length){
 
-return;
+    box.innerHTML =
+      `<div class="empty">
+        No customers found.
+      </div>`;
 
-}
+    return;
 
-box.innerHTML =
-data.map(p=>`
+  }
 
-<div class="admin-row">
+  box.innerHTML =
+    data.map(p => `
 
-<div class="admin-info">
+      <div class="admin-row">
 
-<strong>
+        <div class="admin-info">
 
-${escapeHtml(
-p.full_name || "Unnamed customer"
-)}
+          <strong>
 
-</strong>
+            ${escapeHtml(
+              p.full_name ||
+              "Unnamed customer"
+            )}
 
-<small>
+          </strong>
 
-User ID:
-${escapeHtml(p.id)}
+          <small>
 
-<br>
+            User ID:
+            ${escapeHtml(
+              p.id
+            )}
 
-Phone:
-${escapeHtml(p.phone || "—")}
+            <br>
 
-<br>
+            Phone:
+            ${escapeHtml(
+              p.phone || "—"
+            )}
 
-Role:
-${escapeHtml(p.role || "customer")}
+            <br>
 
-</small>
+            Role:
+            ${escapeHtml(
+              p.role || "customer"
+            )}
 
-</div>
+          </small>
 
-</div>
+        </div>
 
-`).join("");
+      </div>
+
+    `).join("");
 
 }
 
@@ -3281,43 +3958,50 @@ ${escapeHtml(p.role || "customer")}
 ADMIN LOAN APPROVAL
 ===================================================== */
 
-async function updateLoan(id,status){
+async function updateLoan(
+  id,
+  status
+){
 
-const {error} =
-await supabaseClient
-.from("loans")
-.update({
+  const result =
+    await supabaseClient
+      .from("loans")
+      .update({
 
-status,
+        status:status,
 
-approved_by:
-status==="approved"
-? currentUser.id
-: null,
+        approved_by:
+          status === "approved"
+          ? currentUser.id
+          : null,
 
-approved_at:
-status==="approved"
-? new Date().toISOString()
-: null
+        approved_at:
+          status === "approved"
+          ? new Date().toISOString()
+          : null
 
-})
-.eq("id",id);
+      })
+      .eq("id",id);
 
-if(error){
+  if(result.error){
 
-alert(error.message);
-return;
+    alert(
+      result.error.message
+    );
 
-}
+    return;
 
-await loadAdminStats();
-await loadAdminLoans();
+  }
 
-alert(
-status==="approved"
-? "Loan approved."
-: "Loan rejected."
-);
+  await loadAdminStats();
+
+  await loadAdminLoans();
+
+  alert(
+    status === "approved"
+      ? "Loan approved."
+      : "Loan rejected."
+  );
 
 }
 
@@ -3326,31 +4010,38 @@ status==="approved"
 ADMIN CARD APPROVAL
 ===================================================== */
 
-async function updateCard(id,status){
+async function updateCard(
+  id,
+  status
+){
 
-const {error} =
-await supabaseClient
-.from("card_applications")
-.update({
-status
-})
-.eq("id",id);
+  const result =
+    await supabaseClient
+      .from("card_applications")
+      .update({
+        status:status
+      })
+      .eq("id",id);
 
-if(error){
+  if(result.error){
 
-alert(error.message);
-return;
+    alert(
+      result.error.message
+    );
 
-}
+    return;
 
-await loadAdminStats();
-await loadAdminCards();
+  }
 
-alert(
-status==="approved"
-? "Card application approved."
-: "Card application rejected."
-);
+  await loadAdminStats();
+
+  await loadAdminCards();
+
+  alert(
+    status === "approved"
+      ? "Card application approved."
+      : "Card application rejected."
+  );
 
 }
 
@@ -3361,16 +4052,14 @@ MODAL
 
 function openModal(){
 
-document.getElementById("modal")
-.classList.remove("hidden");
+  showElement("modal");
 
 }
 
 
 function closeModal(){
 
-document.getElementById("modal")
-.classList.add("hidden");
+  hideElement("modal");
 
 }
 
@@ -3381,30 +4070,113 @@ LOGOUT
 
 async function logout(){
 
-await supabaseClient.auth.signOut();
+  const result =
+    await supabaseClient.auth
+      .signOut();
 
-currentUser = null;
-currentProfile = null;
-wallets = [];
+  if(result.error){
 
-showLanding();
+    console.error(
+      result.error
+    );
+
+  }
+
+  currentUser = null;
+
+  currentProfile = null;
+
+  wallets = [];
+
+  showLanding();
 
 }
 
 
 /* =====================================================
-HTML SAFETY
+HTML ESCAPE
 ===================================================== */
 
 function escapeHtml(value){
 
-return String(value)
+  return String(value)
 
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+START APP
+===================================================== */
+
+async function startApp(){
+
+  try{
+
+    const result =
+      await supabaseClient.auth
+        .getSession();
+
+    if(result.error){
+
+      console.error(
+        "Session error:",
+        result.error
+      );
+
+      showLanding();
+
+      return;
+
+    }
+
+    if(result.data.session){
+
+      currentUser =
+        result.data.session.user;
+
+      await loadDashboard();
+
+    }else{
+
+      showLanding();
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "START ERROR:",
+      error
+    );
+
+    showLanding();
+
+  }
 
 }
 
@@ -3413,25 +4185,7 @@ return String(value)
 START
 ===================================================== */
 
-(async function(){
-
-const {data} =
-await supabaseClient.auth.getSession();
-
-if(data.session){
-
-currentUser =
-data.session.user;
-
-await loadDashboard();
-
-}else{
-
-showLanding();
-
-}
-
-})();
+startApp();
 
 </script>
 
